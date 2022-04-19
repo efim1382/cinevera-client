@@ -1,0 +1,80 @@
+@keyframes loading {
+  0% {
+    background-color: var(--not-transparent);
+    box-shadow: var(--offset-1) var(--transparent), var(--offset-2) var(--transparent);
+  }
+  50% {
+    background-color: var(--transparent);
+    box-shadow: var(--offset-1) var(--not-transparent), var(--offset-2) var(--transparent);
+  }
+  100% {
+    background-color: var(--transparent);
+    box-shadow: var(--offset-1) var(--transparent), var(--offset-2) var(--not-transparent);
+  }
+}
+
+.loading[appearance="transparent"]::after {
+  --transparent: rgba(255, 255, 255, 0.3);
+  --not-transparent: rgba(255, 255, 255, 1);
+}
+
+.loading[appearance="primary"]::after {
+  --transparent: rgba(17, 163, 245, 0.3);
+  --not-transparent: rgba(17, 163, 245, 1);
+}
+
+.loading::before,
+.loading::after {
+  content: "";
+  position: absolute;
+  z-index: 999;
+  opacity: var(--opacity);
+  transition-property: opacity;
+}
+
+.loading::before {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  pointer-events: var(--pointer-events);
+}
+
+.loading::after {
+  --size: 8px;
+  --gap: 4px;
+  --offset-1: calc((var(--size) + var(--gap)) * 1) 0;
+  --offset-2: calc((var(--size) + var(--gap)) * 2) 0;
+  --transparent: rgba(255, 255, 255, 0.3);
+  --not-transparent: rgba(255, 255, 255, 1);
+  content: "";
+  position: absolute;
+  left: calc(50% - (var(--size) + var(--gap) * 2));
+  top: calc(50% - var(--size) / 2);
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--not-transparent);
+  border-radius: 50%;
+  box-shadow: var(--offset-1) var(--not-transparent), var(--offset-2) var(--not-transparent);
+  animation-name: loading;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: var(--animation-play-state);
+  animation-timing-function: linear;
+}
+
+.loading:not(:empty) {
+  --opacity: 0;
+  --pointer-events: none;
+  --animation-play-state: paused;
+}
+
+.loading:empty {
+  --opacity: 1;
+  --pointer-events: auto;
+  --animation-play-state: running;
+}

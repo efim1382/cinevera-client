@@ -1,0 +1,16 @@
+.subheader {
+  position: relative;
+  height: 200px;
+  padding-top: 70px;
+  background-color: var(--primary-color);
+}
+
+.subheader > :global(.container) > h2 {
+  display: block;
+  color: #fff;
+}
+
+.subheader > :global(.container) > p {
+  display: block;
+  color: #fff;
+}

@@ -1,0 +1,92 @@
+.icon {
+  display: block;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: var(--icon-color);
+  mask-size: var(--icon-size) var(--icon-size);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  transition-property: background-color;
+  pointer-events: none;
+}
+
+.icon[data-icon="account_circle"] {
+  mask-image: url('./icons/account_circle.svg');
+}
+
+.icon[data-icon="email"] {
+  mask-image: url('./icons/email.svg');
+}
+
+.icon[data-icon="lock"] {
+  mask-image: url('./icons/lock.svg');
+}
+
+.icon[data-icon="facebook"] {
+  mask-image: url('./icons/facebook.svg');
+}
+
+.icon[data-icon="google-plus"] {
+  mask-image: url('./icons/google-plus.svg');
+}
+
+.icon[data-icon="vk"] {
+  mask-image: url('./icons/vk.svg');
+}
+
+.icon[data-icon="notifications"] {
+  mask-image: url('./icons/notifications.svg');
+}
+
+.icon[data-icon="visibility"] {
+  mask-image: url('./icons/visibility.svg');
+}
+
+.icon[data-icon="visibility_off"] {
+  mask-image: url('./icons/visibility_off.svg');
+}
+
+.icon[data-icon="person"] {
+  mask-image: url('./icons/person.svg');
+}
+
+.icon[data-icon="search"] {
+  mask-image: url('./icons/search.svg');
+}
+
+.icon[data-icon="star"] {
+  mask-image: url('./icons/star.svg');
+}
+
+.icon[data-icon="star_border"] {
+  mask-image: url('./icons/star_border.svg');
+}
+
+.icon[data-icon="expand_less"] {
+  mask-image: url('./icons/expand_less.svg');
+}
+
+.icon[data-icon="expand_more"] {
+  mask-image: url('./icons/expand_more.svg');
+}
+
+.icon[data-icon="filter_list"] {
+  mask-image: url('./icons/filter_list.svg');
+}
+
+.icon[data-icon="favorite_border"] {
+  mask-image: url('./icons/favorite_border-black.svg');
+}
+
+.icon[data-icon="favorite"] {
+  mask-image: url('./icons/favorite-black.svg');
+}
+
+.icon[data-icon="queue_music"] {
+  mask-image: url('./icons/queue_music-black.svg');
+}
+
+.story_icon {
+	--icon-size: 50px;
+	--icon-color: var(--primary-color);
+}

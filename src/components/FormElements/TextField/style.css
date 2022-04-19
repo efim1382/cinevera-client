@@ -1,0 +1,137 @@
+.input_container {
+  --icon-size: 20px;
+  --input-section-padding: 10px;
+  position: relative;
+  padding-top: calc(var(--icon-size) / 2);
+}
+
+.input_container:not(._is-active) {
+  --label-font-size: 15px;
+  --label-font-weight: var(--font-weight-semibold);
+}
+
+.input_container:not(._is-active):not(._is-icon) {
+  --label-transform: translate(0, calc((var(--default-input-height) - var(--icon-size)) / 2));
+}
+
+.input_container:not(._is-active)._is-icon {
+  --label-transform: translate(calc(var(--icon-size) + (var(--input-section-padding) * 2)), calc((var(--default-input-height) - var(--icon-size)) / 2));
+}
+
+.input_container._is-active {
+  --label-transform: translate(0, calc((var(--icon-size) / 2) * -1));
+  --label-font-size: 13px;
+  --label-font-weight: var(--font-weight-semibold);
+}
+
+.input_container:not(._is-error):not(._is-active) {
+  --input-box-shadow-color: var(--divider-color);
+  --icon-color: var(--caption-color);
+  --label-color: var(--caption-color);
+}
+
+.input_container:not(._is-error)._is-active {
+  --input-box-shadow-color: var(--primary-color);
+  --icon-color: var(--primary-color);
+  --label-color: var(--primary-color);
+}
+
+.input_container._is-error {
+  --input-box-shadow-color: var(--error-color);
+  --icon-color: var(--error-color);
+  --label-color: var(--error-color);
+}
+
+.input_container + button[type="submit"] {
+  margin-top: 6px;
+}
+
+.input_container > .input_section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--default-input-height);
+  box-shadow: 0 -2px var(--input-box-shadow-color) inset;
+  transition-property: box-shadow;
+}
+
+.input_container > .input_section > .label {
+  --height: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: block;
+  height: var(--icon-size);
+  line-height: var(--icon-size);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  color: var(--label-color);
+  transform: var(--label-transform);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  transition-property: transform, font-size, color, font-weight;
+}
+
+.input_container > .input_section > .icon {
+  flex-shrink: 0;
+  margin-left: var(--input-section-padding);
+  margin-right: var(--input-section-padding);
+}
+
+.input_container > .input_section > .input {
+  flex-grow: 1;
+  min-width: 0;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: 15px;
+  color: #000;
+}
+
+.input_container > .input_section > .input::placeholder {
+  color: var(--placeholder-color);
+  transition: 0.3s color;
+}
+
+.input_container > .input_section > .label + .input:not(:focus)::placeholder {
+  --placeholder-color: transparent;
+}
+
+.input_container > .input_section > .label + .input:focus::placeholder {
+  --placeholder-color: var(--caption-color);
+}
+
+.input_container > .input_section > .input::placeholder {
+  --placeholder-color: var(--caption-color);
+}
+
+.input_container > .input_section > .input + .visibility_pass {
+  margin-left: var(--input-section-padding);
+}
+
+.input_container > .input_section > .visibility_pass {
+  --icon-size: 20px;
+  --icon-color: #000;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--default-input-height);
+  height: var(--default-input-height);
+  margin-right: calc(((var(--default-input-height) - var(--icon-size)) / 2) * -1);
+}
+
+.input_container > .error_container {
+  min-height: 22px;
+  padding-top: 4px;
+}
+
+.input_container > .error_container > .text {
+  min-height: 18px;
+  line-height: 1.5;
+  font-size: 11px;
+  color: var(--error-color);
+  font-weight: var(--font-weight-semibold);
+}
