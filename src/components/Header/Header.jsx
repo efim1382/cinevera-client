@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import style from "./style.css";
+import Icon from "components/Icon";
 
 const Header = () => {
   return (
@@ -8,8 +9,10 @@ const Header = () => {
       <NavLink to="/" className={style.logo}>
         <h1>SearchFilm</h1>
       </NavLink>
-
-      <button className={style.profile_button} />
+      
+      <button className={style.profile_button}>
+        <Icon name="account_circle" className={style.account_circle} />
+      </button>
     </header>
   );
 };

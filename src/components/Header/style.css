@@ -59,13 +59,20 @@
 }
 
 .header .profile_button {
-  --image-size: 60px;
-  width: var(--image-size);
-  height: var(--image-size);
-  border-radius: calc(var(--image-size) / 2);
-  background-image: url("./image/profile.jpeg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  --button-size: 40px;
+  --icon-size: 40px;
+  --icon-color: #fff;
+  width: var(--button-size);
+  height: var(--button-size);
+  border-radius: calc(var(--button-size) / 2);
   margin-left: auto;
 }
+
+.header .profile_button .account_circle {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  fill: var(--icon-color);
+}
+
+
+
