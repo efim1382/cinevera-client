@@ -34,7 +34,7 @@ const SignIn = () => {
     <Fragment>
       <header className={style.header}>
         <NavLink to="/" className={style.logo}>
-          <h1>SearchTabs</h1>
+          <h1>SearchFilm</h1>
         </NavLink>
       </header>
 
