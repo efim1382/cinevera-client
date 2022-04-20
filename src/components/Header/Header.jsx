@@ -8,7 +8,7 @@ const Header = () => {
 		<header className={style.header}>
 			<NavLink to="/" className={style.logo}>
 				<h1>SearchFilm</h1>
-      </NavLink>
+			</NavLink>
 
 			<button className={style.profile_button}>
 				<Icon name="account_circle" className={style.account_circle} />
