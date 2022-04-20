@@ -8,7 +8,7 @@ const Form = (props) => {
 		className,
 		children,
 		onSubmit,
-		validations,
+		validations
 	} = props;
 
 	const validate = (values) => validateForm(values, validations);
