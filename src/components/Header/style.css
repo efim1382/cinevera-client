@@ -58,11 +58,14 @@
   margin-left: auto;
 }
 
-.header .button {
-  --height: 44px;
-  flex-shrink: 0;
-  width: auto;
-  padding-left: 30px;
-  padding-right: 30px;
-  font-size: 13px;
+.header .profile_button {
+  --image-size: 60px;
+  width: var(--image-size);
+  height: var(--image-size);
+  border-radius: calc(var(--image-size) / 2);
+  background-image: url("./image/profile.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: auto;
 }

@@ -8,6 +8,8 @@ const Header = () => {
       <NavLink to="/" className={style.logo}>
         <h1>SearchFilm</h1>
       </NavLink>
+
+      <button className={style.profile_button} />
     </header>
   );
 };
