@@ -1,22 +1,30 @@
 {
-  "parser": "babel-eslint",
+	"parser": "@babel/eslint-parser",
 
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true,
-    "jquery": true,
-    "jest": true
-  },
+	"parserOptions": {
+		"ecmaVersion": 2021,
+		"sourceType": "module",
 
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
 
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true,
+		"es2017": true,
+		"es2020": true,
+		"es2021": true,
+		"jest": true
+	},
 
   "plugins": [
     "react",
@@ -29,6 +37,7 @@
   ],
 
   "rules": {
+	  "indent": ["error", "tab", { "SwitchCase": 1 }],
     "unused-imports/no-unused-imports": "error",
     "semi": "error",
     "object-curly-spacing": ["error", "always"],
@@ -147,14 +156,22 @@
     ],
 
     "react/jsx-boolean-value": 2,
-    "react/jsx-space-before-closing": 2,
+
+	  "react/jsx-tag-spacing": [
+		  2,
+
+		  {
+		    "beforeSelfClosing": "always"
+		  }
+	  ],
+
     "react/jsx-pascal-case": 2,
 
     "react/jsx-wrap-multilines": ["error", {
       "return": "parens-new-line"
     }],
 
-    "react/jsx-indent": [2, 2, {
+    "react/jsx-indent": [2, "tab", {
       "indentLogicalExpressions": true,
       "checkAttributes": true
     }],

@@ -20,11 +20,10 @@ Primary.args = {
 	appearance: "primary",
 };
 
-
 export const Transparent = Template.bind({});
 
 Transparent.parameters = {
-	backgrounds: { default: 'dark' },
+	backgrounds: { default: "dark" },
 
 	controls: {
 		include: [],

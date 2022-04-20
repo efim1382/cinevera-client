@@ -6,21 +6,21 @@ import style from "./style.css";
 const cx = classnames.bind(style);
 
 const Icon = ({ name, className, iconSize }) => {
-  const style = {};
+	const style = {};
 
-  if (iconSize) {
-    style["--icon-size"] = iconSize;
-  }
+	if (iconSize) {
+		style["--icon-size"] = iconSize;
+	}
 
-  return (
-    <i className={cx("icon", className)} data-icon={name} style={style} />
-  );
+	return (
+		<i className={cx("icon", className)} data-icon={name} style={style} />
+	);
 };
 
 Icon.propTypes = {
-  name: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  iconSize: PropTypes.string,
+	name: PropTypes.string.isRequired,
+	className: PropTypes.string,
+	iconSize: PropTypes.string,
 };
 
 export default Icon;

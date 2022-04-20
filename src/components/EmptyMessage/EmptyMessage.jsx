@@ -7,17 +7,17 @@ import styles from "./style.css";
 const cx = classnames.bind(styles);
 
 const EmptyMessage = ({ text, className }) => {
-  return (
-    <div className={cx("empty_message", className)}>
-      <Icon name="search" />
-      <p className={styles.text}>{text}</p>
-    </div>
-  );
+	return (
+		<div className={cx("empty_message", className)}>
+			<Icon name="search" />
+			<p className={styles.text}>{text}</p>
+		</div>
+	);
 };
 
 EmptyMessage.propTypes = {
-  text: PropTypes.string.isRequired,
-  className: PropTypes.string,
+	text: PropTypes.string.isRequired,
+	className: PropTypes.string,
 };
 
 export default EmptyMessage;

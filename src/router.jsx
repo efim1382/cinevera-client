@@ -18,4 +18,4 @@ export default () => {
 			<Route path="/auth/*" element={<AuthRouter />} />
 		</Routes>
 	);
-}
+};

@@ -6,20 +6,20 @@ import validators from "components/Form/validators";
  * @returns {{}}
  */
 export const validateApiError = (error) => {
-  if (
-    error
+	if (
+		error
     && error.validation
     && error.validation.constructor === Object
     && Object.keys(error.validation).length > 0
-  ) {
-    const validationObject = {};
+	) {
+		const validationObject = {};
 
-    Object.entries(error.validation).forEach(([key, item]) => {
-      validationObject[key] = item.message;
-    });
+		Object.entries(error.validation).forEach(([key, item]) => {
+			validationObject[key] = item.message;
+		});
 
-    return validationObject;
-  }
+		return validationObject;
+	}
 };
 
 /**
@@ -28,11 +28,11 @@ export const validateApiError = (error) => {
  * @returns {function(...[*]=)}
  */
 export const withValidationHandling = (callback) => (error) => {
-  if (callback && typeof callback === "function") {
-    callback(error);
-  }
+	if (callback && typeof callback === "function") {
+		callback(error);
+	}
 
-  return validateApiError(error);
+	return validateApiError(error);
 };
 
 /**
@@ -42,30 +42,30 @@ export const withValidationHandling = (callback) => (error) => {
  * @returns {string}
  */
 export const validateField = (value = "", validations) => {
-  let error = "";
+	let error = "";
 
-  if (!validations) {
-    return "";
-  }
+	if (!validations) {
+		return "";
+	}
 
-  if (validations.constructor && validations.constructor === Object) {
-    validations = [validations];
-  }
+	if (validations.constructor && validations.constructor === Object) {
+		validations = [validations];
+	}
 
-  for (let i = 0; i < validations.length; i++) {
-    const {
-      message,
-      param,
-      validator,
-    } = validations[i];
+	for (let i = 0; i < validations.length; i++) {
+		const {
+			message,
+			param,
+			validator,
+		} = validations[i];
 
-    if (validators[validator](value, param)) {
-      error = message;
-      break;
-    }
-  }
+		if (validators[validator](value, param)) {
+			error = message;
+			break;
+		}
+	}
 
-  return error;
+	return error;
 };
 
 /**
@@ -75,27 +75,27 @@ export const validateField = (value = "", validations) => {
  * @returns {{}}
  */
 export const validateForm = (values = {}, validations) => {
-  if (!validations) {
-    return {};
-  }
+	if (!validations) {
+		return {};
+	}
 
-  if (!values.constructor || values.constructor !== Object) {
-    return {};
-  }
+	if (!values.constructor || values.constructor !== Object) {
+		return {};
+	}
 
-  if (!validations.constructor || validations.constructor !== Object || Object.keys(validations).length === 0) {
-    return {};
-  }
+	if (!validations.constructor || validations.constructor !== Object || Object.keys(validations).length === 0) {
+		return {};
+	}
 
-  const errors = {};
+	const errors = {};
 
-  for (const [key, validator] of Object.entries(validations)) {
-    const error = validateField(values[key], validator);
+	for (const [key, validator] of Object.entries(validations)) {
+		const error = validateField(values[key], validator);
 
-    if (error) {
-      errors[key] = error;
-    }
-  }
+		if (error) {
+			errors[key] = error;
+		}
+	}
 
-  return errors;
+	return errors;
 };
