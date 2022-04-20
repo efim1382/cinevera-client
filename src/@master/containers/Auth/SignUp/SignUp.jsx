@@ -9,7 +9,7 @@ import { withValidationHandling } from "helpers/validation";
 import validations from "./validations";
 import style from "../style.css";
 
-const createUser = () => {};
+const signUp = () => Promise.resolve();
 
 const SignUp = () => {
 	const navigate = useNavigate();
@@ -18,7 +18,7 @@ const SignUp = () => {
 	const onSubmit = (values) => {
 		setIsFetching(true);
 
-		return createUser(values)
+		return signUp(values)
 			.then(() => {
 				setIsFetching(false);
 				navigate("/auth/sign-in/");
