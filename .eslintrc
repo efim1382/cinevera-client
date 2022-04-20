@@ -37,7 +37,7 @@
   ],
 
   "rules": {
-	  "indent": ["error", "tab"],
+	  "indent": ["error", "tab", { "SwitchCase": 1 }],
     "unused-imports/no-unused-imports": "error",
     "semi": "error",
     "object-curly-spacing": ["error", "always"],

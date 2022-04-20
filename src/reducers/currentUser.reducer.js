@@ -4,10 +4,10 @@ import {
 
 export default (state = null, action) => {
 	switch (action.type) {
-	case SET_CURRENT_USER_ID:
-		return action.id;
+		case SET_CURRENT_USER_ID:
+			return action.id;
 
-	default:
-		return state;
+		default:
+			return state;
 	}
 };
