@@ -11,7 +11,7 @@ const Header = () => {
 			</NavLink>
 
 			<button className={style.profile_button}>
-				<Icon name="account_circle" className={style.account_circle} />
+				<Icon name="account_circle" />
 			</button>
 		</header>
 	);
