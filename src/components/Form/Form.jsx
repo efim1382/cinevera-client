@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Form as FormComponent } from "react-final-form";
-import { validateForm } from "helpers/validation";
+import { validateForm } from "helpers/validation"
 
 const Form = (props) => {
 	const {
