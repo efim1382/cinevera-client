@@ -12,110 +12,115 @@ import style from "../style.css";
 const createUser = () => {};
 
 const SignUp = () => {
-  const navigate = useNavigate();
-  const [isFetching, setIsFetching] = useState(false);
+	const navigate = useNavigate();
+	const [isFetching, setIsFetching] = useState(false);
 
-  const onSubmit = (values) => {
-    setIsFetching(true);
+	const onSubmit = (values) => {
+		setIsFetching(true);
 
-    return createUser(values)
-      .then(() => {
-        setIsFetching(false);
+		return createUser(values)
+			.then(() => {
+				setIsFetching(false);
 				navigate("/auth/sign-in/");
-      })
+			})
 
-      .catch(withValidationHandling((error) => {
-        console.error(error);
-        setIsFetching(false);
-      }));
-  };
+			.catch(withValidationHandling((error) => {
+				console.error(error);
+				setIsFetching(false);
+			}));
+	};
 
-  return (
-    <Fragment>
-      <header className={style.header}>
-        <NavLink to="/" className={style.logo}>
-          <h1>SearchFilm</h1>
-        </NavLink>
-      </header>
+	return (
+		<Fragment>
+			<header className={style.header}>
+				<NavLink to="/" className={style.logo}>
+					<h1>SearchFilm</h1>
+				</NavLink>
+			</header>
 
-      <main className={style.auth}>
-        <div className={style.background}>
-          <h2>Welcome to <span>SearchTabs</span></h2>
-          <p className={style.text_description}>To keep connected with us please<br />login with your personal info</p>
+			<main className={style.auth}>
+				<div className={style.background}>
+					<h2>Welcome to <span>SearchTabs</span></h2>
 
-          <NavLink to="/auth/sign-in/" className={style.link}>
-            <BasicButton
-              appearance="outline"
-              theme="contrast"
-              text="Sign In"
-            />
-          </NavLink>
-        </div>
+					<p className={style.text_description}>
+						To keep connected with us please
+						<br />
+						login with your personal info
+					</p>
 
-        <div className={style.section}>
-          <h2 className={style.subtitle}>Create Account</h2>
+					<NavLink to="/auth/sign-in/" className={style.link}>
+						<BasicButton
+							appearance="outline"
+							theme="contrast"
+							text="Sign In"
+						/>
+					</NavLink>
+				</div>
 
-          <div className={style.social}>
-            <button type="button">
-              <Icon name="facebook" iconSize="20px" />
-            </button>
+				<div className={style.section}>
+					<h2 className={style.subtitle}>Create Account</h2>
 
-            <button type="button">
-              <Icon name="google-plus" iconSize="30px" />
-            </button>
+					<div className={style.social}>
+						<button type="button">
+							<Icon name="facebook" iconSize="20px" />
+						</button>
 
-            <button type="button">
-              <Icon name="vk" iconSize="28px" />
-            </button>
-          </div>
+						<button type="button">
+							<Icon name="google-plus" iconSize="30px" />
+						</button>
 
-          <p className={style.another_text}>Or use your email for registration</p>
+						<button type="button">
+							<Icon name="vk" iconSize="28px" />
+						</button>
+					</div>
 
-          <Form
-            className={style.form}
-            onSubmit={onSubmit}
-            validations={validations}
-          >
-            <Input name="name">
-              <TextField
-                label="Name"
-                placeholder="John Wick"
-                icon="person"
-                className={style.input}
-              />
-            </Input>
+					<p className={style.another_text}>Or use your email for registration</p>
 
-            <Input name="email">
-              <TextField
-                type="email"
-                label="Email"
-                placeholder="someemail@gmail.com"
-                icon="email"
-                className={style.input}
-              />
-            </Input>
+					<Form
+						className={style.form}
+						onSubmit={onSubmit}
+						validations={validations}
+					>
+						<Input name="name">
+							<TextField
+								label="Name"
+								placeholder="John Wick"
+								icon="person"
+								className={style.input}
+							/>
+						</Input>
 
-            <Input name="password">
-              <TextField
-                type="password"
-                label="Password"
-                placeholder="********"
-                icon="lock"
-                className={style.input}
-              />
-            </Input>
+						<Input name="email">
+							<TextField
+								type="email"
+								label="Email"
+								placeholder="someemail@gmail.com"
+								icon="email"
+								className={style.input}
+							/>
+						</Input>
 
-            <BasicButton
-              type="submit"
-              text="Sign Up"
-              isLoading={isFetching}
-              className={style.submit}
-            />
-          </Form>
-        </div>
-      </main>
-    </Fragment>
-  );
+						<Input name="password">
+							<TextField
+								type="password"
+								label="Password"
+								placeholder="********"
+								icon="lock"
+								className={style.input}
+							/>
+						</Input>
+
+						<BasicButton
+							type="submit"
+							text="Sign Up"
+							isLoading={isFetching}
+							className={style.submit}
+						/>
+					</Form>
+				</div>
+			</main>
+		</Fragment>
+	);
 };
 
 export default SignUp;

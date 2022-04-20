@@ -11,7 +11,7 @@ export const LoadingRing = (args) => (
 );
 
 LoadingRing.parameters = {
-	layout: 'centered',
+	layout: "centered",
 
 	controls: {
 		include: [
@@ -22,5 +22,4 @@ LoadingRing.parameters = {
 
 LoadingRing.args = {
 	isShown: true,
-}
-
+};

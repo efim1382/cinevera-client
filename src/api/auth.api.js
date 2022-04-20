@@ -8,17 +8,17 @@ import XHR from "classes/XHR";
  * @returns {*}
  */
 export const signIn = (data = {}) => {
-  const {
-    email,
-    password,
-  } = data;
+	const {
+		email,
+		password,
+	} = data;
 
-  return XHR.post({
-    url: "/auth/login",
+	return XHR.post({
+		url: "/auth/login",
 
-    data: {
-      email,
-      password,
-    },
-  });
+		data: {
+			email,
+			password,
+		},
+	});
 };

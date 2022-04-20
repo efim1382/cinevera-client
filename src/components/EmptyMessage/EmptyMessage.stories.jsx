@@ -9,7 +9,7 @@ export default {
 export const EmptyMessage = (args) => <EmptyMessageComponent {...args} />;
 
 EmptyMessage.parameters = {
-	layout: 'centered',
+	layout: "centered",
 
 	controls: {
 		include: [

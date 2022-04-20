@@ -13,4 +13,3 @@ export const NotFound = (args) => (
 NotFound.parameters = {
 	layout: "fullscreen",
 };
-

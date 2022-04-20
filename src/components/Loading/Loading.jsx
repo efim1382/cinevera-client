@@ -6,18 +6,18 @@ import style from "./style.css";
 const cx = classnames.bind(style);
 
 const Loading = ({ appearance, className }) => {
-  return (
-    <div className={cx("loading", className)} appearance={appearance} />
-  );
+	return (
+		<div className={cx("loading", className)} appearance={appearance} />
+	);
 };
 
 Loading.defaultProps = {
-  appearance: "transparent",
+	appearance: "transparent",
 };
 
 Loading.propTypes = {
-  appearance: PropTypes.oneOf(["transparent", "primary"]),
-  className: PropTypes.string,
+	appearance: PropTypes.oneOf(["transparent", "primary"]),
+	className: PropTypes.string,
 };
 
 export default Loading;

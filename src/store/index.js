@@ -6,19 +6,19 @@ import staticReducers from "./reducers";
 
 const composeEnhancers = composeWithDevTools({
 
-  // options like actionSanitizer, stateSanitizer
+	// options like actionSanitizer, stateSanitizer
 });
 
 const enhancer = composeEnhancers(
-  applyMiddleware(
-    thunk,
-    dynamicMiddlewares,
-  ),
+	applyMiddleware(
+		thunk,
+		dynamicMiddlewares,
+	),
 );
 
 const _store = createStore(
-  combineReducers(staticReducers),
-  enhancer
+	combineReducers(staticReducers),
+	enhancer,
 );
 
 // Add a dictionary to keep track of the registered async reducers
@@ -29,12 +29,12 @@ _store.asyncReducers = {};
  * This function adds the async reducer, and creates a new combined reducer
  */
 _store.injectReducer = (key, asyncReducer) => {
-  store.asyncReducers[key] = asyncReducer;
+	store.asyncReducers[key] = asyncReducer;
 
-  store.replaceReducer(combineReducers({
-    ...staticReducers,
-    ...store.asyncReducers,
-  }));
+	store.replaceReducer(combineReducers({
+		...staticReducers,
+		...store.asyncReducers,
+	}));
 };
 
 export const store = _store;

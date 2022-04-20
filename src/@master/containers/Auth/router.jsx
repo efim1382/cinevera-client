@@ -6,11 +6,11 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
 export default () => {
-  return (
+	return (
 		<Routes>
 			<Route path="sign-in/" element={<SignIn />} />
 			<Route path="sign-up/" element={<SignUp />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>
-  );
+	);
 };

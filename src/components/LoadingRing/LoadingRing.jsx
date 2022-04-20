@@ -6,18 +6,18 @@ import style from "./style.css";
 const cx = classnames.bind(style);
 
 const LoadingRing = ({ className, isShown }) => {
-  return (
-    <div className={cx("loading", className, { "_is-shown": isShown })} />
-  );
+	return (
+		<div className={cx("loading", className, { "_is-shown": isShown })} />
+	);
 };
 
 LoadingRing.defaultProps = {
-  isShown: false,
+	isShown: false,
 };
 
 LoadingRing.propTypes = {
-  className: PropTypes.string,
-  isShown: PropTypes.bool,
+	className: PropTypes.string,
+	isShown: PropTypes.bool,
 };
 
 export default LoadingRing;

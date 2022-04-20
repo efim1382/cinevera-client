@@ -26,4 +26,4 @@ Subheader.args = {
 	title: "This is a title",
 	text: "This is a description",
 	isLoading: false,
-}
+};

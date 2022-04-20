@@ -12,7 +12,7 @@ export const Icon = (args) => (
 );
 
 Icon.parameters = {
-	layout: 'centered',
+	layout: "centered",
 
 	controls: {
 		include: [
@@ -23,4 +23,4 @@ Icon.parameters = {
 
 Icon.args = {
 	name: "search",
-}
+};

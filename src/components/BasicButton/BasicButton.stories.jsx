@@ -32,7 +32,7 @@ Primary.args = {
 export const Contrast = Template.bind({});
 
 Contrast.parameters = {
-	backgrounds: { default: 'dark' },
+	backgrounds: { default: "dark" },
 
 	controls: {
 		include: [
