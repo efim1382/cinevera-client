@@ -11,5 +11,5 @@ export const Header = (args) => (
 );
 
 Header.parameters = {
-
+	layout: "fullscreen",
 };

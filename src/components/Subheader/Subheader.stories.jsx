@@ -11,6 +11,8 @@ export const Subheader = (args) => (
 );
 
 Subheader.parameters = {
+	layout: "fullscreen",
+
 	controls: {
 		include: [
 			"text",

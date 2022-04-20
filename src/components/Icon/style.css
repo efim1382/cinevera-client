@@ -83,7 +83,11 @@
 }
 
 .icon[data-icon="queue_music"] {
-  mask-image: url('./icons/queue_music-black.svg');
+	mask-image: url('./icons/queue_music-black.svg');
+}
+
+.icon[data-icon="question"] {
+	mask-image: url('./icons/question.svg');
 }
 
 .story_icon {
