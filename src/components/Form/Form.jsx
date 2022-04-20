@@ -15,8 +15,8 @@ const Form = (props) => {
 
 	return (
 		<FormComponent
-		onSubmit={onSubmit}
-		validate={validate}
+			onSubmit={onSubmit}
+			validate={validate}
 
 			render={({ handleSubmit }) => {
 				return (
