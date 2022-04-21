@@ -23,10 +23,18 @@
 		--label-font-weight: var(--font-weight-semibold);
 	}
 
-	&:not(._is-error):not(._is-active) {
-		--input-box-shadow-color: var(--divider-color);
-		--icon-color: var(--caption-color);
-		--label-color: var(--caption-color);
+	&:not(._is-error) {
+		&:not(._is-active) {
+			--input-box-shadow-color: var(--divider-color);
+			--icon-color: var(--caption-color);
+			--label-color: var(--caption-color);
+		}
+
+		&._is-active {
+			--input-box-shadow-color: var(--primary-color);
+			--icon-color: var(--primary-color);
+			--label-color: var(--primary-color);
+		}
 	}
 
 	&._is-error {
@@ -34,24 +42,18 @@
 		--icon-color: var(--error-color);
 		--label-color: var(--error-color);
 	}
-	
-	&._is-active {
-		--input-box-shadow-color: var(--primary-color);
-		--icon-color: var(--primary-color);
-		--label-color: var(--primary-color);
-	}
 
 	& + button[type="submit"] {
 		margin-top: 6px;
 	}
 
 	& > .input_section {
-			position: relative;
-			display: flex;
-			align-items: center;
-			height: var(--default-input-height);
-			box-shadow: 0 -2px var(--input-box-shadow-color) inset;
-			transition-property: box-shadow;
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: var(--default-input-height);
+		box-shadow: 0 -2px var(--input-box-shadow-color) inset;
+		transition-property: box-shadow;
 
 		& > .label {
 			--height: 16px;
