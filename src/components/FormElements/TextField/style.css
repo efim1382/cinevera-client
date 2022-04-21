@@ -27,18 +27,18 @@
 		--input-box-shadow-color: var(--divider-color);
 		--icon-color: var(--caption-color);
 		--label-color: var(--caption-color);
-
-		&._is-active {
-			--input-box-shadow-color: var(--primary-color);
-			--icon-color: var(--primary-color);
-			--label-color: var(--primary-color);
-		}
 	}
 
 	&._is-error {
 		--input-box-shadow-color: var(--error-color);
 		--icon-color: var(--error-color);
 		--label-color: var(--error-color);
+	}
+	
+	&._is-active {
+		--input-box-shadow-color: var(--primary-color);
+		--icon-color: var(--primary-color);
+		--label-color: var(--primary-color);
 	}
 
 	& + button[type="submit"] {
