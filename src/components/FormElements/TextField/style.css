@@ -90,22 +90,20 @@
       &::placeholder {
         color: var(--placeholder-color);
         transition: 0.3s color;
-        --placeholder-color: var(--caption-color);
       }
 
       & + .visibility_pass {
         margin-left: var(--input-section-padding);
       }
 
-      &:focus::placeholder {
+      &:focus {
         --placeholder-color: var(--caption-color);
       }
-      
-      &:not(:focus)::placeholder {
+
+      &:not(:focus) {
         --placeholder-color: transparent;
       }
     }
-
 
     & > .visibility_pass {
       --icon-size: 20px;
