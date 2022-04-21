@@ -4,13 +4,13 @@
   padding-top: 70px;
   background-color: var(--primary-color);
 
-  &:global(.container) > h2 {
-    display: block;
-    color: #fff;
-  }
+	&:global(.container) > h2 {
+	  display: block;
+	  color: #fff;
 
- &:global(.container) > p {
-    display: block;
-    color: #fff;
-  }
+		& p {
+		  display: block;
+		  color: #fff;
+		}
+	}
 }
