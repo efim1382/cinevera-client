@@ -5,12 +5,12 @@
 	background-color: var(--primary-color);
 
 	& :global(.container) {
-			& h2 {
+		& h2 {
 			display: block;
 			color: #fff;
 		}
 
-		& p {
+		& .subtitle {
 			display: block;
 			color: #fff;
 		}

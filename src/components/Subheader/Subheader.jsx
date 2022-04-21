@@ -24,7 +24,7 @@ const Subheader = (props) => {
 						<h2>{title}</h2>
 
 						{text && (
-							<p>{text}</p>
+							<p className={style.subtitle}>{text}</p>
 						)}
 					</Fragment>
 				)}
