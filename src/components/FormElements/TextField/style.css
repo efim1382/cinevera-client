@@ -90,24 +90,22 @@
       &::placeholder {
         color: var(--placeholder-color);
         transition: 0.3s color;
+        --placeholder-color: var(--caption-color);
+      }
+
+      & + .visibility_pass {
+        margin-left: var(--input-section-padding);
+      }
+
+      &:focus::placeholder {
+        --placeholder-color: var(--caption-color);
+      }
+      
+      &:not(:focus)::placeholder {
+        --placeholder-color: transparent;
       }
     }
 
-    & > .label + .input:not(:focus)::placeholder {
-      --placeholder-color: transparent;
-    }
-
-    & > .label + .input:focus::placeholder {
-      --placeholder-color: var(--caption-color);
-    }
-
-    & > .input::placeholder {
-      --placeholder-color: var(--caption-color);
-    }
-
-    & > .input + .visibility_pass {
-      margin-left: var(--input-section-padding);
-    }
 
     & > .visibility_pass {
       --icon-size: 20px;
