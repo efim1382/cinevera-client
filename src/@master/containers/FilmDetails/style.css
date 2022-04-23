@@ -168,9 +168,83 @@
 		}
 	}
 
-	& .videos {}
+	& .videos {
+		margin-top: 50px;
 
-	& .photos {}
+		& .trailer_container {
+			--gap: 50px;
+			margin-top: 30px;
+			display:flex;
+			gap:var(--gap);
+			flex-wrap: wrap;
+		}
+
+		& .play_button {
+			& .trailer {
+				--icon-color: #fff;
+				--icon-size: 26px;
+				height: 150px;
+				width: 200px;
+				background-image: url("./images/gerard-butler.jpeg");
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+				display: flex;
+				padding-bottom: 4px;
+				position: relative;
+
+				&::before {
+					content:"";
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					background-color: rgba(0, 0, 0, 0.4);
+				}
+
+				& .trailer_details {
+					position: relative;
+					display: flex;
+					align-items: center;
+					margin-left: 4px;
+					margin-top: auto;
+
+					& .trailer_duration {
+						font-weight: var(--font-weight-regular);
+						margin-left: 10px;
+						color: var(--root-background-color);
+
+						& .duration {
+							margin-left: 4px;
+							letter-spacing: 1px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	& .photos {
+		margin-top: 50px;
+
+		& .photos_container {
+			--gap: 30px;
+			margin-top: 30px;
+			display:flex;
+			gap:var(--gap);
+			flex-wrap: wrap;	
+		}
+
+		& .actor_photos {
+			height: 150px;
+			width: 150px;
+			background-image: url("./images/gerard-butler.jpeg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;		
+		}
+	}
 
 	& .cast {
 		margin-top: 50px;
