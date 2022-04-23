@@ -90,6 +90,10 @@
 	mask-image: url('./icons/question.svg');
 }
 
+.icon[data-icon="play"] {
+  mask-image: url('./icons/play.svg');
+}
+
 .story_icon {
 	--icon-size: 50px;
 	--icon-color: var(--primary-color);

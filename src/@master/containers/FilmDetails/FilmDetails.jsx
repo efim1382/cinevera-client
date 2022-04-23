@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./style.css";
+import Icon from "components/Icon";
 
 const backgroundOpacityFrom = 0.5;
 const backgroundOpacityTo = 0.93;
@@ -79,11 +80,63 @@ const FilmDetails = () => {
 				</section>
 
 				<section className={style.videos}>
+					<div className="container">
+						<h2 className={style.subtitle}>Trailer</h2>
 
+						<div className={style.trailer_container}>
+
+							<button type="button" className={style.play_button}>
+								<div className={style.trailer}>
+									<div className={style.trailer_details}>
+										<Icon name="play" />
+
+										<p className={style.trailer_duration}>
+											Trailer
+											<span className={style.duration}>0:55</span>
+										</p>
+									</div>
+								</div>
+							</button>
+
+							<button type="button" className={style.play_button}>
+								<div className={style.trailer}>
+									<div className={style.trailer_details}>
+										<Icon name="play" />
+
+										<p className={style.trailer_duration}>
+											Trailer
+											<span className={style.duration}>0:55</span>
+										</p>
+									</div>
+								</div>
+							</button>
+
+							<button type="button" className={style.play_button}>
+								<div className={style.trailer}>
+									<div className={style.trailer_details}>
+										<Icon name="play" />
+
+										<p className={style.trailer_duration}>
+											Trailer
+											<span className={style.duration}>0:55</span>
+										</p>
+									</div>
+								</div>
+							</button>
+						</div>
+					</div>
 				</section>
 
 				<section className={style.photos}>
+					<div className="container">
+						<h2 className={style.subtitle}>Photos</h2>
 
+						<div className={style.photos_container}>
+							<div className={style.actor_photos}></div>
+							<div className={style.actor_photos}></div>
+							<div className={style.actor_photos}></div>
+						</div>
+					</div>
 				</section>
 
 				<section className={style.cast}>
