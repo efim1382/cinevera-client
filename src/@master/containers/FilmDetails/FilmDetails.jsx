@@ -2,26 +2,26 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./style.css";
 
-const backgroundBrightnessFrom = 0.7;
-const backgroundBrightnessTo = 0.1;
-const backgroundBrightnessRange = backgroundBrightnessFrom - backgroundBrightnessTo;
+const backgroundOpacityFrom = 0.4;
+const backgroundOpacityTo = 0.9;
+const backgroundOpacityRange = backgroundOpacityFrom - backgroundOpacityTo;
 
-const changeBackgroundBrightness = (event) => {
-	const fullBrightnessFrom = document.body.clientHeight / 2;
+const changeBackgroundOpacity = (event) => {
+	const fullOpacityFrom = document.body.clientHeight / 2;
 	const pageElement = document.getElementById("film-details");
-	let percentScroll = event.target.scrollTop / fullBrightnessFrom * 100;
+	let percentScroll = event.target.scrollTop / fullOpacityFrom * 100;
 
 	if (percentScroll > 100) {
 		percentScroll = 100;
 	}
 
-	const currentBrightness = backgroundBrightnessFrom - ((percentScroll * backgroundBrightnessRange) / 100);
-	pageElement.style.setProperty("--background-brightness", currentBrightness);
+	const currentOpacity = backgroundOpacityFrom - ((percentScroll * backgroundOpacityRange) / 100);
+	pageElement.style.setProperty("--background-opacity", currentOpacity);
 };
 
 const FilmDetails = () => {
 	const onScroll = (event) => {
-		changeBackgroundBrightness(event);
+		changeBackgroundOpacity(event);
 	};
 
 	useEffect(() => {
@@ -78,6 +78,14 @@ const FilmDetails = () => {
 					</div>
 				</section>
 
+				<section className={style.videos}>
+
+				</section>
+
+				<section className={style.photos}>
+
+				</section>
+
 				<section className={style.cast}>
 					<div className="container">
 						<h2 className={style.subtitle}>Cast</h2>
@@ -95,6 +103,10 @@ const FilmDetails = () => {
 							))}
 						</div>
 					</div>
+				</section>
+
+				<section className={style.popular}>
+
 				</section>
 			</div>
 		</div>
