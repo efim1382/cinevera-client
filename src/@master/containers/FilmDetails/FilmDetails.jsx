@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import Header from "./Header";
 import style from "./style.css";
 
-const backgroundOpacityFrom = 0.5;
-const backgroundOpacityTo = 0.93;
+const backgroundOpacityFrom = 0.4;
+const backgroundOpacityTo = 0.9;
 const backgroundOpacityRange = backgroundOpacityFrom - backgroundOpacityTo;
 const fullOpacityFrom = 400;
 
@@ -38,8 +38,6 @@ const FilmDetails = () => {
 
 	return (
 		<div id="film-details" className={style.film_details}>
-			<div className={style.shadow} />
-
 			<Header className={style.header} />
 
 			<div className={style.content}>
