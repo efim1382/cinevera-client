@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import Header from "./Header";
 import style from "./style.css";
 
 const backgroundOpacityFrom = 0.5;
@@ -34,11 +35,7 @@ const FilmDetails = () => {
 
 	return (
 		<div id="film-details" className={style.film_details}>
-			<header className={style.header}>
-				<div className="container">
-					<NavLink to="/" className={style.logo}>Cinevera</NavLink>
-				</div>
-			</header>
+			<Header className={style.header} />
 
 			<div className={style.content}>
 				<section className={style.description}>

@@ -1,13 +1,11 @@
 .film_details {
 	position: relative;
-	flex-grow: 1;
-	min-height: 0;
-	padding-top: 80px;
+	padding-top: 100px;
 	padding-bottom: 40px;
 
 	&:before {
 		content: "";
-		z-index: 1;
+		z-index: -1;
 		position: fixed;
 		left: 0;
 		top: 0;
@@ -21,7 +19,7 @@
 
 	&:after {
 		content: "";
-		z-index: 2;
+		z-index: -1;
 		position: fixed;
 		left: 0;
 		top: 0;
@@ -30,39 +28,19 @@
 		background-color: rgba(0, 0, 0, var(--background-opacity, 0.4));
 	}
 
-	& .header {
-		position: fixed;
-		z-index: 4;
-		top: 0;
-		left: 0;
-		display: flex;
-		align-items: center;
-		width: 100%;
-		height: 80px;
-
-		& :global(.container) {
-			& .logo {
-				font-size: 20px;
-				color: #fff;
-				font-weight: var(--font-weight-bold);
-			}
-		}
-	}
-
 	& .subtitle {
 		font-size: 30px;
 		color: #fff;
 		font-weight: var(--font-weight-bold);
 	}
 
+	/* todo: replace under */
 	& .content {
 		position: relative;
-		z-index: 3;
+		margin-top: 150px;
 	}
 
 	& .description {
-		margin-top: 150px;
-
 		& :global(.container) {
 			display: flex;
 			flex-direction: column;
