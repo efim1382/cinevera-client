@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "@master/components/Layout";
 import Home from "@master/containers/Home";
 import NotFound from "components/NotFound";
+import FilmDetails from "@master/containers/FilmDetails";
 
 import AuthRouter from "@master/containers/Auth/router";
 
@@ -16,6 +17,7 @@ export default () => {
 			</Route>
 
 			<Route path="/auth/*" element={<AuthRouter />} />
+			<Route path="/film" element={<FilmDetails />} />
 		</Routes>
 	);
 };

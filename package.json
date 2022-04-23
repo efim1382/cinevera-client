@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "searchfilm-client",
+  "name": "cinevera-client",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/server.js",

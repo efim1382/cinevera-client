@@ -7,7 +7,7 @@ const Header = () => {
 	return (
 		<header className={style.header}>
 			<NavLink to="/" className={style.logo}>
-				<h1>SearchFilm</h1>
+				<h1>Cinevera</h1>
 			</NavLink>
 
 			<button className={style.profile_button}>
