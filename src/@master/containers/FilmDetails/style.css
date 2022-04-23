@@ -1,4 +1,6 @@
 .film_details {
+	/* --film-background-color: 89, 178, 190; */
+	--film-background-color-default: 0, 0, 0;
 	position: relative;
 	padding-top: 100px;
 	padding-bottom: 40px;
@@ -25,7 +27,7 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		background-color: rgba(0, 0, 0, var(--background-opacity, 0.4));
+		background-color: rgba(var(--film-background-color, var(--film-background-color-default)), var(--background-opacity, 0.4));
 	}
 
 	& .shadow {
@@ -35,7 +37,7 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0) 50%);
+		background: linear-gradient(0deg, rgba(var(--film-background-color, var(--film-background-color-default)), 0.9) 0%, rgba(var(--film-background-color, var(--film-background-color-default)), 0.9) 10%, rgba(var(--film-background-color, var(--film-background-color-default)), 0) 50%);
 	}
 
 	& .subtitle {
@@ -58,7 +60,7 @@
 			top: 0;
 			right: 0;
 			bottom: 0;
-			background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.9) 10%, rgba(0, 0, 0, 0) 50%);
+			background: linear-gradient(0deg, rgba(var(--film-background-color, var(--film-background-color-default)), 0.9) 0%, rgba(var(--film-background-color, var(--film-background-color-default)), 0.9) 10%, rgba(var(--film-background-color, var(--film-background-color-default)), 0) 50%);
 		}
 	}
 
