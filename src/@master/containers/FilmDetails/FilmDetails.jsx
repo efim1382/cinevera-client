@@ -6,9 +6,9 @@ import style from "./style.css";
 const backgroundOpacityFrom = 0.5;
 const backgroundOpacityTo = 0.93;
 const backgroundOpacityRange = backgroundOpacityFrom - backgroundOpacityTo;
+const fullOpacityFrom = 400;
 
 const changeBackgroundOpacity = (event) => {
-	const fullOpacityFrom = document.body.clientHeight / 2;
 	const pageElement = document.getElementById("film-details");
 	let percentScroll = event.target.scrollTop / fullOpacityFrom * 100;
 
@@ -17,7 +17,10 @@ const changeBackgroundOpacity = (event) => {
 	}
 
 	const currentOpacity = backgroundOpacityFrom - ((percentScroll * backgroundOpacityRange) / 100);
-	pageElement.style.setProperty("--background-opacity", currentOpacity);
+
+	if (pageElement.style.getPropertyValue("--background-opacity") !== `${currentOpacity}`) {
+		pageElement.style.setProperty("--background-opacity", currentOpacity);
+	}
 };
 
 const FilmDetails = () => {
@@ -35,6 +38,8 @@ const FilmDetails = () => {
 
 	return (
 		<div id="film-details" className={style.film_details}>
+			<div className={style.shadow} />
+
 			<Header className={style.header} />
 
 			<div className={style.content}>

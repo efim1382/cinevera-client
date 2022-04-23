@@ -7,7 +7,7 @@ import style from "./style.css";
 
 const cx = classnames.bind(style);
 
-const changingOpacityClassFromTop = 150;
+const changingOpacityClassFromTop = 250;
 
 const changeHeaderOpacity = (event) => {
 	const headerElement = document.getElementById("header");
