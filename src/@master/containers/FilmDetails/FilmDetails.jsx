@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./style.css";
 
-const backgroundOpacityFrom = 0.4;
-const backgroundOpacityTo = 0.9;
+const backgroundOpacityFrom = 0.5;
+const backgroundOpacityTo = 0.93;
 const backgroundOpacityRange = backgroundOpacityFrom - backgroundOpacityTo;
 
 const changeBackgroundOpacity = (event) => {
