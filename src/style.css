@@ -54,7 +54,6 @@ body {
 
 :global(#app) {
 	-webkit-overflow-scrolling: touch;
-	overflow-x: hidden;
 	overflow-y: auto;
 	position: fixed;
 	left: 0;
