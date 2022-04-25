@@ -52,7 +52,7 @@ const Header = ({ className }) => {
 					</button>
 
 					<button className={style.button}>
-						<Icon name="search" />
+						<Icon name="notifications" />
 					</button>
 
 					<button className={style.button}>
