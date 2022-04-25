@@ -2,7 +2,6 @@
 	/* --film-background-color: 89, 178, 190; */
 	--film-background-color-default: 0, 0, 0;
 	position: relative;
-	padding-top: 100px;
 	padding-bottom: 40px;
 
 	&:before {
@@ -242,7 +241,7 @@
 			background-image: url("./images/gerard-butler.jpeg");
 			background-size: cover;
 			background-repeat: no-repeat;
-			background-position: center;		
+			background-position: center;
 		}
 	}
 
