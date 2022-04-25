@@ -132,9 +132,9 @@ const FilmDetails = () => {
 						<h2 className={style.subtitle}>Photos</h2>
 
 						<div className={style.photos_container}>
-							<div className={style.actor_photos}></div>
-							<div className={style.actor_photos}></div>
-							<div className={style.actor_photos}></div>
+							<div className={style.actor_photos} />
+							<div className={style.actor_photos} />
+							<div className={style.actor_photos} />
 						</div>
 					</div>
 				</section>
@@ -159,7 +159,16 @@ const FilmDetails = () => {
 				</section>
 
 				<section className={style.popular}>
+					<div className="container">
+						<h2 className={style.subtitle}>Popular</h2>
 
+						<div className={style.popular_container}>
+							<div className={style.film_page} />
+							<div className={style.film_page} />
+							<div className={style.film_page} />
+							<div className={style.film_page} />
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>
