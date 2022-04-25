@@ -159,7 +159,16 @@ const FilmDetails = () => {
 				</section>
 
 				<section className={style.popular}>
+					<div className="container">
+						<h2 className={style.subtitle}>Popular</h2>
 
+						<div className={style.popular_container}>
+							<div className={style.film_page}></div>
+							<div className={style.film_page}></div>
+							<div className={style.film_page}></div>
+							<div className={style.film_page}></div>
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>

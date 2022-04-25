@@ -173,7 +173,7 @@
 
 		& .trailer_container {
 			--gap: 50px;
-			margin-top: 30px;
+			margin-top: 20px;
 			display:flex;
 			gap:var(--gap);
 			flex-wrap: wrap;
@@ -229,11 +229,11 @@
 		margin-top: 50px;
 
 		& .photos_container {
-			--gap: 30px;
-			margin-top: 30px;
+			--gap: 50px;
+			margin-top: 20px;
 			display:flex;
 			gap:var(--gap);
-			flex-wrap: wrap;	
+			flex-wrap: wrap;
 		}
 
 		& .actor_photos {
@@ -303,5 +303,24 @@
 		}
 	}
 
-	& .popular {}
+	& .popular {
+		margin-top: 50px;
+
+		& .popular_container {
+			--gap: 50px;
+			margin-top: 20px;
+			display:flex;
+			gap:var(--gap);
+			flex-wrap: wrap;
+
+			& .film_page {
+				height: 300px;
+				width: 200px;
+				background-image: url("./images/gerard-butler.jpeg");
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;		
+			}
+		}
+	}
 }
