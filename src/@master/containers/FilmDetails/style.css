@@ -64,6 +64,7 @@
 	}
 
 	& .description {
+		
 		& :global(.container) {
 			display: flex;
 			flex-direction: column;
@@ -170,53 +171,60 @@
 	& .videos {
 		margin-top: 50px;
 
-		& .trailer_container {
-			--gap: 50px;
-			margin-top: 20px;
-			display:flex;
-			gap:var(--gap);
-			flex-wrap: wrap;
-		}
+		&  :global(.container) {
 
-		& .play_button {
-			& .trailer {
-				--icon-color: #fff;
-				--icon-size: 26px;
-				height: 150px;
-				width: 200px;
-				background-image: url("./images/gerard-butler.jpeg");
-				background-size: cover;
-				background-repeat: no-repeat;
-				background-position: center;
-				display: flex;
-				padding-bottom: 4px;
-				position: relative;
+			& .subtitle {
 
-				&::before {
-					content:"";
-					position: absolute;
-					left: 0;
-					right: 0;
-					top: 0;
-					bottom: 0;
-					background-color: rgba(0, 0, 0, 0.4);
-				}
+			}
 
-				& .trailer_details {
-					position: relative;
+			& .trailer_container {
+				margin-top: 20px;
+				display:flex;
+				gap: 50px;
+			}
+
+			& .play_button {
+
+				& .trailer {
+					--icon-color: #fff;
+					--icon-size: 26px;
+					height: 150px;
+					width: 200px;
+					gap: 50px;
+					background-image: url("./images/gerard-butler.jpeg");
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: center;
 					display: flex;
-					align-items: center;
-					margin-left: 4px;
-					margin-top: auto;
+					padding-bottom: 4px;
+					position: relative;
 
-					& .trailer_duration {
-						font-weight: var(--font-weight-regular);
-						margin-left: 10px;
-						color: var(--root-background-color);
+					&::before {
+						content:"";
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						background-color: rgba(0, 0, 0, 0.4);
+					}
 
-						& .duration {
-							margin-left: 4px;
-							letter-spacing: 1px;
+					& .trailer_details {
+						position: relative;
+						display: flex;
+						align-items: center;
+						margin-left: 4px;
+						margin-top: auto;
+
+						& .trailer_duration {
+							font-weight: var(--font-weight-regular);
+							margin-left: 10px;
+							color: var(--root-background-color);
+
+							& .duration {
+								margin-left: 4px;
+								letter-spacing: 1px;
+							}
 						}
 					}
 				}
@@ -227,21 +235,26 @@
 	& .photos {
 		margin-top: 50px;
 
-		& .photos_container {
-			--gap: 50px;
-			margin-top: 20px;
-			display:flex;
-			gap:var(--gap);
-			flex-wrap: wrap;
-		}
+		& :global(.container) {
 
-		& .actor_photos {
-			height: 150px;
-			width: 150px;
-			background-image: url("./images/gerard-butler.jpeg");
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center;
+			& .subtitle {
+
+			} 
+
+			& .photos_container {
+				margin-top: 20px;
+				display:flex;
+				gap: 50px;
+			}
+
+			& .actor_photos {
+				height: 150px;
+				width: 150px;
+				background-image: url("./images/gerard-butler.jpeg");
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center;
+			}
 		}
 	}
 
@@ -305,21 +318,22 @@
 	& .popular {
 		margin-top: 50px;
 
-		& .popular_container {
-			--gap: 50px;
-			margin-top: 20px;
-			display:flex;
-			gap:var(--gap);
-			flex-wrap: wrap;
+		& :global(.container) { 
 
-			& .film_page {
-				height: 300px;
-				width: 200px;
-				background-image: url("./images/gerard-butler.jpeg");
-				background-size: cover;
-				background-repeat: no-repeat;
-				background-position: center;		
+			& .popular_container {
+				margin-top: 20px;
+				display:flex;
+				gap: 50px;
+
+				& .film_page {
+					height: 300px;
+					width: 200px;
+					background-image: url("./images/gerard-butler.jpeg");
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: center;		
+				}
 			}
-		}
+		}	
 	}
 }
