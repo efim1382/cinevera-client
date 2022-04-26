@@ -34,10 +34,10 @@ const Home = () => {
 
 					<div className={style.continue_list}>
 						<div className={style.continue_item} />
-						<div className={style.continue_item} />
-						<div className={style.continue_item} />
-						<div className={style.continue_item} />
-						<div className={style.continue_item} />
+						<div className={style.shot_caller} />
+						<div className={style.peaky_blinders} />
+						<div className={style.fight_club} />
+						<div className={style.fury} />
 						<div className={style.continue_item} />
 						<div className={style.continue_item} />
 					</div>
@@ -49,10 +49,10 @@ const Home = () => {
 					<h2 className={style.subtitle}>Popular Now</h2>
 
 					<div className={style.popular_list}>
-						<div className={style.popular_item} />
-						<div className={style.popular_item} />
-						<div className={style.popular_item} />
-						<div className={style.popular_item} />
+						<div className={style.gentlemen} />
+						<div className={style.django} />
+						<div className={style.inglourious_basterds} />
+						<div className={style.john_wick} />
 						<div className={style.popular_item} />
 						<div className={style.popular_item} />
 						<div className={style.popular_item} />
