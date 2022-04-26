@@ -75,6 +75,7 @@
 
 			& .actions {
 				--height: 50px;
+				display: flex;
 				margin-top: 20px;
 
 				& .watch {
