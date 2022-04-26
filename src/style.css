@@ -48,7 +48,7 @@ body {
 	perspective: 5px;
 	transform-style: preserve-3d;
 	scroll-behavior: smooth;
-	background-color: #202127;
+	background-color: #000;
 	color: #fff;
 }
 

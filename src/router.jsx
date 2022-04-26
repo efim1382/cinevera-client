@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "@master/containers/Home";
 import NotFound from "components/NotFound";
 import FilmDetails from "@master/containers/FilmDetails";
+import Movies from "@master/containers/Movies";
 
 import AuthRouter from "@master/containers/Auth/router";
 
@@ -19,6 +20,7 @@ export default () => {
 
 			<Route path="/" element={<Home />} />
 			<Route path="/auth/*" element={<AuthRouter />} />
+			<Route path="/movies" element={<Movies />} />
 			<Route path="/film" element={<FilmDetails />} />
 		</Routes>
 	);

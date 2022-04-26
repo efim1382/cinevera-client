@@ -22,9 +22,11 @@ const changeHeaderOpacity = (event) => {
 	}
 };
 
-const Header = ({ className }) => {
+const Header = ({ isTransparent, className }) => {
 	const onScroll = (event) => {
-		changeHeaderOpacity(event);
+		if (isTransparent) {
+			changeHeaderOpacity(event);
+		}
 	};
 
 	useEffect(() => {
@@ -36,7 +38,7 @@ const Header = ({ className }) => {
 	}, []);
 
 	return (
-		<header id="header" className={cx("header", className)}>
+		<header id="header" className={cx("header", className, { "_is-filled": !isTransparent })}>
 			<div className="container">
 				<nav className={style.navigation}>
 					<NavLink
@@ -81,7 +83,12 @@ const Header = ({ className }) => {
 	);
 };
 
+Header.defaultProps = {
+	isTransparent: false,
+};
+
 Header.propTypes = {
+	isTransparent: PropTypes.bool,
 	className: PropTypes.string,
 };
 

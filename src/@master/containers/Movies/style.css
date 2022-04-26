@@ -1,0 +1,124 @@
+.movies {
+	--film-background-color: 0, 0, 0;
+
+	& .main_block {
+		padding-top: 80px;
+		overflow-x: clip;
+
+		& :global(.container) {
+			& .title {
+				font-size: 50px;
+				color: #fff;
+				font-weight: var(--font-weight-bold);
+			}
+
+			& .categories {
+				display: flex;
+				white-space: nowrap;
+				gap: 30px;
+				margin-top: 30px;
+
+				& .item {
+					--height: 40px;
+					flex-shrink: 0;
+					height: var(--height);
+					line-height: var(--height);
+					padding-left: 40px;
+					padding-right: 40px;
+					color: #fff;
+					border-radius: calc(var(--height) / 2);
+					background-color: #101010;
+
+					&:first-of-type {
+						background-color: #e50815;
+					}
+				}
+			}
+
+			& .sorting {
+				display: flex;
+				align-items: center;
+				margin-top: 20px;
+
+				& .caption {
+					font-size: 16px;
+					color: #797979;
+				}
+
+				& .dropdown {
+					--height: 40px;
+					height: var(--height);
+					line-height: var(--height);
+					margin-left: 12px;
+					padding-left: 40px;
+					padding-right: 40px;
+					color: #fff;
+					border-radius: calc(var(--height) / 2);
+					background-color: #101010;
+				}
+
+				& .rating {
+					display: flex;
+					align-items: center;
+					margin-left: auto;
+
+					& > i {
+						--icon-color: #fff;
+						--icon-size: 16px;
+					}
+
+					& .slider {
+						position: relative;
+						width: 200px;
+						height: 2px;
+						margin-left: 12px;
+						background-color: #222;
+
+						& .circle {
+							position: absolute;
+							left: 50%;
+							top: 50%;
+							transform: translateY(-50%);
+							width: 16px;
+							height: 16px;
+							border-radius: 50%;
+							background-color: #fff;
+						}
+					}
+
+					& .rating_text {
+						margin-left: 12px;
+						font-size: 16px;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	& .movies_list {
+		margin-top: 30px;
+
+		& :global(.container) {
+			--columns: 5;
+			--gap: 30px;
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--gap);
+
+			& .movie {
+				position: relative;
+				width: calc((100% - (var(--gap) * (var(--columns) - 1))) / var(--columns));
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+
+				&:before {
+					content: "";
+					display: block;
+					padding-top: 130%;
+				}
+			}
+		}
+	}
+}

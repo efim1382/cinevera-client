@@ -39,7 +39,7 @@ const FilmDetails = () => {
 
 	return (
 		<div id="film-details" className={style.film_details}>
-			<Header className={style.header} />
+			<Header isTransparent className={style.header} />
 
 			<div className={style.content}>
 				<section className={style.description}>
