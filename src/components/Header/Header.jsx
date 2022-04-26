@@ -12,7 +12,6 @@ const Header = () => {
 
 			<button className={style.profile_button}>
 				<Icon name="account_circle" />
-				<Icon name="notifications" />
 			</button>
 		</header>
 	);
