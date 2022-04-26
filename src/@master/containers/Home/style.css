@@ -122,50 +122,9 @@
 				flex-shrink: 0;
 				height: 280px;
 				width: 200px;
-				background-image: url("https://wallpapershome.ru/images/pages/pic_v/12849.jpg");
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
-			}
-
-			& .shot_caller {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
-				background-image: url("https://filmix.ac/uploads/frames/118698/f247290-vystrel-v-pustotu_2017_original.jpg");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;	
-			}
-
-			& .peaky_blinders {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
-				background-image: url("https://wallup.net/wp-content/uploads/2016/05/13/336935-Peaky_Blinders.jpg");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;	
-			}
-
-			& .fight_club {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
-				background-image: url("https://cdn.oboi7.com/content/images/e3/ee/e3ee9a3e26ec84cae113de17a43691af853ab0fe.jpg");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;	
-			}
-
-			& .fury {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
-				background-image: url("https://p4.wallpaperbetter.com/wallpaper/1024/392/1003/movie-fury-wallpaper-thumb.jpg");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;	
 			}
 		}
 	}
@@ -187,50 +146,9 @@
 				flex-shrink: 0;
 				height: 280px;
 				width: 200px;
-				background-image: url("https://images.kinorium.com/movie/shot/381127/w1500_1263015.jpg");
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
-			}
-
-			& .django {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
-				background-image: url("https://i.pinimg.com/736x/48/f6/f2/48f6f2113680380e5edb2d378a5f3eac.jpg");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-			}
-
-			& .inglourious_basterds {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
-				background-image: url("https://www.kinogallery.com/img/wallpaper/kinogallery.com_Inglourious-Basterds-17_1600.jpg");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;	
-			}
-
-			& .john_wick {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
-				background-image: url("https://pbs.twimg.com/media/D9rZWPCWsAEeDg-.jpg");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;	
-			}
-
-			& .gentlemen {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
-				background-image: url("https://i.pinimg.com/736x/79/2a/f2/792af24e261c83b9363b83c21a190474.jpg");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;	
 			}
 		}
 	}
