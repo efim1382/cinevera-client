@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Header from "@master/containers/FilmDetails/Header";
 import style from "./style.css";
+import Icon from "components/Icon";
 
 const Home = () => {
 	return (
@@ -34,13 +35,24 @@ const Home = () => {
 					<h2 className={style.subtitle}>Continue Watching</h2>
 
 					<div className={style.continue_list}>
-						{continueItems.map((item) => (
-							<div
-								key={item._id}
-								className={style.continue_item}
-								style={{ backgroundImage: item.image }}
-							/>
-						))}
+						<div className={style.continue_items}>
+							<button className={style.play_button}>
+								<Icon name="play" />
+							</button>
+
+							<div className={style.description}>
+								<span className={style.name_film}>Zavod</span>
+								<span className={style.film_year}>2018</span>
+
+								<div className= {style.rewind_bar}>
+									<span className={style.time}>42:31</span>
+									<div className={style.rewind} />
+									<span className={style.time_end}>1:32:04</span>
+								</div>
+							</div>
+						</div>
+
+						<div className={style.continue_items}></div>
 					</div>
 				</div>
 			</section>
@@ -54,6 +66,22 @@ const Home = () => {
 							<div
 								key={item._id}
 								className={style.popular_item}
+								style={{ backgroundImage: item.image }}
+							/>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section className={style.best_films}>
+				<div className="container">
+					<h2 className={style.subtitle}>Best of 2021</h2>
+
+					<div className={style.best_films_list}>
+						{continueItems.map((item) => (
+							<div
+								key={item._id}
+								className={style.best_films_item}
 								style={{ backgroundImage: item.image }}
 							/>
 						))}

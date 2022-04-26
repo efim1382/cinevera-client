@@ -107,25 +107,76 @@
 	}
 
 	& .continue {
-		overflow-x: clip;
-		padding-top: 30px;
-		padding-bottom: 30px;
 
-		& .subtitle {}
-
-		& .continue_list {
-			display: flex;
-			white-space: nowrap;
-			gap: 20px;
+		& .continue_list{
 			margin-top: 30px;
+			display: flex;
+			gap: 20px;
 
-			& .continue_item {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
+			& .continue_items {
+				width: 300px;
+				height: 200px;
+				background-image: url("https://avatars.mds.yandex.net/get-ott/374297/2a00000169e82e09e27fbf1db1708110f2b6/1344x756");
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
+				display: flex;
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-bottom: 12px;
+				position: relative;
+
+				& .play_button {
+					--icon-color: #fff;
+					--icon-size: 36px;
+					 position: absolute;
+					 width: 36px;
+					 height: 36px;
+					 bottom: 0;
+					 right: 45%;
+					 top: 45%;
+				}
+
+				& .description {
+					width: 100%;
+					margin-top: auto;
+
+					& .name_film {
+						font-weight: var(--font-weight-semibold);
+						letter-spacing: 1px;
+					}
+
+					& .film_year {
+						display: block;
+						letter-spacing: 1px;
+					}
+
+					& .rewind_bar {
+						width: 100%;
+						margin-top: 12px;
+						display: flex;
+						align-items: center;
+						flex-grow: 1;
+
+						& .time {
+							display: block;
+						}
+
+						& .rewind {
+							width: 100%;
+							background-color: #fff;
+							height: 4px;
+							margin-left: 8px;
+							margin-right: 8px;
+							border-radius: 2px;
+							flex-grow: 1;
+						}
+
+						& .time_end {
+							margin-left: auto;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -144,6 +195,30 @@
 			margin-top: 30px;
 
 			& .popular_item {
+				flex-shrink: 0;
+				height: 280px;
+				width: 200px;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+		}
+	}
+
+	& .best_films {
+		overflow-x: clip;
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+		& .subtitle {}
+
+		& .best_films_list {
+			display: flex;
+			white-space: nowrap;
+			gap: 20px;
+			margin-top: 30px;
+
+			& .best_films_item {
 				flex-shrink: 0;
 				height: 280px;
 				width: 200px;
