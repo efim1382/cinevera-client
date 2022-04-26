@@ -34,8 +34,8 @@
   mask-image: url('./icons/vk.svg');
 }
 
-.icon[data-icon="notifications"] {
-  mask-image: url('./icons/notifications.svg');
+.icon[data-icon="bell"] {
+  mask-image: url('./icons/bell.svg');
 }
 
 .icon[data-icon="visibility"] {
