@@ -41,18 +41,39 @@ const Home = () => {
 							</button>
 
 							<div className={style.description}>
-								<span className={style.name_film}>Zavod</span>
+								<p className={style.name_film}>Zavod</p>
 								<span className={style.film_year}>2018</span>
 
 								<div className= {style.rewind_bar}>
-									<span className={style.time}>42:31</span>
-									<div className={style.rewind} />
-									<span className={style.time_end}>1:32:04</span>
+									<p className={style.time}>42:31</p>
+
+									<div className={style.rewind}>
+										<div className={style.controler}></div>
+									</div>
+									<p className={style.time_end}>1:32:04</p>
 								</div>
 							</div>
 						</div>
 
-						<div className={style.continue_items}></div>
+						<div className={style.continue_items}>
+							<button className={style.play_button}>
+								<Icon name="play" />
+							</button>
+
+							<div className={style.description}>
+								<p className={style.name_film}>Zavod</p>
+								<span className={style.film_year}>2018</span>
+
+								<div className= {style.rewind_bar}>
+									<p className={style.time}>42:31</p>
+
+									<div className={style.rewind}>
+										<div className={style.controler}></div>
+									</div>
+									<p className={style.time_end}>1:32:04</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
