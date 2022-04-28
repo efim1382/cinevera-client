@@ -40,7 +40,7 @@ const BasicButton = (props) => {
 
 BasicButton.defaultProps = {
 	appearance: "fill",
-	theme: "primary",
+	theme: "accent",
 	type: "button",
 	className: "",
 	onClick: new Function,
@@ -56,7 +56,7 @@ BasicButton.propTypes = {
 	isDisabled: PropTypes.bool,
 	text: PropTypes.string,
 	appearance: PropTypes.oneOf(["fill", "outline"]),
-	theme: PropTypes.oneOf(["primary", "contrast"]),
+	theme: PropTypes.oneOf(["primary", "accent"]),
 };
 
 export default BasicButton;

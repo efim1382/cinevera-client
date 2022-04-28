@@ -48,8 +48,9 @@ const Home = () => {
 									<p className={style.time}>42:31</p>
 
 									<div className={style.rewind}>
-										<div className={style.controler}></div>
+										<div className={style.controler} />
 									</div>
+
 									<p className={style.time_end}>1:32:04</p>
 								</div>
 							</div>
@@ -68,8 +69,9 @@ const Home = () => {
 									<p className={style.time}>42:31</p>
 
 									<div className={style.rewind}>
-										<div className={style.controler}></div>
+										<div className={style.controler} />
 									</div>
+
 									<p className={style.time_end}>1:32:04</p>
 								</div>
 							</div>

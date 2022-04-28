@@ -29,11 +29,9 @@ Primary.args = {
 	theme: "primary",
 };
 
-export const Contrast = Template.bind({});
+export const Accent = Template.bind({});
 
-Contrast.parameters = {
-	backgrounds: { default: "dark" },
-
+Accent.parameters = {
 	controls: {
 		include: [
 			"text",
@@ -44,10 +42,10 @@ Contrast.parameters = {
 	},
 };
 
-Contrast.args = {
+Accent.args = {
 	text: "Submit",
 	appearance: "fill",
 	isLoading: false,
 	isDisabled: false,
-	theme: "contrast",
+	theme: "accent",
 };

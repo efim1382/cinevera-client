@@ -9,7 +9,7 @@ const cx = classnames.bind(style);
 
 const changingOpacityClassFromTop = 50;
 
-const changeHeaderOpacity = (event) => {
+const changeHeaderOpacity = () => {
 	const headerElement = document.getElementById("header");
 
 	if (!headerElement) {
@@ -18,11 +18,11 @@ const changeHeaderOpacity = (event) => {
 
 	const isOpacityClassContains = headerElement.classList.contains("_is-filled");
 
-	if (event.target.scrollTop >= changingOpacityClassFromTop && !isOpacityClassContains) {
+	if (window.scrollY >= changingOpacityClassFromTop && !isOpacityClassContains) {
 		headerElement.classList.add("_is-filled");
 	}
 
-	if (event.target.scrollTop < changingOpacityClassFromTop && isOpacityClassContains) {
+	if (window.scrollY < changingOpacityClassFromTop && isOpacityClassContains) {
 		headerElement.classList.remove("_is-filled");
 	}
 };
@@ -35,10 +35,10 @@ const Header = ({ isTransparent, className }) => {
 	};
 
 	useEffect(() => {
-		document.body.addEventListener("scroll", onScroll, true);
+		document.addEventListener("scroll", onScroll, true);
 
 		return () => {
-			window.removeEventListener("scroll", onScroll);
+			document.removeEventListener("scroll", onScroll);
 		};
 	}, []);
 

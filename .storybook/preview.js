@@ -5,11 +5,11 @@ import "../src/style.css";
 
 export const parameters = {
 	backgrounds: {
-		default: 'light',
+		default: 'dark',
 
 		values: [
 			{ name: 'light', value: '#fff' },
-			{ name: 'dark', value: '#11a3f5' },
+			{ name: 'dark', value: '#121212' },
 		],
 	},
 

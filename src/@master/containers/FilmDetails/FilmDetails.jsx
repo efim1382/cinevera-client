@@ -9,14 +9,14 @@ const backgroundOpacityTo = 0.9;
 const backgroundOpacityRange = backgroundOpacityFrom - backgroundOpacityTo;
 const fullOpacityFrom = 400;
 
-const changeBackgroundOpacity = (event) => {
+const changeBackgroundOpacity = () => {
 	const pageElement = document.getElementById("film-details");
 
 	if (!pageElement) {
 		return;
 	}
 
-	let percentScroll = event.target.scrollTop / fullOpacityFrom * 100;
+	let percentScroll = window.scrollY / fullOpacityFrom * 100;
 
 	if (percentScroll > 100) {
 		percentScroll = 100;
@@ -35,10 +35,10 @@ const FilmDetails = () => {
 	};
 
 	useEffect(() => {
-		document.body.addEventListener("scroll", onScroll, true);
+		document.addEventListener("scroll", onScroll, true);
 
 		return () => {
-			window.removeEventListener("scroll", onScroll);
+			document.removeEventListener("scroll", onScroll);
 		};
 	}, []);
 
