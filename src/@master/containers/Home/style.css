@@ -108,7 +108,7 @@
 
 	& .continue {
 
-		& .continue_list{
+		& .continue_list {
 			margin-top: 30px;
 			display: flex;
 			gap: 20px;
@@ -233,6 +233,88 @@
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
+			}
+		}
+	}
+
+	& .premiere {
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+		& .premiere_block {
+			background-image: url("https://preview.redd.it/ic9y69r9xvf51.jpg?auto=webp&s=a6de94d1a9aa9b3649d0f1b0a2421b47aa23c68d");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			margin-top: 30px;
+			padding: 50px;
+
+			& .description {
+
+
+				& .title {
+					text-transform: uppercase;
+					font-weight: var(--font-weight-medium);
+				}
+
+				& .information {
+					margin-top: 50px;
+					font-size: 14px;
+
+					& .duration {
+
+					}
+
+					& .genre {
+						margin-left: 20px;
+					}
+
+					& .film_year {
+						margin-left: 20px;
+					}
+				}
+
+				& .name_film {
+					font-size: 50px;
+					font-weight: var(--font-weight-bold);
+				}
+
+				& .info {
+					margin-top: 16px;
+					width:400px;
+				}
+
+			}
+
+			& .button_info {
+				--icon-color: #fff;
+				--icon-size: 24px;
+				display: flex;
+				align-items: center;
+				margin-top: 20px;
+				color: #fff;
+				font-size: 16px;
+				font-weight: var(--font-weight-medium);
+
+				& i {
+					margin-left: 12px;
+				}
+			}
+
+			& .play_watch_button {
+				--icon-color: #fff;
+				--icon-size: 36px;
+				margin-top: 50px;
+				display: flex;
+				align-items: center;
+				text-transform: uppercase;
+				font-size: 14px;
+				color: #fff;
+				font-weight: var(--font-weight-semibold);
+
+				& .button_text {
+					margin-left: 16px;
+				}
 			}
 		}
 	}

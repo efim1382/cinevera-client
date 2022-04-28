@@ -109,6 +109,73 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
+
+			<section className={style.premiere}>
+				<div className="container">
+					<h2 className={style.subtitle}>Premiere</h2>
+					<div className={style.premiere_block}>
+						<div className={style.description}>
+							<p className={style.title}>Featured Movies</p>
+
+							<div className={style.information}>
+								<span className={style.duration}>108 min</span>
+								<span className={style.genre}>Comedy</span>
+								<span className={style.film_year}>2016</span>
+							</div>
+							<p className={style.name_film}>Deadpool</p>
+
+							<p className={style.info}>
+								A former Special Forces operative
+								turned mercenary is subjected
+								to arogue experiment that leaves
+								him with accelerated healing powers,
+								adotping the alter ego Deadpool.
+							</p>
+						</div>
+
+						<button className={style.button_info}>More info
+							<Icon name="east" />
+						</button>
+
+						<button className={style.play_watch_button}>
+							<Icon name="play" />
+							<span className={style.button_text}>Watch now</span>
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<section className={style.popular}>
+				<div className="container">
+					<h2 className={style.subtitle}>Popular Now</h2>
+
+					<div className={style.popular_list}>
+						{popularItems.map((item) => (
+							<div
+								key={item._id}
+								className={style.popular_item}
+								style={{ backgroundImage: item.image }}
+							/>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section className={style.best_films}>
+				<div className="container">
+					<h2 className={style.subtitle}>Best of 2021</h2>
+
+					<div className={style.best_films_list}>
+						{continueItems.map((item) => (
+							<div
+								key={item._id}
+								className={style.best_films_item}
+								style={{ backgroundImage: item.image }}
+							/>
+						))}
+					</div>
+				</div>
+			</section>
 		</div>
 	);
 };
