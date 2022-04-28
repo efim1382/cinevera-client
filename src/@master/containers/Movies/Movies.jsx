@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "@master/containers/FilmDetails/Header";
 import Icon from "components/Icon";
 import { continueItems, popularItems } from "../Home/Home";
 import style from "./style.css";
@@ -9,8 +8,6 @@ const images = [...continueItems, ...popularItems, ...continueItems, ...popularI
 const Movies = () => {
 	return (
 		<div className={style.movies}>
-			<Header />
-
 			<div className={style.main_block}>
 				<div className="container">
 					<h1 className={style.title}>Movies</h1>

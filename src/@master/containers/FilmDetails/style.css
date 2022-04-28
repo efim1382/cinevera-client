@@ -1,42 +1,21 @@
 .film_details {
-	/* --film-background-color: 89, 178, 190; */
-	--film-background-color-default: 0, 0, 0;
 	position: relative;
-	padding-bottom: 40px;
+	margin-top: calc(var(--header-height) * -1);
+	padding-top: var(--header-height);
+	background-image: url("./images/law-abiding-citizen.jpeg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 
 	&:before {
 		content: "";
-		z-index: -1;
 		position: fixed;
-		left: 0;
 		top: 0;
+		left: 0;
 		right: 0;
 		bottom: 0;
-		background-image: url("./images/law-abiding-citizen.jpeg");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center;
-	}
-
-	&:after {
-		content: "";
-		z-index: -1;
-		position: fixed;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		background-color: rgba(var(--film-background-color, var(--film-background-color-default)), var(--background-opacity, 0.4));
-	}
-
-	& .shadow {
-		z-index: -1;
-		position: fixed;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		background: linear-gradient(0deg, rgba(var(--film-background-color, var(--film-background-color-default)), 0.9) 0%, rgba(var(--film-background-color, var(--film-background-color-default)), 0.9) 10%, rgba(var(--film-background-color, var(--film-background-color-default)), 0) 50%);
+		background-color: rgba(0, 0, 0, var(--background-opacity, 0.4));
 	}
 
 	& .subtitle {
@@ -45,25 +24,12 @@
 		font-weight: var(--font-weight-bold);
 	}
 
-	/* todo: replace under */
-	& .content {
-		height: 2000px;
+	& > * {
 		position: relative;
-		padding-top: 150px;
-
-		&:before {
-			content: "";
-			z-index: -1;
-			position: fixed;
-			left: 0;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			background: linear-gradient(0deg, rgba(var(--film-background-color, var(--film-background-color-default)), 0.9) 0%, rgba(var(--film-background-color, var(--film-background-color-default)), 0.9) 10%, rgba(var(--film-background-color, var(--film-background-color-default)), 0) 50%);
-		}
 	}
 
 	& .description {
+		padding-top: 100px;
 
 		& :global(.container) {
 			display: flex;
@@ -108,14 +74,7 @@
 			}
 
 			& .play_button {
-				height: 70px;
 				margin-top: 40px;
-				padding-left: 40px;
-				padding-right: 40px;
-				background-color: var(--accent-color);
-				font-weight: 500;
-				color: #fff;
-				font-size: 20px;
 			}
 		}
 	}

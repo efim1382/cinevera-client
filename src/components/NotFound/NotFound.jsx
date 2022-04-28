@@ -14,7 +14,7 @@ const NotFound = () => {
 
 					<NavLink to="/" className={style.link}>
 						<BasicButton
-							theme="contrast"
+							theme="primary"
 							text="Go Home"
 						/>
 					</NavLink>

@@ -1,14 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import Header from "@master/containers/FilmDetails/Header";
+import Button from "components/BasicButton";
 import style from "./style.css";
 import Icon from "components/Icon";
 
 const Home = () => {
 	return (
 		<div className={style.home}>
-			<Header isTransparent />
-
 			<section className={style.main_block}>
 				<div className="container">
 					<h1 className={style.title}>The Queen's<br />Gambit</h1>
@@ -24,8 +21,17 @@ const Home = () => {
 					</p>
 
 					<div className={style.actions}>
-						<NavLink to="/film/" className={style.watch}>Watch</NavLink>
-						<button className={style.trailer}>Play Trailer</button>
+						<Button
+							text="Watch"
+							className={style.button}
+						/>
+
+						<Button
+							theme="primary"
+							appearance="outline"
+							text="Play Trailer"
+							className={style.button}
+						/>
 					</div>
 				</div>
 			</section>
