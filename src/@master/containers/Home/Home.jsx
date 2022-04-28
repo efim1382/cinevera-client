@@ -7,7 +7,7 @@ import Icon from "components/Icon";
 const Home = () => {
 	return (
 		<div className={style.home}>
-			<Header />
+			<Header isTransparent />
 
 			<section className={style.main_block}>
 				<div className="container">

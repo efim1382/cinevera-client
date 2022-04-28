@@ -32,90 +32,74 @@ const Forgot = () => {
 	};
 
 	return (
-		<Fragment>
+		<main className={style.auth}>
 			<header className={style.header}>
-				<NavLink to="/" className={style.logo}>
-					<h1>Cinevera</h1>
-				</NavLink>
+				<p className={style.logo}>cinevera</p>
 			</header>
 
-			<main className={style.auth}>
-				<div className={style.background}>
-					<h2>Welcome to <span>SearchTabs</span></h2>
+			<div className={style.section}>
+				{!isSuccessMessageShown && (
+					<Fragment>
+						<h2 className={style.title}>Reset password</h2>
 
-					<p className={style.text_description}>
-						Please, enter your personal details
-						<br />
-						and start working with us
-					</p>
+						<p className={style.another_text}>
+							Enter the email associated with your account
+							<br />
+							and we'll send an email with instructions to reset your password
+						</p>
 
-					<NavLink to="/auth/sign-in/" className={style.link}>
-						<BasicButton
-							appearance="outline"
-							theme="contrast"
-							text="Sign In"
-						/>
-					</NavLink>
-				</div>
-
-				<div className={style.section}>
-					{!isSuccessMessageShown && (
-						<Fragment>
-							<h2 className={style.subtitle}>Reset password</h2>
-
-							<p className={style.another_text}>
-								Enter the email associated with your account
-								<br />
-								and we'll send an email with instructions to reset your password
-							</p>
-
-							<Form
-								className={style.form}
-								onSubmit={onSubmit}
-								validations={validations}
-							>
-								<Input name="email">
-									<TextField
-										type="email"
-										label="Email"
-										placeholder="someemail@gmail.com"
-										icon="email"
-										className={style.input}
-									/>
-								</Input>
-
-								<BasicButton
-									type="submit"
-									text="Continue"
-									isLoading={isFetching}
-									className={style.submit}
+						<Form
+							className={style.form}
+							onSubmit={onSubmit}
+							validations={validations}
+						>
+							<Input name="email">
+								<TextField
+									type="email"
+									label="Email"
+									placeholder="someemail@gmail.com"
+									icon="email"
+									className={style.input}
 								/>
-							</Form>
-						</Fragment>
-					)}
+							</Input>
 
-					{isSuccessMessageShown && (
-						<Fragment>
-							<h2 className={style.subtitle}>Check your email</h2>
+							<BasicButton
+								type="submit"
+								text="Continue"
+								isLoading={isFetching}
+								className={style.submit}
+							/>
+						</Form>
 
-							<p className={style.another_text}>
-								We have sent a password recover instructions to your email
-							</p>
+						<p className={style.auth_link}>
+							Сhanged your mind?
+							{" "}
+							<NavLink to="/auth/sign-in/">Back to sign in</NavLink>
+						</p>
+					</Fragment>
+				)}
 
-							<NavLink to="/auth/sign-in/" className={style.signin_link}>
-								<BasicButton text="Back to Sign In" />
-							</NavLink>
+				{isSuccessMessageShown && (
+					<Fragment>
+						<h2 className={style.title}>Check your email</h2>
 
-							<p className={style.hint}>
-								Did not receive the email? Check your spam filter
-								<br />
-								or <button onClick={openResetPasswordState}>try another email address</button>
-							</p>
-						</Fragment>
-					)}
-				</div>
-			</main>
-		</Fragment>
+						<p className={style.another_text}>
+							We have sent a password recover instructions to your email
+						</p>
+
+						<NavLink to="/auth/sign-in/" className={style.signin_link}>
+							<BasicButton text="Back to Sign In" />
+						</NavLink>
+
+						<p className={style.auth_link}>
+							Did not receive the email? Check your spam filter or
+							{" "}
+							<button onClick={openResetPasswordState}>try another email address</button>
+						</p>
+					</Fragment>
+				)}
+			</div>
+		</main>
 	);
 };
 

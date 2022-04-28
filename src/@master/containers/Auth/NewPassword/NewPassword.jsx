@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Form from "components/Form/Form";
 import Input from "components/Form/Input";
@@ -30,66 +30,52 @@ const NewPassword = () => {
 	};
 
 	return (
-		<Fragment>
+		<main className={style.auth}>
 			<header className={style.header}>
-				<NavLink to="/" className={style.logo}>
-					<h1>Cinevera</h1>
-				</NavLink>
+				<p className={style.logo}>cinevera</p>
 			</header>
 
-			<main className={style.auth}>
-				<div className={style.background}>
-					<h2>Welcome to <span>SearchTabs</span></h2>
+			<div className={style.section}>
+				<h2 className={style.title}>Create new password</h2>
 
-					<p className={style.text_description}>
-						Please, enter your personal details
-						<br />
-						and start working with us
-					</p>
+				<p className={style.another_text}>
+					Your new password must be different
+					from previous used passwords.
+				</p>
 
-					<NavLink to="/auth/sign-in/" className={style.link}>
-						<BasicButton
-							appearance="outline"
-							theme="contrast"
-							text="Sign In"
+				<Form
+					className={style.form}
+					onSubmit={onSubmit}
+					validations={validations}
+				>
+					<Input name="password">
+						<TextField
+							type="password"
+							label="Password"
+							placeholder="********"
+							icon="lock"
+							className={style.input}
 						/>
-					</NavLink>
-				</div>
+					</Input>
 
-				<div className={style.section}>
-					<h2 className={style.subtitle}>Create new password</h2>
+					<BasicButton
+						type="submit"
+						text="Reset Password"
+						isLoading={isFetching}
+						className={style.submit}
+					/>
+				</Form>
+			</div>
 
-					<p className={style.another_text}>
-						Your new password must be different
-						<br />
-						from previous used passwords.
-					</p>
+			<p className={style.auth_link}>
+				Have no account?
+				{" "}
 
-					<Form
-						className={style.form}
-						onSubmit={onSubmit}
-						validations={validations}
-					>
-						<Input name="password">
-							<TextField
-								type="password"
-								label="Password"
-								placeholder="********"
-								icon="lock"
-								className={style.input}
-							/>
-						</Input>
-
-						<BasicButton
-							type="submit"
-							text="Reset Password"
-							isLoading={isFetching}
-							className={style.submit}
-						/>
-					</Form>
-				</div>
-			</main>
-		</Fragment>
+				<NavLink to="/auth/sign-up/">
+					Sign up now
+				</NavLink>
+			</p>
+		</main>
 	);
 };
 
