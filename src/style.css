@@ -41,8 +41,6 @@ html {
 	font-size: 15px;
 	font-family: var(--font-family-regular), sans-serif;
 	font-weight: var(--font-weight-regular);
-	background-color: var(--root-background-color);
-	color: var(--text-color);
 }
 
 body {
@@ -50,6 +48,8 @@ body {
 	perspective: 5px;
 	transform-style: preserve-3d;
 	scroll-behavior: smooth;
+	background-color: #202127;
+	color: #fff;
 }
 
 :global(#app) {

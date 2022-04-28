@@ -7,7 +7,7 @@ import style from "./style.css";
 
 const cx = classnames.bind(style);
 
-const changingOpacityClassFromTop = 250;
+const changingOpacityClassFromTop = 50;
 
 const changeHeaderOpacity = (event) => {
 	const headerElement = document.getElementById("header");
@@ -39,9 +39,26 @@ const Header = ({ className }) => {
 		<header id="header" className={cx("header", className)}>
 			<div className="container">
 				<nav className={style.navigation}>
-					<NavLink to="/" className={style.link}>Home</NavLink>
-					<NavLink to="/" className={style.link}>TV Shows</NavLink>
-					<NavLink to="/" className={style.link}>Movies</NavLink>
+					<NavLink
+						to="/"
+						className={style.link}
+					>
+						Home
+					</NavLink>
+
+					<NavLink
+						to="/movies"
+						className={style.link}
+					>
+						Movies
+					</NavLink>
+
+					<NavLink
+						to="/series"
+						className={style.link}
+					>
+						TV Shows
+					</NavLink>
 				</nav>
 
 				<NavLink to="/" className={style.logo}>cinevera</NavLink>
