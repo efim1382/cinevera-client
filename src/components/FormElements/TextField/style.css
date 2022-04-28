@@ -1,12 +1,11 @@
 .input_container {
-		--icon-size: 20px;
+		--icon-size: 16px;
 		--input-section-padding: 10px;
 		position: relative;
 		padding-top: calc(var(--icon-size) / 2);
 
 	&:not(._is-active) {
-		--label-font-size: 15px;
-		--label-font-weight: var(--font-weight-semibold);
+		--label-font-size: 14px;
 
 		&:not(._is-icon) {
 			--label-transform: translate(0, calc((var(--default-input-height) - var(--icon-size)) / 2));
@@ -19,21 +18,20 @@
 
 	&._is-active {
 		--label-transform: translate(0, calc((var(--icon-size) / 2) * -1));
-		--label-font-size: 13px;
-		--label-font-weight: var(--font-weight-semibold);
+		--label-font-size: 12px;
 	}
 
 	&:not(._is-error) {
 		&:not(._is-active) {
 			--input-box-shadow-color: var(--divider-color);
-			--icon-color: var(--caption-color);
+			--icon-color: var(--divider-color);
 			--label-color: var(--caption-color);
 		}
 
 		&._is-active {
 			--input-box-shadow-color: var(--primary-color);
 			--icon-color: var(--primary-color);
-			--label-color: var(--primary-color);
+			--label-color: var(--caption-color);
 		}
 	}
 
@@ -52,7 +50,7 @@
 		display: flex;
 		align-items: center;
 		height: var(--default-input-height);
-		box-shadow: 0 -2px var(--input-box-shadow-color) inset;
+		box-shadow: 0 -1px var(--input-box-shadow-color) inset;
 		transition-property: box-shadow;
 
 		& > .label {
@@ -65,7 +63,6 @@
 			height: var(--icon-size);
 			line-height: var(--icon-size);
 			font-size: var(--label-font-size);
-			font-weight: var(--label-font-weight);
 			color: var(--label-color);
 			transform: var(--label-transform);
 			white-space: nowrap;
@@ -87,7 +84,7 @@
 			background-color: transparent;
 			border: none;
 			font-size: 15px;
-			color: #000;
+			color: var(--text-color);
 
 			&::placeholder {
 				color: var(--placeholder-color);
@@ -109,7 +106,7 @@
 
 		& > .visibility_pass {
 			--icon-size: 20px;
-			--icon-color: #000;
+			--icon-color: var(--caption-color);
 			flex-shrink: 0;
 			display: flex;
 			align-items: center;
@@ -129,7 +126,6 @@
 			line-height: 1.5;
 			font-size: 11px;
 			color: var(--error-color);
-			font-weight: var(--font-weight-semibold);
 		}
 	}
 }

@@ -11,19 +11,21 @@
 	--font-weight-extrabold: 800;
 	--font-weight-black: 900;
 
-	--text-color: #000;
-	--primary-color: #11a3f5;
-	--error-color: #de3c3c;
-	--caption-color: #a5a5a5;
-	--divider-color: #dcdcdc;
-	--link-color: #5e70ce;
-	--link-color-hover: #26399c;
+	--text-color: #f5eded;
+	--primary-color: #fff;
+	--accent-color: #b61423;
+	--accent-color-hover: #df2020;
+	--error-color: #f00;
+	--caption-color: #d3d3d4;
+	--divider-color: #414141;
+	--link-color: #ff6666;
+	--link-color-hover: #ff2626;
 
-	--root-background-color: #fff;
-	--root-background-hover-color: #f6f6f6;
+	--root-background-color: #121212;
+	--root-background-color-hover: #17171b;
 
 	--container-width: 1400px;
-	--header-height: 150px;
+	--header-height: 100px;
 	--layout-padding: 40px;
 	--default-input-height: 50px;
 }
@@ -48,8 +50,8 @@ body {
 	perspective: 5px;
 	transform-style: preserve-3d;
 	scroll-behavior: smooth;
-	background-color: #000;
-	color: #fff;
+	background-color: var(--root-background-color);
+	color: var(--text-color);
 }
 
 :global(#app) {
@@ -115,16 +117,6 @@ h3,
 pre,
 p {
 	margin: 0;
-}
-
-h1,
-h2,
-h3 {
-	font-weight: var(--font-weight-bold);
-}
-
-h2 {
-	font-size: 45px;
 }
 
 p {

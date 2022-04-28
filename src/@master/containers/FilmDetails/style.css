@@ -64,7 +64,7 @@
 	}
 
 	& .description {
-		
+
 		& :global(.container) {
 			display: flex;
 			flex-direction: column;
@@ -112,7 +112,7 @@
 				margin-top: 40px;
 				padding-left: 40px;
 				padding-right: 40px;
-				background-color: red;
+				background-color: var(--accent-color);
 				font-weight: 500;
 				color: #fff;
 				font-size: 20px;
@@ -239,7 +239,7 @@
 
 			& .subtitle {
 
-			} 
+			}
 
 			& .photos_container {
 				margin-top: 20px;
@@ -318,7 +318,7 @@
 	& .popular {
 		margin-top: 50px;
 
-		& :global(.container) { 
+		& :global(.container) {
 
 			& .popular_container {
 				margin-top: 20px;
@@ -331,9 +331,9 @@
 					background-image: url("./images/gerard-butler.jpeg");
 					background-size: cover;
 					background-repeat: no-repeat;
-					background-position: center;		
+					background-position: center;
 				}
 			}
-		}	
+		}
 	}
 }

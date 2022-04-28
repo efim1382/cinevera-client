@@ -85,9 +85,9 @@
 					line-height: var(--height);
 					font-size: 16px;
 					color: #fff;
-					background-color: #e50815;
+					background-color: var(--accent-color);
 					border-radius: 2px;
-					border: 1px solid #e50815;
+					border: 1px solid var(--accent-color);
 				}
 
 				& .trailer {
