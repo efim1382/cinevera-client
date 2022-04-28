@@ -11,6 +11,11 @@ const changingOpacityClassFromTop = 50;
 
 const changeHeaderOpacity = (event) => {
 	const headerElement = document.getElementById("header");
+
+	if (!headerElement) {
+		return;
+	}
+
 	const isOpacityClassContains = headerElement.classList.contains("_is-filled");
 
 	if (event.target.scrollTop >= changingOpacityClassFromTop && !isOpacityClassContains) {

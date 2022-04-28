@@ -11,6 +11,11 @@ const fullOpacityFrom = 400;
 
 const changeBackgroundOpacity = (event) => {
 	const pageElement = document.getElementById("film-details");
+
+	if (!pageElement) {
+		return;
+	}
+
 	let percentScroll = event.target.scrollTop / fullOpacityFrom * 100;
 
 	if (percentScroll > 100) {
