@@ -1,11 +1,11 @@
 import React from "react";
 import Icon from "components/Icon";
-import { continueItems, popularItems } from "../Home/Home";
+import { continueItems, popularItems } from "../../Home/Home";
 import style from "./style.css";
 
 const images = [...continueItems, ...popularItems, ...continueItems, ...popularItems].map((item) => item.image);
 
-const Movies = () => {
+const MoviesList = () => {
 	return (
 		<div className={style.movies}>
 			<div className={style.main_block}>
@@ -55,4 +55,4 @@ const Movies = () => {
 	);
 };
 
-export default Movies;
+export default MoviesList;
