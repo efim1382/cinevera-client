@@ -2,6 +2,7 @@ import React from "react";
 import Button from "components/BasicButton";
 import style from "./style.css";
 import Icon from "components/Icon";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
 	return (
@@ -21,10 +22,9 @@ const Home = () => {
 					</p>
 
 					<div className={style.actions}>
-						<Button
-							text="Watch"
-							className={style.button}
-						/>
+						<NavLink to="/movies/details/queens-gambit/">
+							<Button text="Watch" />
+						</NavLink>
 
 						<Button
 							theme="primary"

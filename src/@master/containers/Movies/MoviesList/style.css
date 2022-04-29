@@ -1,6 +1,4 @@
 .movies {
-	--film-background-color: 0, 0, 0;
-
 	& .main_block {
 		padding-top: 80px;
 		overflow-x: clip;
