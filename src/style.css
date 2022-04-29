@@ -27,7 +27,7 @@
 	--link-color-hover: #ff2626;
 
 	--root-background-color: #121212;
-	--root-background-color-hover: #17171b;
+	--root-background-color-hover: #000000;
 
 	--container-width: 1400px;
 	--header-height: 100px;
@@ -103,6 +103,24 @@ h3,
 pre,
 p {
 	margin: 0;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: var(--font-weight-bold);
+}
+
+h1 {
+	font-size: 80px;
+}
+
+h2 {
+	font-size: 50px;
+}
+
+h3 {
+	font-size: 28px;
 }
 
 p {

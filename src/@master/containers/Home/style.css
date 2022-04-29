@@ -34,9 +34,6 @@
 			position: relative;
 
 			& .title {
-				color: #fff;
-				font-size: 64px;
-				font-weight: var(--font-weight-bold);
 			}
 
 			& .description {

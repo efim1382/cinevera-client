@@ -38,7 +38,7 @@ const Home = () => {
 
 			<section className={style.continue}>
 				<div className="container">
-					<h2 className={style.subtitle}>Continue Watching</h2>
+					<h3>Continue Watching</h3>
 
 					<div className={style.continue_list}>
 						<div className={style.continue_items}>
@@ -88,7 +88,7 @@ const Home = () => {
 
 			<section className={style.popular}>
 				<div className="container">
-					<h2 className={style.subtitle}>Popular Now</h2>
+					<h3>Popular Now</h3>
 
 					<div className={style.popular_list}>
 						{popularItems.map((item) => (
@@ -104,7 +104,7 @@ const Home = () => {
 
 			<section className={style.best_films}>
 				<div className="container">
-					<h2 className={style.subtitle}>Best of 2021</h2>
+					<h3>Best of 2021</h3>
 
 					<div className={style.best_films_list}>
 						{continueItems.map((item) => (
@@ -120,7 +120,7 @@ const Home = () => {
 
 			<section className={style.premiere}>
 				<div className="container">
-					<h2 className={style.subtitle}>Premiere</h2>
+					<h3>Premiere</h3>
 					<div className={style.premiere_block}>
 						<div className={style.description}>
 							<p className={style.title}>Featured Movies</p>
@@ -155,7 +155,7 @@ const Home = () => {
 
 			<section className={style.popular}>
 				<div className="container">
-					<h2 className={style.subtitle}>Popular Now</h2>
+					<h3>Popular Now</h3>
 
 					<div className={style.popular_list}>
 						{popularItems.map((item) => (
@@ -171,7 +171,7 @@ const Home = () => {
 
 			<section className={style.best_films}>
 				<div className="container">
-					<h2 className={style.subtitle}>Best of 2021</h2>
+					<h3>Best of 2021</h3>
 
 					<div className={style.best_films_list}>
 						{continueItems.map((item) => (

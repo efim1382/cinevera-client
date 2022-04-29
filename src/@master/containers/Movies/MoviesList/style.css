@@ -7,9 +7,6 @@
 
 		& :global(.container) {
 			& .title {
-				font-size: 50px;
-				color: #fff;
-				font-weight: var(--font-weight-bold);
 			}
 
 			& .categories {
@@ -27,7 +24,7 @@
 					padding-right: 40px;
 					color: #fff;
 					border-radius: calc(var(--height) / 2);
-					background-color: #101010;
+					background-color: var(--root-background-color-hover);
 
 					&:first-of-type {
 						background-color: #e50815;

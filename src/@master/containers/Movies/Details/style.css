@@ -38,9 +38,6 @@
 			justify-content: center;
 
 			& .title {
-				font-size: 100px;
-				color: #fff;
-				line-height: 1.1;
 				text-shadow: 2px 1px #000;
 			}
 
