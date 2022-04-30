@@ -179,7 +179,7 @@
 				&:before {
 					content: "";
 					display: block;
-					padding-top: 130%;
+					padding-top: 150%;
 				}
 			}
 		}
@@ -208,7 +208,7 @@
 				&:before {
 					content: "";
 					display: block;
-					padding-top: 130%;
+					padding-top: 150%;
 				}
 			}
 		}

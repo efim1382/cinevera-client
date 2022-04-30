@@ -1,4 +1,6 @@
 .movies {
+	padding-bottom: var(--layout-padding);
+
 	& .main_block {
 		padding-top: 80px;
 		overflow-x: clip;
@@ -111,7 +113,7 @@
 				&:before {
 					content: "";
 					display: block;
-					padding-top: 130%;
+					padding-top: 150%;
 				}
 			}
 		}
