@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useParams } from "react-router-dom";
 import Button from "components/BasicButton";
 import Icon from "components/Icon";
+import { getMovie } from "api/movies.api";
 import style from "./style.css";
 
 const backgroundOpacityFrom = 0.4;
@@ -30,11 +31,18 @@ const changeBackgroundOpacity = () => {
 };
 
 const FilmDetails = () => {
+	const { id } = useParams();
+	const [movie, setMovie] = useState(null);
+
 	const onScroll = (event) => {
 		changeBackgroundOpacity(event);
 	};
 
 	useEffect(() => {
+		getMovie(id).then(({ movie }) => {
+			setMovie(movie);
+		});
+
 		document.addEventListener("scroll", onScroll, true);
 
 		return () => {
@@ -42,11 +50,17 @@ const FilmDetails = () => {
 		};
 	}, []);
 
+	if (!movie) {
+		return null;
+	}
+
+	const rootInline = { backgroundImage: `url(${movie.poster})` };
+
 	return (
-		<div id="film-details" className={style.film_details}>
+		<div id="film-details" className={style.film_details} style={rootInline}>
 			<section className={style.description}>
 				<div className="container">
-					<h1 className={style.title}>law Abiding<br />Citizen</h1>
+					<h1 className={style.title}>{movie.name}</h1>
 
 					<div className={style.additional_information}>
 						<span className={style.match}>98% Match</span>

@@ -38,6 +38,7 @@
 			justify-content: center;
 
 			& .title {
+				max-width: 50%;
 				text-shadow: 2px 1px #000;
 			}
 

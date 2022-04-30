@@ -54,14 +54,14 @@ const Header = ({ isTransparent, className }) => {
 					</NavLink>
 
 					<NavLink
-						to="/movies"
+						to="/movies/"
 						className={style.link}
 					>
 						Movies
 					</NavLink>
 
 					<NavLink
-						to="/series"
+						to="/series/"
 						className={style.link}
 					>
 						TV Shows

@@ -11,13 +11,11 @@ const container = document.getElementById("app");
 const root = createRoot(container);
 
 root.render(
-	<React.StrictMode>
-		<Provider store={store}>
-			<BrowserRouter>
-				<Router />
-			</BrowserRouter>
-		</Provider>
-	</React.StrictMode>,
+	<Provider store={store}>
+		<BrowserRouter>
+			<Router />
+		</BrowserRouter>
+	</Provider>,
 );
 
 window.onload = () => {

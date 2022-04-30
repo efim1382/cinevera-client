@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import Icon from "components/Icon";
-import { continueItems, popularItems } from "../../Home/Home";
+import { getMoviesList } from "api/movies.api";
 import style from "./style.css";
 
-const images = [...continueItems, ...popularItems, ...continueItems, ...popularItems].map((item) => item.image);
-
 const MoviesList = () => {
+	const [movies, setMovies] = useState([]);
+
+	useEffect(() => {
+		getMoviesList()
+			.then(({ movies }) => {
+				setMovies(movies);
+			});
+	}, []);
+
 	return (
 		<div className={style.movies}>
 			<div className={style.main_block}>
@@ -46,9 +54,20 @@ const MoviesList = () => {
 
 			<section className={style.movies_list}>
 				<div className="container">
-					{images.map((item, index) => (
-						<div key={index} className={style.movie} style={{ backgroundImage: item }} />
-					))}
+					{movies.map((item) => {
+						const inline = {
+							backgroundImage: `url(${item.preview})`,
+						};
+
+						return (
+							<NavLink
+								to={`/movies/details/${item._id}`}
+								key={item._id}
+								className={style.movie}
+								style={inline}
+							/>
+						);
+					})}
 				</div>
 			</section>
 		</div>
