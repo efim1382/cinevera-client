@@ -36,6 +36,14 @@
 	--header-height: 100px;
 	--layout-padding: 40px;
 	--default-input-height: 50px;
+
+	@media (--viewport-tablet) {
+		--layout-padding: 30px;
+	}
+
+	@media (--viewport-phone) {
+		--layout-padding: 20px;
+	}
 }
 
 *,
@@ -122,7 +130,7 @@ h1 {
 	}
 
 	@media (--viewport-phone) {
-		font-size: 48px;
+		font-size: 50px;
 	}
 }
 

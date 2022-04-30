@@ -32,7 +32,11 @@
 
 		@media (--viewport-tablet) {
 			height: 100vh;
-			padding-bottom: 0;
+		}
+
+		@media (--viewport-phone) {
+			padding-top: calc(var(--header-height) + var(--layout-padding));
+			padding-bottom: var(--layout-padding);
 		}
 
 		& :global(.container) {
@@ -43,9 +47,15 @@
 			height: 100%;
 
 			& .title {
+				max-width: 50%;
+
+				@media (--viewport-desktop-small) {
+					max-width: 70%;
+				}
 			}
 
 			& .description {
+				max-width: 400px;
 				margin-top: 20px;
 				color: #fff;
 				font-size: 18px;

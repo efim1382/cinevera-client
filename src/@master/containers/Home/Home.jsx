@@ -18,11 +18,8 @@ const Home = () => {
 
 					<p className={style.description}>
 						Orphaned at the tender age of nine,
-						<br />
 						prodigious introvert Beth Harmon discovers
-						<br />
 						and masters the game of chess in 1960s USA.
-						<br />
 						But child stardom comes at a price.
 					</p>
 
