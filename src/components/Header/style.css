@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	height: var(--header-height);
-	position: sticky;
+	position: fixed;
 	z-index: 2;
 	top: 0;
 	left: 0;

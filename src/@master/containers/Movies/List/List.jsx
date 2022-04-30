@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Icon from "components/Icon";
 import MovieCard from "components/MovieCard";
-import MoviesList from "components/MoviesList";
 import { getMoviesList } from "api/movies.api";
 import style from "./style.css";
 
@@ -53,18 +52,20 @@ const MoviesListContainer = () => {
 				</div>
 			</div>
 
-			<MoviesList className={style.list}>
-				{movies.map((item) => {
-					return (
-						<MovieCard
-							key={item._id}
-							link={`/movies/details/${item._id}`}
-							image={item.preview}
-							className={style.movie}
-						/>
-					);
-				})}
-			</MoviesList>
+			<div className={style.list}>
+				<div className="container">
+					{movies.map((item) => {
+						return (
+							<MovieCard
+								key={item._id}
+								link={`/movies/details/${item._id}`}
+								image={item.preview}
+								className={style.movie}
+							/>
+						);
+					})}
+				</div>
+			</div>
 		</div>
 	);
 };

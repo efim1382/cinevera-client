@@ -48,9 +48,11 @@ html {
 }
 
 body {
-	-webkit-font-smoothing: antialiased;
-	overflow-x: hidden;
 	height: 100%;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
 	margin: 0;
 	perspective: 5px;
 	transform-style: preserve-3d;
@@ -63,19 +65,10 @@ body {
 }
 
 :global(#app) {
-}
-
-:global(#app) + :global(.portal-root) {
-	position: fixed;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	pointer-events: none;
-}
-
-:global(#app) + :global(.portal-root) > * {
-	pointer-events: auto;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 a {
@@ -87,7 +80,7 @@ a:focus {
 }
 
 ::selection {
-	color: #fff;
+	color: var(--root-background-color);
 	background-color: var(--primary-color);
 }
 

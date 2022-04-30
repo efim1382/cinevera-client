@@ -17,4 +17,5 @@ SwiperComponent.propTypes = {
 };
 
 export default SwiperComponent;
+
 export { SwiperSlide };
