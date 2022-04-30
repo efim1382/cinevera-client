@@ -167,7 +167,6 @@
 			--gap: 30px;
 			--columns: 5;
 			display: flex;
-			flex-wrap: wrap;
 			gap: var(--gap);
 			margin-top: 30px;
 
@@ -197,7 +196,6 @@
 			--gap: 30px;
 			--columns: 5;
 			display: flex;
-			flex-wrap: wrap;
 			gap: var(--gap);
 			margin-top: 30px;
 
