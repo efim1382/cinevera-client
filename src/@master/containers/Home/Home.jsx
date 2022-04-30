@@ -4,35 +4,9 @@ import Button from "components/BasicButton";
 import Icon from "components/Icon";
 import MovieCard from "components/MovieCard";
 import Swiper, { SwiperSlide } from "components/Swiper";
+import { moviesSliderBreakpoints } from "config/adaptability";
 
 import style from "./style.css";
-
-const moviesSliderBreakpoints = {
-	0: {
-		slidesPerView: 1,
-		spaceBetween: 20,
-	},
-
-	480: {
-		slidesPerView: 2,
-		spaceBetween: 20,
-	},
-
-	768: {
-		slidesPerView: 3,
-		spaceBetween: 30,
-	},
-
-	1024: {
-		slidesPerView: 4,
-		spaceBetween: 30,
-	},
-
-	1280: {
-		slidesPerView: 5,
-		spaceBetween: 30,
-	},
-};
 
 const Home = () => {
 	return (

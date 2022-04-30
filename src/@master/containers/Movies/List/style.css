@@ -95,7 +95,7 @@
 	}
 
 	& .list {
-		--movies-list-columns: 5;
+		--movies-list-columns: 7;
 		--movies-list-gap: 30px;
 		--movie-card-width: calc((100% - (var(--movies-list-gap) * (var(--movies-list-columns) - 1))) / var(--movies-list-columns));
 		margin-top: 30px;
