@@ -51,30 +51,23 @@
 				}
 			}
 		}
-
-		& + * {
-			position: relative;
-			padding-top: 50px;
-			padding-bottom: 30px;
-
-			&:before {
-				content: "";
-				position: absolute;
-				bottom: 100%;
-				left: 0;
-				width: 100%;
-				height: 40px;
-				background: linear-gradient(0deg, rgba(18, 18, 18, 1) 31%, rgba(0, 0, 0, 0) 100%);
-			}
-
-			& ~ section {
-				padding-top: 30px;
-				padding-bottom: 30px;
-			}
-		}
 	}
 
 	& .continue {
+		position: relative;
+		padding-top: calc(var(--layout-padding) + 10px);
+		padding-bottom: var(--layout-padding);
+
+		&:before {
+			content: "";
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			width: 100%;
+			height: 40px;
+			background: linear-gradient(0deg, rgba(18, 18, 18, 1) 31%, rgba(0, 0, 0, 0) 100%);
+		}
+
 		& .continue_list {
 			margin-top: 30px;
 			display: flex;
@@ -92,10 +85,10 @@
 				& .play_button {
 					--icon-color: #fff;
 					--icon-size: 36px;
-					 position: absolute;
-					 top: 50%;
-					 left: 50%;
-					 transform: translate(-50%, -50%);
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
 				}
 
 				& .description {
@@ -157,8 +150,8 @@
 	}
 
 	& .movies_row_section {
-		padding-top: 30px;
-		padding-bottom: 30px;
+		padding-top: var(--layout-padding);
+		padding-bottom: var(--layout-padding);
 
 		& .subheader {
 
@@ -166,64 +159,6 @@
 
 		& .row_list {
 			margin-top: 30px;
-		}
-	}
-
-	& .popular {
-		overflow-x: clip;
-		padding-top: 30px;
-		padding-bottom: 30px;
-
-		& .subtitle {}
-
-		& .popular_list {
-			--gap: 30px;
-			--columns: 5;
-			display: flex;
-			gap: var(--gap);
-			margin-top: 30px;
-
-			& .popular_item {
-				width: calc((100% - (var(--gap) * (var(--columns) - 1))) / var(--columns));
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-
-				&:before {
-					content: "";
-					display: block;
-					padding-top: 150%;
-				}
-			}
-		}
-	}
-
-	& .best_films {
-		overflow-x: clip;
-		padding-top: 30px;
-		padding-bottom: 30px;
-
-		& .subtitle {}
-
-		& .best_films_list {
-			--gap: 30px;
-			--columns: 5;
-			display: flex;
-			gap: var(--gap);
-			margin-top: 30px;
-
-			& .best_films_item {
-				width: calc((100% - (var(--gap) * (var(--columns) - 1))) / var(--columns));
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-
-				&:before {
-					content: "";
-					display: block;
-					padding-top: 150%;
-				}
-			}
 		}
 	}
 
@@ -240,8 +175,6 @@
 			padding: 50px;
 
 			& .description {
-
-
 				& .title {
 					text-transform: uppercase;
 					font-weight: var(--font-weight-medium);
@@ -271,7 +204,7 @@
 
 				& .info {
 					margin-top: 16px;
-					width:400px;
+					max-width: 400px;
 				}
 
 			}

@@ -1,0 +1,40 @@
+:global(.swiper) {
+	z-index: 1;
+
+	& :global(.swiper-wrapper) {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		display: flex;
+		transition-property: transform;
+		box-sizing: content-box;
+		transform: translate3d(0px, 0, 0);
+	}
+
+	& :global(.swiper-android) {
+		& :global(.swiper-slide) {
+			transform: translate3d(0px, 0, 0);
+		}
+	}
+
+	& :global(.swiper-pointer-events) {
+		touch-action: pan-y;
+
+		&:global(.swiper-vertical) {
+			touch-action: pan-x;
+		}
+	}
+
+	& :global(.swiper-slide) {
+		flex-shrink: 0;
+		width: 100%;
+		height: 100%;
+		position: relative;
+		transition-property: transform;
+	}
+
+	& :global(.swiper-slide-invisible-blank) {
+		visibility: hidden;
+	}
+}

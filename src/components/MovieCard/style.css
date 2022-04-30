@@ -1,6 +1,7 @@
 .movie_card {
 	position: relative;
-	width: var(--movie-card-width, 240px);
+	display: block;
+	width: var(--movie-card-width);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;

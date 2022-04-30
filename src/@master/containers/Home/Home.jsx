@@ -2,9 +2,37 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "components/BasicButton";
 import Icon from "components/Icon";
-import MoviesList from "components/MoviesList";
 import MovieCard from "components/MovieCard";
+import Swiper, { SwiperSlide } from "components/Swiper";
+
 import style from "./style.css";
+
+const moviesSliderBreakpoints = {
+	0: {
+		slidesPerView: 1,
+		spaceBetween: 20,
+	},
+
+	480: {
+		slidesPerView: 2,
+		spaceBetween: 20,
+	},
+
+	768: {
+		slidesPerView: 3,
+		spaceBetween: 30,
+	},
+
+	1024: {
+		slidesPerView: 4,
+		spaceBetween: 30,
+	},
+
+	1280: {
+		slidesPerView: 5,
+		spaceBetween: 30,
+	},
+};
 
 const Home = () => {
 	return (
@@ -95,15 +123,20 @@ const Home = () => {
 					</div>
 				</div>
 
-				<MoviesList className={style.row_list}>
-					{bestMovies.map((item) => (
-						<MovieCard
-							key={item._id}
-							link={`/movies/details/${item._id}`}
-							image={item.image}
-						/>
-					))}
-				</MoviesList>
+				<div className={style.row_list}>
+					<div className="container">
+						<Swiper breakpoints={moviesSliderBreakpoints}>
+							{bestMovies.map((item) => (
+								<SwiperSlide key={item._id}>
+									<MovieCard
+										link={`/movies/details/${item._id}`}
+										image={item.image}
+									/>
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</div>
+				</div>
 			</section>
 
 			<section className={style.movies_row_section}>
@@ -113,15 +146,20 @@ const Home = () => {
 					</div>
 				</div>
 
-				<MoviesList className={style.row_list}>
-					{bestMovies.map((item) => (
-						<MovieCard
-							key={item._id}
-							link={`/movies/details/${item._id}`}
-							image={item.image}
-						/>
-					))}
-				</MoviesList>
+				<div className={style.row_list}>
+					<div className="container">
+						<Swiper breakpoints={moviesSliderBreakpoints}>
+							{bestMovies.map((item) => (
+								<SwiperSlide key={item._id}>
+									<MovieCard
+										link={`/movies/details/${item._id}`}
+										image={item.image}
+									/>
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</div>
+				</div>
 			</section>
 
 			<section className={style.premiere}>
@@ -166,15 +204,20 @@ const Home = () => {
 					</div>
 				</div>
 
-				<MoviesList className={style.row_list}>
-					{bestMovies.map((item) => (
-						<MovieCard
-							key={item._id}
-							link={`/movies/details/${item._id}`}
-							image={item.image}
-						/>
-					))}
-				</MoviesList>
+				<div className={style.row_list}>
+					<div className="container">
+						<Swiper breakpoints={moviesSliderBreakpoints}>
+							{bestMovies.map((item) => (
+								<SwiperSlide key={item._id}>
+									<MovieCard
+										link={`/movies/details/${item._id}`}
+										image={item.image}
+									/>
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</div>
+				</div>
 			</section>
 
 			<section className={style.movies_row_section}>
@@ -184,15 +227,20 @@ const Home = () => {
 					</div>
 				</div>
 
-				<MoviesList className={style.row_list}>
-					{bestMovies.map((item) => (
-						<MovieCard
-							key={item._id}
-							link={`/movies/details/${item._id}`}
-							image={item.image}
-						/>
-					))}
-				</MoviesList>
+				<div className={style.row_list}>
+					<div className="container">
+						<Swiper breakpoints={moviesSliderBreakpoints}>
+							{bestMovies.map((item) => (
+								<SwiperSlide key={item._id}>
+									<MovieCard
+										link={`/movies/details/${item._id}`}
+										image={item.image}
+									/>
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</div>
+				</div>
 			</section>
 		</div>
 	);
@@ -223,6 +271,30 @@ export const bestMovies = [
 
 	{
 		_id: 5,
+		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
+	},
+
+	{
+		_id: 6,
+		image: "https://filmix.ac/uploads/frames/118698/f247290-vystrel-v-pustotu_2017_original.jpg",
+	},
+
+	{
+		_id: 7,
+		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
+	},
+
+	{
+		_id: 8,
+		image: "https://p4.wallpaperbetter.com/wallpaper/1024/392/1003/movie-fury-wallpaper-thumb.jpg",
+	},
+	{
+		_id: 9,
+		image: "https://cdn.oboi7.com/content/images/e3/ee/e3ee9a3e26ec84cae113de17a43691af853ab0fe.jpg",
+	},
+
+	{
+		_id: 10,
 		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
 	},
 ];

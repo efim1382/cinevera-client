@@ -34,6 +34,8 @@ module.exports = {
 			"helpers": `${__dirname}/src/helpers`,
 			"hooks": `${__dirname}/src/hooks`,
 			"store": `${__dirname}/src/store`,
+
+			"swiper": path.resolve(__dirname, "./node_modules/swiper"),
 		},
 
 		modules: [
