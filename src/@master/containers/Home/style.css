@@ -69,18 +69,33 @@
 		}
 
 		& .continue_list {
+			--gap: 30px;
+			--columns: 3;
 			margin-top: 30px;
 			display: flex;
-			gap: 20px;
+			flex-wrap: wrap;
+			gap: var(--gap);
 
 			& .continue_items {
-				flex-basis: 50%;
+				width: calc((100% - (var(--gap) * (var(--columns) - 1))) / var(--columns));
 				height: 300px;
 				background-image: url("https://avatars.mds.yandex.net/get-ott/374297/2a00000169e82e09e27fbf1db1708110f2b6/1344x756");
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
 				position: relative;
+
+				@media (--viewport-laptop) {
+					--columns: 2;	
+				}
+
+				@media (--viewport-tablet) {
+					--columns: 1;
+				}
+
+				@media (--viewport-phone) {
+					--columns: 1;
+				}
 
 				& .play_button {
 					--icon-color: #fff;
