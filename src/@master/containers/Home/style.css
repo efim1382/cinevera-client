@@ -164,18 +164,23 @@
 		& .subtitle {}
 
 		& .popular_list {
+			--gap: 30px;
+			--columns: 5;
 			display: flex;
-			white-space: nowrap;
-			gap: 20px;
+			gap: var(--gap);
 			margin-top: 30px;
 
 			& .popular_item {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
+				width: calc((100% - (var(--gap) * (var(--columns) - 1))) / var(--columns));
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
+
+				&:before {
+					content: "";
+					display: block;
+					padding-top: 130%;
+				}
 			}
 		}
 	}
@@ -188,18 +193,23 @@
 		& .subtitle {}
 
 		& .best_films_list {
+			--gap: 30px;
+			--columns: 5;
 			display: flex;
-			white-space: nowrap;
-			gap: 20px;
+			gap: var(--gap);
 			margin-top: 30px;
 
 			& .best_films_item {
-				flex-shrink: 0;
-				height: 280px;
-				width: 200px;
+				width: calc((100% - (var(--gap) * (var(--columns) - 1))) / var(--columns));
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
+
+				&:before {
+					content: "";
+					display: block;
+					padding-top: 130%;
+				}
 			}
 		}
 	}
@@ -255,7 +265,7 @@
 
 			& .button_info {
 				--icon-color: #fff;
-				--icon-size: 24px;
+				--icon-size: 22px;
 				display: flex;
 				align-items: center;
 				margin-top: 20px;
