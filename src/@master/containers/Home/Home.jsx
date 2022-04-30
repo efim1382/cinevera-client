@@ -27,8 +27,8 @@ const Home = () => {
 					</p>
 
 					<div className={style.actions}>
-						<NavLink to="/movies/details/queens-gambit/">
-							<Button text="Watch" />
+						<NavLink to="/movies/details/queens-gambit/" className={style.link}>
+							<Button text="Watch" className={style.link_button} />
 						</NavLink>
 
 						<Button
