@@ -15,7 +15,7 @@ const MoviesListContainer = () => {
 	}, []);
 
 	return (
-		<div className={style.movies}>
+		<main className={style.movies}>
 			<div className={style.main_block}>
 				<div className="container">
 					<h2 className={style.title}>Movies</h2>
@@ -66,7 +66,7 @@ const MoviesListContainer = () => {
 					})}
 				</div>
 			</div>
-		</div>
+		</main>
 	);
 };
 

@@ -10,7 +10,7 @@ import style from "./style.css";
 
 const Home = () => {
 	return (
-		<div className={style.home}>
+		<main className={style.home}>
 			<section className={style.main_block}>
 				<div className="container">
 					<h1 className={style.title}>The Queen's<br />Gambit</h1>
@@ -216,7 +216,7 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
-		</div>
+		</main>
 	);
 };
 

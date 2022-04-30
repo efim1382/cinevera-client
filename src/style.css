@@ -48,6 +48,8 @@ html {
 }
 
 body {
+	overflow-x: hidden;
+	overflow-y: auto;
 	height: 100%;
 }
 
@@ -65,11 +67,9 @@ body {
 }
 
 :global(#app) {
-	overflow-x: hidden;
-	overflow-y: auto;
+	/* don't add height */
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 }
 
 a {
@@ -113,6 +113,14 @@ h3 {
 
 h1 {
 	font-size: 80px;
+
+	@media (--viewport-laptop) {
+		font-size: 64px;
+	}
+
+	@media (--viewport-phone) {
+		font-size: 48px;
+	}
 }
 
 h2 {
