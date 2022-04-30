@@ -3,7 +3,7 @@ import React, { Suspense, lazy } from "react";
 const MoviesList = lazy(() => import(
 
 	/* webpackChunkName: "MasterFilmDetails" */
-	"./MoviesList"
+	"./List"
 ));
 
 const MoviesListContainer = () => {

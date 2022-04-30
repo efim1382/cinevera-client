@@ -1,0 +1,11 @@
+.movies_list {
+	--movies-list-columns: 5;
+	--movies-list-gap: 30px;
+	--movie-card-width: calc((100% - (var(--movies-list-gap) * (var(--movies-list-columns) - 1))) / var(--movies-list-columns));
+
+	& :global(.container) {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--movies-list-gap);
+	}
+}

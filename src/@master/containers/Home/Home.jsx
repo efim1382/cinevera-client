@@ -1,8 +1,10 @@
 import React from "react";
-import Button from "components/BasicButton";
-import style from "./style.css";
-import Icon from "components/Icon";
 import { NavLink } from "react-router-dom";
+import Button from "components/BasicButton";
+import Icon from "components/Icon";
+import MoviesList from "components/MoviesList";
+import MovieCard from "components/MovieCard";
+import style from "./style.css";
 
 const Home = () => {
 	return (
@@ -86,36 +88,40 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section className={style.popular}>
-				<div className="container">
-					<h3>Popular Now</h3>
-
-					<div className={style.popular_list}>
-						{popularItems.map((item) => (
-							<div
-								key={item._id}
-								className={style.popular_item}
-								style={{ backgroundImage: item.image }}
-							/>
-						))}
+			<section className={style.movies_row_section}>
+				<div className={style.subheader}>
+					<div className="container">
+						<h3>Popular now</h3>
 					</div>
 				</div>
+
+				<MoviesList className={style.row_list}>
+					{bestMovies.map((item) => (
+						<MovieCard
+							key={item._id}
+							link={`/movies/details/${item._id}`}
+							image={item.image}
+						/>
+					))}
+				</MoviesList>
 			</section>
 
-			<section className={style.best_films}>
-				<div className="container">
-					<h3>Best of 2021</h3>
-
-					<div className={style.best_films_list}>
-						{continueItems.map((item) => (
-							<div
-								key={item._id}
-								className={style.best_films_item}
-								style={{ backgroundImage: item.image }}
-							/>
-						))}
+			<section className={style.movies_row_section}>
+				<div className={style.subheader}>
+					<div className="container">
+						<h3>Best comedy movies</h3>
 					</div>
 				</div>
+
+				<MoviesList className={style.row_list}>
+					{bestMovies.map((item) => (
+						<MovieCard
+							key={item._id}
+							link={`/movies/details/${item._id}`}
+							image={item.image}
+						/>
+					))}
+				</MoviesList>
 			</section>
 
 			<section className={style.premiere}>
@@ -153,36 +159,40 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section className={style.popular}>
-				<div className="container">
-					<h3>Popular Now</h3>
-
-					<div className={style.popular_list}>
-						{popularItems.map((item) => (
-							<div
-								key={item._id}
-								className={style.popular_item}
-								style={{ backgroundImage: item.image }}
-							/>
-						))}
+			<section className={style.movies_row_section}>
+				<div className={style.subheader}>
+					<div className="container">
+						<h3>Best of 2021</h3>
 					</div>
 				</div>
+
+				<MoviesList className={style.row_list}>
+					{bestMovies.map((item) => (
+						<MovieCard
+							key={item._id}
+							link={`/movies/details/${item._id}`}
+							image={item.image}
+						/>
+					))}
+				</MoviesList>
 			</section>
 
-			<section className={style.best_films}>
-				<div className="container">
-					<h3>Best of 2021</h3>
-
-					<div className={style.best_films_list}>
-						{continueItems.map((item) => (
-							<div
-								key={item._id}
-								className={style.best_films_item}
-								style={{ backgroundImage: item.image }}
-							/>
-						))}
+			<section className={style.movies_row_section}>
+				<div className={style.subheader}>
+					<div className="container">
+						<h3>Popular thrillers</h3>
 					</div>
 				</div>
+
+				<MoviesList className={style.row_list}>
+					{bestMovies.map((item) => (
+						<MovieCard
+							key={item._id}
+							link={`/movies/details/${item._id}`}
+							image={item.image}
+						/>
+					))}
+				</MoviesList>
 			</section>
 		</div>
 	);
@@ -190,56 +200,29 @@ const Home = () => {
 
 export default Home;
 
-export const continueItems = [
+export const bestMovies = [
 	{
 		_id: 1,
-		image: "url(https://wallpapershome.ru/images/pages/pic_v/12849.jpg)",
+		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
 	},
 
 	{
 		_id: 2,
-		image: "url(https://filmix.ac/uploads/frames/118698/f247290-vystrel-v-pustotu_2017_original.jpg)",
+		image: "https://filmix.ac/uploads/frames/118698/f247290-vystrel-v-pustotu_2017_original.jpg",
 	},
 
 	{
 		_id: 3,
-		image: "url(https://cdn.oboi7.com/content/images/e3/ee/e3ee9a3e26ec84cae113de17a43691af853ab0fe.jpg)",
+		image: "https://cdn.oboi7.com/content/images/e3/ee/e3ee9a3e26ec84cae113de17a43691af853ab0fe.jpg",
 	},
 
 	{
 		_id: 4,
-		image: "url(https://p4.wallpaperbetter.com/wallpaper/1024/392/1003/movie-fury-wallpaper-thumb.jpg)",
+		image: "https://p4.wallpaperbetter.com/wallpaper/1024/392/1003/movie-fury-wallpaper-thumb.jpg",
 	},
 
 	{
 		_id: 5,
-		image: "url(https://wallpapershome.ru/images/pages/pic_v/12849.jpg)",
-	},
-];
-
-export const popularItems = [
-	{
-		_id: 1,
-		image: "url(https://images.kinorium.com/movie/shot/381127/w1500_1263015.jpg)",
-	},
-
-	{
-		_id: 2,
-		image: "url(https://i.pinimg.com/736x/48/f6/f2/48f6f2113680380e5edb2d378a5f3eac.jpg)",
-	},
-
-	{
-		_id: 3,
-		image: "url(https://www.kinogallery.com/img/wallpaper/kinogallery.com_Inglourious-Basterds-17_1600.jpg)",
-	},
-
-	{
-		_id: 4,
-		image: "url(https://pbs.twimg.com/media/D9rZWPCWsAEeDg-.jpg)",
-	},
-
-	{
-		_id: 5,
-		image: "url(https://i.pinimg.com/736x/79/2a/f2/792af24e261c83b9363b83c21a190474.jpg)",
+		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
 	},
 ];

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import Icon from "components/Icon";
+import MovieCard from "components/MovieCard";
+import MoviesList from "components/MoviesList";
 import { getMoviesList } from "api/movies.api";
 import style from "./style.css";
 
-const MoviesList = () => {
+const MoviesListContainer = () => {
 	const [movies, setMovies] = useState([]);
 
 	useEffect(() => {
@@ -52,26 +53,20 @@ const MoviesList = () => {
 				</div>
 			</div>
 
-			<section className={style.movies_list}>
-				<div className="container">
-					{movies.map((item) => {
-						const inline = {
-							backgroundImage: `url(${item.preview})`,
-						};
-
-						return (
-							<NavLink
-								to={`/movies/details/${item._id}`}
-								key={item._id}
-								className={style.movie}
-								style={inline}
-							/>
-						);
-					})}
-				</div>
-			</section>
+			<MoviesList className={style.list}>
+				{movies.map((item) => {
+					return (
+						<MovieCard
+							key={item._id}
+							link={`/movies/details/${item._id}`}
+							image={item.preview}
+							className={style.movie}
+						/>
+					);
+				})}
+			</MoviesList>
 		</div>
 	);
 };
 
-export default MoviesList;
+export default MoviesListContainer;

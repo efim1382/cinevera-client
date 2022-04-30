@@ -156,6 +156,19 @@
 		}
 	}
 
+	& .movies_row_section {
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+		& .subheader {
+
+		}
+
+		& .row_list {
+			margin-top: 30px;
+		}
+	}
+
 	& .popular {
 		overflow-x: clip;
 		padding-top: 30px;
