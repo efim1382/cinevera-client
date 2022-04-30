@@ -10,20 +10,19 @@ const cx = classnames.bind(style);
 const changingOpacityClassFromTop = 50;
 
 const changeHeaderOpacity = () => {
-	const appElement = document.getElementById("app");
 	const headerElement = document.getElementById("header");
 
-	if (!headerElement || !appElement) {
+	if (!headerElement) {
 		return;
 	}
 
 	const isOpacityClassContains = headerElement.classList.contains("_is-filled");
 
-	if (appElement.scrollTop >= changingOpacityClassFromTop && !isOpacityClassContains) {
+	if (window.scrollY >= changingOpacityClassFromTop && !isOpacityClassContains) {
 		headerElement.classList.add("_is-filled");
 	}
 
-	if (appElement.scrollTop < changingOpacityClassFromTop && isOpacityClassContains) {
+	if (window.scrollY < changingOpacityClassFromTop && isOpacityClassContains) {
 		headerElement.classList.remove("_is-filled");
 	}
 };

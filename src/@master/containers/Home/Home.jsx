@@ -11,24 +11,21 @@ import style from "./style.css";
 
 const Home = () => {
 	return (
-		<div className={style.home}>
+		<main className={style.home}>
 			<section className={style.main_block}>
 				<div className="container">
 					<h1 className={style.title}>The Queen's<br />Gambit</h1>
 
 					<p className={style.description}>
 						Orphaned at the tender age of nine,
-						<br />
 						prodigious introvert Beth Harmon discovers
-						<br />
 						and masters the game of chess in 1960s USA.
-						<br />
 						But child stardom comes at a price.
 					</p>
 
 					<div className={style.actions}>
-						<NavLink to="/movies/details/queens-gambit/">
-							<Button text="Watch" />
+						<NavLink to="/movies/details/queens-gambit/" className={style.link}>
+							<Button text="Watch" className={style.link_button} />
 						</NavLink>
 
 						<Button
@@ -238,7 +235,7 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
-		</div>
+		</main>
 	);
 };
 
