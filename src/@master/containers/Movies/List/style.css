@@ -95,10 +95,39 @@
 	}
 
 	& .list {
-		--movies-list-columns: 7;
+		--movies-list-columns: 8;
 		--movies-list-gap: 30px;
 		--movie-card-width: calc((100% - (var(--movies-list-gap) * (var(--movies-list-columns) - 1))) / var(--movies-list-columns));
 		margin-top: 30px;
+
+
+		@media (--viewport-desktop-extra-large) {
+			--movies-list-columns: 7;
+		}
+
+		@media (--viewport-desktop-large) {
+			--movies-list-columns: 6;
+		}
+
+		@media (--viewport-desktop-medium) {
+			--movies-list-columns: 5;
+		}
+
+		@media (--viewport-desktop-small) {
+			--movies-list-columns: 4;
+		}
+
+		@media (--viewport-laptop) {
+			--movies-list-columns: 3;	
+		}
+
+		@media (--viewport-tablet) {
+			--movies-list-columns: 2;
+		}
+
+		@media (--viewport-phone) {
+			--movies-list-columns: 1;
+		}
 
 		& :global(.container) {
 			display: flex;

@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 import Button from "components/BasicButton";
 import Icon from "components/Icon";
 import MovieCard from "components/MovieCard";
-import Swiper, { SwiperSlide } from "components/Swiper";
+import Swiper from "components/Swiper";
+import { SwiperSlide } from "swiper/react";
 import { moviesSliderBreakpoints } from "config/adaptability";
 
 import style from "./style.css";
