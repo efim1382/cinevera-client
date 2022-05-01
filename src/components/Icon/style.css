@@ -106,6 +106,10 @@
 	mask-image: url('./icons/menu.svg');
 }
 
+.icon[data-icon="close"] {
+	mask-image: url('./icons/close.svg');
+}
+
 .story_icon {
 	--icon-size: 50px;
 	--icon-color: var(--primary-color);
