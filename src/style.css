@@ -37,6 +37,10 @@
 	--layout-padding: 40px;
 	--default-input-height: 50px;
 
+	@media (--viewport-laptop) {
+		--header-height: 80px;
+	}
+
 	@media (--viewport-tablet) {
 		--layout-padding: 30px;
 	}

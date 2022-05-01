@@ -99,7 +99,11 @@
 }
 
 .icon[data-icon="east"] {
-  mask-image: url('./icons/east.svg');
+	mask-image: url('./icons/east.svg');
+}
+
+.icon[data-icon="menu"] {
+	mask-image: url('./icons/menu.svg');
 }
 
 .story_icon {

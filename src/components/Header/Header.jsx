@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
-import Icon from "components/Icon";
 import classnames from "classnames/bind";
+import Icon from "components/Icon";
 import style from "./style.css";
 
 const cx = classnames.bind(style);
@@ -43,7 +43,10 @@ const Header = ({ isTransparent, className }) => {
 	}, []);
 
 	return (
-		<header id="header" className={cx("header", className, { "_is-filled": !isTransparent })}>
+		<header
+			id="header"
+			className={cx("header", className, { "_is-filled": !isTransparent })}
+		>
 			<div className="container">
 				<nav className={style.navigation}>
 					<NavLink
@@ -83,6 +86,10 @@ const Header = ({ isTransparent, className }) => {
 						<div className={style.avatar} />
 					</button>
 				</div>
+
+				<button className={style.mobile_menu}>
+					<Icon name="menu" />
+				</button>
 			</div>
 		</header>
 	);
