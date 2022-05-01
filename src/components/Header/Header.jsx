@@ -57,48 +57,60 @@ const Header = ({ isTransparent, className }) => {
 			className={cx("header", className, { "_is-filled": !isTransparent })}
 		>
 			<div className="container">
-				<nav className={style.navigation}>
-					<NavLink
-						to="/"
-						className={style.link}
-					>
-						Home
-					</NavLink>
+				{!isMobileView && (
+					<nav className={style.navigation}>
+						<NavLink
+							to="/"
+							className={style.link}
+						>
+							Home
+						</NavLink>
 
-					<NavLink
-						to="/movies/"
-						className={style.link}
-					>
-						Movies
-					</NavLink>
+						<NavLink
+							to="/movies/"
+							className={style.link}
+						>
+							Movies
+						</NavLink>
 
-					<NavLink
-						to="/series/"
-						className={style.link}
-					>
-						TV Shows
-					</NavLink>
-				</nav>
+						<NavLink
+							to="/series/"
+							className={style.link}
+						>
+							TV Shows
+						</NavLink>
+					</nav>
+				)}
 
 				<NavLink to="/" className={style.logo}>cinevera</NavLink>
 
-				<div className={style.actions}>
-					<button className={style.button}>
-						<Icon name="search" />
-					</button>
+				{!isMobileView && (
+					<div className={style.actions}>
+						<button className={style.button}>
+							<Icon name="search" />
+						</button>
 
-					<button className={style.button}>
-						<Icon name="bell" />
-					</button>
+						<button className={style.button}>
+							<Icon name="bell" />
+						</button>
 
-					<button className={style.button}>
-						<div className={style.avatar} />
-					</button>
-				</div>
+						<button className={style.button}>
+							<div className={style.avatar} />
+						</button>
+					</div>
+				)}
 
-				<button className={style.mobile_menu} onClick={toggleMobileOverlayShown}>
-					<Icon name="menu" />
-				</button>
+				{isMobileView && (
+					<button className={style.mobile_menu} onClick={toggleMobileOverlayShown}>
+						{isMobileOverlayStateShown && (
+							<Icon name="close" />
+						)}
+
+						{!isMobileOverlayStateShown && (
+							<Icon name="menu" />
+						)}
+					</button>
+				)}
 			</div>
 
 			{isMobileOverlayShown && (
