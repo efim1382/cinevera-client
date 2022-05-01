@@ -1,0 +1,21 @@
+.overlay {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	padding-top: var(--header-height);
+	background-color: var(--root-background-color-hover);
+
+	& .content {
+		flex-grow: 1;
+		overflow-x: hidden;
+		overflow-y: auto;
+		min-height: 0;
+		padding-left: var(--layout-padding);
+		padding-right: var(--layout-padding);
+		background-color: var(--root-background-color);
+	}
+}

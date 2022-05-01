@@ -25,6 +25,7 @@
 	}
 
 	& :global(.container) {
+		z-index: 2;
 		position: relative;
 		display: grid;
 		grid-template-columns: [nav-start] 1fr [nav-end] 30px [logo-start] auto [logo-end] 30px [actions-start] 1fr [actions-end];
@@ -110,12 +111,18 @@
 		}
 
 		& .mobile_menu {
+			--button-size: 40px;
 			--icon-size: 28px;
 			--icon-color: var(--primary-color);
 			display: none;
+			justify-content: center;
+			align-items: center;
+			width: var(--button-size);
+			height: var(--button-size);
+			margin-right: calc(((var(--button-size) - var(--icon-size)) / 2) * -1);
 
 			@media (--viewport-laptop) {
-				display: block;
+				display: flex;
 			}
 		}
 	}

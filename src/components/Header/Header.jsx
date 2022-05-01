@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import classnames from "classnames/bind";
 import Icon from "components/Icon";
+import MobileOverlay from "./MobileOverlay";
+import useMedia from "hooks/useMedia";
 import style from "./style.css";
 
 const cx = classnames.bind(style);
@@ -28,6 +30,13 @@ const changeHeaderOpacity = () => {
 };
 
 const Header = ({ isTransparent, className }) => {
+	const isMobileView = useMedia("(max-width: 1024px)");
+	const [isMobileOverlayStateShown, setMobileOverlayStateShown] = useState(false);
+
+	const isMobileOverlayShown = isMobileView && isMobileOverlayStateShown;
+
+	const toggleMobileOverlayShown = () => setMobileOverlayStateShown(!isMobileOverlayStateShown);
+
 	const onScroll = (event) => {
 		if (isTransparent) {
 			changeHeaderOpacity(event);
@@ -87,10 +96,14 @@ const Header = ({ isTransparent, className }) => {
 					</button>
 				</div>
 
-				<button className={style.mobile_menu}>
+				<button className={style.mobile_menu} onClick={toggleMobileOverlayShown}>
 					<Icon name="menu" />
 				</button>
 			</div>
+
+			{isMobileOverlayShown && (
+				<MobileOverlay />
+			)}
 		</header>
 	);
 };
