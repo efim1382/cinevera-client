@@ -36,6 +36,7 @@
 	--header-height: 100px;
 	--layout-padding: 40px;
 	--default-input-height: 50px;
+	--default-font-size: 16px;
 
 	@media (--viewport-laptop) {
 		--header-height: 80px;
@@ -73,7 +74,7 @@ body {
 	scroll-behavior: smooth;
 	background-color: var(--root-background-color);
 	color: var(--text-color);
-	font-size: 16px;
+	font-size: var(--default-font-size);
 	font-family: var(--font-family-regular), sans-serif;
 	font-weight: var(--font-weight-regular);
 }
