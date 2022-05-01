@@ -6,11 +6,52 @@
 	background-size: cover;
 	background-position: center;
 	animation: background-loading 1s linear infinite;
+	height: 350px;
+
+	&:hover > .description_film {
+		display: flex;
+		flex-direction: column;
+	}
 
 	&:before {
 		content: "";
+		position: absolute;
+		background: rgba(0, 0, 0, 0.5);
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		transition: 0.3s;
+
+		opacity: 0;
+	}
+
+	&:hover:before {
+		opacity: 1;
+	}
+
+/*	&:before {
+		content: "";
 		display: block;
 		padding-top: 150%;
+	}*/
+
+	& .description_film {
+		display: none;
+
+		& .name_film {
+			color: #fff;
+		}
+
+		& .button_star {
+			--icon-size: 36px;
+			--icon-color: red;
+		}
+
+		& .film_info {
+			padding-top: 20px;
+			color: #fff;
+		}
 	}
 }
 
