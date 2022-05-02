@@ -5,29 +5,10 @@ import classnames from "classnames/bind";
 import Icon from "components/Icon";
 import MobileOverlay from "./MobileOverlay";
 import useMedia from "hooks/useMedia";
+import { addHeaderClassOnScroll } from "components/Header/helpers/scrollHelpers";
 import style from "./style.css";
 
 const cx = classnames.bind(style);
-
-const changingOpacityClassFromTop = 50;
-
-const changeHeaderOpacity = () => {
-	const headerElement = document.getElementById("header");
-
-	if (!headerElement) {
-		return;
-	}
-
-	const isOpacityClassContains = headerElement.classList.contains("_is-filled");
-
-	if (window.scrollY >= changingOpacityClassFromTop && !isOpacityClassContains) {
-		headerElement.classList.add("_is-filled");
-	}
-
-	if (window.scrollY < changingOpacityClassFromTop && isOpacityClassContains) {
-		headerElement.classList.remove("_is-filled");
-	}
-};
 
 const Header = ({ isTransparent, className }) => {
 	const isMobileView = useMedia("(max-width: 1024px)");
@@ -36,10 +17,11 @@ const Header = ({ isTransparent, className }) => {
 	const isMobileOverlayShown = isMobileView && isMobileOverlayStateShown;
 
 	const toggleMobileOverlayShown = () => setMobileOverlayStateShown(!isMobileOverlayStateShown);
+	const closeMobileOverlay = () => setMobileOverlayStateShown(false);
 
-	const onScroll = (event) => {
+	const onScroll = () => {
 		if (isTransparent) {
-			changeHeaderOpacity(event);
+			addHeaderClassOnScroll(50, "_is-filled");
 		}
 	};
 
@@ -114,7 +96,7 @@ const Header = ({ isTransparent, className }) => {
 			</div>
 
 			{isMobileOverlayShown && (
-				<MobileOverlay />
+				<MobileOverlay onClose={closeMobileOverlay} />
 			)}
 		</header>
 	);
