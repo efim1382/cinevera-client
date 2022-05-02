@@ -59,6 +59,8 @@ const MoviesListContainer = () => {
 							<MovieCard
 								key={item._id}
 								link={`/movies/details/${item._id}`}
+								name={item.name}
+								description={item.description}
 								image={item.preview}
 								className={style.movie}
 							/>

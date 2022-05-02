@@ -8,6 +8,8 @@ const cx = classnames.bind(style);
 
 const MovieCard = (props) => {
 	const {
+		name,
+		description,
 		image,
 		link,
 		className,
@@ -18,7 +20,7 @@ const MovieCard = (props) => {
 	return (
 		<NavLink to={link} className={cx("movie_card", className)} style={inline}>
 			<div className={style.content}>
-				<p className={style.name}>Fight Club</p>
+				<p className={style.name}>{name}</p>
 
 				<div className={style.score_film}>
 					<p className={style.rating}>9.3</p>
@@ -27,18 +29,20 @@ const MovieCard = (props) => {
 					</div>
 				</div>
 
-				<p className={style.description}>
-					"The first rule of Fight Club is: you do not talk about Fight Club.
-					 The second rule of Fight Club is: you DO NOT talk about Fight Club!" - Tyler Durden
-				</p>
+				{description && (
+					<p className={style.description}>{description}</p>
+				)}
 
-				<p className={style.film_info}>1997 year 139 min<br />Thriller</p>
+				<p className={style.film_properties}>1997 year 139 min</p>
+				<p className={style.film_properties}>Thriller</p>
 			</div>
 		</NavLink>
 	);
 };
 
 MovieCard.propTypes = {
+	name: PropTypes.string.isRequired,
+	description: PropTypes.string,
 	image: PropTypes.string.isRequired,
 	link: PropTypes.string.isRequired,
 	className: PropTypes.string,

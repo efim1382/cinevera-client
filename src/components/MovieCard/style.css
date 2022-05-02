@@ -13,20 +13,24 @@
 		padding-top: 150%;
 	}
 
+	&:not(:hover) {
+		--movie-card-opacity: 0;
+	}
+
 	&:hover {
-		& .content {
-			opacity: 1;
-		} 
+		--movie-card-opacity: 1;
 	}
 
 	& .content {
+		overflow-x: hidden;
+		overflow-y: auto;
 		position: absolute;
 		left: 0;
 		right: 0;
 		top: 0;
 		bottom: 0;
-		padding: 12px;
-		opacity: 0;
+		padding: 20px;
+		opacity: var(--movie-card-opacity);
 		background-color: rgba(0, 0, 0, 0.9);
 		transition-property: opacity;
 		color: var(--primary-color);
@@ -36,50 +40,52 @@
 			font-size: 20px;
 		}
 
-		& .rating {
-			font-size: 20px;
-			font-weight: var(--font-weight-semibold);
-		}
-		
 		& .score_film {
 			margin-top: 12px;
 			display: flex;
 			align-items: center;
 
+			& .rating {
+				flex-shrink: 0;
+				font-size: 20px;
+				font-weight: var(--font-weight-semibold);
+			}
+
 			& .lane_box {
-				--height-line: 2px;
+				flex-grow: 1;
 				display: flex;
 				align-items: center;
-				margin-left: 8px;
-				height: var(--height-line);
-				min-width: 100px;
+				margin-left: 12px;
+				height: 2px;
 				background-color: #fff;
-				border-radius: calc(var(--height-line) / 2);
+				border-radius: 2px;
 
 				& .score_line {
-					height: 100%;
-					background-color: #ff0000;
 					width: 93%;
-
+					height: 100%;
+					background-color: var(--accent-color-hover);
 				}
+			}
+
+			& + .film_properties {
+				margin-top: 12px;
 			}
 		}
 
 		& .description {
 			margin-top: 12px;
-			font-size: 12px;
+			font-size: 14px;
+
+			& + .film_properties {
+				margin-top: 12px;
+			}
 		}
 
-		& .film_info {
-			margin-top: 12px;
+		& .film_properties {
 			font-size: 12px;
 
-			& span {
-				display: block;
-			}
-
-			& > :nth-of-type(n+2) {
-				margin-top: 12px;
+			& + .film_properties {
+				margin-top: 4px;
 			}
 		}
 	}
