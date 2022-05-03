@@ -33,7 +33,7 @@ const MovieCard = (props) => {
 					<p className={style.description}>{description}</p>
 				)}
 
-				<p className={style.film_properties}>1997 year 139 min</p>
+				<p className={style.film_properties}>1997 year, 139 min</p>
 				<p className={style.film_properties}>Thriller</p>
 			</div>
 		</NavLink>

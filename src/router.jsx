@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Layout from "@master/components/Layout";
 import NotFound from "components/NotFound";
 
+import Layout from "@master/components/Layout";
 import Home from "@master/containers/Home/app";
 import AuthRouter from "@master/containers/Auth/router";
 import MoviesRouter from "@master/containers/Movies/router";

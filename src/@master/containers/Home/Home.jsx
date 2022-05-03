@@ -124,6 +124,7 @@ const Home = () => {
 									<MovieCard
 										link={`/movies/details/${item._id}`}
 										image={item.image}
+										name={item.name}
 									/>
 								</SwiperSlide>
 							))}
@@ -147,6 +148,7 @@ const Home = () => {
 									<MovieCard
 										link={`/movies/details/${item._id}`}
 										image={item.image}
+										name={item.name}
 									/>
 								</SwiperSlide>
 							))}
@@ -205,6 +207,7 @@ const Home = () => {
 									<MovieCard
 										link={`/movies/details/${item._id}`}
 										image={item.image}
+										name={item.name}
 									/>
 								</SwiperSlide>
 							))}
@@ -228,6 +231,7 @@ const Home = () => {
 									<MovieCard
 										link={`/movies/details/${item._id}`}
 										image={item.image}
+										name={item.name}
 									/>
 								</SwiperSlide>
 							))}
@@ -245,49 +249,59 @@ export const bestMovies = [
 	{
 		_id: 1,
 		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
+		name: "Pipiska",
 	},
 
 	{
 		_id: 2,
 		image: "https://filmix.ac/uploads/frames/118698/f247290-vystrel-v-pustotu_2017_original.jpg",
+		name: "Pipiska",
 	},
 
 	{
 		_id: 3,
 		image: "https://cdn.oboi7.com/content/images/e3/ee/e3ee9a3e26ec84cae113de17a43691af853ab0fe.jpg",
+		name: "Pipiska",
 	},
 
 	{
 		_id: 4,
 		image: "https://p4.wallpaperbetter.com/wallpaper/1024/392/1003/movie-fury-wallpaper-thumb.jpg",
+		name: "Pipiska",
 	},
 
 	{
 		_id: 5,
 		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
+		name: "Pipiska",
 	},
 
 	{
 		_id: 6,
 		image: "https://filmix.ac/uploads/frames/118698/f247290-vystrel-v-pustotu_2017_original.jpg",
+		name: "Pipiska",
 	},
 
 	{
 		_id: 7,
 		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
+		name: "Pipiska",
 	},
 
 	{
 		_id: 8,
 		image: "https://p4.wallpaperbetter.com/wallpaper/1024/392/1003/movie-fury-wallpaper-thumb.jpg",
+		name: "Pipiska",
 	},
 	{
 		_id: 9,
 		image: "https://cdn.oboi7.com/content/images/e3/ee/e3ee9a3e26ec84cae113de17a43691af853ab0fe.jpg",
+		name: "Pipiska",
 	},
 
 	{
 		_id: 10,
 		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
+		name: "Pipiska",
 	},
 ];

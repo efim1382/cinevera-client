@@ -8,9 +8,9 @@ import validators from "components/Form/validators";
 export const validateApiError = (error) => {
 	if (
 		error
-    && error.validation
-    && error.validation.constructor === Object
-    && Object.keys(error.validation).length > 0
+		&& error.validation
+		&& error.validation.constructor === Object
+		&& Object.keys(error.validation).length > 0
 	) {
 		const validationObject = {};
 

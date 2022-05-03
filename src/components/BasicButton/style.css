@@ -1,15 +1,16 @@
 .button {
+	--icon-size: 22px;
   --height: 60px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: var(--width, 150px);
-	padding-left: 12px;
-	padding-right: 12px;
+	padding-left: 20px;
+	padding-right: 20px;
   height: var(--height);
   line-height: var(--height);
-  font-size: 15px;
+  font-size: var(--default-font-size);
   font-weight: var(--font-weight-semibold);
   background-color: var(--background-color);
   border: 1px solid var(--border-color);
@@ -105,6 +106,16 @@
 			--line-color: transparent;
 			--border-color: var(--button-main-color);
 		}
+	}
+
+	& i {
+		--icon-color: var(--color);
+		opacity: var(--text-opacity);
+		flex-shrink: 0;
+
+	  & + .caption {
+	  	margin-left: 12px;
+	  }
 	}
 
 	& .caption {

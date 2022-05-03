@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import classnames from "classnames/bind";
 import LoadingRing from "components/LoadingRing";
 import style from "./style.css";
+import Icon from "components/Icon";
 
 const cx = classnames.bind(style);
 
@@ -16,6 +17,7 @@ const BasicButton = (props) => {
 		isLoading,
 		isDisabled,
 		text,
+		icon,
 	} = props;
 
 	const isButtonDisabled = isDisabled || isLoading;
@@ -29,6 +31,10 @@ const BasicButton = (props) => {
 			appearance={appearance}
 			{...isButtonDisabled ? { disabled: true } : {}}
 		>
+			{icon && (
+				<Icon name={icon} />
+			)}
+
 			{text && (
 				<p className={style.caption}>{text}</p>
 			)}
@@ -52,6 +58,7 @@ BasicButton.propTypes = {
 	type: PropTypes.oneOf(["button", "submit"]),
 	onClick: PropTypes.func,
 	className: PropTypes.string,
+	icon: PropTypes.string,
 	isLoading: PropTypes.bool,
 	isDisabled: PropTypes.bool,
 	text: PropTypes.string,
