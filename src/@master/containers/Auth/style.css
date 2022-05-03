@@ -4,7 +4,7 @@
 	top: 0;
 	width: 100%;
 	height: 100vh;
-  display: flex;
+ 	display: flex;
 	flex-direction: column;
 
 	& .header {
@@ -30,6 +30,10 @@
 		margin: auto;
 		padding: var(--layout-padding);
 		border-radius: 2px;
+
+		@media (--viewport-phone) {
+			width: 100%;
+		}
 
 		& .title {
 			margin-top: 12px;
@@ -110,6 +114,7 @@
 		bottom: var(--layout-padding);
 		right: var(--layout-padding);
 		color: var(--caption-color);
+		padding-left: var(--layout-padding);
 		font-size: 15px;
 
 		& > a,

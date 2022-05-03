@@ -23,20 +23,20 @@
 
 	&:not(._is-error) {
 		&:not(._is-active) {
-			--input-box-shadow-color: var(--divider-color);
+			--input-border-color: var(--divider-color);
 			--icon-color: var(--divider-color);
 			--label-color: var(--caption-color);
 		}
 
 		&._is-active {
-			--input-box-shadow-color: var(--primary-color);
+			--input-border-color: var(--primary-color);
 			--icon-color: var(--primary-color);
 			--label-color: var(--caption-color);
 		}
 	}
 
 	&._is-error {
-		--input-box-shadow-color: var(--error-color);
+		--input-border-color: var(--error-color);
 		--icon-color: var(--error-color);
 		--label-color: var(--error-color);
 	}
@@ -50,8 +50,8 @@
 		display: flex;
 		align-items: center;
 		height: var(--default-input-height);
-		box-shadow: 0 -1px var(--input-box-shadow-color) inset;
-		transition-property: box-shadow;
+		border-bottom: 1px solid var(--input-border-color);
+		transition-property: border-color;
 
 		& > .label {
 			--height: 16px;
