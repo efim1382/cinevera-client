@@ -13,6 +13,7 @@ export const Primary = Template.bind({});
 Primary.parameters = {
 	controls: {
 		include: [
+			"icon",
 			"text",
 			"appearance",
 			"isLoading",
@@ -24,6 +25,7 @@ Primary.parameters = {
 Primary.args = {
 	text: "Submit",
 	appearance: "fill",
+	icon: "search",
 	isLoading: false,
 	isDisabled: false,
 	theme: "primary",
@@ -34,6 +36,7 @@ export const Accent = Template.bind({});
 Accent.parameters = {
 	controls: {
 		include: [
+			"icon",
 			"text",
 			"appearance",
 			"isLoading",
@@ -45,6 +48,7 @@ Accent.parameters = {
 Accent.args = {
 	text: "Submit",
 	appearance: "fill",
+	icon: "search",
 	isLoading: false,
 	isDisabled: false,
 	theme: "accent",
