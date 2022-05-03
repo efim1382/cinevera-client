@@ -1,47 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "components/BasicButton";
 import Icon from "components/Icon";
-import { getMovie } from "api/movies.api";
+import { fetchMovie } from "actions/movies.actions";
+import * as moviesSelectors from "selectors/movies.selectors";
+import { addBackgroundOpacityOnScroll } from "./helpers/scrollHelper";
 import style from "./style.css";
 
-const backgroundOpacityFrom = 0.4;
-const backgroundOpacityTo = 0.9;
-const backgroundOpacityRange = backgroundOpacityFrom - backgroundOpacityTo;
-const fullOpacityFrom = 400;
-
-const changeBackgroundOpacity = () => {
-	const pageElement = document.getElementById("film-details");
-
-	if (!pageElement) {
-		return;
-	}
-
-	let percentScroll = window.scrollY / fullOpacityFrom * 100;
-
-	if (percentScroll > 100) {
-		percentScroll = 100;
-	}
-
-	const currentOpacity = backgroundOpacityFrom - ((percentScroll * backgroundOpacityRange) / 100);
-
-	if (pageElement.style.getPropertyValue("--background-opacity") !== `${currentOpacity}`) {
-		pageElement.style.setProperty("--background-opacity", currentOpacity);
-	}
+const scrollAnimationConfig = {
+	backgroundOpacityFrom: 0.4,
+	backgroundOpacityTo: 0.9,
+	fullOpacityFrom: 400,
+	elementId: "film-details",
+	cssVariable: "--background-opacity",
 };
 
 const FilmDetails = () => {
 	const { id } = useParams();
-	const [movie, setMovie] = useState(null);
+	const dispatch = useDispatch();
+	const isLoaded = useSelector(moviesSelectors.isMovieLoaded(id));
+	const isLoading = useSelector(moviesSelectors.isMovieLoading(id));
+	const details = useSelector(moviesSelectors.getMovieData(id));
 
-	const onScroll = (event) => {
-		changeBackgroundOpacity(event);
+	const {
+		name = "",
+		description = "",
+		poster = "",
+	} = details;
+
+	const rootInline = {};
+
+	if (isLoaded && poster) {
+		rootInline["backgroundImage"] = `url(${poster})`;
+	}
+
+	const onScroll = () => {
+		addBackgroundOpacityOnScroll(scrollAnimationConfig);
 	};
 
 	useEffect(() => {
-		getMovie(id).then(({ movie }) => {
-			setMovie(movie);
-		});
+		if (!isLoaded && !isLoading) {
+			dispatch(fetchMovie(id));
+		}
 
 		document.addEventListener("scroll", onScroll, true);
 
@@ -50,17 +51,15 @@ const FilmDetails = () => {
 		};
 	}, []);
 
-	if (!movie) {
+	if (!isLoaded) {
 		return null;
 	}
 
-	const rootInline = { backgroundImage: `url(${movie.poster})` };
-
 	return (
-		<main id="film-details" className={style.film_details} style={rootInline}>
+		<main id={scrollAnimationConfig.elementId} className={style.film_details} style={rootInline}>
 			<section className={style.description}>
 				<div className="container">
-					<h1 className={style.title}>{movie.name}</h1>
+					<h1 className={style.title}>{name}</h1>
 
 					<div className={style.additional_information}>
 						<span className={style.match}>98% Match</span>
@@ -79,14 +78,7 @@ const FilmDetails = () => {
 				<div className="container">
 					<div className={style.section}>
 						<h2 className={style.subtitle}>Overview</h2>
-
-						<p className={style.text}>
-							It stars Gerard Butler and Jamie Foxx and takes place in Philadelphia,
-							telling the story of a man driven to seek justice while targeting
-							not only his family's killer but also those who have supported
-							a corrupt criminal justice system,
-							intending to assassinate anyone supporting the system.
-						</p>
+						<p className={style.text}>{description}</p>
 					</div>
 
 					<div className={style.genres}>

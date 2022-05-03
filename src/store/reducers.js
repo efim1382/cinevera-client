@@ -1,5 +1,7 @@
-import currentUserReducers from "reducers/currentUser.reducer";
+import currentUserReducers, { key as currentUserKey } from "reducers/currentUser.reducer";
+import moviesReducers, { key as moviesKey } from "reducers/movies.reducer";
 
 export default {
-	currentUserId: currentUserReducers,
+	[currentUserKey]: currentUserReducers,
+	[moviesKey]: moviesReducers,
 };

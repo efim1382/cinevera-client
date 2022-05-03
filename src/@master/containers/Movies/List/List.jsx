@@ -1,17 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Icon from "components/Icon";
 import MovieCard from "components/MovieCard";
-import { getMoviesList } from "api/movies.api";
+import EmptyMessage from "components/EmptyMessage";
+import { fetchMoviesList } from "actions/movies.actions";
+import * as moviesSelectors from "selectors/movies.selectors";
 import style from "./style.css";
 
+const itemsPerPage = 10;
+const defaultEmptyMovies = [...Array(itemsPerPage).keys()];
+
 const MoviesListContainer = () => {
-	const [movies, setMovies] = useState([]);
+	const dispatch = useDispatch();
+	const isLoading = useSelector(moviesSelectors.isLoading);
+	const isLoaded = useSelector(moviesSelectors.isLoaded);
+	const moviesIds = useSelector(moviesSelectors.getMoviesListIds);
+
+	const ids = !isLoaded && isLoading
+		? defaultEmptyMovies
+		: moviesIds;
+
+	const isMoviesExist = isLoaded && moviesIds.length > 0;
+	const isEmptyMessageShown = isLoaded && moviesIds.length === 0;
 
 	useEffect(() => {
-		getMoviesList()
-			.then(({ movies }) => {
-				setMovies(movies);
-			});
+		if (!isLoaded && !isLoading) {
+			dispatch(fetchMoviesList());
+		}
 	}, []);
 
 	return (
@@ -21,18 +36,53 @@ const MoviesListContainer = () => {
 					<h2 className={style.title}>Movies</h2>
 
 					<div className={style.categories}>
-						<button className={style.item}>Drama</button>
-						<button className={style.item}>Adventure</button>
-						<button className={style.item}>Comedy</button>
-						<button className={style.item}>Thriller</button>
-						<button className={style.item}>Documentary</button>
-						<button className={style.item}>Criminal</button>
-						<button className={style.item}>Animation</button>
-						<button className={style.item}>Action</button>
-						<button className={style.item}>Detective</button>
-						<button className={style.item}>Action</button>
-						<button className={style.item}>Romantic</button>
-						<button className={style.item}>Historical</button>
+						<button className={style.item}>
+							<span>Drama</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Adventure</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Comedy</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Thriller</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Documentary</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Criminal</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Animation</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Action</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Detective</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Action</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Romantic</span>
+						</button>
+
+						<button className={style.item}>
+							<span>Historical</span>
+						</button>
 					</div>
 
 					<div className={style.sorting}>
@@ -53,20 +103,23 @@ const MoviesListContainer = () => {
 			</div>
 
 			<div className={style.list}>
-				<div className="container">
-					{movies.map((item) => {
-						return (
-							<MovieCard
-								key={item._id}
-								link={`/movies/details/${item._id}`}
-								name={item.name}
-								description={item.description}
-								image={item.preview}
-								className={style.movie}
-							/>
-						);
-					})}
-				</div>
+				{isMoviesExist && (
+					<div className="container">
+						{ids.map((id) => {
+							return (
+								<MovieCard
+									key={id}
+									id={id}
+									className={style.movie}
+								/>
+							);
+						})}
+					</div>
+				)}
+
+				{isEmptyMessageShown && (
+					<EmptyMessage text="There is no movies" className={style.empty_message} />
+				)}
 			</div>
 		</main>
 	);

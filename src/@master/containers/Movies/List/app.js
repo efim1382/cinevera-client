@@ -8,7 +8,7 @@ const MoviesList = lazy(() => import(
 
 const MoviesListContainer = () => {
 	return (
-		<Suspense fallback={null}>
+		<Suspense fallback="...Loading">
 			<MoviesList />
 		</Suspense>
 	);

@@ -1,5 +1,5 @@
 .empty_message {
-  --icon-size: 120px;
+  --icon-size: 60px;
   --icon-color: var(--primary-color);
 
 	& i {
@@ -10,7 +10,6 @@
 	& .text {
 		display: block;
 		margin-top: 20px;
-		font-size: 24px;
 		font-weight: var(--font-weight-medium);
 		text-align: center;
 		color: var(--caption-color);
