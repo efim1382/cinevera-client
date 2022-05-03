@@ -94,6 +94,10 @@
   mask-image: url('./icons/play.svg');
 }
 
+.icon[data-icon="play_outline"] {
+  mask-image: url('./icons/play_outline.svg');
+}
+
 .icon[data-icon="arrow_forward"] {
   mask-image: url('./icons/arrow_forward.svg');
 }

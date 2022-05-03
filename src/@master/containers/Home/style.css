@@ -98,7 +98,7 @@
 				}
 
 				& .play_button {
-					--icon-color: #fff;
+					--icon-color: var(--primary-color);
 					--icon-size: 36px;
 					position: absolute;
 					top: 50%;
