@@ -38,7 +38,7 @@
 
 			& .description {
 				margin-top: 20px;
-				color: #fff;
+				color: var(--primary-color);
 				font-size: 18px;
 			}
 
@@ -84,6 +84,10 @@
 				background-size: cover;
 				background-position: center;
 				position: relative;
+
+				&:hover {
+					cursor: pointer;
+				}
 
 				@media (--viewport-laptop) {
 					--columns: 2;
