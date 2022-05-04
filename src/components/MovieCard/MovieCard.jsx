@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import classnames from "classnames/bind";
 import * as moviesSelectors from "selectors/movies.selectors";
+import { getGenreByCode } from "config/genres";
 import style from "./style.css";
 
 const cx = classnames.bind(style);
@@ -21,7 +22,13 @@ const MovieCard = (props) => {
 		name,
 		description,
 		preview,
+		year,
+		genres = [],
 	} = data;
+
+	const formattedGenres = genres
+		.map((code) => getGenreByCode(code).label || code)
+		.join(", ");
 
 	const Component = isLoaded
 		? NavLink
@@ -54,8 +61,8 @@ const MovieCard = (props) => {
 						<p className={style.description}>{description}</p>
 					)}
 
-					<p className={style.film_properties}>1997 year 139 min</p>
-					<p className={style.film_properties}>Thriller</p>
+					<p className={style.film_properties}>{year} year 139 min</p>
+					<p className={style.film_properties}>{formattedGenres}</p>
 				</div>
 			)}
 		</Component>

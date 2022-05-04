@@ -5,6 +5,7 @@ import Button from "components/BasicButton";
 import Icon from "components/Icon";
 import { fetchMovie } from "actions/movies.actions";
 import * as moviesSelectors from "selectors/movies.selectors";
+import { getGenreByCode } from "config/genres";
 import { addBackgroundOpacityOnScroll } from "./helpers/scrollHelper";
 import style from "./style.css";
 
@@ -24,9 +25,12 @@ const FilmDetails = () => {
 	const details = useSelector(moviesSelectors.getMovieData(id));
 
 	const {
-		name = "",
-		description = "",
-		poster = "",
+		name,
+		description,
+		poster,
+		ageLimit,
+		year,
+		genres = [],
 	} = details;
 
 	const rootInline = {};
@@ -63,8 +67,14 @@ const FilmDetails = () => {
 
 					<div className={style.additional_information}>
 						<span className={style.match}>98% Match</span>
-						<span className={style.year}>2009</span>
-						<span className={style.age_limit}>18+</span>
+
+						{year && (
+							<span className={style.year}>{year}</span>
+						)}
+
+						{ageLimit && (
+							<span className={style.age_limit}>{ageLimit}</span>
+						)}
 					</div>
 
 					<Button
@@ -84,8 +94,19 @@ const FilmDetails = () => {
 					<div className={style.genres}>
 						<h2 className={style.subtitle}>Genres</h2>
 
-						<NavLink to="/" className={style.item}>Thriller</NavLink>
-						<NavLink to="/" className={style.item}>Americal Films</NavLink>
+						{!!genres.length && (
+							genres.map((code) => {
+								const { label } = getGenreByCode(code) || {};
+
+								if (!label) {
+									return null;
+								}
+
+								return (
+									<NavLink key={code} to="/" className={style.item}>{label}</NavLink>
+								);
+							})
+						)}
 					</div>
 				</div>
 			</section>

@@ -5,6 +5,7 @@ import MovieCard from "components/MovieCard";
 import EmptyMessage from "components/EmptyMessage";
 import { fetchMoviesList } from "actions/movies.actions";
 import * as moviesSelectors from "selectors/movies.selectors";
+import { genres } from "config/genres";
 import style from "./style.css";
 
 const itemsPerPage = 10;
@@ -36,53 +37,11 @@ const MoviesListContainer = () => {
 					<h2 className={style.title}>Movies</h2>
 
 					<div className={style.categories}>
-						<button className={style.item}>
-							<span>Drama</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Adventure</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Comedy</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Thriller</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Documentary</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Criminal</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Animation</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Action</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Detective</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Action</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Romantic</span>
-						</button>
-
-						<button className={style.item}>
-							<span>Historical</span>
-						</button>
+						{genres.map((item) => (
+							<button key={item.value} className={style.item}>
+								<span>{item.label}</span>
+							</button>
+						))}
 					</div>
 
 					<div className={style.sorting}>
