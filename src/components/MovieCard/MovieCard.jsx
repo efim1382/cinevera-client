@@ -20,7 +20,7 @@ const MovieCard = (props) => {
 
 	const {
 		name,
-		description,
+		shortDescription,
 		preview,
 		year,
 		genres = [],
@@ -57,8 +57,8 @@ const MovieCard = (props) => {
 						</div>
 					</div>
 
-					{description && (
-						<p className={style.description}>{description}</p>
+					{shortDescription && (
+						<p className={style.description}>{shortDescription}</p>
 					)}
 
 					<p className={style.film_properties}>{year} year 139 min</p>
