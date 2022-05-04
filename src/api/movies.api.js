@@ -12,6 +12,16 @@ export const getMoviesList = () => {
 
 /**
  *
+ * @returns {Promise<Response>}
+ */
+export const getPopularMoviesList = () => {
+	return XHR.get({
+		url: "/movies/popular/",
+	});
+};
+
+/**
+ *
  * @param {string} id
  * @returns {*}
  */

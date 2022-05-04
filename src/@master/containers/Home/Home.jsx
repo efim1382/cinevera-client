@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Button from "components/BasicButton";
 import Icon from "components/Icon";
 import MovieCard from "components/MovieCard";
 import Swiper from "components/Swiper";
 import { SwiperSlide } from "swiper/react";
+import { getPopularMoviesList } from "api/movies.api";
+import { loadMovies } from "actions/movies.actions";
 import { moviesSliderBreakpoints } from "config/adaptability";
 
 import style from "./style.css";
 
 const Home = () => {
+	const dispatch = useDispatch();
+	const [moviesIds, setMoviesIds] = useState([]);
+
+	useEffect(() => {
+		getPopularMoviesList()
+			.then(({ movies }) => {
+				dispatch(loadMovies(movies));
+				const ids = movies.map((item) => item._id);
+				setMoviesIds(ids);
+			});
+	}, []);
+
 	return (
 		<main className={style.home}>
 			<section className={style.main_block}>
@@ -119,13 +134,9 @@ const Home = () => {
 				<div className={style.row_list}>
 					<div className="container">
 						<Swiper breakpoints={moviesSliderBreakpoints}>
-							{bestMovies.map((item) => (
-								<SwiperSlide key={item._id}>
-									<MovieCard
-										link={`/movies/details/${item._id}`}
-										image={item.image}
-										name={item.name}
-									/>
+							{moviesIds.map((item) => (
+								<SwiperSlide key={item}>
+									<MovieCard id={item} />
 								</SwiperSlide>
 							))}
 						</Swiper>
@@ -143,13 +154,9 @@ const Home = () => {
 				<div className={style.row_list}>
 					<div className="container">
 						<Swiper breakpoints={moviesSliderBreakpoints}>
-							{bestMovies.map((item) => (
-								<SwiperSlide key={item._id}>
-									<MovieCard
-										link={`/movies/details/${item._id}`}
-										image={item.image}
-										name={item.name}
-									/>
+							{moviesIds.map((item) => (
+								<SwiperSlide key={item}>
+									<MovieCard id={item} />
 								</SwiperSlide>
 							))}
 						</Swiper>
@@ -202,13 +209,9 @@ const Home = () => {
 				<div className={style.row_list}>
 					<div className="container">
 						<Swiper breakpoints={moviesSliderBreakpoints}>
-							{bestMovies.map((item) => (
-								<SwiperSlide key={item._id}>
-									<MovieCard
-										link={`/movies/details/${item._id}`}
-										image={item.image}
-										name={item.name}
-									/>
+							{moviesIds.map((item) => (
+								<SwiperSlide key={item}>
+									<MovieCard id={item} />
 								</SwiperSlide>
 							))}
 						</Swiper>
@@ -226,13 +229,9 @@ const Home = () => {
 				<div className={style.row_list}>
 					<div className="container">
 						<Swiper breakpoints={moviesSliderBreakpoints}>
-							{bestMovies.map((item) => (
-								<SwiperSlide key={item._id}>
-									<MovieCard
-										link={`/movies/details/${item._id}`}
-										image={item.image}
-										name={item.name}
-									/>
+							{moviesIds.map((item) => (
+								<SwiperSlide key={item}>
+									<MovieCard id={item} />
 								</SwiperSlide>
 							))}
 						</Swiper>
@@ -244,64 +243,3 @@ const Home = () => {
 };
 
 export default Home;
-
-export const bestMovies = [
-	{
-		_id: 1,
-		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
-		name: "Pipiska",
-	},
-
-	{
-		_id: 2,
-		image: "https://filmix.ac/uploads/frames/118698/f247290-vystrel-v-pustotu_2017_original.jpg",
-		name: "Pipiska",
-	},
-
-	{
-		_id: 3,
-		image: "https://cdn.oboi7.com/content/images/e3/ee/e3ee9a3e26ec84cae113de17a43691af853ab0fe.jpg",
-		name: "Pipiska",
-	},
-
-	{
-		_id: 4,
-		image: "https://p4.wallpaperbetter.com/wallpaper/1024/392/1003/movie-fury-wallpaper-thumb.jpg",
-		name: "Pipiska",
-	},
-
-	{
-		_id: 5,
-		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
-		name: "Pipiska",
-	},
-
-	{
-		_id: 6,
-		image: "https://filmix.ac/uploads/frames/118698/f247290-vystrel-v-pustotu_2017_original.jpg",
-		name: "Pipiska",
-	},
-
-	{
-		_id: 7,
-		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
-		name: "Pipiska",
-	},
-
-	{
-		_id: 8,
-		image: "https://p4.wallpaperbetter.com/wallpaper/1024/392/1003/movie-fury-wallpaper-thumb.jpg",
-		name: "Pipiska",
-	},
-	{
-		_id: 9,
-		image: "https://cdn.oboi7.com/content/images/e3/ee/e3ee9a3e26ec84cae113de17a43691af853ab0fe.jpg",
-		name: "Pipiska",
-	},
-
-	{
-		_id: 10,
-		image: "https://wallpapershome.ru/images/pages/pic_v/12849.jpg",
-		name: "Pipiska",
-	},
-];

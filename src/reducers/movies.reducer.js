@@ -13,6 +13,27 @@ const initialState = {
 
 const moviesReducer = createReducer(initialState, (builder) => {
 	builder
+		.addCase(moviesActions.addMovie, (state, action) => {
+			console.log(action);
+		})
+
+		.addCase(moviesActions.loadMovies, (state, action) => {
+			action.payload.forEach((item) => {
+				if (state.ids.indexOf(item._id) === -1) {
+					state.ids.push(item._id);
+				}
+
+				if (!state.list[item._id]) {
+					state.list[item._id] = {
+						isLoading: false,
+						isLoaded: true,
+						error: "",
+						data: item,
+					};
+				}
+			});
+		})
+
 		.addCase(moviesActions.fetchMovie.pending, (state, action) => {
 			const id = action.meta.arg;
 
