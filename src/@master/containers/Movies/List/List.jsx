@@ -8,7 +8,7 @@ import * as moviesSelectors from "selectors/movies.selectors";
 import { genres } from "config/genres";
 import style from "./style.css";
 
-const itemsPerPage = 10;
+const itemsPerPage = 30;
 const defaultEmptyMovies = [...Array(itemsPerPage).keys()];
 
 const MoviesListContainer = () => {
