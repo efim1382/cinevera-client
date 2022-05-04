@@ -100,7 +100,6 @@
 		--movie-card-width: calc((100% - (var(--movies-list-gap) * (var(--movies-list-columns) - 1))) / var(--movies-list-columns));
 		margin-top: 30px;
 
-
 		@media (--viewport-desktop-extra-large) {
 			--movies-list-columns: 7;
 		}
