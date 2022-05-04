@@ -1,0 +1,137 @@
+.series {
+	padding-top: var(--header-height);
+	padding-bottom: var(--layout-padding);
+
+	& .main_block {
+		padding-top: 80px;
+		overflow-x: clip;
+
+		& :global(.container) {
+			& .title {
+			}
+
+			& .categories {
+				display: flex;
+				white-space: nowrap;
+				gap: 30px;
+				margin-top: 30px;
+
+				& .item {
+					--height: 40px;
+					flex-shrink: 0;
+					height: var(--height);
+					line-height: var(--height);
+					padding-left: 40px;
+					padding-right: 40px;
+					color: #fff;
+					border-radius: calc(var(--height) / 2);
+					background-color: var(--root-background-color-hover);
+
+					&:first-of-type {
+						background-color: #e50815;
+					}
+				}
+			}
+
+			& .sorting {
+				display: flex;
+				align-items: center;
+				margin-top: 20px;
+
+				& .caption {
+					font-size: 16px;
+					color: #797979;
+				}
+
+				& .dropdown {
+					--height: 40px;
+					height: var(--height);
+					line-height: var(--height);
+					margin-left: 12px;
+					padding-left: 40px;
+					padding-right: 40px;
+					color: #fff;
+					border-radius: calc(var(--height) / 2);
+					background-color: #101010;
+				}
+
+				& .rating {
+					display: flex;
+					align-items: center;
+					margin-left: auto;
+
+					& > i {
+						--icon-color: #fff;
+						--icon-size: 16px;
+					}
+
+					& .slider {
+						position: relative;
+						width: 200px;
+						height: 2px;
+						margin-left: 12px;
+						background-color: #222;
+
+						& .circle {
+							position: absolute;
+							left: 50%;
+							top: 50%;
+							transform: translateY(-50%);
+							width: 16px;
+							height: 16px;
+							border-radius: 50%;
+							background-color: #fff;
+						}
+					}
+
+					& .rating_text {
+						margin-left: 12px;
+						font-size: 16px;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+
+	& .list {
+		--movies-list-columns: 8;
+		--movies-list-gap: 30px;
+		--movie-card-width: calc((100% - (var(--movies-list-gap) * (var(--movies-list-columns) - 1))) / var(--movies-list-columns));
+		margin-top: 30px;
+
+		@media (--viewport-desktop-extra-large) {
+			--movies-list-columns: 7;
+		}
+
+		@media (--viewport-desktop-large) {
+			--movies-list-columns: 6;
+		}
+
+		@media (--viewport-desktop-medium) {
+			--movies-list-columns: 5;
+		}
+
+		@media (--viewport-desktop-small) {
+			--movies-list-columns: 4;
+		}
+
+		@media (--viewport-laptop) {
+			--movies-list-columns: 3;	
+		}
+
+		@media (--viewport-tablet) {
+			--movies-list-columns: 2;
+		}
+
+		@media (--viewport-phone) {
+			--movies-list-columns: 1;
+		}
+
+		& :global(.container) {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--movies-list-gap);
+		}
+	}
+}
