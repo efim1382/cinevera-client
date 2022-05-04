@@ -4,7 +4,7 @@ import { create } from "@storybook/theming";
 addons.setConfig({
 	theme: create({
 		base: "light",
-		brandTitle: "SearchFilm",
-		brandUrl: "https://searchfilm.com/",
+		brandTitle: "Cinevera",
+		brandUrl: "https://cinevera.com/",
 	})
 });

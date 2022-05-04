@@ -14,7 +14,7 @@
     "test": "jest",
     "lint": "eslint src --ext .js,.jsx",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
-    "storybook": "start-storybook -p 5001"
+    "storybook": "start-storybook -p 5001 --ci"
   },
   "author": "",
   "license": "ISC",
@@ -70,6 +70,7 @@
     "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
     "@storybook/addon-essentials": "6.4.22",
+    "@storybook/addon-interactions": "6.4.22",
     "@storybook/addon-links": "6.4.22",
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/builder-webpack5": "6.4.22",
@@ -81,6 +82,7 @@
     "babel-loader": "8.2.4",
     "clean-webpack-plugin": "4.0.0",
     "copy-webpack-plugin": "10.2.4",
+    "core-js": "3.22.4",
     "css-loader": "6.7.1",
     "eslint": "^8.13.0",
     "eslint-plugin-react": "7.29.4",

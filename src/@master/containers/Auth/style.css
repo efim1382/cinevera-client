@@ -113,8 +113,8 @@
 		position: absolute;
 		bottom: var(--layout-padding);
 		right: var(--layout-padding);
-		color: var(--caption-color);
 		padding-left: var(--layout-padding);
+		color: var(--caption-color);
 		font-size: 15px;
 
 		& > a,

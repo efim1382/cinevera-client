@@ -20,8 +20,8 @@ const MoviesListContainer = () => {
 		? defaultEmptyMovies
 		: moviesIds;
 
-	const isMoviesExist = isLoaded && moviesIds.length > 0;
 	const isEmptyMessageShown = isLoaded && moviesIds.length === 0;
+	const isMoviesExist = !isEmptyMessageShown && ids.length > 0;
 
 	useEffect(() => {
 		if (!isLoaded && !isLoading) {
