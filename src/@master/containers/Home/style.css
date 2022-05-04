@@ -60,7 +60,7 @@
 			& .description {
 				max-width: 400px;
 				margin-top: 20px;
-				color: #fff;
+				color: var(--primary-color);
 				font-size: 18px;
 
 				@media (--viewport-phone) {
@@ -127,6 +127,10 @@
 				background-position: center;
 				position: relative;
 
+				&:hover {
+					cursor: pointer;
+				}
+
 				@media (--viewport-laptop) {
 					--columns: 2;
 				}
@@ -140,7 +144,7 @@
 				}
 
 				& .play_button {
-					--icon-color: #fff;
+					--icon-color: var(--primary-color);
 					--icon-size: 36px;
 					position: absolute;
 					top: 50%;

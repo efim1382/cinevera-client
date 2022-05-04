@@ -40,13 +40,14 @@ const Home = () => {
 
 					<div className={style.actions}>
 						<NavLink to="/movies/details/queens-gambit/" className={style.link}>
-							<Button text="Watch" className={style.link_button} />
+							<Button text="Watch" icon="play" className={style.link_button} />
 						</NavLink>
 
 						<Button
 							theme="primary"
 							appearance="outline"
 							text="Play Trailer"
+							icon="play_outline"
 							className={style.button}
 						/>
 					</div>
