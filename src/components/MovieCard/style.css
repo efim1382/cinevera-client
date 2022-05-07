@@ -57,7 +57,7 @@
 				align-items: center;
 				margin-left: 12px;
 				height: 2px;
-				background-color: #fff;
+				background-color: var(--primary-color);
 				border-radius: 2px;
 
 				& .score_line {

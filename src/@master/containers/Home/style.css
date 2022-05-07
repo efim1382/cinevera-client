@@ -5,7 +5,7 @@
 
 	& .subtitle {
 		font-size: 28px;
-		color: #fff;
+		color: var(--primary-color);
 		font-weight: var(--font-weight-bold);
 	}
 
@@ -183,7 +183,7 @@
 
 						& .rewind {
 							width: 100%;
-							background-color: #fff;
+							background-color: var(--primary-color);
 							height: 2px;
 							border-radius: 2px;
 							margin-left: 8px;
@@ -192,7 +192,7 @@
 								width: 12px;
 								height: 12px;
 								border-radius: 50%;
-								background-color: #fff;
+								background-color: var(--primary-color);
 								position: absolute;
 								left: 40%;
 								transform: translate(-50%, -50%);
@@ -227,79 +227,78 @@
 	& .premiere {
 		padding-top: 30px;
 		padding-bottom: 30px;
+		background-image: url("https://i.pinimg.com/originals/16/d8/48/16d848ab23b1097e74194d93603a8d77.jpg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		margin-top: 40px;
+		position: relative;
 
-		& .premiere_block {
-			background-image: url("https://preview.redd.it/ic9y69r9xvf51.jpg?auto=webp&s=a6de94d1a9aa9b3649d0f1b0a2421b47aa23c68d");
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: cover;
-			margin-top: 30px;
-			padding: 50px;
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			pointer-events: none;
+		}
 
-			& .description {
-				& .title {
-					text-transform: uppercase;
-					font-weight: var(--font-weight-medium);
-				}
+		& :global(.container) {
+			min-height: calc(100vh - var(--header-height));
+			display: flex;
+			position: relative;
+			flex-direction: column;
+
+			& h3 {
+				flex-shrink: 0;
+				text-transform: capitalize;
+			}
+
+			& .film_properties {
+				flex-grow: 1;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: center;
 
 				& .information {
-					margin-top: 50px;
 					font-size: 14px;
 
 					& .duration {
-
+						margin-left: 20px;
 					}
 
 					& .genre {
 						margin-left: 20px;
+
 					}
 
 					& .film_year {
-						margin-left: 20px;
 					}
 				}
 
 				& .name_film {
-					font-size: 50px;
+					font-size: 80px;
 					font-weight: var(--font-weight-bold);
 				}
 
 				& .info {
 					margin-top: 16px;
 					max-width: 400px;
-				}
-
-			}
-
-			& .button_info {
-				--icon-color: #fff;
-				--icon-size: 22px;
-				display: flex;
-				align-items: center;
-				margin-top: 20px;
-				color: #fff;
-				font-size: 16px;
-				font-weight: var(--font-weight-medium);
-
-				& i {
-					margin-left: 12px;
+					font-size: 18px;
 				}
 			}
+		}
 
-			& .play_watch_button {
-				--icon-color: #fff;
-				--icon-size: 36px;
-				margin-top: 50px;
-				display: flex;
-				align-items: center;
-				text-transform: uppercase;
-				font-size: 14px;
-				color: #fff;
-				font-weight: var(--font-weight-semibold);
+		& .link_button {
+			--icon-color: var(--primary-color);
+			--icon-size: 24px;
+			margin-top: 40px;
 
-				& .button_text {
-					margin-left: 16px;
-				}
+			& .button_text {
+				margin-left: 16px;
 			}
 		}
 	}

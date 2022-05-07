@@ -167,35 +167,30 @@ const Home = () => {
 
 			<section className={style.premiere}>
 				<div className="container">
-					<h3>Premiere</h3>
-					<div className={style.premiere_block}>
-						<div className={style.description}>
-							<p className={style.title}>Featured Movies</p>
+					<h3>Recommended to watch</h3>
 
-							<div className={style.information}>
-								<span className={style.duration}>108 min</span>
-								<span className={style.genre}>Comedy</span>
-								<span className={style.film_year}>2016</span>
-							</div>
-							<p className={style.name_film}>Deadpool</p>
-
-							<p className={style.info}>
-								A former Special Forces operative
-								turned mercenary is subjected
-								to arogue experiment that leaves
-								him with accelerated healing powers,
-								adotping the alter ego Deadpool.
-							</p>
+					<div className={style.film_properties}>
+						<div className={style.information}>
+							<span className={style.film_year}>2016</span>
+							<span className={style.duration}>108 min</span>
+							<span className={style.genre}>Comedy</span>
 						</div>
+						<p className={style.name_film}>Deadpool</p>
 
-						<button className={style.button_info}>More info
-							<Icon name="east" />
-						</button>
+						<p className={style.info}>
+							A former Special Forces operative
+							turned mercenary is subjected
+							to arogue experiment that leaves
+							him with accelerated healing powers,
+							adotping the alter ego Deadpool.
+							A former Special Forces operative
+							turned mercenary is subjected
+							to arogue experiment that leaves
+							him with accelerated healing powers,
+							adotping the alter ego Deadpool.
+						</p>
 
-						<button className={style.play_watch_button}>
-							<Icon name="play" />
-							<span className={style.button_text}>Watch now</span>
-						</button>
+						<Button text="Watch" icon="play_outline" className={style.link_button} />
 					</div>
 				</div>
 			</section>

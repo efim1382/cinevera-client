@@ -114,6 +114,10 @@
 	mask-image: url('./icons/close.svg');
 }
 
+.icon[data-icon="drop_down"] {
+  mask-image: url('./icons/drop_down.svg');
+}
+
 .story_icon {
 	--icon-size: 50px;
 	--icon-color: var(--primary-color);

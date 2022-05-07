@@ -46,7 +46,10 @@ const MoviesListContainer = () => {
 
 					<div className={style.sorting}>
 						<p className={style.caption}>Sort By</p>
-						<div className={style.dropdown}>Year</div>
+						<button className={style.dropdown}>
+							<span>Year</span>
+							<Icon name="drop_down" />
+						</button>
 
 						<div className={style.rating}>
 							<Icon name="star" />

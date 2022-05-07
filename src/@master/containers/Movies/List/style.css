@@ -79,15 +79,24 @@
 				}
 
 				& .dropdown {
+					--icon-size: 24px;
+					--icon-color: var(--primary-color);
 					--height: 40px;
 					height: var(--height);
-					line-height: var(--height);
+					width: 130px;
+					display: flex;
+					align-items: center;
 					margin-left: 12px;
-					padding-left: 40px;
-					padding-right: 40px;
-					color: #fff;
+					padding-left: 12px;
+					padding-right: 12px;
+					color: var(--primary-color);
 					border-radius: calc(var(--height) / 2);
-					background-color: #101010;
+					background-color: var(--root-background-color-hover);
+
+					& i {
+						margin-left: auto;
+					}
+
 				}
 
 				& .rating {
