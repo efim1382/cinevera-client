@@ -10,68 +10,6 @@ export const movieEntity = createEntityAdapter({
 const initialState = {
 
 	/**
-	 * Movies page state
-	 */
-	moviesListView: {
-
-		/**
-		 * Movies list showed on page.
-		 * Concat array by pagination requests.
-		 * @type {string[]}
-		 */
-		ids: [],
-
-		/**
-		 * is first data fetch done
-		 * @type {boolean}
-		 */
-		isFetchComplete: false,
-
-		/**
-		 * is any data request in progress
-		 * @type {boolean}
-		 */
-		isRequestProcess: false,
-
-		/**
-		 * Error if request failed
-		 * @property {string}
-		 */
-		error: "",
-	},
-
-	/**
-	 * Series page state
-	 */
-	seriesListView: {
-
-		/**
-		 * Series list showed on page.
-		 * Concat array by pagination requests.
-		 * @type {string[]}
-		 */
-		ids: [],
-
-		/**
-		 * is first data fetch done
-		 * @type {boolean}
-		 */
-		isFetchComplete: false,
-
-		/**
-		 * is any data request in progress
-		 * @type {boolean}
-		 */
-		isRequestProcess: false,
-
-		/**
-		 * Error if request failed
-		 * @property {string}
-		 */
-		error: "",
-	},
-
-	/**
 	 * Full list of movies ids.
 	 * Not using in UI
 	 * @type {string[]}
@@ -97,23 +35,6 @@ const moviesReducer = createReducer(initialState, {
 	},
 
 	// ================ API ================
-
-	[moviesActions.fetchMoviesList.pending]: (state) => {
-		state.moviesListView.isLoading = true;
-	},
-
-	[moviesActions.fetchMoviesList.rejected]: (state) => {
-		// todo: add error text
-		state.moviesListView.isLoading = false;
-	},
-
-	[moviesActions.fetchMoviesList.fulfilled]: (state, action) => {
-		movieEntity.addMany(state, action.payload.movies);
-		state.moviesListView.ids = [...state.moviesListView.ids, ...action.payload.movies.map((item) => item._id)];
-
-		state.moviesListView.isLoading = false;
-		state.moviesListView.isLoaded = true;
-	},
 
 	[moviesActions.fetchMovie.pending]: () => {
 	},
