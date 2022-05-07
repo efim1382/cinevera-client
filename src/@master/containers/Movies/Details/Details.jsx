@@ -21,7 +21,6 @@ const FilmDetails = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
 	const isLoaded = useSelector(moviesSelectors.isMovieLoaded(id));
-	const isLoading = useSelector(moviesSelectors.isMovieLoading(id));
 	const details = useSelector(moviesSelectors.getMovieData(id));
 
 	const {
@@ -44,7 +43,7 @@ const FilmDetails = () => {
 	};
 
 	useEffect(() => {
-		if (!isLoaded && !isLoading) {
+		if (!isLoaded) {
 			dispatch(fetchMovie(id));
 		}
 

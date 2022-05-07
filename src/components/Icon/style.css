@@ -114,6 +114,10 @@
 	mask-image: url('./icons/close.svg');
 }
 
+.icon[data-icon="mark"] {
+	mask-image: url('./icons/mark.svg');
+}
+
 .story_icon {
 	--icon-size: 50px;
 	--icon-color: var(--primary-color);

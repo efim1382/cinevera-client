@@ -8,8 +8,8 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: rgba(0, 0, 0, var(--header-opacity));
-	box-shadow: 0 2px 2px rgba(0, 0, 0, var(--header-opacity));
+	background-color: var(--header-background-color);
+	box-shadow: 0 2px 2px var(--header-background-color);
 	transition-property: box-shadow, background-color;
 
 	& + main {
@@ -17,11 +17,11 @@
 	}
 
 	&:not(:global(._is-filled)) {
-		--header-opacity: 0;
+		--header-background-color: transparent;
 	}
 
 	&:global(._is-filled) {
-		--header-opacity: 1;
+		--header-background-color: var(--root-background-color-hover);
 	}
 
 	& :global(.container) {

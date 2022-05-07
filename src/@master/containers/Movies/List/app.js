@@ -1,5 +1,7 @@
 import React, { Suspense, lazy } from "react";
 
+import MoviesListProvider from "./MoviesListProvider";
+
 const MoviesList = lazy(() => import(
 
 	/* webpackChunkName: "MasterFilmDetails" */
@@ -8,9 +10,11 @@ const MoviesList = lazy(() => import(
 
 const MoviesListContainer = () => {
 	return (
-		<Suspense fallback="...Loading">
-			<MoviesList />
-		</Suspense>
+		<MoviesListProvider>
+			<Suspense fallback="...Loading">
+				<MoviesList />
+			</Suspense>
+		</MoviesListProvider>
 	);
 };
 

@@ -1,34 +1,35 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useContext } from "react";
 import Icon from "components/Icon";
 import MovieCard from "components/MovieCard";
 import EmptyMessage from "components/EmptyMessage";
-import { fetchMoviesList } from "actions/movies.actions";
-import * as moviesSelectors from "selectors/movies.selectors";
-import { genres } from "config/genres";
+import Dropdown from "./Dropdown";
+import { genres, getGenreByCode } from "config/genres";
+import classnames from "classnames/bind";
 import style from "./style.css";
+
+const cx = classnames.bind(style);
 
 const itemsPerPage = 30;
 const defaultEmptyMovies = [...Array(itemsPerPage).keys()];
+import { MoviesListContext } from "./MoviesListProvider";
 
 const MoviesListContainer = () => {
-	const dispatch = useDispatch();
-	const isLoading = useSelector(moviesSelectors.isLoading);
-	const isLoaded = useSelector(moviesSelectors.isLoaded);
-	const moviesIds = useSelector(moviesSelectors.getMoviesListIds);
+	const {
+		ids,
+		isFetchComplete,
+		isRequestProcess,
+	} = useContext(MoviesListContext);
 
-	const ids = !isLoaded && isLoading
+	const [selectedGenres, setSelectedGenres] = useState([]);
+
+	const filteredGenres = genres.filter((item) => selectedGenres.indexOf(item.value) === -1);
+
+	const moviesIds = !isFetchComplete && isRequestProcess
 		? defaultEmptyMovies
-		: moviesIds;
+		: ids;
 
-	const isEmptyMessageShown = isLoaded && moviesIds.length === 0;
-	const isMoviesExist = !isEmptyMessageShown && ids.length > 0;
-
-	useEffect(() => {
-		if (!isLoaded && !isLoading) {
-			dispatch(fetchMoviesList());
-		}
-	}, []);
+	const isEmptyMessageShown = isFetchComplete && moviesIds.length === 0;
+	const isMoviesExist = !isEmptyMessageShown && moviesIds.length > 0;
 
 	return (
 		<main className={style.movies}>
@@ -43,6 +44,56 @@ const MoviesListContainer = () => {
 							</button>
 						))}
 					</div>
+
+					<Dropdown className={style.dropdown}>
+						{({ onClose }) => (
+							<div className={style.dropdown_content}>
+								{selectedGenres.map((value) => {
+									const label = getGenreByCode(value).label;
+
+									const onClick = () => {
+										setSelectedGenres(
+											[...selectedGenres].filter((item) => item !== value),
+										);
+
+										onClose();
+									};
+
+									return (
+										<button
+											key={value}
+											type="button"
+											className={cx("dropdown_category", "_is-selected")}
+											onClick={onClick}
+										>
+											<span className={style.caption}>{label}</span>
+											<Icon name="mark" className={style.mark} />
+											<Icon name="close" className={style.close} />
+										</button>
+									);
+								})}
+
+								{filteredGenres.map((item) => {
+									const onClick = () => {
+										setSelectedGenres([...selectedGenres, item.value]);
+										onClose();
+									};
+
+									return (
+										<button
+											key={item.value}
+											type="button"
+											className={style.dropdown_category}
+											onClick={onClick}
+										>
+											<span className={style.caption}>{item.label}</span>
+											<Icon name="mark" className={style.mark} />
+										</button>
+									);
+								})}
+							</div>
+						)}
+					</Dropdown>
 
 					<div className={style.sorting}>
 						<p className={style.caption}>Sort By</p>
@@ -64,7 +115,7 @@ const MoviesListContainer = () => {
 			<div className={style.list}>
 				{isMoviesExist && (
 					<div className="container">
-						{ids.map((id) => {
+						{moviesIds.map((id) => {
 							return (
 								<MovieCard
 									key={id}

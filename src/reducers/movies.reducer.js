@@ -1,93 +1,129 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createReducer, createEntityAdapter } from "@reduxjs/toolkit";
 import * as moviesActions from "actions/movies.actions";
 
 export const key = "movies";
 
+export const movieEntity = createEntityAdapter({
+	selectId: (movie) => movie._id,
+});
+
 const initialState = {
+
+	/**
+	 * Movies page state
+	 */
+	moviesListView: {
+
+		/**
+		 * Movies list showed on page.
+		 * Concat array by pagination requests.
+		 * @type {string[]}
+		 */
+		ids: [],
+
+		/**
+		 * is first data fetch done
+		 * @type {boolean}
+		 */
+		isFetchComplete: false,
+
+		/**
+		 * is any data request in progress
+		 * @type {boolean}
+		 */
+		isRequestProcess: false,
+
+		/**
+		 * Error if request failed
+		 * @property {string}
+		 */
+		error: "",
+	},
+
+	/**
+	 * Series page state
+	 */
+	seriesListView: {
+
+		/**
+		 * Series list showed on page.
+		 * Concat array by pagination requests.
+		 * @type {string[]}
+		 */
+		ids: [],
+
+		/**
+		 * is first data fetch done
+		 * @type {boolean}
+		 */
+		isFetchComplete: false,
+
+		/**
+		 * is any data request in progress
+		 * @type {boolean}
+		 */
+		isRequestProcess: false,
+
+		/**
+		 * Error if request failed
+		 * @property {string}
+		 */
+		error: "",
+	},
+
+	/**
+	 * Full list of movies ids.
+	 * Not using in UI
+	 * @type {string[]}
+	 */
 	ids: [],
-	list: {},
-	isLoading: false,
-	isLoaded: false,
-	error: "",
+
+	/**
+	 * Movie data details
+	 * @type {Object[]} entities
+	 * @property {string} entities.name
+	 * @property {number} entities.ageLimit
+	 * @property {number} entities.year
+	 * @property {string} entities.shortDescription
+	 * @property {string} entities.description
+	 * @property {string[]} entities.genres
+	 */
+	entities: {},
 };
 
-const moviesReducer = createReducer(initialState, (builder) => {
-	builder
-		.addCase(moviesActions.addMovie, (state, action) => {
-			console.log(action);
-		})
+const moviesReducer = createReducer(initialState, {
+	[moviesActions.loadMovies]: (state, action) => {
+		movieEntity.addMany(state, action.payload);
+	},
 
-		.addCase(moviesActions.loadMovies, (state, action) => {
-			action.payload.forEach((item) => {
-				if (state.ids.indexOf(item._id) === -1) {
-					state.ids.push(item._id);
-				}
+	// ================ API ================
 
-				if (!state.list[item._id]) {
-					state.list[item._id] = {
-						isLoading: false,
-						isLoaded: true,
-						error: "",
-						data: item,
-					};
-				}
-			});
-		})
+	[moviesActions.fetchMoviesList.pending]: (state) => {
+		state.moviesListView.isLoading = true;
+	},
 
-		.addCase(moviesActions.fetchMovie.pending, (state, action) => {
-			const id = action.meta.arg;
+	[moviesActions.fetchMoviesList.rejected]: (state) => {
+		// todo: add error text
+		state.moviesListView.isLoading = false;
+	},
 
-			if (state.ids.indexOf(id) === -1) {
-				state.ids.push(id);
-			}
+	[moviesActions.fetchMoviesList.fulfilled]: (state, action) => {
+		movieEntity.addMany(state, action.payload.movies);
+		state.moviesListView.ids = [...state.moviesListView.ids, ...action.payload.movies.map((item) => item._id)];
 
-			if (!state.list[id]) {
-				state.list[id] = {
-					isLoading: true,
-					isLoaded: false,
-					error: "",
-					data: {},
-				};
-			}
-		})
+		state.moviesListView.isLoading = false;
+		state.moviesListView.isLoaded = true;
+	},
 
-		.addCase(moviesActions.fetchMovie.rejected, (state, action) => {
-			console.log(action);
-		})
+	[moviesActions.fetchMovie.pending]: () => {
+	},
 
-		.addCase(moviesActions.fetchMovie.fulfilled, (state, action) => {
-			state.list[action.payload.movie._id].isLoaded = true;
-			state.list[action.payload.movie._id].isLoading = false;
-			state.list[action.payload.movie._id].data = action.payload.movie;
-		})
+	[moviesActions.fetchMovie.rejected]: () => {
+	},
 
-		.addCase(moviesActions.fetchMoviesList.pending, (state) => {
-			state.isLoading = true;
-		})
-
-		.addCase(moviesActions.fetchMoviesList.rejected, (state) => {
-			state.isLoading = false;
-		})
-
-		.addCase(moviesActions.fetchMoviesList.fulfilled, (state, action) => {
-			action.payload.movies.forEach((item) => {
-				if (state.ids.indexOf(item._id) === -1) {
-					state.ids.push(item._id);
-				}
-
-				if (!state.list[item._id]) {
-					state.list[item._id] = {
-						isLoading: false,
-						isLoaded: true,
-						error: "",
-						data: item,
-					};
-				}
-			});
-
-			state.isLoaded = true;
-			state.isLoading = false;
-		});
+	[moviesActions.fetchMovie.fulfilled]: (state, action) => {
+		movieEntity.addOne(state, action.payload.movie);
+	},
 });
 
 export default moviesReducer;

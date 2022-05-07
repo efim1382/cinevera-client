@@ -2,6 +2,95 @@
 	padding-top: var(--header-height);
 	padding-bottom: var(--layout-padding);
 
+
+	& .dropdown {
+		--dropdown-item-height: 44px;
+		--dropdown-vertical-padding: 12px;
+		margin-top: 50px;
+		margin-bottom: 50px;
+
+		& .dropdown_content {
+			overflow-x: hidden;
+			width: 200px;
+			max-height: calc(var(--dropdown-vertical-padding) + (var(--dropdown-item-height) * 5.5));
+			padding-top: var(--dropdown-vertical-padding);
+			padding-bottom: var(--dropdown-vertical-padding);
+			background-color: var(--root-background-color-hover);
+			border-radius: 3px;
+			border: 1px solid var(--root-background-color-hover);
+
+			& .dropdown_category {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+				height: var(--dropdown-item-height);
+				padding-left: 20px;
+				padding-right: 20px;
+				background-color: var(--dropdown-item-background-color);
+				transition-property: background-color;
+
+				&:not(:hover) {
+					--dropdown-item-background-color: transparent;
+				}
+
+				&:hover {
+					--dropdown-item-background-color: var(--root-background-color);
+				}
+
+				&._is-selected {
+					--icon-color: var(--accent-color);
+
+					&:not(:hover) {
+						--dropdown-item-mark-display: block;
+						--dropdown-item-close-display: none;
+					}
+
+					&:hover {
+						--dropdown-item-mark-display: none;
+						--dropdown-item-close-display: block;
+					}
+				}
+
+				&:not(._is-selected) {
+					--dropdown-item-mark-display: block;
+					--dropdown-item-close-display: none;
+
+					&:not(:hover) {
+						--icon-color: transparent;
+					}
+
+					&:hover {
+						--icon-color: var(--caption-color);
+					}
+				}
+
+				& .caption {
+					flex-grow: 1;
+					min-width: 0;
+					color: var(--primary-color);
+					font-size: var(--default-font-size);
+				}
+
+				& i {
+					--icon-size: 20px;
+					flex-shrink: 0;
+					margin-left: 8px;
+
+					&.mark {
+						display: var(--dropdown-item-mark-display);
+					}
+
+					&.close {
+						display: var(--dropdown-item-close-display);
+					}
+				}
+			}
+		}
+	}
+
+
+
 	& .main_block {
 		padding-top: 80px;
 
