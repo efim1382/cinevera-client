@@ -85,7 +85,7 @@ const Filters = ({ className }) => {
 			<div className="container">
 
 				<div className={style.dropdown_wrapper}>
-					<span className={style.label}>Category:</span>
+					<span className={style.label}>Genre:</span>
 
 					<DropdownNew
 						label={genresLabel}

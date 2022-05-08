@@ -167,7 +167,7 @@ const Home = () => {
 
 			<section className={style.premiere}>
 				<div className="container">
-					<h3>Recommended to watch</h3>
+					<h3>Recommended to Watch</h3>
 
 					<div className={style.film_properties}>
 						<div className={style.information}>
@@ -175,6 +175,7 @@ const Home = () => {
 							<span className={style.duration}>108 min</span>
 							<span className={style.genre}>Comedy</span>
 						</div>
+
 						<p className={style.name_film}>Deadpool</p>
 
 						<p className={style.info}>

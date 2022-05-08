@@ -225,13 +225,12 @@
 	}
 
 	& .premiere {
-		padding-top: 30px;
-		padding-bottom: 30px;
+		padding-top: var(--layout-padding);
+		padding-bottom: var(--layout-padding);
 		background-image: url("https://i.pinimg.com/originals/16/d8/48/16d848ab23b1097e74194d93603a8d77.jpg");
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-		margin-top: 40px;
 		position: relative;
 
 		&:before {
@@ -246,17 +245,15 @@
 		}
 
 		& :global(.container) {
-			min-height: calc(100vh - var(--header-height));
 			display: flex;
 			position: relative;
 			flex-direction: column;
+			min-height: calc(100vh - (var(--header-height) + (var(--layout-padding) * 2)));
 
 			& h3 {
 				flex-shrink: 0;
-				text-transform: capitalize;
 
 				@media (--viewport-phone) {
-					font-size: 23px;
 				}
 			}
 
@@ -266,13 +263,10 @@
 				flex-direction: column;
 				align-items: flex-start;
 				justify-content: center;
+				padding-top: 20px;
 
 				& .information {
 					font-size: 14px;
-
-					@media (--viewport-phone) {
-						margin-top: 16px;
-					}
 
 					& .film_year {
 					}
@@ -288,24 +282,17 @@
 				}
 
 				& .name_film {
-					font-size: 80px;
+					font-size: 64px;
 					font-weight: var(--font-weight-bold);
 
 					@media (--viewport-phone) {
 						font-size: 50px;
-						margin-left: -4px;
 					}
 				}
 
 				& .info {
 					margin-top: 16px;
 					max-width: 400px;
-					font-size: 18px;
-
-					@media (--viewport-phone) {
-						font-size: 16px;
-						margin-top: 0;
-					}
 				}
 			}
 		}

@@ -3,7 +3,6 @@
 	position: relative;
 	padding-top: var(--header-height);
 	padding-bottom: var(--layout-padding);
-	background-image: url("images/law-abiding-citizen.jpeg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;

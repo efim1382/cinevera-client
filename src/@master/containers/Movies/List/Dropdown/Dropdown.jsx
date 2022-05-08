@@ -23,7 +23,7 @@ const Dropdown = (props) => {
 	const additionalButtonProps = {};
 
 	if (isDisabled) {
-		additionalButtonProps["disabled"] = "true";
+		additionalButtonProps["disabled"] = true;
 	}
 
 	const toggleDropdown = () => setIsDropdownShown(!isDropdownShown);
