@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import classnames from "classnames/bind";
 import Icon from "components/Icon";
 import MobileOverlay from "./MobileOverlay";
@@ -68,9 +68,12 @@ const Header = ({ isTransparent, className }) => {
 
 				{!isMobileView && (
 					<div className={style.actions}>
-						<button className={style.button}>
+						<Link
+							to={{ search: "?search" }}
+							className={style.button}
+						>
 							<Icon name="search" />
-						</button>
+						</Link>
 
 						<button className={style.button}>
 							<Icon name="bell" />
