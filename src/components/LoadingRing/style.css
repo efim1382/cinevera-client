@@ -21,7 +21,7 @@
   top: calc(50% - var(--spinner-size) / 2);
   width: var(--spinner-size);
   height: var(--spinner-size);
-  border: var(--line-size, 2px) solid var(--line-color, #fff);
+  border: var(--line-size, 2px) solid var(--line-color, var(--primary-color));
   border-top-color: var(--border-color, transparent);
   border-radius: 50%;
   animation-name: loading-ring;

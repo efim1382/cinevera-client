@@ -48,7 +48,7 @@
 			}
 
 			& .link {
-				color: #fff;
+				color: var(--primary-color);
 				font-size: 16px;
 				overflow: hidden;
 				text-overflow: ellipsis;
@@ -63,7 +63,7 @@
 		& .logo {
 			grid-area: logo;
 			flex-shrink: 0;
-			color: #fff;
+			color: var(--primary-color);
 			font-weight: var(--font-weight-bold);
 			font-size: 26px;
 
@@ -86,7 +86,7 @@
 			& .button {
 				--button-size: 40px;
 				--icon-size: 24px;
-				--icon-color: #fff;
+				--icon-color: var(--primary-color);
 				display: flex;
 				justify-content: center;
 				align-items: center;
