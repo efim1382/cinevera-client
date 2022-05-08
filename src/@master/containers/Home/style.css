@@ -254,6 +254,10 @@
 			& h3 {
 				flex-shrink: 0;
 				text-transform: capitalize;
+
+				@media (--viewport-phone) {
+					font-size: 23px;
+				}
 			}
 
 			& .film_properties {
@@ -266,28 +270,42 @@
 				& .information {
 					font-size: 14px;
 
+					@media (--viewport-phone) {
+						margin-top: 16px;
+					}
+
+					& .film_year {
+					}
+
 					& .duration {
 						margin-left: 20px;
 					}
 
 					& .genre {
 						margin-left: 20px;
-
 					}
 
-					& .film_year {
-					}
 				}
 
 				& .name_film {
 					font-size: 80px;
 					font-weight: var(--font-weight-bold);
+
+					@media (--viewport-phone) {
+						font-size: 50px;
+						margin-left: -4px;
+					}
 				}
 
 				& .info {
 					margin-top: 16px;
 					max-width: 400px;
 					font-size: 18px;
+
+					@media (--viewport-phone) {
+						font-size: 16px;
+						margin-top: 0;
+					}
 				}
 			}
 		}
