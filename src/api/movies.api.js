@@ -4,9 +4,19 @@ import XHR from "classes/XHR";
  *
  * @returns {Promise<Response>}
  */
-export const getMoviesList = () => {
+export const getMoviesList = (data = {}) => {
+	const {
+		sort = "recommended",
+		genres = [],
+	} = data;
+
 	return XHR.get({
 		url: "/movies/",
+
+		data: {
+			sort,
+			genres,
+		},
 	});
 };
 

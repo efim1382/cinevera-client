@@ -9,20 +9,30 @@
 		max-width: 200px;
 		font-size: var(--default-font-size);
 
+		&:not([disabled]) {
+			--button-color: var(--primary-color);
+		}
+
+		&[disabled] {
+			--button-color: var(--divider-color);
+			cursor: initial;
+		}
+
 		& .caption {
 			--height: 16px;
 			overflow: hidden;
 			height: var(--height);
 			line-height: var(--height);
 			font-weight: var(--font-weight-medium);
-			color: var(--primary-color);
+			color: var(--button-color);
 			white-space: nowrap;
 			text-overflow: ellipsis;
+			transition-property: color;
 		}
 
 		& i {
 			--icon-size: 20px;
-			--icon-color: var(--primary-color);
+			--icon-color: var(--button-color);
 			flex-shrink: 0;
 			margin-left: 8px;
 		}

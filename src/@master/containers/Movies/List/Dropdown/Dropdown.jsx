@@ -12,12 +12,19 @@ const Dropdown = (props) => {
 		label,
 		options,
 		onChange,
+		isDisabled,
 		className,
 	} = props;
 
 	const buttonRef = useRef();
 	const dropdownContentRef = useRef();
 	const [isDropdownShown, setIsDropdownShown] = useState(false);
+
+	const additionalButtonProps = {};
+
+	if (isDisabled) {
+		additionalButtonProps["disabled"] = "true";
+	}
 
 	const toggleDropdown = () => setIsDropdownShown(!isDropdownShown);
 	const closeDropdown = () => setIsDropdownShown(false);
@@ -33,6 +40,7 @@ const Dropdown = (props) => {
 				type="button"
 				className={style.button}
 				onClick={toggleDropdown}
+				{...additionalButtonProps}
 			>
 				<span className={style.caption}>{label}</span>
 				<Icon name="expand_more" />
@@ -71,12 +79,14 @@ Dropdown.defaultProps = {
 	className: "",
 	options: [],
 	onChange: Function(),
+	isDisabled: false,
 };
 
 Dropdown.propTypes = {
 	label: PropTypes.string,
 	options: PropTypes.array,
 	onChange: PropTypes.func,
+	isDisabled: PropTypes.bool,
 	className: PropTypes.string,
 };
 

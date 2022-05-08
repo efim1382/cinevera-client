@@ -108,7 +108,9 @@ class XHR {
 		const newData = {};
 
 		Object.entries(data).forEach(([key, value]) => {
-			if (value) {
+			const isValueArray = typeof value === "object" && value.constructor === Array;
+
+			if ((isValueArray && value.length > 0) || (!isValueArray && value)) {
 				newData[key] = value;
 			}
 		});

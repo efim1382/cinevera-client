@@ -5,14 +5,16 @@ import Filters from "./Filters";
 import { MoviesListContext } from "./MoviesListProvider";
 import style from "./style.css";
 
-const defaultEmptyMovies = [...Array(30).keys()];
+const defaultEmptyMovies = [...Array(20).keys()];
 
 const MoviesListContainer = () => {
+	const { state } = useContext(MoviesListContext);
+
 	const {
 		ids,
 		isFetchComplete,
 		isRequestProcess,
-	} = useContext(MoviesListContext);
+	} = state;
 
 	const moviesIds = !isFetchComplete && isRequestProcess
 		? defaultEmptyMovies

@@ -1,5 +1,5 @@
 .empty_message {
-  --icon-size: 60px;
+  --icon-size: 100px;
   --icon-color: var(--primary-color);
 
 	& i {
@@ -12,6 +12,7 @@
 		margin-top: 20px;
 		font-weight: var(--font-weight-medium);
 		text-align: center;
+		font-size: 20px;
 		color: var(--caption-color);
 	}
 }

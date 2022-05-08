@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames/bind";
 import Icon from "components/Icon";
 import DropdownNew from "../Dropdown";
 import { genres, getGenreByCode } from "config/genres";
 import style from "./style.css";
+import { MoviesListContext } from "../MoviesListProvider";
 
 const cx = classnames.bind(style);
 
 const Filters = ({ className }) => {
-	const [selectedGenres, setSelectedGenres] = useState([]);
-	const [selectedSort, setSelectedSort] = useState("recommended");
+	const { state, actions } = useContext(MoviesListContext);
+
+	const {
+		isRequestProcess,
+		sort,
+		genres: selectedGenres,
+	} = state;
 
 	/**
 	 * Label for dropdown contains selected genres
@@ -54,7 +60,7 @@ const Filters = ({ className }) => {
 		}));
 
 	genresOptions.unshift({
-		value: "all",
+		value: "",
 		label: "All",
 	});
 
@@ -64,26 +70,14 @@ const Filters = ({ className }) => {
 		{ value: "year", label: "Year" },
 	];
 
-	const sortLabel = sortOptions.find((item) => item.value === selectedSort).label;
+	const sortLabel = sortOptions.find((item) => item.value === sort).label;
 
 	const onChangeGenre = (item) => {
-		if (item.value === "all") {
-			return setSelectedGenres([]);
-		}
-
-		const isGenreSelected = selectedGenres.indexOf(item.value) !== -1;
-
-		if (!isGenreSelected) {
-			return setSelectedGenres([...selectedGenres, item.value]);
-		}
-
-		return setSelectedGenres(
-			selectedGenres.filter((genre) => genre !== item.value),
-		);
+		actions.filterMoviesByGenre(item.value);
 	};
 
 	const onSortChange = (item) => {
-		setSelectedSort(item.value);
+		actions.sortMovies(item.value);
 	};
 
 	return (
@@ -98,6 +92,7 @@ const Filters = ({ className }) => {
 						options={genresOptions}
 						onChange={onChangeGenre}
 						className={style.dropdown}
+						isDisabled={isRequestProcess}
 					/>
 				</div>
 
@@ -109,6 +104,7 @@ const Filters = ({ className }) => {
 						options={sortOptions}
 						onChange={onSortChange}
 						className={style.dropdown}
+						isDisabled={isRequestProcess}
 					/>
 				</div>
 

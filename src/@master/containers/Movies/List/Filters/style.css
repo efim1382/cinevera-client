@@ -12,6 +12,9 @@
 			}
 
 			& .label {
+				--height: 16px;
+				height: var(--height);
+				line-height: var(--height);
 				color: var(--caption-color);
 			}
 
