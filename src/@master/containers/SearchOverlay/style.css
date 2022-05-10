@@ -1,55 +1,74 @@
 .search_overlay {
 	position: fixed;
+	overflow-x: hidden;
+	overflow-y: auto;
 	z-index: 2;
 	left: 0;
 	top: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.93);
-	padding-top: 100px;
+	padding: var(--header-height) var(--layout-padding);
+	background-color: rgba(0, 0, 0, 0.94);
 
-		& .close_button {
+	& .close_button {
+		--icon-size: 32px;
+		position: absolute;
+		right: var(--layout-padding);
+		top: calc(var(--header-height) / 2);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 40px;
+		height: 40px;
+		transform: translateY(-50%);
+
+		&:not(:hover) {
 			--icon-color: var(--caption-color);
-			--icon-size: 32px;
-			padding: 8px;
-			position: absolute;
-			right: 32px;
-			top: 32px;
-
-			&:hover {
-				--icon-color: var(--primary-color);
-			}
 		}
 
+		&:hover {
+			--icon-color: var(--primary-color);
+		}
+	}
+
 	& .main_block {
+		width: 100%;
+		max-width: 750px;
 		margin-left: auto;
 		margin-right: auto;
-		width: 600px;
 
 		& .input_container {
-			--icon-size: 20px;
-			--icon-color: var(--divider-color);
+			--icon-size: 28px;
+			--icon-color: var(--primary-color);
 			position: relative;
-			margin-top: 20px;
+			margin-top: 40px;
 
-
-			& .input_section {
-				height: 40px;
+			& .search_input {
 				width: 100%;
+				height: 50px;
 				padding-left: calc(var(--icon-size) + 8px);
-				padding-right: 16px;
 				font-size: var(--default-font-size);
 				background-color: transparent;
 				color: var(--primary-color);
-				border: 0;
-				border-bottom: 2px solid var(--primary-color);
-				
+				border: none;
+				border-bottom: 1px solid var(--primary-color);
+
+				&::placeholder {
+					color: var(--caption-color);
+				}
+
+				&:focus {
+					&::placeholder {
+						opacity: 0;
+						transition: 0.2s opacity;
+					}
+				}
 			}
 
 			& i {
 				position: absolute;
 				top: 50%;
-				left: 2px;
+				left: 0;
 				transform: translateY(-50%);
 			}
 		}
@@ -57,26 +76,28 @@
 		& .movies_list {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
-			margin-top: 24px;
-			gap: 20px 30px;
+			margin-top: 30px;
+			gap: 30px;
 
 			& .movie {
-				color: var(--caption-color);
-				transition-property: color;
-				cursor: pointer;
+				&:not(:hover) {
+					--movie-name-color: var(--primary-color);
+				}
 
 				&:hover {
-					color: var(--primary-color);
+					--movie-name-color: var(--accent-color-hover);
 				}
 
 				& .name {
+					color: var(--movie-name-color);
 					font-weight: var(--font-weight-semibold);
+					transition-property: color;
 				}
 
 				& .year {
-					display: block;
-					margin-top: 4px;
-					font-size: 12px;
+					margin-top: 2px;
+					font-size: 14px;
+					color: var(--primary-color);
 				}
 			}
 		}

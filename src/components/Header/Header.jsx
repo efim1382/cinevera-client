@@ -16,6 +16,10 @@ const Header = ({ isTransparent, className }) => {
 
 	const isMobileOverlayShown = isMobileView && isMobileOverlayStateShown;
 
+	const linkClassName = ({ isActive }) => isActive
+		? cx("link", "_is-active")
+		: style.link;
+
 	const toggleMobileOverlayShown = () => setMobileOverlayStateShown(!isMobileOverlayStateShown);
 	const closeMobileOverlay = () => setMobileOverlayStateShown(false);
 
@@ -43,21 +47,21 @@ const Header = ({ isTransparent, className }) => {
 					<nav className={style.navigation}>
 						<NavLink
 							to="/"
-							className={style.link}
+							className={linkClassName}
 						>
 							Home
 						</NavLink>
 
 						<NavLink
 							to="/movies/"
-							className={style.link}
+							className={linkClassName}
 						>
 							Movies
 						</NavLink>
 
 						<NavLink
 							to="/series/"
-							className={style.link}
+							className={linkClassName}
 						>
 							TV Shows
 						</NavLink>

@@ -48,14 +48,33 @@
 			}
 
 			& .link {
+				--height: 40px;
+				height: var(--height);
+				line-height: var(--height);
 				color: var(--primary-color);
 				font-size: 16px;
 				overflow: hidden;
 				text-overflow: ellipsis;
 				white-space: nowrap;
+				border-bottom: 2px solid var(--link-border-color);
+				transition-property: border-bottom-color;
 
 				&:nth-of-type(n+2) {
 					margin-left: 30px;
+				}
+
+				&:not(._is-active) {
+					&:not(:hover) {
+						--link-border-color: transparent;
+					}
+
+					&:hover {
+						--link-border-color: var(--divider-color);
+					}
+				}
+
+				&._is-active {
+					--link-border-color: var(--accent-color);
 				}
 			}
 		}
@@ -93,7 +112,7 @@
 				width: var(--button-size);
 				height: var(--button-size);
 
-				&:nth-of-type(n+2) {
+				&:nth-child(n+2) {
 					margin-left: 12px;
 				}
 

@@ -22,6 +22,31 @@ export const getMoviesList = (data = {}) => {
 
 /**
  *
+ * @param {string} params.query
+ * @param {number} params.limit
+ * @returns {Promise<Response>}
+ */
+export const search = (params = {}) => {
+	const { query, limit } = params;
+
+	const data = {};
+
+	if (query) {
+		data["query"] = query;
+	}
+
+	if (limit) {
+		data["limit"] = limit;
+	}
+
+	return XHR.get({
+		url: "/movies/search/",
+		data,
+	});
+};
+
+/**
+ *
  * @returns {Promise<Response>}
  */
 export const getPopularMoviesList = () => {
