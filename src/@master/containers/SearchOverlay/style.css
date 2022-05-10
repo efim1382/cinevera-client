@@ -36,51 +36,44 @@
 			& .input_section {
 				height: 40px;
 				width: 100%;
-				padding-left: 24px;
+				padding-left: calc(var(--icon-size) + 8px);
 				padding-right: 16px;
-				font-size: 16px;
+				font-size: var(--default-font-size);
 				background-color: transparent;
 				color: var(--primary-color);
 				border: 0;
 				border-bottom: 2px solid var(--primary-color);
 				
-				&:focus ~ i {
-					opacity: 0;
-				}
 			}
 
 			& i {
 				position: absolute;
 				top: 50%;
+				left: 2px;
 				transform: translateY(-50%);
-				transition: 0.3s;
 			}
 		}
 
-		& .search_section {
-			display: flex;
-			flex-grow: 1;
-			flex-wrap: wrap;
+		& .movies_list {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
 			margin-top: 24px;
-			gap: 20px 60px;
+			gap: 20px 30px;
 
-			& .search_item {
+			& .movie {
 				color: var(--caption-color);
-				transition-duration: 0.3s;
 				transition-property: color;
 				cursor: pointer;
-				flex-basis: 45%;
-				flex-shrink: 0;
 
 				&:hover {
 					color: var(--primary-color);
 				}
 
-				& .item_name {
+				& .name {
 					font-weight: var(--font-weight-semibold);
 				}
 
-				& .item_details {
+				& .year {
 					display: block;
 					margin-top: 4px;
 					font-size: 12px;

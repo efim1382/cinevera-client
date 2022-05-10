@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useQuery from "hooks/useQuery";
-import style from "./style.css";
 import Icon from "components/Icon";
+import style from "./style.css";
 
 export const queryParam = "search";
 
@@ -28,6 +28,7 @@ const SearchOverlay = () => {
 
 			<div className={style.main_block}>
 				<h2>Search</h2>
+
 				<div className={style.input_container}>
 					<input
 						type="text"
@@ -37,48 +38,58 @@ const SearchOverlay = () => {
 					<Icon name="search" />
 				</div>
 
-				<section className={style.search_section}>
-					<div className={style.search_item}>
-						<p className={style.item_name}>Inglourious Basterds</p>
-						<span className={style.item_details}>2017</span>
+				<section className={style.movies_list}>
+
+					<div className={style.movie}>
+						<p className={style.name}>Inglourious Basterds</p>
+						<span className={style.year}>2017</span>
 					</div>
-					<div className={style.search_item}>
-						<p className={style.item_name}>Inglourious Basterds</p>
-						<span className={style.item_details}>2017</span>
+
+					<div className={style.movie}>
+						<p className={style.name}>Inglourious Basterds</p>
+						<span className={style.year}>2017</span>
 					</div>
-					<div className={style.search_item}>
-						<p className={style.item_name}>
+
+					<div className={style.movie}>
+						<p className={style.name}>
 							Inglourious Basterds Basterds Basterds
 						</p>
-						<span className={style.item_details}>2017</span>
+						<span className={style.year}>2017</span>
 					</div>
-					<div className={style.search_item}>
-						<p className={style.item_name}>Django unchained</p>
-						<span className={style.item_details}>2017</span>
+
+					<div className={style.movie}>
+						<p className={style.name}>Django unchained</p>
+						<span className={style.year}>2017</span>
 					</div>
-					<div className={style.search_item}>
-						<p className={style.item_name}>Basterds Inglourious Basterds</p>
-						<span className={style.item_details}>2017</span>
+
+					<div className={style.movie}>
+						<p className={style.name}>Basterds Inglourious Basterds</p>
+						<span className={style.year}>2017</span>
 					</div>
-					<div className={style.search_item}>
-						<p className={style.item_name}>Inglourious Basterds</p>
-						<span className={style.item_details}>2017</span>
+
+					<div className={style.movie}>
+						<p className={style.name}>Inglourious Basterds</p>
+						<span className={style.year}>2017</span>
 					</div>
-					<div className={style.search_item}>
-						<p className={style.item_name}>Inglourious Basterds</p>
-						<span className={style.item_details}>2017</span>
+
+					<div className={style.movie}>
+						<p className={style.name}>Inglourious Basterds</p>
+						<span className={style.year}>2017</span>
 					</div>
-					<div className={style.search_item}>
-						<p className={style.item_name}>Inglourious Basterds</p>
-						<span className={style.item_details}>2017</span>
+
+					<div className={style.movie}>
+						<p className={style.name}>Inglourious Basterds</p>
+						<span className={style.year}>2017</span>
 					</div>
-					<div className={style.search_item}>
-						<p className={style.item_name}>Inglourious Basterds</p>
-						<span className={style.item_details}>2017</span>
+
+					<div className={style.movie}>
+						<p className={style.name}>Inglourious Basterds</p>
+						<span className={style.year}>2017</span>
 					</div>
-					<div className={style.search_item}>
-						<p className={style.item_name}>Inglourious Basterds</p>
-						<span className={style.item_details}>2017</span>
+
+					<div className={style.movie}>
+						<p className={style.name}>Inglourious Basterds</p>
+						<span className={style.year}>2017</span>
 					</div>
 				</section>
 			</div>
