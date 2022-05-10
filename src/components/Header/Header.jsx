@@ -79,9 +79,9 @@ const Header = ({ isTransparent, className }) => {
 							<Icon name="bell" />
 						</button>
 
-						<button className={style.button}>
+						<NavLink to="/profile" className={style.button}>
 							<div className={style.avatar} />
-						</button>
+						</NavLink>
 					</div>
 				)}
 

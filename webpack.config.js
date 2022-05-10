@@ -22,6 +22,7 @@ module.exports = {
 
 		alias: {
 			"@master": `${__dirname}/src/@master`,
+			"@profile": `${__dirname}/src/@profile`,
 			"@panel": `${__dirname}/src/@panel`,
 			"components": `${__dirname}/src/components`,
 			"compositions": `${__dirname}/src/compositions`,
