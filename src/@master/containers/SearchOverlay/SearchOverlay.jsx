@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, NavLink } from "react-router-dom";
 import useQuery from "hooks/useQuery";
 import Icon from "components/Icon";
+import LoadingRing from "components/LoadingRing";
 import * as moviesApi from "api/movies.api";
 import style from "./style.css";
 
@@ -23,6 +24,7 @@ const SearchOverlay = () => {
 	const location = useLocation();
 	const query = useQuery();
 	const [movies, setMovies] = useState([]);
+	const [isRequestProcess, setIsRequestProcess] = useState(false);
 
 	const isMoviesExist = movies.length > 0;
 
@@ -36,13 +38,17 @@ const SearchOverlay = () => {
 			return setMovies([]);
 		}
 
+		setIsRequestProcess(true);
+
 		moviesApi.search({ query, limit: 10 })
 			.then(({ result }) => {
 				setMovies(result);
+				setIsRequestProcess(false);
 			})
 
 			.catch((error) => {
 				console.log(error);
+				setIsRequestProcess(false);
 			});
 	};
 
@@ -53,6 +59,10 @@ const SearchOverlay = () => {
 	};
 
 	const onInput = (event) => {
+		if (!isRequestProcess) {
+			setIsRequestProcess(true);
+		}
+
 		debounce(search, event.target.value);
 	};
 
@@ -88,6 +98,7 @@ const SearchOverlay = () => {
 					/>
 
 					<Icon name="search" />
+					<LoadingRing isShown={isRequestProcess} className={style.loading} />
 				</div>
 
 				<section className={style.movies_list}>

@@ -40,12 +40,13 @@
 		& .input_container {
 			--icon-size: 28px;
 			--icon-color: var(--primary-color);
+			--search-input-height: 50px;
 			position: relative;
 			margin-top: 40px;
 
 			& .search_input {
 				width: 100%;
-				height: 50px;
+				height: var(--search-input-height);
 				padding-left: calc(var(--icon-size) + 8px);
 				font-size: var(--default-font-size);
 				background-color: transparent;
@@ -70,6 +71,14 @@
 				top: 50%;
 				left: 0;
 				transform: translateY(-50%);
+			}
+
+			& .loading {
+				--spinner-size: 28px;
+				left: auto;
+				bottom: auto;
+				width: var(--search-input-height);
+				height: var(--search-input-height);
 			}
 		}
 
