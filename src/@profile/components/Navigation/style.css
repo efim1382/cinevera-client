@@ -1,0 +1,85 @@
+.information {
+	display: flex;
+
+	& .profile_section {
+		margin-left: auto;
+		margin-right: auto;
+		display: flex;
+		margin-top: 100px;
+
+		& .avatar {
+			--avatar-size: 150px;
+			background-image: url("./images/Yurii.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			width: var(--avatar-size);
+			height: var(--avatar-size);
+			border-radius: 50%;
+		}
+
+		& .user_details {
+			margin-left: 30px;
+
+			@media (--viewport-phone) {
+				margin-left: 16px;
+			}
+
+			& .name {}
+
+			& .mail {
+				margin-top: 4px;
+				display: block;
+				font-size: 12px;
+
+				@media (--viewport-phone) {
+					margin-top: 8px;
+				}
+			}
+
+			& .edit_profile {
+				margin-top: 40px;
+
+				@media (--viewport-phone) {
+					margin-top: 32px;
+				}
+			}
+		}
+	}
+}
+
+.navigation_block {
+	margin-top: 100px;
+
+	& .navigation {
+		display: flex;
+		gap: 50px;
+		border-bottom: 1px solid var(--primary-color);
+
+		@media (--viewport-tablet) {
+			justify-content: space-between;
+			font-size: 14px;
+			gap: 0;
+		}		
+
+		& .link_button {
+			--height: 60px;
+			height: var(--height);
+			line-height: var(--height);
+			color: var(--primary-color);
+		}
+
+		& ._is-active {
+			position: relative;
+
+			&::before {
+				content: "";
+				position: absolute;
+				height: 1px;
+				width: 100%;
+				background-color: var(--accent-color-hover);
+				bottom: -1px;
+			}
+		}
+	}
+}
