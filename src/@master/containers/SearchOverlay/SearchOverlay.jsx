@@ -103,12 +103,22 @@ const SearchOverlay = () => {
 
 				<section className={style.movies_list}>
 					{isMoviesExist && (
-						movies.map((item) => (
-							<NavLink key={item._id} to={`/movies/details/${item._id}/`} className={style.movie}>
-								<p className={style.name}>{item.name}</p>
-								<p className={style.year}>{item.year}</p>
-							</NavLink>
-						))
+						movies.map((item) => {
+							const year = item.objectType === "movie"
+								? item.year[0]
+								: `${item.year[0]} - ${item.year[1]}`;
+
+							const link = item.objectType === "movie"
+								? `/movies/details/${item._id}/`
+								: `/series/details/${item._id}/season/1/`;
+
+							return (
+								<NavLink key={item._id} to={link} className={style.movie}>
+									<p className={style.name}>{item.title}</p>
+									<p className={style.year}>{year}</p>
+								</NavLink>
+							);
+						})
 					)}
 				</section>
 			</div>

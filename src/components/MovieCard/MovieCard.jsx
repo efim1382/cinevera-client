@@ -19,12 +19,21 @@ const MovieCard = (props) => {
 	const data = useSelector(moviesSelectors.getMovieData(id));
 
 	const {
-		name,
+		title,
 		shortDescription,
-		preview,
-		year,
+		posterUrl,
+		year = [],
 		genres = [],
+		objectType = "movie",
 	} = data;
+
+	const formattedYear = objectType === "movie"
+		? `${year[0]} year`
+		: `${year[0]} - ${year[1]}`;
+
+	const link = objectType === "movie"
+		? `/movies/details/${id}`
+		: `/series/details/${id}/season/1`;
 
 	const formattedGenres = genres
 		.map((code) => getGenreByCode(code).label || code)
@@ -38,8 +47,8 @@ const MovieCard = (props) => {
 
 	if (isLoaded) {
 		wrapperProps = {
-			to: `/movies/details/${id}`,
-			style: { backgroundImage: `url("${preview}")` },
+			to: link,
+			style: { backgroundImage: `url("${posterUrl}")` },
 		};
 	}
 
@@ -47,7 +56,7 @@ const MovieCard = (props) => {
 		<Component className={cx("movie_card", className)} {...wrapperProps}>
 			{isLoaded && (
 				<div className={style.content}>
-					<p className={style.name}>{name}</p>
+					<p className={style.name}>{title}</p>
 
 					<div className={style.score_film}>
 						<p className={style.rating}>9.3</p>
@@ -61,7 +70,7 @@ const MovieCard = (props) => {
 						<p className={style.description}>{shortDescription}</p>
 					)}
 
-					<p className={style.film_properties}>{year} year</p>
+					<p className={style.film_properties}>{formattedYear}</p>
 					<p className={style.film_properties}>{formattedGenres}</p>
 				</div>
 			)}

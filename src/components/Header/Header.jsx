@@ -63,7 +63,7 @@ const Header = ({ isTransparent, className }) => {
 							to="/series/"
 							className={linkClassName}
 						>
-							TV Shows
+							TV Series
 						</NavLink>
 					</nav>
 				)}

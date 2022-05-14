@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames/bind";
-import Icon from "components/Icon";
-import DropdownNew from "../Dropdown";
+import DropdownNew from "./Dropdown";
 import { genres, getGenreByCode } from "config/genres";
 import style from "./style.css";
-import { MoviesListContext } from "../MoviesListProvider";
+import { ObjectsListContext } from "@master/store/ObjectsListProvider";
 
 const cx = classnames.bind(style);
 
-const Filters = ({ className }) => {
-	const { state, actions } = useContext(MoviesListContext);
+const ObjectsListFilters = ({ className }) => {
+	const { state, actions } = useContext(ObjectsListContext);
 
 	const {
 		isRequestProcess,
@@ -73,11 +72,11 @@ const Filters = ({ className }) => {
 	const sortLabel = sortOptions.find((item) => item.value === sort).label;
 
 	const onChangeGenre = (item) => {
-		actions.filterMoviesByGenre(item.value);
+		actions.filterObjectsByGenre(item.value);
 	};
 
 	const onSortChange = (item) => {
-		actions.sortMovies(item.value);
+		actions.sortObjects(item.value);
 	};
 
 	return (
@@ -107,23 +106,13 @@ const Filters = ({ className }) => {
 						isDisabled={isRequestProcess}
 					/>
 				</div>
-
-				<div className={style.rating}>
-					<Icon name="star" />
-
-					<div className={style.slider}>
-						<div className={style.circle} />
-					</div>
-
-					<p className={style.rating_text}>5.0</p>
-				</div>
 			</div>
 		</div>
 	);
 };
 
-Filters.propTypes = {
+ObjectsListFilters.propTypes = {
 	className: PropTypes.string,
 };
 
-export default Filters;
+export default ObjectsListFilters;

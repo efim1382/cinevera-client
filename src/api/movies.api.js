@@ -4,19 +4,45 @@ import XHR from "classes/XHR";
  *
  * @returns {Promise<Response>}
  */
-export const getMoviesList = (data = {}) => {
+export const getObjectsList = (data = {}) => {
 	const {
 		sort = "recommended",
 		genres = [],
+		type,
+		limit,
 	} = data;
 
 	return XHR.get({
-		url: "/movies/",
+		url: "/objects/",
 
 		data: {
 			sort,
+			type,
 			genres,
+			limit,
 		},
+	});
+};
+
+/**
+ *
+ * @param {string} id
+ * @returns {*}
+ */
+export const getMovieDetails = (id) => {
+	return XHR.get({
+		url: `/objects/movies/details/${id}/`,
+	});
+};
+
+/**
+ *
+ * @param {string} id
+ * @returns {*}
+ */
+export const getSeriesDetails = (id) => {
+	return XHR.get({
+		url: `/objects/series/details/${id}/`,
 	});
 };
 
@@ -40,28 +66,7 @@ export const search = (params = {}) => {
 	}
 
 	return XHR.get({
-		url: "/movies/search/",
+		url: "/search/",
 		data,
-	});
-};
-
-/**
- *
- * @returns {Promise<Response>}
- */
-export const getPopularMoviesList = () => {
-	return XHR.get({
-		url: "/movies/popular/",
-	});
-};
-
-/**
- *
- * @param {string} id
- * @returns {*}
- */
-export const getMovie = (id) => {
-	return XHR.get({
-		url: `/movies/${id}/`,
 	});
 };

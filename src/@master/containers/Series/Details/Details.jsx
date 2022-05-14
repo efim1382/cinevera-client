@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
+import { SwiperSlide } from "swiper/react";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "components/BasicButton";
 import Icon from "components/Icon";
-import { fetchMovie } from "actions/movies.actions";
+import Swiper from "components/Swiper/Swiper";
+import { fetchSeriesDetails } from "actions/movies.actions";
 import * as moviesSelectors from "selectors/movies.selectors";
 import { getGenreByCode } from "config/genres";
 import { addBackgroundOpacityOnScroll } from "./helpers/scrollHelper";
+import episodesSliderBreakpoints from "./spisodesBreakpoints";
 import style from "./style.css";
 
 const scrollAnimationConfig = {
@@ -18,7 +21,7 @@ const scrollAnimationConfig = {
 };
 
 const FilmDetails = () => {
-	const { id } = useParams();
+	const { id, seasonId } = useParams();
 	const dispatch = useDispatch();
 	const isLoaded = useSelector(moviesSelectors.isMovieLoaded(id));
 	const details = useSelector(moviesSelectors.getMovieData(id));
@@ -26,15 +29,24 @@ const FilmDetails = () => {
 	const {
 		title,
 		fullDescription,
-		backgroundUrl,
 		ageLimit,
 		year = [],
 		genres = [],
+		seasons = [],
 	} = details;
+
+	const currentSeason = seasons.find((item) => `${item.number}` === `${seasonId}`) || {};
+
+	const {
+		backgroundUrl,
+		episodes = [],
+	} = currentSeason;
+
+	const isFullDetailsLoaded = isLoaded && seasons.length > 0 && typeof seasons[0] === "object";
 
 	const rootInline = {};
 
-	if (isLoaded && backgroundUrl) {
+	if (isFullDetailsLoaded && backgroundUrl) {
 		rootInline["backgroundImage"] = `url(${backgroundUrl})`;
 	}
 
@@ -43,8 +55,8 @@ const FilmDetails = () => {
 	};
 
 	useEffect(() => {
-		if (!isLoaded) {
-			dispatch(fetchMovie(id));
+		if (!isFullDetailsLoaded) {
+			dispatch(fetchSeriesDetails(id));
 		}
 
 		document.addEventListener("scroll", onScroll, true);
@@ -54,7 +66,7 @@ const FilmDetails = () => {
 		};
 	}, []);
 
-	if (!isLoaded) {
+	if (!isFullDetailsLoaded) {
 		return null;
 	}
 
@@ -68,7 +80,7 @@ const FilmDetails = () => {
 						<span className={style.match}>98% Match</span>
 
 						{year && (
-							<span className={style.year}>{year[0]}</span>
+							<span className={style.year}>{year[0]} - {year[1]}</span>
 						)}
 
 						{ageLimit && (
@@ -80,6 +92,36 @@ const FilmDetails = () => {
 						text="Resume"
 						className={style.play_button}
 					/>
+				</div>
+			</section>
+
+			<section className={style.season}>
+				<div className="container">
+					<div className={style.subtitle_wrapper}>
+						<h2 className={style.subtitle}>Season 1</h2>
+						<button type="button" className={style.all_seasons}>All seasons</button>
+					</div>
+
+					<div className={style.episodes_list}>
+						<Swiper breakpoints={episodesSliderBreakpoints}>
+							{episodes.map((item) => {
+								const formattedNumber = item.number < 10
+									? `0${item.number}`
+									: item.number;
+
+								const inline = { backgroundImage: `url(${item.posterUrl})` };
+
+								return (
+									<SwiperSlide key={item._id}>
+										<button type="button" className={style.episode_item} style={inline}>
+											<span className={style.number}>{formattedNumber}</span>
+											<p className={style.episode_name}>{item.title}</p>
+										</button>
+									</SwiperSlide>
+								);
+							})}
+						</Swiper>
+					</div>
 				</div>
 			</section>
 

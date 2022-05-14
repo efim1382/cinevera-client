@@ -6,6 +6,8 @@
 @custom-media --viewport-tablet (width <= 768px);
 @custom-media --viewport-phone (width <= 480px);
 
+@custom-media --viewport-laptop-from (width > 1024px);
+
 :root {
 	--font-family-regular: 'Montserrat';
 

@@ -6,8 +6,8 @@ import Icon from "components/Icon";
 import MovieCard from "components/MovieCard";
 import Swiper from "components/Swiper";
 import { SwiperSlide } from "swiper/react";
-import { getPopularMoviesList } from "api/movies.api";
-import { loadMovies } from "actions/movies.actions";
+import { getObjectsList } from "api/movies.api";
+import { loadObjects } from "actions/movies.actions";
 import { moviesSliderBreakpoints } from "config/adaptability";
 
 import style from "./style.css";
@@ -17,10 +17,10 @@ const Home = () => {
 	const [moviesIds, setMoviesIds] = useState([]);
 
 	useEffect(() => {
-		getPopularMoviesList()
-			.then(({ movies }) => {
-				dispatch(loadMovies(movies));
-				const ids = movies.map((item) => item._id);
+		getObjectsList({ type: "movie", limit: 10 })
+			.then(({ result }) => {
+				dispatch(loadObjects(result));
+				const ids = result.map((item) => item._id);
 				setMoviesIds(ids);
 			});
 	}, []);

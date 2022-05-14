@@ -1,20 +1,20 @@
 import React, { Suspense, lazy } from "react";
 import ObjectsListProvider from "@master/store/ObjectsListProvider";
 
-const MoviesList = lazy(() => import(
+const SeriesList = lazy(() => import(
 
-	/* webpackChunkName: "MasterMoviesList" */
+	/* webpackChunkName: "MasterSeriesList" */
 	"./List"
 ));
 
-const MoviesListContainer = () => {
+const SeriesContainer = () => {
 	return (
-		<ObjectsListProvider type="movie">
+		<ObjectsListProvider type="series">
 			<Suspense fallback="...Loading">
-				<MoviesList />
+				<SeriesList />
 			</Suspense>
 		</ObjectsListProvider>
 	);
 };
 
-export default MoviesListContainer;
+export default SeriesContainer;

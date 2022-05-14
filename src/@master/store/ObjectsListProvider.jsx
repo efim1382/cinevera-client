@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 import * as moviesActions from "actions/movies.actions";
 import * as moviesApi from "api/movies.api";
 
-export const MoviesListContext = createContext(null);
+export const ObjectsListContext = createContext(null);
 
-const MoviesListProvider = (props) => {
+const ObjectsListProvider = (props) => {
 	const {
+		type,
 		children,
 	} = props;
 
@@ -50,7 +51,7 @@ const MoviesListProvider = (props) => {
 	 */
 	const [genres, setGenres] = useState([]);
 
-	const firstLoadMovies = (data) => {
+	const firstLoadObjects = (data) => {
 		if (isFetchComplete) {
 			setIsFetchComplete(false);
 		}
@@ -59,11 +60,11 @@ const MoviesListProvider = (props) => {
 			setIsRequestProcess(true);
 		}
 
-		return moviesApi.getMoviesList(data)
-			.then(({ movies }) => {
-				dispatch(moviesActions.loadMovies(movies));
+		return moviesApi.getObjectsList({ ...data, type })
+			.then(({ result }) => {
+				dispatch(moviesActions.loadObjects(result));
 
-				const ids = movies.map((item) => item._id);
+				const ids = result.map((item) => item._id);
 				setIds(ids);
 
 				setIsRequestProcess(false);
@@ -79,7 +80,7 @@ const MoviesListProvider = (props) => {
 			});
 	};
 
-	const filterMoviesByGenre = (genre) => {
+	const filterObjectsByGenre = (genre) => {
 		let newSelectedGenres = [];
 
 		const isGenreSelected = genres.indexOf(genre) !== -1;
@@ -94,16 +95,16 @@ const MoviesListProvider = (props) => {
 
 		setGenres(newSelectedGenres);
 
-		firstLoadMovies({
+		firstLoadObjects({
 			sort,
 			genres: newSelectedGenres,
 		});
 	};
 
-	const sortMovies = (sorting = "recommended") => {
+	const sortObjects = (sorting = "recommended") => {
 		setSort(sorting);
 
-		firstLoadMovies({
+		firstLoadObjects({
 			sort: sorting,
 			genres,
 		});
@@ -120,8 +121,8 @@ const MoviesListProvider = (props) => {
 		},
 
 		actions: {
-			sortMovies,
-			filterMoviesByGenre,
+			sortObjects,
+			filterObjectsByGenre,
 		},
 	}), [
 		ids,
@@ -134,19 +135,24 @@ const MoviesListProvider = (props) => {
 
 	React.useEffect(() => {
 		if (!isFetchComplete && !isRequestProcess) {
-			firstLoadMovies();
+			firstLoadObjects();
 		}
 	}, []);
 
 	return (
-		<MoviesListContext.Provider value={value}>
+		<ObjectsListContext.Provider value={value}>
 			{children}
-		</MoviesListContext.Provider>
+		</ObjectsListContext.Provider>
 	);
 };
 
-MoviesListProvider.propTypes = {
+ObjectsListProvider.defaultProps = {
+	type: "movie",
+};
+
+ObjectsListProvider.propTypes = {
+	type: PropTypes.string.isRequired,
 	children: PropTypes.any.isRequired,
 };
 
-export default MoviesListProvider;
+export default ObjectsListProvider;

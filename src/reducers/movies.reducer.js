@@ -30,20 +30,17 @@ const initialState = {
 };
 
 const moviesReducer = createReducer(initialState, {
-	[moviesActions.loadMovies]: (state, action) => {
+	[moviesActions.loadObjects]: (state, action) => {
 		movieEntity.addMany(state, action.payload);
 	},
 
 	// ================ API ================
-
-	[moviesActions.fetchMovie.pending]: () => {
-	},
-
-	[moviesActions.fetchMovie.rejected]: () => {
-	},
-
 	[moviesActions.fetchMovie.fulfilled]: (state, action) => {
-		movieEntity.addOne(state, action.payload.movie);
+		movieEntity.upsertOne(state, action.payload.movie);
+	},
+
+	[moviesActions.fetchSeriesDetails.fulfilled]: (state, action) => {
+		movieEntity.upsertOne(state, action.payload.series);
 	},
 });
 

@@ -24,10 +24,10 @@ const MoviesListContainer = () => {
 	const isMoviesExist = !isEmptyMessageShown && moviesIds.length > 0;
 
 	return (
-		<main className={style.movies}>
+		<main className={style.series}>
 			<div className={style.title_block}>
 				<div className="container">
-					<h2 className={style.title}>Movies</h2>
+					<h2 className={style.title}>TV Series</h2>
 				</div>
 			</div>
 
@@ -49,7 +49,7 @@ const MoviesListContainer = () => {
 				)}
 
 				{isEmptyMessageShown && (
-					<EmptyMessage text="There is no movies" className={style.empty_message} />
+					<EmptyMessage text="There is no series" className={style.empty_message} />
 				)}
 			</div>
 		</main>
