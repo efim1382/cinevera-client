@@ -138,53 +138,24 @@
 
 			& .trailer_container {
 				margin-top: 20px;
-				display:flex;
-				gap: 50px;
-			}
 
-			& .play_button {
-
-				& .trailer {
-					--icon-color: var(--primary-color);
-					--icon-size: 26px;
-					height: 150px;
-					width: 200px;
-					gap: 50px;
-					background-image: url("images/gerard-butler.jpeg");
-					background-size: cover;
-					background-repeat: no-repeat;
-					background-position: center;
-					display: flex;
-					padding-bottom: 4px;
+				& .video_wrapper {
 					position: relative;
+					background-color: var(--root-background-color-hover);
 
-					&::before {
-						content:"";
-						position: absolute;
-						left: 0;
-						right: 0;
-						top: 0;
-						bottom: 0;
-						background-color: rgba(0, 0, 0, 0.4);
+					&:before {
+						content: "";
+						display: block;
+						padding-top: 56%;
 					}
 
-					& .trailer_details {
-						position: relative;
-						display: flex;
-						align-items: center;
-						margin-left: 4px;
-						margin-top: auto;
-
-						& .trailer_duration {
-							font-weight: var(--font-weight-regular);
-							margin-left: 10px;
-							color: var(--root-background-color);
-
-							& .duration {
-								margin-left: 4px;
-								letter-spacing: 1px;
-							}
-						}
+					& video {
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
 					}
 				}
 			}
