@@ -79,9 +79,18 @@ const Header = ({ isTransparent, className }) => {
 							<Icon name="bell" />
 						</button>
 
-						<NavLink to="/profile" className={style.button}>
-							<div className={style.avatar} />
-						</NavLink>
+						<div className={style.dropdown_wrapper}>
+							<NavLink to="/profile" className={style.button}>
+								<div className={style.avatar} />
+							</NavLink>
+
+							<div className={style.dropdown_profile}>
+								<NavLink to="/profile" className={style.link}>My Profile</NavLink>
+								<NavLink to="/" className={style.link}>Favorites</NavLink>
+								<NavLink to="/" className={style.link}>Settings</NavLink>
+								<NavLink to="/" className={style.link}>Sign out</NavLink>
+							</div>
+						</div>
 					</div>
 				)}
 

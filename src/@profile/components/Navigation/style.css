@@ -30,10 +30,11 @@
 			& .mail {
 				margin-top: 4px;
 				display: block;
-				font-size: 12px;
+				font-size: 15px;
 
 				@media (--viewport-phone) {
 					margin-top: 8px;
+					font-size: 12px;
 				}
 			}
 
