@@ -43,7 +43,7 @@ const MobileOverlay = ({ onClose }) => {
 					</NavLink>
 
 					<NavLink
-						to="/movies"
+						to="/movies/"
 						onClick={onNavLinkClick}
 						className={style.link}
 					>
@@ -51,7 +51,7 @@ const MobileOverlay = ({ onClose }) => {
 					</NavLink>
 
 					<NavLink
-						to="/"
+						to="/series/"
 						onClick={onNavLinkClick}
 						className={style.link}
 					>
