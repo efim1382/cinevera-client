@@ -1,15 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { SwiperSlide } from "swiper/react";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "components/BasicButton";
-import Icon from "components/Icon";
 import Swiper from "components/Swiper/Swiper";
-import { fetchSeriesDetails } from "actions/movies.actions";
+import MovieCard from "components/MovieCard";
+import { fetchSeriesDetails, loadObjects } from "actions/movies.actions";
+import { getObjectsList } from "api/movies.api";
 import * as moviesSelectors from "selectors/movies.selectors";
 import { getGenreByCode } from "config/genres";
 import { addBackgroundOpacityOnScroll } from "./helpers/scrollHelper";
 import episodesSliderBreakpoints from "./spisodesBreakpoints";
+import videosSliderBreakpoints from "@master/containers/Movies/Details/videosBreakpoints";
+import { moviesSliderBreakpoints } from "config/adaptability";
 import style from "./style.css";
 
 const scrollAnimationConfig = {
@@ -23,6 +26,7 @@ const scrollAnimationConfig = {
 const FilmDetails = () => {
 	const { id, seasonId } = useParams();
 	const dispatch = useDispatch();
+	const [popularIds, setPopularIds] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 	const isLoaded = useSelector(moviesSelectors.isMovieLoaded(id));
 	const details = useSelector(moviesSelectors.getMovieData(id));
 
@@ -40,15 +44,19 @@ const FilmDetails = () => {
 	const {
 		backgroundUrl,
 		episodes = [],
+		videos = [],
 	} = currentSeason;
 
+	const isVideosExist = videos.length > 0;
 	const isFullDetailsLoaded = isLoaded && seasons.length > 0 && typeof seasons[0] === "object";
-
 	const rootInline = {};
 
 	if (isFullDetailsLoaded && backgroundUrl) {
 		rootInline["backgroundImage"] = `url(${backgroundUrl})`;
 	}
+
+	const onVideoMouseOver = (event) => event.target.setAttribute("controls", "");
+	const onVideoMouseOut = (event) => event.target.removeAttribute("controls");
 
 	const onScroll = () => {
 		addBackgroundOpacityOnScroll(scrollAnimationConfig);
@@ -58,6 +66,13 @@ const FilmDetails = () => {
 		if (!isFullDetailsLoaded) {
 			dispatch(fetchSeriesDetails(id));
 		}
+
+		getObjectsList({ limit: 10 })
+			.then(({ result }) => {
+				dispatch(loadObjects(result));
+				const ids = result.map((item) => item._id);
+				setPopularIds(ids);
+			});
 
 		document.addEventListener("scroll", onScroll, true);
 
@@ -152,65 +167,33 @@ const FilmDetails = () => {
 				</div>
 			</section>
 
-			<section className={style.videos}>
-				<div className="container">
-					<h2 className={style.subtitle}>Trailer</h2>
+			{isVideosExist && (
+				<section className={style.videos}>
+					<div className="container">
+						<h2 className={style.subtitle}>Videos</h2>
 
-					<div className={style.trailer_container}>
-
-						<button type="button" className={style.play_button}>
-							<div className={style.trailer}>
-								<div className={style.trailer_details}>
-									<Icon name="play" />
-
-									<p className={style.trailer_duration}>
-										Trailer
-										<span className={style.duration}>0:55</span>
-									</p>
-								</div>
-							</div>
-						</button>
-
-						<button type="button" className={style.play_button}>
-							<div className={style.trailer}>
-								<div className={style.trailer_details}>
-									<Icon name="play" />
-
-									<p className={style.trailer_duration}>
-										Trailer
-										<span className={style.duration}>0:55</span>
-									</p>
-								</div>
-							</div>
-						</button>
-
-						<button type="button" className={style.play_button}>
-							<div className={style.trailer}>
-								<div className={style.trailer_details}>
-									<Icon name="play" />
-
-									<p className={style.trailer_duration}>
-										Trailer
-										<span className={style.duration}>0:55</span>
-									</p>
-								</div>
-							</div>
-						</button>
+						<div className={style.trailer_container}>
+							<Swiper breakpoints={videosSliderBreakpoints}>
+								{videos.map((item) => {
+									return (
+										<SwiperSlide key={item.posterUrl}>
+											<div className={style.video_wrapper}>
+												<video
+													poster={item.posterUrl}
+													src={item.videoUrl}
+													onMouseOver={onVideoMouseOver}
+													onMouseOut={onVideoMouseOut}
+													className={style.video}
+												/>
+											</div>
+										</SwiperSlide>
+									);
+								})}
+							</Swiper>
+						</div>
 					</div>
-				</div>
-			</section>
-
-			<section className={style.photos}>
-				<div className="container">
-					<h2 className={style.subtitle}>Photos</h2>
-
-					<div className={style.photos_container}>
-						<div className={style.actor_photos} />
-						<div className={style.actor_photos} />
-						<div className={style.actor_photos} />
-					</div>
-				</div>
-			</section>
+				</section>
+			)}
 
 			<section className={style.cast}>
 				<div className="container">
@@ -236,10 +219,13 @@ const FilmDetails = () => {
 					<h2 className={style.subtitle}>Popular</h2>
 
 					<div className={style.popular_container}>
-						<div className={style.film_page} />
-						<div className={style.film_page} />
-						<div className={style.film_page} />
-						<div className={style.film_page} />
+						<Swiper breakpoints={moviesSliderBreakpoints}>
+							{popularIds.map((item) => (
+								<SwiperSlide key={item}>
+									<MovieCard id={item} />
+								</SwiperSlide>
+							))}
+						</Swiper>
 					</div>
 				</div>
 			</section>

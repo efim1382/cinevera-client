@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SwiperSlide } from "swiper/react";
 import Button from "components/BasicButton";
 import Swiper from "components/Swiper/Swiper";
-import { fetchMovie } from "actions/movies.actions";
+import MovieCard from "components/MovieCard";
+import { fetchMovie, loadObjects } from "actions/movies.actions";
+import { getObjectsList } from "api/movies.api";
 import * as moviesSelectors from "selectors/movies.selectors";
 import { getGenreByCode } from "config/genres";
 import { addBackgroundOpacityOnScroll } from "./helpers/scrollHelper";
 import videosSliderBreakpoints from "./videosBreakpoints";
+import { moviesSliderBreakpoints } from "config/adaptability";
 import style from "./style.css";
 
 const scrollAnimationConfig = {
@@ -22,6 +25,7 @@ const scrollAnimationConfig = {
 const FilmDetails = () => {
 	const { id } = useParams();
 	const dispatch = useDispatch();
+	const [popularIds, setPopularIds] = useState([1, 2, 3, 4, 5, 6, 7, 8]);
 	const isLoaded = useSelector(moviesSelectors.isMovieLoaded(id));
 	const details = useSelector(moviesSelectors.getMovieData(id));
 
@@ -54,6 +58,13 @@ const FilmDetails = () => {
 		if (!isLoaded) {
 			dispatch(fetchMovie(id));
 		}
+
+		getObjectsList({ limit: 10 })
+			.then(({ result }) => {
+				dispatch(loadObjects(result));
+				const ids = result.map((item) => item._id);
+				setPopularIds(ids);
+			});
 
 		document.addEventListener("scroll", onScroll, true);
 
@@ -146,18 +157,6 @@ const FilmDetails = () => {
 				</section>
 			)}
 
-			<section className={style.photos}>
-				<div className="container">
-					<h2 className={style.subtitle}>Photos</h2>
-
-					<div className={style.photos_container}>
-						<div className={style.actor_photos} />
-						<div className={style.actor_photos} />
-						<div className={style.actor_photos} />
-					</div>
-				</div>
-			</section>
-
 			<section className={style.cast}>
 				<div className="container">
 					<h2 className={style.subtitle}>Cast</h2>
@@ -182,10 +181,13 @@ const FilmDetails = () => {
 					<h2 className={style.subtitle}>Popular</h2>
 
 					<div className={style.popular_container}>
-						<div className={style.film_page} />
-						<div className={style.film_page} />
-						<div className={style.film_page} />
-						<div className={style.film_page} />
+						<Swiper breakpoints={moviesSliderBreakpoints}>
+							{popularIds.map((item) => (
+								<SwiperSlide key={item}>
+									<MovieCard id={item} />
+								</SwiperSlide>
+							))}
+						</Swiper>
 					</div>
 				</div>
 			</section>
