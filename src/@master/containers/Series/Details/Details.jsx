@@ -13,6 +13,7 @@ import { addBackgroundOpacityOnScroll } from "./helpers/scrollHelper";
 import episodesSliderBreakpoints from "./spisodesBreakpoints";
 import videosSliderBreakpoints from "@master/containers/Movies/Details/videosBreakpoints";
 import { moviesSliderBreakpoints } from "config/adaptability";
+import castSliderBreakpoints from "./castBreakpoints";
 import style from "./style.css";
 
 const scrollAnimationConfig = {
@@ -47,6 +48,12 @@ const FilmDetails = () => {
 		videos = [],
 	} = currentSeason;
 
+	let { cast = [] } = currentSeason;
+
+	// filter non-populated actors
+	cast = cast.filter((item) => typeof item.actor === "object");
+
+	const isCastExist = cast.length > 0;
 	const isVideosExist = videos.length > 0;
 	const isFullDetailsLoaded = isLoaded && seasons.length > 0 && typeof seasons[0] === "object";
 	const rootInline = {};
@@ -195,24 +202,38 @@ const FilmDetails = () => {
 				</section>
 			)}
 
-			<section className={style.cast}>
-				<div className="container">
-					<h2 className={style.subtitle}>Cast</h2>
+			{isCastExist && (
+				<section className={style.cast}>
+					<div className="container">
+						<h2 className={style.subtitle}>Cast</h2>
 
-					<div className={style.cast_list}>
-						{[1, 2, 3].map((i) => (
-							<div key={i} className={style.actor}>
-								<div className={style.avatar} />
+						<div className={style.cast_list}>
+							<Swiper breakpoints={castSliderBreakpoints}>
+								{cast.map((item) => {
+									const inline = {};
 
-								<div className={style.actor_data}>
-									<p className={style.name}>Gerrard Butler</p>
-									<p className={style.character}>Gerrard Butler</p>
-								</div>
-							</div>
-						))}
+									if (item.actor.photo) {
+										inline["backgroundImage"] = `url(${item.actor.photo})`;
+									}
+
+									return (
+										<SwiperSlide key={item.actor._id}>
+											<div key={item.actor._id} className={style.actor}>
+												<div className={style.avatar} style={inline} />
+
+												<div className={style.actor_data}>
+													<p className={style.name}>{item.actor.name}</p>
+													<p className={style.character}>{item.characterName}</p>
+												</div>
+											</div>
+										</SwiperSlide>
+									);
+								})}
+							</Swiper>
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			)}
 
 			<section className={style.popular}>
 				<div className="container">

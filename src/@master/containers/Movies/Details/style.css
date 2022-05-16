@@ -172,7 +172,6 @@
 			}
 
 			& .cast_list {
-				display: flex;
 				margin-top: 30px;
 
 				& .actor {
@@ -189,7 +188,7 @@
 						width: var(--size);
 						height: var(--size);
 						border-radius: 50%;
-						background-image: url("images/gerard-butler.jpeg");
+						background-color: var(--root-background-color-hover);
 						background-repeat: no-repeat;
 						background-size: cover;
 						background-position: center;
