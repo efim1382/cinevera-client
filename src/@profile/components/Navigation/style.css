@@ -2,9 +2,9 @@
 	display: flex;
 
 	& .profile_section {
+		display: flex;
 		margin-left: auto;
 		margin-right: auto;
-		display: flex;
 		margin-top: 100px;
 
 		& .avatar {

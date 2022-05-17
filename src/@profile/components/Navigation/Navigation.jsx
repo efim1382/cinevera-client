@@ -17,6 +17,7 @@ const Navigation = () => {
 						<h3 className={style.name}>Yurii Korbat</h3>
 
 						<span className={style.mail}>romahochetvtro@gmail.com</span>
+
 						<Button
 							theme="accent"
 							appearance="fill"
