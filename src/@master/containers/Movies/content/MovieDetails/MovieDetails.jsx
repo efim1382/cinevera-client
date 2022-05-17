@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Button from "components/BasicButton";
 import PopularList from "@master/components/PopularList";
-import DetailsPageWrapper from "@master/components/MovieDetails/DetailsPageWrapper";
-import DetailsPageOverview from "@master/components/MovieDetails/DetailsPageOverview";
-import DetailsPageVideos from "@master/components/MovieDetails/DetailsPageVideos";
-import DetailsPageCast from "@master/components/MovieDetails/DetailsPageCast";
+
+import {
+	DetailsPageWrapper,
+	DetailsPageOverview,
+	DetailsPageVideos,
+	DetailsPageCast,
+} from "@master/components/MovieDetails";
+
 import DetailsSuspence from "@master/containers/Movies/components/MovieDetailsSuspence";
 import { getMovieDetails } from "api/movies.api";
 import style from "./style.css";

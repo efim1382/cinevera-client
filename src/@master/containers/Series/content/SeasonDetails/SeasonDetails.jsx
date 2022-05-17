@@ -4,10 +4,14 @@ import { useParams } from "react-router-dom";
 import Button from "components/BasicButton";
 import Swiper from "components/Swiper/Swiper";
 import PopularList from "@master/components/PopularList";
-import DetailsPageWrapper from "@master/components/MovieDetails/DetailsPageWrapper";
-import DetailsPageOverview from "@master/components/MovieDetails/DetailsPageOverview";
-import DetailsPageVideos from "@master/components/MovieDetails/DetailsPageVideos";
-import DetailsPageCast from "@master/components/MovieDetails/DetailsPageCast";
+
+import {
+	DetailsPageWrapper,
+	DetailsPageOverview,
+	DetailsPageVideos,
+	DetailsPageCast,
+} from "@master/components/MovieDetails";
+
 import SeasonDetailsSuspence from "@master/containers/Series/components/SeriesDetailsSuspence";
 import { getSeriesDetails } from "api/movies.api";
 import episodesSliderBreakpoints from "@master/containers/Series/config/spisodesBreakpoints";
