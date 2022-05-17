@@ -118,6 +118,14 @@
 	mask-image: url('./icons/mark.svg');
 }
 
+.icon[data-icon="settings"] {
+  mask-image: url('./icons/settings.svg');
+}
+
+.icon[data-icon="logout"] {
+  mask-image: url('./icons/logout.svg');
+}
+
 .story_icon {
 	--icon-size: 50px;
 	--icon-color: var(--primary-color);
