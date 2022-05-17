@@ -48,6 +48,25 @@ export const getSeriesDetails = (id) => {
 
 /**
  *
+ * @param {string} params.excludeId
+ * @param {string} params.type
+ * @returns {Promise<Response>}
+ */
+export const getPopular = (params = {}) => {
+	const { excludeId, type } = params;
+
+	return XHR.get({
+		url: "/objects/popular/",
+
+		data: {
+			type,
+			exclude: excludeId,
+		},
+	});
+};
+
+/**
+ *
  * @param {string} params.query
  * @param {number} params.limit
  * @returns {Promise<Response>}

@@ -203,7 +203,6 @@
 						& .time_end {
 							font-size: 12px;
 							margin-left: 8px;
-
 						}
 					}
 				}
@@ -212,17 +211,8 @@
 	}
 
 	& .movies_row_section {
-		overflow-x: hidden;
 		padding-top: var(--layout-padding);
 		padding-bottom: var(--layout-padding);
-
-		& .subheader {
-
-		}
-
-		& .row_list {
-			margin-top: 30px;
-		}
 	}
 
 	& .premiere {
@@ -243,6 +233,10 @@
 			bottom: 0;
 			background-color: rgba(0, 0, 0, 0.5);
 			pointer-events: none;
+		}
+
+		& + .movies_row_section {
+			margin-top: var(--layout-padding);
 		}
 
 		& :global(.container) {

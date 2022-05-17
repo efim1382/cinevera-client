@@ -1,0 +1,209 @@
+.details {
+	--background-opacity: 0.4;
+	position: relative;
+	padding-top: var(--header-height);
+	padding-bottom: var(--layout-padding);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+
+	&:before {
+		content: "";
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		background-color: rgba(0, 0, 0, var(--background-opacity));
+	}
+
+	& .subtitle {
+		font-size: 30px;
+		color: var(--primary-color);
+		font-weight: var(--font-weight-bold);
+	}
+
+	& > * {
+		position: relative;
+		z-index: 1;
+	}
+
+	& .description {
+		padding-top: 100px;
+
+		& :global(.container) {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+
+			& .title {
+				max-width: 50%;
+				text-shadow: 2px 1px var(--root-background-color-hover);
+			}
+
+			& .additional_information {
+				margin-top: 20px;
+
+				& .match {
+					color: var(--primary-color);
+					font-size: 20px;
+					font-weight: var(--font-weight-semibold);
+				}
+
+				& .year {
+					margin-left: 20px;
+					color: var(--primary-color);
+					font-size: 20px;
+				}
+
+				& .age_limit {
+					--height: 30px;
+					height: var(--height);
+					margin-left: 20px;
+					padding-left: 8px;
+					padding-right: 8px;
+					line-height: var(--height);
+					font-size: 20px;
+					color: var(--primary-color);
+					border: 1px solid rgba(255, 255, 255, 0.5);
+					border-radius: 2px;
+				}
+			}
+
+			& .play_button {
+				margin-top: 40px;
+			}
+		}
+
+		& + section {
+			margin-top: 100px;
+
+			& ~ section {
+				margin-top: 80px;
+			}
+		}
+	}
+
+	& .season {
+		& :global(.container) {
+			& .subtitle_wrapper {
+				display: flex;
+				align-items: center;
+
+				& .subtitle {
+
+				}
+
+				& .all_seasons {
+					position: relative;
+					margin-left: 30px;
+					font-size: 15px;
+					color: var(--primary-color);
+
+					&:not(:hover) {
+						--border-color: rgba(255, 255, 255, 0.5);
+					}
+
+					&:hover {
+						--border-color: var(--primary-color);
+					}
+
+					&:after {
+						content: "";
+						position: absolute;
+						left: 0;
+						bottom: -4px;
+						width: 100%;
+						height: 1px;
+						background-color: var(--border-color);
+						transition-property: background-color;
+					}
+				}
+			}
+
+			& .episodes_list {
+				margin-top: 30px;
+
+				& .episode_item {
+					position: relative;
+					width: 100%;
+					background-image: url("https://m.media-amazon.com/images/M/MV5BMTQyMjMzMDIxOV5BMl5BanBnXkFtZTcwODU2ODg5NA@@._V1_.jpg");
+					background-color: var(--root-background-color-hover);
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: center;
+					transform: var(--transform);
+					transition-property: transform;
+
+
+					@media (--viewport-laptop-from) {
+						&:not(:hover) {
+							--transform: none;
+							--spisode-filter-bg-color: transparent;
+							--number-opacity: 1;
+							--episode-bottom: -12px;
+							--episode-opacity: 0;
+						}
+
+						&:hover {
+							--transform: scale(1.2);
+							--spisode-filter-bg-color: rgba(0, 0, 0, 0.6);
+							--number-opacity: 0;
+							--episode-bottom: 12px;
+							--episode-opacity: 1;
+							z-index: 1;
+						}
+					}
+
+					&:before {
+						content: "";
+						display: block;
+						background-color: var(--spisode-filter-bg-color);
+						padding-top: 56%;
+						transition-property: background-color;
+					}
+
+					& .number {
+						position: absolute;
+						bottom: 12px;
+						left: 12px;
+						font-size: 18px;
+						font-weight: var(--font-weight-semibold);
+						color: var(--primary-color);
+						opacity: var(--number-opacity);
+						transition-property: opacity;
+					}
+
+					& .episode_name {
+						position: absolute;
+						left: 12px;
+						bottom: var(--episode-bottom);
+						font-size: 16px;
+						color: var(--primary-color);
+						font-weight: var(--font-weight-semibold);
+						opacity: var(--episode-opacity, 0);
+						pointer-events: none;
+						transition-property: bottom, opacity;
+					}
+				}
+			}
+		}
+	}
+
+	& .overview {
+
+	}
+
+	& .videos {
+
+	}
+
+	& .cast {
+	}
+
+	& .popular {
+	}
+}

@@ -1,30 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "components/BasicButton";
 import Icon from "components/Icon";
-import MovieCard from "components/MovieCard";
-import Swiper from "components/Swiper";
-import { SwiperSlide } from "swiper/react";
-import { getObjectsList } from "api/movies.api";
-import { loadObjects } from "actions/movies.actions";
-import { moviesSliderBreakpoints } from "config/adaptability";
+import PopularList from "@master/components/PopularList";
 
 import style from "./style.css";
 
 const Home = () => {
-	const dispatch = useDispatch();
-	const [moviesIds, setMoviesIds] = useState([]);
-
-	useEffect(() => {
-		getObjectsList({ type: "movie", limit: 10 })
-			.then(({ result }) => {
-				dispatch(loadObjects(result));
-				const ids = result.map((item) => item._id);
-				setMoviesIds(ids);
-			});
-	}, []);
-
 	return (
 		<main className={style.home}>
 			<section className={style.main_block}>
@@ -125,45 +107,16 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section className={style.movies_row_section}>
-				<div className={style.subheader}>
-					<div className="container">
-						<h3>Popular now</h3>
-					</div>
-				</div>
+			<PopularList
+				title="Popular now"
+				type="series"
+				className={style.movies_row_section}
+			/>
 
-				<div className={style.row_list}>
-					<div className="container">
-						<Swiper breakpoints={moviesSliderBreakpoints}>
-							{moviesIds.map((item) => (
-								<SwiperSlide key={item}>
-									<MovieCard id={item} />
-								</SwiperSlide>
-							))}
-						</Swiper>
-					</div>
-				</div>
-			</section>
-
-			<section className={style.movies_row_section}>
-				<div className={style.subheader}>
-					<div className="container">
-						<h3>Best comedy movies</h3>
-					</div>
-				</div>
-
-				<div className={style.row_list}>
-					<div className="container">
-						<Swiper breakpoints={moviesSliderBreakpoints}>
-							{moviesIds.map((item) => (
-								<SwiperSlide key={item}>
-									<MovieCard id={item} />
-								</SwiperSlide>
-							))}
-						</Swiper>
-					</div>
-				</div>
-			</section>
+			<PopularList
+				title="Best comedy movies"
+				className={style.movies_row_section}
+			/>
 
 			<section className={style.premiere}>
 				<div className="container">
@@ -196,45 +149,16 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section className={style.movies_row_section}>
-				<div className={style.subheader}>
-					<div className="container">
-						<h3>Best of 2021</h3>
-					</div>
-				</div>
+			<PopularList
+				title="Best of 2021"
+				className={style.movies_row_section}
+			/>
 
-				<div className={style.row_list}>
-					<div className="container">
-						<Swiper breakpoints={moviesSliderBreakpoints}>
-							{moviesIds.map((item) => (
-								<SwiperSlide key={item}>
-									<MovieCard id={item} />
-								</SwiperSlide>
-							))}
-						</Swiper>
-					</div>
-				</div>
-			</section>
-
-			<section className={style.movies_row_section}>
-				<div className={style.subheader}>
-					<div className="container">
-						<h3>Popular thrillers</h3>
-					</div>
-				</div>
-
-				<div className={style.row_list}>
-					<div className="container">
-						<Swiper breakpoints={moviesSliderBreakpoints}>
-							{moviesIds.map((item) => (
-								<SwiperSlide key={item}>
-									<MovieCard id={item} />
-								</SwiperSlide>
-							))}
-						</Swiper>
-					</div>
-				</div>
-			</section>
+			<PopularList
+				title="Popular thrillers"
+				type="movie"
+				className={style.movies_row_section}
+			/>
 		</main>
 	);
 };
