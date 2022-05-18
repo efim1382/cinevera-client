@@ -1,0 +1,32 @@
+.overlay {
+	position: sticky;
+	overflow-x: hidden;
+	overflow-y: auto;
+	left: 0;
+	top: 0;
+	right: 0;
+	height: 100vh;
+	padding: var(--header-height) var(--layout-padding);
+	background-color: rgba(0, 0, 0, 0.94);
+
+	& .close_button {
+		--icon-size: 32px;
+		position: absolute;
+		right: var(--layout-padding);
+		top: calc(var(--header-height) / 2);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 40px;
+		height: 40px;
+		transform: translateY(-50%);
+
+		&:not(:hover) {
+			--icon-color: var(--caption-color);
+		}
+
+		&:hover {
+			--icon-color: var(--primary-color);
+		}
+	}
+}

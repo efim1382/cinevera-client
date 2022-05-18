@@ -69,7 +69,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	overflow-x: hidden;
 	overflow-y: auto;
-	height: 100%;
+	/* height: 100%; */
 	margin: 0;
 	perspective: 5px;
 	transform-style: preserve-3d;
@@ -85,6 +85,20 @@ body {
 	/* don't add height */
 	display: flex;
 	flex-direction: column;
+}
+
+:global(#overlay-root) {
+	z-index: 2;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	pointer-events: none;
+
+	& > * {
+		pointer-events: auto;
+	}
 }
 
 a {

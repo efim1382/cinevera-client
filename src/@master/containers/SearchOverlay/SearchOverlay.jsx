@@ -3,6 +3,7 @@ import { useLocation, useNavigate, NavLink } from "react-router-dom";
 import useQuery from "hooks/useQuery";
 import Icon from "components/Icon";
 import LoadingRing from "components/LoadingRing";
+import Overlay from "components/Overlay";
 import * as moviesApi from "api/movies.api";
 import style from "./style.css";
 
@@ -85,15 +86,7 @@ const SearchOverlay = () => {
 	}, []);
 
 	return (
-		<div className={style.search_overlay}>
-			<button
-				type="button"
-				onClick={closeOverlay}
-				className={style.close_button}
-			>
-				<Icon name="close" />
-			</button>
-
+		<Overlay onClose={closeOverlay}>
 			<div className={style.main_block}>
 				<h2>Search</h2>
 
@@ -130,7 +123,7 @@ const SearchOverlay = () => {
 					)}
 				</section>
 			</div>
-		</div>
+		</Overlay>
 	);
 };
 

@@ -1,4 +1,6 @@
 .popular {
+	overflow-x: hidden;
+
 	& .subtitle {
 		font-size: 30px;
 		color: var(--primary-color);
