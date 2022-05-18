@@ -1,4 +1,8 @@
 .episodes {
+	@media (--viewport-tablet) {
+		overflow: hidden;
+	}
+
 	& .subtitle {
 		font-size: 30px;
 		color: var(--primary-color);

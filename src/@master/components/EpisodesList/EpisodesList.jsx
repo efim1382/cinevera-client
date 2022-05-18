@@ -68,7 +68,7 @@ EpisodesList.defaultProps = {
 EpisodesList.propTypes = {
 	items: PropTypes.arrayOf(PropTypes.shape({
 		posterUrl: PropTypes.string.isRequired,
-		number: PropTypes.string,
+		number: PropTypes.number,
 		title: PropTypes.string.isRequired,
 	})),
 

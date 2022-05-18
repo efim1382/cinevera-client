@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate, NavLink } from "react-router-dom";
 import useQuery from "hooks/useQuery";
 import Icon from "components/Icon";
@@ -49,12 +49,6 @@ const SearchOverlay = () => {
 			});
 	};
 
-	const onKeyDown = (event) => {
-		if (event.key === "Escape") {
-			closeOverlay();
-		}
-	};
-
 	const resetSearch = () => {
 		if (isRequestProcess) {
 			setIsRequestProcess(false);
@@ -74,16 +68,6 @@ const SearchOverlay = () => {
 
 		debounce(search, event.target.value);
 	};
-
-	useEffect(() => {
-		document.body.style.setProperty("overflow", "hidden");
-		document.addEventListener("keydown", onKeyDown);
-
-		return () => {
-			document.body.style.removeProperty("overflow");
-			document.removeEventListener("keydown", onKeyDown);
-		};
-	}, []);
 
 	return (
 		<Overlay onClose={closeOverlay}>

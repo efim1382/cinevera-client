@@ -11,6 +11,7 @@ import {
 	DetailsPageCast,
 } from "@master/components/MovieDetails";
 
+import AllSeasonsOverlay from "@master/containers/Series/content/AllSeasonsOverlay";
 import SeasonDetailsSuspence from "@master/containers/Series/components/SeriesDetailsSuspence";
 import { getSeriesDetails } from "api/movies.api";
 import style from "./style.css";
@@ -19,6 +20,7 @@ const SeasonDetails = () => {
 	const { id, seasonId } = useParams();
 	const [seriesData, setSeriesData] = useState({});
 	const [isFetchProcess, setIsFetchProcess] = useState(false);
+	const [isAllSeasonsShown, setIsAllSeasonsShown] = useState(false);
 
 	const {
 		title,
@@ -40,17 +42,38 @@ const SeasonDetails = () => {
 
 	const isSeriesLoaded = Object.keys(seriesData).length > 0;
 
+	const openAllSeasons = () => setIsAllSeasonsShown(true);
+	const closeAllSeasons = () => setIsAllSeasonsShown(false);
+
+	const seasonsTitleActionProps = {
+		text: "All seasons",
+		onClick: openAllSeasons,
+	};
+
+	const loadSeries = () => {
+		setIsFetchProcess(true);
+
+		getSeriesDetails(id)
+			.then(({ series }) => {
+				setSeriesData(series);
+				setIsFetchProcess(false);
+			})
+
+			.catch((error) => {
+				console.log(error);
+			});
+	};
+
 	useEffect(() => {
 		if (!isSeriesLoaded) {
-			setIsFetchProcess(true);
-
-			getSeriesDetails(id)
-				.then(({ series }) => {
-					setSeriesData(series);
-					setIsFetchProcess(false);
-				});
+			loadSeries();
 		}
 	}, []);
+
+	useEffect(() => {
+		setSeriesData({});
+		loadSeries();
+	}, [id, seasonId]);
 
 	if (!isSeriesLoaded || isFetchProcess) {
 		return <SeasonDetailsSuspence />;
@@ -85,9 +108,9 @@ const SeasonDetails = () => {
 			</section>
 
 			<EpisodesList
-				title="Episodes"
+				title={`Season ${seasonId}`}
 				items={episodes}
-				titleAction={{ text: "All seasons" }}
+				titleAction={seasonsTitleActionProps}
 				className={style.episodes}
 			/>
 
@@ -112,6 +135,13 @@ const SeasonDetails = () => {
 				type="series"
 				className={style.popular}
 			/>
+
+			{isAllSeasonsShown && (
+				<AllSeasonsOverlay
+					onClose={closeAllSeasons}
+					seasons={seasons}
+				/>
+			)}
 		</DetailsPageWrapper>
 	);
 };
