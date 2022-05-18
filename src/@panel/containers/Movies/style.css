@@ -1,0 +1,104 @@
+.movies {
+	display: flex;
+	
+	& .sidebar {
+		display: flex;
+		flex-direction: column;
+		width: 300px;
+		height: 100vh;
+		background-color: var(--root-background-color-hover);
+
+		& .logo_container {
+			display: flex;
+			align-items: center;
+			flex-shrink: 0;
+			height: 100px;
+			padding-left: var(--layout-padding);
+
+			& .logo {
+				flex-shrink: 0;
+				color: var(--primary-color);
+				font-weight: var(--font-weight-bold);
+				font-size: 20px;
+			}
+		}	
+
+		& .section_menu {
+			flex-grow: 1;
+			overflow-y: scroll;
+
+			& .section_items {
+				--link-height: 60px;
+				position: relative;
+				display: block;
+				height: var(--link-height);
+				line-height: var(--link-height);
+				color: var(--link-color);
+				font-weight: var(--font-weight-medium);
+				transition-property: color;
+				padding-left: var(--layout-padding);
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: var(--link-height);
+					width: 2px;
+					background-color: var(--primary-color);
+					opacity: var(--opacity-border);
+					transition: 0.3s;
+				}
+
+				&:not(:hover) {
+					--link-color: var(--caption-color);
+					--opacity-border: 0;
+				}
+
+				&:hover {
+					--link-color: var(--primary-color);
+					--opacity-border: 1;
+				}
+			}
+
+		}
+
+		& .profile {
+			display: flex;
+			align-items: center;
+			flex-shrink: 0;
+			height: 80px;
+			width: 100%;
+			padding-left: var(--layout-padding);
+			padding-right: var(--layout-padding);
+			border-top: 1px solid var(--divider-color);
+
+			& .avatar {
+				--avatar-size: 40px;
+				flex-shrink: 0;
+				height: var(--avatar-size);
+				width: var(--avatar-size);
+				border-radius: 50%;
+				background-image: url("./images/Yurii.jpg");
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+
+			& .name {
+				margin-left: 16px;
+			}
+
+			& .profile_button {
+				--icon-color: var(--caption-color);
+				--icon-size: 24px;
+				margin-left: auto;
+				transition-property: transform;
+
+				&:hover {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+}

@@ -28,6 +28,7 @@
       "\\.(css|scss)$": "<rootDir>/src/mocks/styleMock.js",
       "^@master(.*)$": "<rootDir>/src/@master$1",
       "^@profile(.*)$": "<rootDir>/src/@profile$1",
+      "^@panel(.*)$": "<rootDir>/src/@panel$1",
       "^components(.*)$": "<rootDir>/src/components$1",
       "^classes(.*)$": "<rootDir>/src/classes$1",
       "^helpers(.*)$": "<rootDir>/src/helpers$1",
