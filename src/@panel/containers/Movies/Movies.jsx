@@ -35,7 +35,19 @@ const Movies = () => {
 				</div>
 			</div>
 
-			<div className={style.dashbord}>Menu</div>
+			<div className={style.dashbord}>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+				<div className={style.block}></div>
+			</div>
 		</main>
 	);
 };
