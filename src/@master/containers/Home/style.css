@@ -32,6 +32,16 @@
 			pointer-events: none;
 		}
 
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 40px;
+			background: linear-gradient(0deg, rgba(18, 18, 18, 1) 31%, rgba(0, 0, 0, 0) 100%);
+		}
+
 		@media (--viewport-tablet) {
 			min-height: 100vh;
 			padding-top: calc(var(--header-height) + var(--layout-padding));
@@ -97,117 +107,8 @@
 	}
 
 	& .continue {
-		position: relative;
-		padding-top: calc(var(--layout-padding) + 10px);
+		padding-top: var(--layout-padding);
 		padding-bottom: var(--layout-padding);
-
-		&:before {
-			content: "";
-			position: absolute;
-			bottom: calc(100% - 1px);
-			left: 0;
-			width: 100%;
-			height: 40px;
-			background: linear-gradient(0deg, rgba(18, 18, 18, 1) 31%, rgba(0, 0, 0, 0) 100%);
-		}
-
-		& .continue_list {
-			--gap: 30px;
-			--columns: 3;
-			margin-top: 30px;
-			display: flex;
-			flex-wrap: wrap;
-			gap: var(--gap);
-
-			& .continue_items {
-				width: calc((100% - (var(--gap) * (var(--columns) - 1))) / var(--columns));
-				height: 300px;
-				background-image: url("https://avatars.mds.yandex.net/get-ott/374297/2a00000169e82e09e27fbf1db1708110f2b6/1344x756");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-				position: relative;
-
-				&:hover {
-					cursor: pointer;
-				}
-
-				@media (--viewport-laptop) {
-					--columns: 2;
-				}
-
-				@media (--viewport-tablet) {
-					--columns: 1;
-				}
-
-				@media (--viewport-phone) {
-					--columns: 1;
-				}
-
-				& .play_button {
-					--icon-color: var(--primary-color);
-					--icon-size: 36px;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-				}
-
-				& .description {
-					width: 100%;
-					margin-top: auto;
-					position: absolute;
-					left: 0;
-					bottom: 0;
-					padding-left: 20px;
-					padding-right: 20px;
-					padding-bottom: 12px;
-
-					& .name_film {
-						font-weight: var(--font-weight-semibold);
-						font-size: 16px;
-					}
-
-					& .film_year {
-						font-size: 14px;
-					}
-
-					& .rewind_bar {
-						margin-top: 8px;
-						display: flex;
-						align-items: center;
-
-						& .time {
-							display: block;
-							font-size: 12px;
-						}
-
-						& .rewind {
-							width: 100%;
-							background-color: var(--primary-color);
-							height: 2px;
-							border-radius: 2px;
-							margin-left: 8px;
-
-							& .controler {
-								width: 12px;
-								height: 12px;
-								border-radius: 50%;
-								background-color: var(--primary-color);
-								position: absolute;
-								left: 40%;
-								transform: translate(-50%, -50%);
-							}
-						}
-
-						& .time_end {
-							font-size: 12px;
-							margin-left: 8px;
-						}
-					}
-				}
-			}
-		}
 	}
 
 	& .movies_row_section {

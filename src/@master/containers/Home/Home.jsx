@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Button from "components/BasicButton";
-import Icon from "components/Icon";
 import PopularList from "@master/components/PopularList";
+import EpisodesList from "@master/components/EpisodesList";
 
 import style from "./style.css";
 
@@ -36,76 +36,11 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section className={style.continue}>
-				<div className="container">
-					<h3>Continue Watching</h3>
-
-					<div className={style.continue_list}>
-						<div className={style.continue_items}>
-							<button className={style.play_button}>
-								<Icon name="play" />
-							</button>
-
-							<div className={style.description}>
-								<p className={style.name_film}>Zavod</p>
-								<span className={style.film_year}>2018</span>
-
-								<div className= {style.rewind_bar}>
-									<p className={style.time}>42:31</p>
-
-									<div className={style.rewind}>
-										<div className={style.controler} />
-									</div>
-
-									<p className={style.time_end}>1:32:04</p>
-								</div>
-							</div>
-						</div>
-
-						<div className={style.continue_items}>
-							<button className={style.play_button}>
-								<Icon name="play" />
-							</button>
-
-							<div className={style.description}>
-								<p className={style.name_film}>Zavod</p>
-								<span className={style.film_year}>2018</span>
-
-								<div className= {style.rewind_bar}>
-									<p className={style.time}>42:31</p>
-
-									<div className={style.rewind}>
-										<div className={style.controler} />
-									</div>
-
-									<p className={style.time_end}>1:32:04</p>
-								</div>
-							</div>
-						</div>
-
-						<div className={style.continue_items}>
-							<button className={style.play_button}>
-								<Icon name="play" />
-							</button>
-
-							<div className={style.description}>
-								<p className={style.name_film}>Zavod</p>
-								<span className={style.film_year}>2018</span>
-
-								<div className= {style.rewind_bar}>
-									<p className={style.time}>42:31</p>
-
-									<div className={style.rewind}>
-										<div className={style.controler} />
-									</div>
-
-									<p className={style.time_end}>1:32:04</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
+			<EpisodesList
+				title="Continue watching"
+				items={episodesItems}
+				className={style.continue}
+			/>
 
 			<PopularList
 				title="Popular now"
@@ -162,5 +97,37 @@ const Home = () => {
 		</main>
 	);
 };
+
+export const episodesItems = [
+	{
+		_id: "1",
+		title: "Sadsdsada",
+		posterUrl: "https://m.media-amazon.com/images/M/MV5BOTYwZDNlMDMtZWRkNC00NzNkLTk2ZDMtNGQ1MmEwNzAwZGZhXkEyXkFqcGdeQXVyMjg2MTMyNTM@._V1_.jpg",
+	},
+
+	{
+		_id: "2",
+		title: "Sadsdsada",
+		posterUrl: "https://m.media-amazon.com/images/M/MV5BMTQyMjMzMDIxOV5BMl5BanBnXkFtZTcwODU2ODg5NA@@._V1_.jpg",
+	},
+
+	{
+		_id: "3",
+		title: "Sadsdsada",
+		posterUrl: "https://m.media-amazon.com/images/M/MV5BMmUzN2FiYjItZGUyMy00ZjNlLWFjOWYtZDI4Yzk3YzQ4OGRmXkEyXkFqcGdeQXVyMjg2MTMyNTM@._V1_.jpg",
+	},
+
+	{
+		_id: "4",
+		title: "Sadsdsada",
+		posterUrl: "https://m.media-amazon.com/images/M/MV5BMmUzN2FiYjItZGUyMy00ZjNlLWFjOWYtZDI4Yzk3YzQ4OGRmXkEyXkFqcGdeQXVyMjg2MTMyNTM@._V1_.jpg",
+	},
+
+	{
+		_id: "5",
+		title: "Sadsdsada",
+		posterUrl: "https://m.media-amazon.com/images/M/MV5BMmUzN2FiYjItZGUyMy00ZjNlLWFjOWYtZDI4Yzk3YzQ4OGRmXkEyXkFqcGdeQXVyMjg2MTMyNTM@._V1_.jpg",
+	},
+];
 
 export default Home;

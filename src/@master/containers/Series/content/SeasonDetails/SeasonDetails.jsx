@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { SwiperSlide } from "swiper/react";
 import { useParams } from "react-router-dom";
 import Button from "components/BasicButton";
-import Swiper from "components/Swiper/Swiper";
 import PopularList from "@master/components/PopularList";
+import EpisodesList from "@master/components/EpisodesList";
 
 import {
 	DetailsPageWrapper,
@@ -14,7 +13,6 @@ import {
 
 import SeasonDetailsSuspence from "@master/containers/Series/components/SeriesDetailsSuspence";
 import { getSeriesDetails } from "api/movies.api";
-import episodesSliderBreakpoints from "@master/containers/Series/config/spisodesBreakpoints";
 import style from "./style.css";
 
 const SeasonDetails = () => {
@@ -86,35 +84,12 @@ const SeasonDetails = () => {
 				</div>
 			</section>
 
-			<section className={style.season}>
-				<div className="container">
-					<div className={style.subtitle_wrapper}>
-						<h2 className={style.subtitle}>Season 1</h2>
-						<button type="button" className={style.all_seasons}>All seasons</button>
-					</div>
-
-					<div className={style.episodes_list}>
-						<Swiper breakpoints={episodesSliderBreakpoints}>
-							{episodes.map((item) => {
-								const formattedNumber = item.number < 10
-									? `0${item.number}`
-									: item.number;
-
-								const inline = { backgroundImage: `url(${item.posterUrl})` };
-
-								return (
-									<SwiperSlide key={item._id}>
-										<button type="button" className={style.episode_item} style={inline}>
-											<span className={style.number}>{formattedNumber}</span>
-											<p className={style.episode_name}>{item.title}</p>
-										</button>
-									</SwiperSlide>
-								);
-							})}
-						</Swiper>
-					</div>
-				</div>
-			</section>
+			<EpisodesList
+				title="Episodes"
+				items={episodes}
+				titleAction={{ text: "All seasons" }}
+				className={style.episodes}
+			/>
 
 			<DetailsPageOverview
 				genres={genres}
