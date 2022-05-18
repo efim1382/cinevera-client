@@ -1,5 +1,5 @@
 .popular {
-	overflow-x: hidden;
+	overflow: hidden;
 
 	& .subtitle {
 		font-size: 30px;

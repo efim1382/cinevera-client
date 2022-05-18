@@ -1,24 +1,4 @@
 .details {
-	--background-opacity: 0.4;
-	position: relative;
-	padding-top: var(--header-height);
-	padding-bottom: var(--layout-padding);
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: top center;
-
-	&:before {
-		content: "";
-		z-index: 1;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 100%;
-		background-color: rgba(0, 0, 0, var(--background-opacity));
-	}
-
 	& .subtitle {
 		font-size: 30px;
 		color: var(--primary-color);
@@ -42,6 +22,10 @@
 			& .title {
 				max-width: 50%;
 				text-shadow: 2px 1px var(--root-background-color-hover);
+
+				@media (--viewport-tablet) {
+					max-width: 100%;
+				}
 			}
 
 			& .additional_information {
@@ -88,6 +72,8 @@
 	}
 
 	& .season {
+		overflow: hidden;
+
 		& :global(.container) {
 			& .subtitle_wrapper {
 				display: flex;
