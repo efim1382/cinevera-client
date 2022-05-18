@@ -34,10 +34,6 @@ const SearchOverlay = () => {
 	};
 
 	const search = (query) => {
-		if (!query) {
-			return setMovies([]);
-		}
-
 		setIsRequestProcess(true);
 
 		moviesApi.search({ query, limit: 10 })
@@ -58,7 +54,19 @@ const SearchOverlay = () => {
 		}
 	};
 
+	const resetSearch = () => {
+		if (isRequestProcess) {
+			setIsRequestProcess(false);
+		}
+
+		setMovies([]);
+	};
+
 	const onInput = (event) => {
+		if (!event.target.value) {
+			return resetSearch();
+		}
+
 		if (!isRequestProcess) {
 			setIsRequestProcess(true);
 		}
