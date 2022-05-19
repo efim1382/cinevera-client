@@ -1,5 +1,6 @@
 :global(.swiper) {
 	z-index: 1;
+	touch-action: none;
 
 	& :global(.swiper-wrapper) {
 		position: relative;

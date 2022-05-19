@@ -1,0 +1,18 @@
+.suspence {
+	padding-top: calc(var(--layout-padding) + 20px);
+
+	& .title {
+		width: 200px;
+		height: 60px;
+		background-color: var(--root-background-color-hover);
+		border-radius: 3px;
+	}
+
+	& .filters {
+		width: 300px;
+		height: 40px;
+		margin-top: calc(30px + 20px);
+		background-color: var(--root-background-color-hover);
+		border-radius: 3px;
+	}
+}

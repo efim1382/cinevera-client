@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames/bind";
-import DropdownNew from "./Dropdown";
+import Dropdown from "./Dropdown";
 import { genres, getGenreByCode } from "config/genres";
 import style from "./style.css";
 import { ObjectsListContext } from "@master/store/ObjectsListProvider";
@@ -86,7 +86,7 @@ const ObjectsListFilters = ({ className }) => {
 				<div className={style.dropdown_wrapper}>
 					<span className={style.label}>Genre:</span>
 
-					<DropdownNew
+					<Dropdown
 						label={genresLabel}
 						options={genresOptions}
 						onChange={onChangeGenre}
@@ -98,7 +98,7 @@ const ObjectsListFilters = ({ className }) => {
 				<div className={style.dropdown_wrapper}>
 					<span className={style.label}>Sort By:</span>
 
-					<DropdownNew
+					<Dropdown
 						label={sortLabel}
 						options={sortOptions}
 						onChange={onSortChange}

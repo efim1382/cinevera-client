@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from "react";
+import ObjectsListSuspence from "@master/components/ObjectsListSuspence";
 import ObjectsListProvider from "@master/store/ObjectsListProvider";
 
 const MoviesList = lazy(() => import(
@@ -10,7 +11,7 @@ const MoviesList = lazy(() => import(
 const MoviesListContainer = () => {
 	return (
 		<ObjectsListProvider type="movie">
-			<Suspense fallback="...Loading">
+			<Suspense fallback={<ObjectsListSuspence />}>
 				<MoviesList />
 			</Suspense>
 		</ObjectsListProvider>
