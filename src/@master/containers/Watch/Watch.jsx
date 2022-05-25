@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Icon from "components/Icon";
+import classnames from "classnames/bind";
 import style from "./style.css";
+
+const cx = classnames.bind(style);
 
 const host = process.env.API_HOST || "http://localhost:8001";
 
@@ -34,12 +37,14 @@ const Watch = () => {
 	const [mouseSwipePercent, setMouseSwipePercent] = useState(null);
 	const [mouseHoverPercent, setMouseHoverPercent] = useState(null);
 
+	const mouseEventTimelinePercent = mouseHoverPercent || mouseSwipePercent;
+
 	const progressBarPercent = videoRef.current
 		? mouseSwipePercent || (currentTime / videoRef.current.duration) * 100
 		: 0;
 
-	const hoverTime = (mouseHoverPercent || mouseSwipePercent)
-		? ((mouseHoverPercent || mouseSwipePercent) * videoRef.current.duration) / 100
+	const hoverTime = mouseEventTimelinePercent
+		? (mouseEventTimelinePercent * videoRef.current.duration) / 100
 		: null;
 
 	const formattedHoverTime = hoverTime
@@ -54,6 +59,10 @@ const Watch = () => {
 		const start = buffered.start(i);
 		const end = buffered.end(i);
 
+		if (videoRef.current.currentTime < start || videoRef.current.currentTime > end) {
+			continue;
+		}
+
 		const from = (100 * start) / videoRef.current.duration;
 		const width = (100 * (end - start)) / videoRef.current.duration;
 
@@ -64,8 +73,8 @@ const Watch = () => {
 		"--progress": progressBarPercent,
 	};
 
-	if ((mouseHoverPercent || mouseSwipePercent)) {
-		progressInline["--hover-time-position"] = (mouseHoverPercent || mouseSwipePercent);
+	if (mouseEventTimelinePercent) {
+		progressInline["--hover-time-position"] = mouseEventTimelinePercent;
 	}
 
 	const nativePlay = () => videoRef.current.play();
@@ -259,7 +268,7 @@ const Watch = () => {
 					onMouseEnter={onMouseOver}
 					onMouseLeave={onMouseOut}
 					onMouseDown={onMouseDown}
-					className={style.timeline}
+					className={cx("timeline", { "_is-preview-shown": mouseEventTimelinePercent })}
 				>
 					<button type="button" className={style.progress_button} />
 

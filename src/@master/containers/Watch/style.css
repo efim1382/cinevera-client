@@ -1,10 +1,11 @@
 .watch {
-	--controls-height: 80px;
+	--controls-height: 60px;
 	position: fixed;
 	left: 0;
 	top: 0;
 	width: 100%;
 	height: 100vh;
+	background-color: #000;
 	overflow: hidden;
 
 	& > video {
@@ -47,14 +48,13 @@
 			align-items: center;
 
 			& .button {
-				--size: 50px;
 				--icon-color: #fff;
-				--icon-size: 36px;
+				--icon-size: 34px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				width: var(--size);
-				height: var(--size);
+				width: var(--controls-height);
+				height: var(--controls-height);
 
 				& + .button {
 					margin-left: 6px;
@@ -72,6 +72,20 @@
 			border-radius: 3px;
 			cursor: pointer;
 
+			&:not(._is-preview-shown) {
+				&:not(:hover) {
+					--progress-button-opacity: 0;
+				}
+
+				&:hover {
+					--progress-button-opacity: 1;
+				}
+			}
+
+			&._is-preview-shown {
+				--progress-button-opacity: 1;
+			}
+
 			&:before {
 				content: "";
 				z-index: 2;
@@ -79,6 +93,7 @@
 				left: 0;
 				width: calc(var(--progress) * 1%);
 				height: 100%;
+				border-radius: 3px;
 				background-color: #df2020;
 			}
 
@@ -104,6 +119,8 @@
 				border-radius: calc(var(--size) / 2);
 				background-color: var(--accent-color-hover);
 				transform: translateY(-50%);
+				opacity: var(--progress-button-opacity);
+				transition-property: opacity;
 			}
 
 			& .buffer {
@@ -120,10 +137,11 @@
 			& .time_tooltip {
 				position: absolute;
 				left: calc(var(--hover-time-position) * 1%);
-				bottom: calc(100% + 8px);
+				bottom: calc(100% + 4px);
 				height: 20px;
 				padding-left: 6px;
 				padding-right: 6px;
+				font-size: 13px;
 				color: #fff;
 				border-radius: 3px;
 				pointer-events: none;
