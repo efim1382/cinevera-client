@@ -58,9 +58,6 @@ const Watch = () => {
 	const formattedCurrentTime = secondsToHms(currentTime);
 	const formattedVideoDuration = secondsToHms(videoRef.current?.duration);
 
-	console.log(formattedCurrentTime);
-	console.log(formattedVideoDuration);
-
 	const isMuted = currentVolume === 0;
 	const buffered = videoRef.current?.buffered || [];
 	const buffers = [];
