@@ -123,7 +123,31 @@
 }
 
 .icon[data-icon="logout"] {
-  mask-image: url('./icons/logout.svg');
+	mask-image: url('./icons/logout.svg');
+}
+
+.icon[data-icon="play_arrow"] {
+	mask-image: url('./icons/play_arrow.svg');
+}
+
+.icon[data-icon="pause"] {
+	mask-image: url('./icons/pause.svg');
+}
+
+.icon[data-icon="fullscreen"] {
+	mask-image: url('./icons/fullscreen.svg');
+}
+
+.icon[data-icon="fullscreen_exit"] {
+	mask-image: url('./icons/fullscreen_exit.svg');
+}
+
+.icon[data-icon="volume_up"] {
+	mask-image: url('./icons/volume_up.svg');
+}
+
+.icon[data-icon="volume_off"] {
+	mask-image: url('./icons/volume_off.svg');
 }
 
 .story_icon {

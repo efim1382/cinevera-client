@@ -89,3 +89,9 @@ export const search = (params = {}) => {
 		data,
 	});
 };
+
+export const getVideo = () => {
+	return XHR.get({
+		url: "/video/sdfsdfdsf",
+	});
+};

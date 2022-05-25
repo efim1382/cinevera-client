@@ -8,6 +8,7 @@ import Home from "@master/containers/Home/app";
 import AuthRouter from "@master/containers/Auth/router";
 import MoviesRouter from "@master/containers/Movies/router";
 import SeriesRouter from "@master/containers/Series/router";
+import Watch from "@master/containers/Watch";
 
 import ProfileLayout from "@profile/components/Layout";
 import RecentMovies from "@profile/containers/RecentMovies";
@@ -17,13 +18,15 @@ export default () => {
 		<Routes>
 			<Route path="*" element={<NotFound />} />
 
-			<Route path="/" element={<Layout />} >
+			<Route path="/" element={<Layout />}>
 				<Route index element={<Home />} />
 				<Route path="/series/*" element={<SeriesRouter />} />
 				<Route path="/movies/*" element={<MoviesRouter />} />
 			</Route>
 
-			<Route path="/profile" element={<ProfileLayout />} >
+			<Route path="/watch/:id" element={<Watch />} />
+
+			<Route path="/profile" element={<ProfileLayout />}>
 				<Route index element={<RecentMovies />} />
 			</Route>
 
