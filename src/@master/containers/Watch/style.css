@@ -41,17 +41,24 @@
 		background-image: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
 
 		& .section {
+			--icon-size: 34px;
 			display: flex;
 			align-items: center;
 
 			& .button {
 				--icon-color: #fff;
-				--icon-size: 34px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				width: var(--controls-height);
 				height: var(--controls-height);
+			}
+
+			& .time {
+				padding-left: calc((var(--controls-height) - var(--icon-size)) / 2);
+				padding-right: calc((var(--controls-height) - var(--icon-size)) / 2);
+				font-size: 13px;
+				color: #fff;
 			}
 		}
 

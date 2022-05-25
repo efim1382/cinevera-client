@@ -16,11 +16,15 @@ const secondsToHms = (seconds = 0) => {
 		? `${numHours}:`
 		: "";
 
+	const formattedMinutes = numMinutes < 10
+		? `0${numMinutes}`
+		: numMinutes;
+
 	const formattedSeconds = numSeconds < 10
 		? `0${numSeconds}`
 		: numSeconds;
 
-	return `${formattedHours}${numMinutes}:${formattedSeconds}`;
+	return `${formattedHours}${formattedMinutes}:${formattedSeconds}`;
 };
 
 let isHover = false;
@@ -50,6 +54,12 @@ const Watch = () => {
 	const formattedHoverTime = hoverTime
 		? secondsToHms(hoverTime)
 		: null;
+
+	const formattedCurrentTime = secondsToHms(currentTime);
+	const formattedVideoDuration = secondsToHms(videoRef.current?.duration);
+
+	console.log(formattedCurrentTime);
+	console.log(formattedVideoDuration);
 
 	const isMuted = currentVolume === 0;
 	const buffered = videoRef.current?.buffered || [];
@@ -262,6 +272,14 @@ const Watch = () => {
 							<Icon name="volume_up" />
 						</button>
 					)}
+
+					<span className={style.time}>
+						{formattedCurrentTime}
+						{" "}
+						/
+						{" "}
+						{formattedVideoDuration}
+					</span>
 				</section>
 
 				<section className={style.section}>
