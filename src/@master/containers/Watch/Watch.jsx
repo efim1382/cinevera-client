@@ -55,8 +55,13 @@ const Watch = () => {
 		? secondsToHms(hoverTime)
 		: null;
 
-	const formattedCurrentTime = secondsToHms(currentTime);
-	const formattedVideoDuration = secondsToHms(videoRef.current?.duration);
+	const formattedCurrentTime = currentTime
+		? secondsToHms(currentTime)
+		: "00:00";
+
+	const formattedVideoDuration = videoRef.current?.duration
+		? secondsToHms(videoRef.current?.duration)
+		: "00:00";
 
 	const isMuted = currentVolume === 0;
 	const buffered = videoRef.current?.buffered || [];
