@@ -40,12 +40,12 @@ export const moviesSliderBreakpoints = {
 	},
 
 	[breakpoints.desktopLarge]: {
-		slidesPerView: 7,
+		slidesPerView: 6,
 		spaceBetween: 30,
 	},
 
 	[breakpoints.desktopExtraLarge]: {
-		slidesPerView: 8,
+		slidesPerView: 7,
 		spaceBetween: 30,
 	},
 };
