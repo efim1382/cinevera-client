@@ -150,6 +150,14 @@
 	mask-image: url('./icons/volume_off.svg');
 }
 
+.icon[data-icon="replay_10"] {
+	mask-image: url('./icons/replay_10.svg');
+}
+
+.icon[data-icon="forward_10"] {
+	mask-image: url('./icons/forward_10.svg');
+}
+
 .story_icon {
 	--icon-size: 50px;
 	--icon-color: var(--primary-color);

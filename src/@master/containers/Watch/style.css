@@ -55,10 +55,6 @@
 				align-items: center;
 				width: var(--controls-height);
 				height: var(--controls-height);
-
-				& + .button {
-					margin-left: 6px;
-				}
 			}
 		}
 
@@ -130,7 +126,7 @@
 				left: calc(var(--from) * 1%);
 				width: calc(var(--width) * 1%);
 				height: 3px;
-				background-color: rgba(255, 255, 255, 0.8);
+				background-color: rgba(255, 255, 255, 0.7);
 				pointer-events: none;
 			}
 
@@ -142,6 +138,7 @@
 				padding-left: 6px;
 				padding-right: 6px;
 				font-size: 13px;
+				font-weight: var(--font-weight-semibold);
 				color: #fff;
 				border-radius: 3px;
 				pointer-events: none;

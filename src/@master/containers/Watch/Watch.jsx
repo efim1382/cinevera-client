@@ -170,13 +170,17 @@ const Watch = () => {
 	const onTimeUpdate = () => setCurrentTime(videoRef.current.currentTime);
 	const onVolumeChange = (event) => setCurrentVolume(event.target.volume);
 
-	const onEnded = () => {
+	const onEnter = (event) => {
+		if (event.path[0].getAttribute("data-action") === "true") {
+			event.preventDefault();
+		}
 
+		togglePlay();
 	};
 
 	const onKeyDown = (event) => {
 		if (event.code === "Space") {
-			togglePlay();
+			onEnter(event);
 		}
 
 		if (event.code === "ArrowLeft") {
@@ -215,34 +219,46 @@ const Watch = () => {
 				onPlay={onPlay}
 				onPause={onPause}
 				onTimeUpdate={onTimeUpdate}
-				onEnded={onEnded}
 				onVolumeChange={onVolumeChange}
 			/>
 
-			<div className={style.toggle_play_cover} onClick={togglePlay} />
+			<button
+				type="button"
+				data-action="true"
+				onClick={togglePlay}
+				className={style.toggle_play_cover}
+			/>
 
 			<div className={style.controls}>
 				<section className={style.section}>
 					{isPlay && (
-						<button type="button" className={style.button} onClick={nativePause}>
+						<button type="button" data-action="true" className={style.button} onClick={nativePause}>
 							<Icon name="pause" />
 						</button>
 					)}
 
 					{!isPlay && (
-						<button type="button" className={style.button} onClick={nativePlay}>
+						<button type="button" data-action="true" className={style.button} onClick={nativePlay}>
 							<Icon name="play_arrow" />
 						</button>
 					)}
 
+					<button type="button" data-action="true" className={style.button} onClick={goBack}>
+						<Icon name="replay_10" />
+					</button>
+
+					<button type="button" data-action="true" className={style.button} onClick={goForward}>
+						<Icon name="forward_10" />
+					</button>
+
 					{isMuted && (
-						<button type="button" className={style.button} onClick={unMuteVide}>
+						<button type="button" data-action="true" className={style.button} onClick={unMuteVide}>
 							<Icon name="volume_off" />
 						</button>
 					)}
 
 					{!isMuted && (
-						<button type="button" className={style.button} onClick={muteVideo}>
+						<button type="button" data-action="true" className={style.button} onClick={muteVideo}>
 							<Icon name="volume_up" />
 						</button>
 					)}
@@ -250,13 +266,13 @@ const Watch = () => {
 
 				<section className={style.section}>
 					{isFullScreen && (
-						<button type="button" className={style.button} onClick={closeFullscreen}>
+						<button type="button" data-action="true" className={style.button} onClick={closeFullscreen}>
 							<Icon name="fullscreen_exit" />
 						</button>
 					)}
 
 					{!isFullScreen && (
-						<button type="button" className={style.button} onClick={openFullscreen}>
+						<button type="button" data-action="true" className={style.button} onClick={openFullscreen}>
 							<Icon name="fullscreen" />
 						</button>
 					)}
@@ -270,7 +286,7 @@ const Watch = () => {
 					onMouseDown={onMouseDown}
 					className={cx("timeline", { "_is-preview-shown": mouseEventTimelinePercent })}
 				>
-					<button type="button" className={style.progress_button} />
+					<button type="button" data-action="true" className={style.progress_button} />
 
 					{buffers.map(({ from, width }) => {
 						const inline = {
