@@ -62,8 +62,6 @@
 					white-space: nowrap;
 				}
 
-
-
 				&::before {
 					content: "";
 					position: absolute;
@@ -179,8 +177,8 @@
 
 		& .table {
 			--headlines-height: 50px;
-				flex-direction: column;
 				display: flex;
+				flex-direction: column;
 				flex-grow: 1;
 				min-height: 0;
 
@@ -276,8 +274,8 @@
 					}
 
 					& .year {
-						width: 100px;
 						flex-grow: 1;
+						width: 100px;
 					}
 
 					& .navigation {
