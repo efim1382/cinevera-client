@@ -50,12 +50,20 @@
   mask-image: url('./icons/person.svg');
 }
 
+.icon[data-icon="people"] {
+  mask-image: url('./icons/people.svg');
+}
+
 .icon[data-icon="search"] {
   mask-image: url('./icons/search.svg');
 }
 
 .icon[data-icon="star"] {
   mask-image: url('./icons/star.svg');
+}
+
+.icon[data-icon="done"] {
+  mask-image: url('./icons/done.svg');
 }
 
 .icon[data-icon="star_border"] {
@@ -124,6 +132,26 @@
 
 .icon[data-icon="logout"] {
   mask-image: url('./icons/logout.svg');
+}
+
+.icon[data-icon="local_movies"] {
+  mask-image: url('./icons/local_movies.svg');
+}
+
+.icon[data-icon="live_tv"] {
+  mask-image: url('./icons/live_tv.svg');
+}
+
+.icon[data-icon="replay"] {
+  mask-image: url('./icons/replay.svg');
+}
+
+.icon[data-icon="delete"] {
+  mask-image: url('./icons/delete.svg');
+}
+
+.icon[data-icon="edit"] {
+  mask-image: url('./icons/edit.svg');
 }
 
 .story_icon {
