@@ -146,6 +146,10 @@
 	mask-image: url('./icons/volume_up.svg');
 }
 
+.icon[data-icon="volume_down"] {
+	mask-image: url('./icons/volume_down.svg');
+}
+
 .icon[data-icon="volume_off"] {
 	mask-image: url('./icons/volume_off.svg');
 }

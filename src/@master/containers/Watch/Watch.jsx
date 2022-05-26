@@ -63,7 +63,7 @@ const Watch = () => {
 		? secondsToHms(videoRef.current?.duration)
 		: "00:00";
 
-	const isMuted = currentVolume === 0;
+	const isVolumeMuted = currentVolume === 0;
 	const buffered = videoRef.current?.buffered || [];
 	const buffers = [];
 
@@ -89,6 +89,8 @@ const Watch = () => {
 		progressInline["--hover-time-position"] = mouseEventTimelinePercent;
 	}
 
+	const volumeInline = { "--volume-position": currentVolume * 100 };
+
 	const nativePlay = () => videoRef.current.play();
 	const nativePause = () => videoRef.current.pause();
 
@@ -102,8 +104,8 @@ const Watch = () => {
 	const onPause = () => setIsPlay(false);
 	const openFullscreen = () => pageRootRef.current.requestFullscreen();
 	const closeFullscreen = () => document.exitFullscreen();
-	const muteVideo = () => videoRef.current.volume = 0;
-	const unMuteVide = () => videoRef.current.volume = 1;
+	const muteVolume = () => videoRef.current.volume = 0;
+	const setFullVolume = () => videoRef.current.volume = 1;
 
 	const goForward = () => {
 		const newTime = videoRef.current.currentTime + 10;
@@ -181,6 +183,7 @@ const Watch = () => {
 
 	const onTimeUpdate = () => setCurrentTime(videoRef.current.currentTime);
 	const onVolumeChange = (event) => setCurrentVolume(event.target.volume);
+	const onVolumeSliderChange = (event) => videoRef.current.volume = event.target.value;
 
 	const onEnter = (event) => {
 		if (event.path[0].getAttribute("data-action") === "true") {
@@ -263,17 +266,28 @@ const Watch = () => {
 						<Icon name="forward_10" />
 					</button>
 
-					{isMuted && (
-						<button type="button" data-action="true" className={style.button} onClick={unMuteVide}>
+					{isVolumeMuted && (
+						<button type="button" data-action="true" className={style.button} onClick={setFullVolume}>
 							<Icon name="volume_off" />
 						</button>
 					)}
 
-					{!isMuted && (
-						<button type="button" data-action="true" className={style.button} onClick={muteVideo}>
+					{!isVolumeMuted && (
+						<button type="button" data-action="true" className={style.button} onClick={muteVolume}>
 							<Icon name="volume_up" />
 						</button>
 					)}
+
+					<input
+						type="range"
+						min="0"
+						max="1"
+						step="0.05"
+						value={currentVolume}
+						onChange={onVolumeSliderChange}
+						style={volumeInline}
+						className={style.volume_range}
+					/>
 
 					<span className={style.time}>
 						{formattedCurrentTime}
