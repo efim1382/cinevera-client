@@ -50,6 +50,7 @@
 
 			& .episode_item {
 				position: relative;
+				display: block;
 				width: 100%;
 				background-image: url("https://m.media-amazon.com/images/M/MV5BMTQyMjMzMDIxOV5BMl5BanBnXkFtZTcwODU2ODg5NA@@._V1_.jpg");
 				background-color: var(--root-background-color-hover);

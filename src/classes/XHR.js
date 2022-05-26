@@ -1,4 +1,5 @@
 const host = process.env.API_HOST || "http://localhost:8001";
+export const hostApi = `${host}${host[host.length - 1] !== "/" ? "/" : ""}api`;
 
 class XHR {
 	/**
@@ -9,7 +10,7 @@ class XHR {
 	 */
 	get({ url, data }) {
 		const fullUrl = XHR.formatUrl(
-			`${host}/api${url}`,
+			`${hostApi}${url}`,
 			XHR.appendToken(XHR.validateData(data)),
 		);
 
@@ -31,7 +32,7 @@ class XHR {
 			headers["Content-Type"] = "application/json";
 		}
 
-		return fetch(`${host}/api${url}`, {
+		return fetch(`${hostApi}${url}`, {
 			method: "post",
 			headers,
 			body,
@@ -52,7 +53,7 @@ class XHR {
 			headers["Content-Type"] = "application/json";
 		}
 
-		return fetch(`${host}/api${url}`, {
+		return fetch(`${hostApi}${url}`, {
 			method: "patch",
 			headers,
 			body,
@@ -73,7 +74,7 @@ class XHR {
 			headers["Content-Type"] = "application/json";
 		}
 
-		return fetch(`${host}/api${url}`, {
+		return fetch(`${hostApi}${url}`, {
 			method: "delete",
 			headers,
 			body,

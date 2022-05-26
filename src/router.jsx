@@ -24,7 +24,7 @@ export default () => {
 				<Route path="/movies/*" element={<MoviesRouter />} />
 			</Route>
 
-			<Route path="/watch/:id" element={<Watch />} />
+			<Route path="/watch/:video/" element={<Watch />} />
 
 			<Route path="/profile" element={<ProfileLayout />}>
 				<Route index element={<RecentMovies />} />
