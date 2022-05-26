@@ -12,13 +12,15 @@ const Movies = () => {
 		<main className={style.movies}>
 			<div className={style.sidebar}>
 				<div className={style.logo_container}>
-					<NavLink to="/" className={style.logo}>cinevera</NavLink>
+					<NavLink to="/" className={style.logo}>cinevera
+						<span>-admin</span>
+					</NavLink>
 				</div>
 
 				<div className={style.section_menu}>
 					<NavLink to="/" className={style.section_items}>
 						<Icon name="local_movies" />
-						<span className={style.section_items_name}>Films</span>
+						<span className={style.section_items_name}>Movies</span>
 					</NavLink>
 
 					<NavLink to="/" className={style.section_items}>
@@ -45,7 +47,7 @@ const Movies = () => {
 
 			<div className={style.dashbord}>
 				<div className={style.header}>
-					<button className={style.button_users}>All Users</button>
+					<button className={style.button_users}>Movies List</button>
 
 					<div className={style.navigation}>
 						<button className={style.search_button}>

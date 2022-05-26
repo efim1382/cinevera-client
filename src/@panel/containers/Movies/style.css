@@ -24,6 +24,11 @@
 				color: var(--primary-color);
 				font-weight: var(--font-weight-bold);
 				font-size: 18px;
+
+				& span {
+					color: var(--accent-color);
+					font-weight: var(--font-weight-medium);
+				}
 			}
 		}	
 
@@ -67,19 +72,19 @@
 					height: var(--link-height);
 					width: 2px;
 					opacity: var(--opacity-border);
-					background-color: var(--primary-color);
+					background-color: var(--accent-color);
 					transition: 0.3s;
 				}
 
 				&:not(:hover) {
-					--link-color: var(--caption-color);
 					--opacity-border: 0;
+					--link-color: var(--caption-color);
 					--icon-color: var(--caption-color);
 				}
 
 				&:hover {
-					--link-color: var(--primary-color);
 					--opacity-border: 1;
+					--link-color: var(--primary-color);
 					--icon-color: var(--primary-color);
 				}
 			}
@@ -129,18 +134,17 @@
 
 	& .dashbord {
 		--punel-header-height: 80px;
-		--input-box-width: 80px;
 		--input-width: 16px;
 		display: flex;
 		flex-direction: column;
-		width: 100%;
+		flex-grow: 1;
 
 		& .header {
 			display: flex;
 			align-items: center;
 			flex-shrink: 0;
 			height: var(--punel-header-height);
-			padding-left: calc((var(--input-box-width) - var(--input-width)) / 2);
+			padding-left: var(--layout-padding);
 			padding-right: var(--layout-padding);
 			font-size: 15px;
 
@@ -168,6 +172,7 @@
 				& .add_movie_button {
 					--icon-size: 24px;
 					border-radius: 4px;
+					margin-left: 8px;
 				}
 			}
 		}
@@ -185,8 +190,8 @@
 				overflow-x: auto;
 				overflow-y: auto;
 
-				& .table_cell {
-					padding-left: 8px;
+				& .table_cell:nth-of-type(n+2) {
+					padding-left: 4px;
 				}
 
 				& .table_input_box {
@@ -194,12 +199,12 @@
 					align-items: center;
 					justify-content: center;
 					flex-shrink: 0;
-					width: var(--input-box-width);
 				}
 
 				& .checkbox_wrapper {
 					width: 20px;
 					height: 20px;
+					cursor: pointer;
 
 					& .input {
 						position: absolute;
@@ -229,6 +234,7 @@
 						border: 1px solid var(--primary-color);
 						background-color: var(--background-color);
 						transition-property: background-color;
+						transition-duration: 0.1s;
 					}
 				}
 
@@ -245,12 +251,15 @@
 					height: var(--headlines-height);
 					font-size: 13px;
 					box-shadow: 0px 0px 8px #000;
+					padding-left: var(--layout-padding);
+					padding-right: calc(var(--layout-padding) - 20px);
 
 					& .name_box {
 						display: flex;
 						align-items: center;
 						flex-grow: 1;
 						width: 200px;
+						margin-left: 16px;
 						font-weight: var(--font-weight-medium);
 					}
 
@@ -272,8 +281,7 @@
 					}
 
 					& .navigation {
-						width: 156px;
-						padding-right: var(--layout-padding);
+						width: 100px;
 					}
 				}
 
@@ -282,10 +290,13 @@
 					display: flex;
 					align-items: center;
 					height: var(--headlines-height);
+					padding-left: var(--layout-padding);
+					padding-right: calc(var(--layout-padding) / 2);
 
 					& .name_films_box {
-						width: 200px;
 						flex-grow: 1;
+						width: 200px;
+						margin-left: 16px;
 
 						& .name_film {
 							font-size: 14px;
@@ -315,11 +326,11 @@
 						}
 
 						& .crime {
-							background-color: #c90a0a;
+							background-color: #750808;
 						}
 
 						& .action {
-							background-color: #ff7b00;
+							background-color: #a35308;
 						}
 
 						& .thriller {
@@ -327,7 +338,7 @@
 						}
 
 						& .mystery {
-							background-color: #ff006f; /**/
+							background-color: #ad2661;
 						}
 
 						& .fantasy {
@@ -343,7 +354,7 @@
 						}
 
 						& .history {
-							 background-color: #cccc16;
+							 background-color: #a1a108;
 						}
 
 						& .documentary {
@@ -351,7 +362,7 @@
 						}
 
 						& .western {
-							background-color: #c8cf03;
+							background-color: #443473;
 						}
 
 						& .drama {
@@ -363,19 +374,19 @@
 						}
 
 						& .romance {
-							background-color: #38c9c7;
+							background-color: #3badac;
 						}
 
 						& .comedy {
-							background-color: #1eeb07;
+							background-color: #229c14;
 						}
 
 						& .adventure {
-							background-color: #03a30e;
+							background-color: #0e7315;
 						}
 
 						& .family {
-							background-color: #cae809;
+							background-color: #3aa31a;
 						}
 
 						& .biography {
@@ -383,7 +394,7 @@
 						}
 
 						& .musical {
-							background-color: #1118f2;
+							background-color: #15198f;
 						}
 					}
 
@@ -397,8 +408,8 @@
 					& .navigation {
 						display: flex;
 						gap: 8px;
+						width: 100px;
 						height: 100%;
-						padding-right: calc(var(--layout-padding) / 2);
 
 						& .option_button {
 							--icon-size: 24px;
@@ -429,13 +440,13 @@
 				left:0;
 				bottom: 0;
 				height: 70px;
+				padding-left: var(--layout-padding);
+				padding-right: var(--layout-padding);
 
 				& .page_listing {
 					display: flex;
 					align-items: center;
 					flex-grow: 1;
-					padding-left: calc(((var(--input-box-width) - var(--input-width)) / 2) - var(--padding-left-button));
-					padding-right: calc((var(--input-box-width) - var(--input-width)) / 2);
 
 					& .page_button {
 
@@ -463,6 +474,10 @@
 							border-radius: 2px;
 							font-size: 12px;
 							transition-property: background-color;
+
+						}
+
+						& button {
 
 							&:hover {
 								background-color: var(--root-background-color-hover);
