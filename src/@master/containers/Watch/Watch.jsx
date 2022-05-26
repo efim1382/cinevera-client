@@ -107,6 +107,22 @@ const Watch = () => {
 	const muteVolume = () => videoRef.current.volume = 0;
 	const setFullVolume = () => videoRef.current.volume = 1;
 
+	const volumeUp = () => {
+		const volume = videoRef.current.volume + 0.1;
+
+		videoRef.current.volume = volume > 1
+			? 1
+			: volume;
+	};
+
+	const volumeDown = () => {
+		const volume = videoRef.current.volume - 0.1;
+
+		videoRef.current.volume = volume < 0
+			? 0
+			: volume;
+	};
+
 	const goForward = () => {
 		const newTime = videoRef.current.currentTime + 10;
 
@@ -196,6 +212,14 @@ const Watch = () => {
 	const onKeyDown = (event) => {
 		if (event.code === "Space") {
 			onEnter(event);
+		}
+
+		if (event.code === "ArrowUp") {
+			volumeUp();
+		}
+
+		if (event.code === "ArrowDown") {
+			volumeDown();
 		}
 
 		if (event.code === "ArrowLeft") {
