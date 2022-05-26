@@ -120,13 +120,14 @@
 		}
 
 		& .timeline {
+			--timeline-height: 3px;
 			position: absolute;
 			left: 12px;
 			right: 12px;
-			top: -3px;
-			height: 3px;
+			top: calc(var(--timeline-height) * -1);
+			height: var(--timeline-height);
 			background-color: rgba(255, 255, 255, 0.4);
-			border-radius: 3px;
+			border-radius: calc(var(--timeline-height) / 2);
 			cursor: pointer;
 
 			&:not(._is-preview-shown) {
@@ -149,8 +150,8 @@
 				position: absolute;
 				left: 0;
 				width: calc(var(--progress) * 1%);
-				height: 100%;
-				border-radius: 3px;
+				height: var(--timeline-height);
+				border-radius: calc(var(--timeline-height) / 2);
 				background-color: #df2020;
 			}
 
@@ -186,7 +187,7 @@
 				top: 0;
 				left: calc(var(--from) * 1%);
 				width: calc(var(--width) * 1%);
-				height: 3px;
+				height: var(--timeline-height);
 				background-color: rgba(255, 255, 255, 0.7);
 				pointer-events: none;
 			}
