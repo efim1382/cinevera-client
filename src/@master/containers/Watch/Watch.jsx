@@ -11,7 +11,7 @@ const Watch = () => {
 	return (
 		<Player
 			videoSrc={videoSrc}
-			className={style.player}
+			className={style.watch}
 		/>
 	);
 };

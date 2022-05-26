@@ -1,0 +1,85 @@
+.timeline {
+	--timeline-height: 3px;
+	position: relative;
+	height: var(--timeline-height);
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: calc(var(--timeline-height) / 2);
+	cursor: pointer;
+
+	&:not(._is-preview-shown) {
+		&:not(:hover) {
+			--progress-button-opacity: 0;
+		}
+
+		&:hover {
+			--progress-button-opacity: 1;
+		}
+	}
+
+	&._is-preview-shown {
+		--progress-button-opacity: 1;
+	}
+
+	&:before {
+		content: "";
+		z-index: 2;
+		position: absolute;
+		left: 0;
+		width: calc(var(--progress) * 1%);
+		height: var(--timeline-height);
+		border-radius: calc(var(--timeline-height) / 2);
+		background-color: #df2020;
+	}
+
+	/* empty block for clickable */
+	&:after {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 100%;
+		height: 14px;
+		transform: translateY(-50%);
+	}
+
+	& .progress_button {
+		--size: 12px;
+		z-index: 2;
+		position: absolute;
+		left: calc((var(--progress) * 1%) - (var(--size) / 2));
+		top: 50%;
+		width: var(--size);
+		height: var(--size);
+		border-radius: calc(var(--size) / 2);
+		background-color: var(--accent-color-hover);
+		transform: translateY(-50%);
+		opacity: var(--progress-button-opacity);
+		transition-property: opacity;
+	}
+
+	& .buffer {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: calc(var(--from) * 1%);
+		width: calc(var(--width) * 1%);
+		height: var(--timeline-height);
+		background-color: rgba(255, 255, 255, 0.7);
+		pointer-events: none;
+	}
+
+	& .time_tooltip {
+		position: absolute;
+		left: calc(var(--hover-time-position) * 1%);
+		bottom: calc(100% + 4px);
+		height: 20px;
+		padding-left: 6px;
+		padding-right: 6px;
+		font-size: 13px;
+		color: #fff;
+		border-radius: 3px;
+		pointer-events: none;
+		user-select: none;
+		transform: translateX(-50%);
+	}
+}
