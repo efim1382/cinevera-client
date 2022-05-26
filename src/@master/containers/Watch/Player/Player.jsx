@@ -7,6 +7,7 @@ import ButtonFullscreen from "./components/ActionButtons/Fullscreen";
 import ButtonPlay from "./components/ActionButtons/Play";
 import ButtonVolume from "./components/ActionButtons/Volume";
 import ButtonForward from "./components/ActionButtons/Forward";
+import LoadingRing from "components/LoadingRing";
 import classnames from "classnames/bind";
 import style from "./style.css";
 
@@ -16,7 +17,7 @@ const Player = ({ className, videoSrc }) => {
 	const videoRef = useRef(null);
 	const pageRootRef = useRef(null);
 
-	const [, setForceUpdate] = useState(Date.now());
+	const [isLoaded, setIsLoaded] = useState(false);
 	const [currentTime, setCurrentTime] = useState(0);
 
 	const togglePlay = () => {
@@ -27,6 +28,10 @@ const Player = ({ className, videoSrc }) => {
 
 	const onTimeUpdate = () => setCurrentTime(videoRef.current.currentTime);
 
+	const onLoadedMetadata = () => {
+		setIsLoaded(true);
+	};
+
 	return (
 		<div
 			className={cx("player", className)}
@@ -36,7 +41,7 @@ const Player = ({ className, videoSrc }) => {
 				ref={videoRef}
 				src={videoSrc}
 				onTimeUpdate={onTimeUpdate}
-				onLoadedMetadata={setForceUpdate}
+				onLoadedMetadata={onLoadedMetadata}
 			/>
 
 			<button
@@ -68,11 +73,13 @@ const Player = ({ className, videoSrc }) => {
 						className={style.volume_range}
 					/>
 
-					<Timer
-						currentTime={currentTime}
-						videoRef={videoRef}
-						className={style.time}
-					/>
+					{isLoaded && (
+						<Timer
+							currentTime={currentTime}
+							videoRef={videoRef}
+							className={style.time}
+						/>
+					)}
 				</section>
 
 				<section className={style.section}>
@@ -89,6 +96,8 @@ const Player = ({ className, videoSrc }) => {
 					className={style.timeline}
 				/>
 			</div>
+
+			<LoadingRing isShown={!isLoaded} className={style.loading} />
 		</div>
 	);
 };

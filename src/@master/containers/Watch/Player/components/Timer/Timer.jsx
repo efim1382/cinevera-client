@@ -18,8 +18,8 @@ const Timer = (props) => {
 	), [currentTime]);
 
 	const formattedVideoDuration = useMemo(() => (
-		secondsToHms(videoRef.current?.duration || 0)
-	), [videoRef.current?.duration]);
+		secondsToHms(videoRef.current.duration)
+	), [videoRef.current.duration]);
 
 	return (
 		<span className={cx("time", className)}>

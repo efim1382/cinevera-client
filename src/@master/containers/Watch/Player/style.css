@@ -30,6 +30,7 @@
 	}
 
 	& .controls {
+		z-index: 2;
 		position: absolute;
 		left: 0;
 		bottom: 0;
@@ -87,5 +88,10 @@
 			right: 12px;
 			top: calc(var(--timeline-height) * -1);
 		}
+	}
+
+	& .loading {
+		z-index: 1;
+		background-color: #000;
 	}
 }
