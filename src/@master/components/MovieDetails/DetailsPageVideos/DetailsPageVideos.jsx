@@ -8,6 +8,11 @@ import style from "./style.css";
 
 const cx = classnames.bind(style);
 
+const videoTypeNames = {
+	trailer: "Trailer",
+	video: "Video",
+};
+
 const DetailsPageVideos = (props) => {
 	const {
 		videos,
@@ -15,9 +20,6 @@ const DetailsPageVideos = (props) => {
 	} = props;
 
 	const isVideosExist = videos.length > 0;
-
-	const onVideoMouseOver = (event) => event.target.setAttribute("controls", "");
-	const onVideoMouseOut = (event) => event.target.removeAttribute("controls");
 
 	if (!isVideosExist) {
 		return null;
@@ -31,17 +33,14 @@ const DetailsPageVideos = (props) => {
 				<div className={style.trailer_container}>
 					<Swiper breakpoints={videosSliderBreakpoints}>
 						{videos.map((item) => {
+							const videoType = videoTypeNames[item.type] || "Video";
+							const inline = { backgroundImage: `url(${item.posterUrl})` };
+
 							return (
 								<SwiperSlide key={item.posterUrl}>
-									<div className={style.video_wrapper}>
-										<video
-											poster={item.posterUrl}
-											src={item.videoUrl}
-											onMouseOver={onVideoMouseOver}
-											onMouseOut={onVideoMouseOut}
-											className={style.video}
-										/>
-									</div>
+									<button type="button" className={style.video} style={inline}>
+										<span className={style.type}>{videoType}</span>
+									</button>
 								</SwiperSlide>
 							);
 						})}
