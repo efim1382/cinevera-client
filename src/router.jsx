@@ -12,7 +12,7 @@ import SeriesRouter from "@master/containers/Series/router";
 import ProfileLayout from "@profile/components/Layout";
 import RecentMovies from "@profile/containers/RecentMovies";
 
-import PanelMovies from "@panel/containers/Movies";
+import PanelRouter from "@panel/router";
 
 export default () => {
 	return (
@@ -29,8 +29,7 @@ export default () => {
 				<Route index element={<RecentMovies />} />
 			</Route>
 
-			<Route path="/panel/movies" element={<PanelMovies />} />
-
+			<Route path="/panel/*" element={<PanelRouter />} />
 			<Route path="/auth/*" element={<AuthRouter />} />
 		</Routes>
 	);

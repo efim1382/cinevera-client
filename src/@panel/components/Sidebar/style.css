@@ -1,0 +1,123 @@
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	background-color: var(--root-background-color-hover);
+
+	& .logo_container {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		height: 80px;
+		padding-left: var(--layout-padding);
+
+		& .logo {
+			flex-shrink: 0;
+			color: var(--primary-color);
+			font-weight: var(--font-weight-bold);
+			font-size: 18px;
+
+			& span {
+				color: var(--accent-color-hover);
+				font-weight: var(--font-weight-regular);
+			}
+		}
+	}
+
+	& .section_menu {
+		--icon-size: 24px;
+		--icon-color: var(--caption-color);
+		flex-grow: 1;
+		overflow-y: auto;
+
+		& .section_items {
+			--link-height: 60px;
+			position: relative;
+			display: flex;
+			align-items: center;
+			height: var(--link-height);
+			line-height: var(--link-height);
+			color: var(--link-color);
+			font-weight: var(--font-weight-medium);
+			transition-property: color;
+			padding-left: var(--layout-padding);
+			padding-right: 20px;
+
+			& i {
+				flex-shrink: 0;
+			}
+
+			& .section_items_name {
+				margin-left: 20px;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: var(--link-height);
+				width: 2px;
+				opacity: var(--opacity-border);
+				background-color: var(--accent-color-hover);
+				transition: 0.3s;
+			}
+
+			&:not(:hover) {
+				--opacity-border: 0;
+				--link-color: var(--caption-color);
+				--icon-color: var(--caption-color);
+			}
+
+			&:hover {
+				--opacity-border: 1;
+				--link-color: var(--primary-color);
+				--icon-color: var(--primary-color);
+			}
+		}
+	}
+
+	& .profile {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		height: 70px;
+		width: 100%;
+		padding-left: var(--layout-padding);
+		padding-right: calc(var(--layout-padding) / 2);
+
+		& .avatar {
+			--avatar-size: 40px;
+			flex-shrink: 0;
+			height: var(--avatar-size);
+			width: var(--avatar-size);
+			border-radius: 50%;
+			background-image: url("./images/Yurii.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+		}
+
+		& .name {
+			margin-left: 16px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		& .profile_button {
+			--icon-color: var(--divider-color);
+			--icon-size: 24px;
+			margin-left: auto;
+			transition-property: transform;
+
+			&:hover {
+				transform: rotate(180deg);
+				--icon-color: var(--primary-color);
+			}
+		}
+	}
+}

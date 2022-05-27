@@ -1,12 +1,12 @@
 import React from "react";
 import style from "./style.css";
 
-const Movies = () => {
+const Users = () => {
 	return (
 		<main className={style.movies}>
-			Movies
+			Users
 		</main>
 	);
 };
 
-export default Movies;
+export default Users;
