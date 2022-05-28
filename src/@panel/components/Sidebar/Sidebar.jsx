@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
+import Icon from "components/Icon";
 import classnames from "classnames/bind";
 import style from "./style.css";
-import { NavLink } from "react-router-dom";
-import Icon from "../../../components/Icon";
 
 const cx = classnames.bind(style);
 
@@ -18,31 +18,28 @@ const Sidebar = ({ className }) => {
 				</NavLink>
 			</div>
 
-			<div className={style.section_menu}>
-				<NavLink to="/panel/movies/" className={style.section_items}>
+			<nav className={style.navigation}>
+				<NavLink to="/panel/movies/" className={style.link}>
 					<Icon name="local_movies" />
-					<span className={style.section_items_name}>Movies</span>
+					<span className={style.caption}>Movies</span>
 				</NavLink>
 
-				<NavLink to="/panel/series/" className={style.section_items}>
+				<NavLink to="/panel/series/" className={style.link}>
 					<Icon name="live_tv" />
-					<span className={style.section_items_name}>TV Series</span>
+					<span className={style.caption}>TV Series</span>
 				</NavLink>
 
-				<NavLink to="/panel/users/" className={style.section_items}>
+				<NavLink to="/panel/users/" className={style.link}>
 					<Icon name="people" />
-					<span className={style.section_items_name}>Users</span>
+					<span className={style.caption}>Users</span>
 				</NavLink>
-			</div>
+			</nav>
 
-			<div className={style.profile}>
+			<button className={style.profile}>
 				<div className={style.avatar} />
 				<span className={style.name}>Yurii Korbat</span>
-
-				<button className={style.profile_button}>
-					<Icon name="expand_more" />
-				</button>
-			</div>
+				<Icon name="expand_more" />
+			</button>
 		</div>
 	);
 };

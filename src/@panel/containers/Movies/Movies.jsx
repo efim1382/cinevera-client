@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "components/Icon";
-import Button from "components/Button";
+import Button from "components/BasicButton";
 import classnames from "classnames/bind";
 import style from "./style.css";
 

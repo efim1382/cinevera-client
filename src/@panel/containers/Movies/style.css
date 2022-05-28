@@ -1,7 +1,7 @@
 .movies {
 	display: flex;
 	height: 100vh;
-	
+
 	& .sidebar {
 		display: flex;
 		flex-direction: column;
@@ -30,7 +30,7 @@
 					font-weight: var(--font-weight-medium);
 				}
 			}
-		}	
+		}
 
 		& .section_menu {
 			--icon-size: 24px;
@@ -101,7 +101,6 @@
 				height: var(--avatar-size);
 				width: var(--avatar-size);
 				border-radius: 50%;
-				background-image: url("./images/Yurii.jpg");
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-position: center;
@@ -444,7 +443,7 @@
 							padding: 8px;
 							border-radius: 2px;
 						}
-						
+
 						&:hover {
 							--icon-color: var(--primary-color);
 						}
