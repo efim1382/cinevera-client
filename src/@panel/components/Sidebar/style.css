@@ -1,0 +1,123 @@
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+	background-color: var(--root-background-color-hover);
+
+	& .logo_container {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		height: 80px;
+		padding-left: var(--layout-padding);
+
+		& .logo {
+			flex-shrink: 0;
+			color: var(--primary-color);
+			font-weight: var(--font-weight-bold);
+			font-size: 18px;
+
+			& span {
+				color: var(--accent-color-hover);
+				font-weight: var(--font-weight-regular);
+			}
+		}
+	}
+
+	& .navigation {
+		flex-grow: 1;
+		overflow-y: auto;
+		background-color: var(--root-background-color-hover);
+
+		& .link {
+			position: relative;
+			display: flex;
+			align-items: center;
+			height: 60px;
+			line-height: 60px;
+			padding-left: var(--layout-padding);
+			padding-right: var(--layout-padding);
+
+			& i {
+				--icon-size: 24px;
+				flex-shrink: 0;
+			}
+
+			& .caption {
+				overflow: hidden;
+				margin-left: 20px;
+				text-overflow: ellipsis;
+				color: var(--color);
+				white-space: nowrap;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 2px;
+				opacity: var(--opacity);
+				background-color: var(--accent-color);
+				transition-property: opacity;
+			}
+
+			&:not(:hover) {
+				--opacity: 0;
+				--color: var(--caption-color);
+				--icon-color: var(--caption-color);
+			}
+
+			&:hover {
+				--opacity: 1;
+				--color: var(--primary-color);
+				--icon-color: var(--primary-color);
+			}
+		}
+	}
+
+	& .profile {
+		display: flex;
+		align-items: center;
+		height: 70px;
+		padding-left: var(--layout-padding);
+		padding-right: var(--layout-padding);
+
+		&:not(:hover) {
+			--icon-color: var(--divider-color);
+		}
+
+		&:hover {
+			--icon-color: var(--primary-color);
+		}
+
+		& .avatar {
+			--avatar-size: 40px;
+			flex-shrink: 0;
+			height: var(--avatar-size);
+			width: var(--avatar-size);
+			border-radius: 50%;
+			background-image: url("./images/Yurii.JPG");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+		}
+
+		& .name {
+			margin-left: 16px;
+			padding-right: 12px;
+			color: var(--primary-color);
+			font-size: var(--default-font-size);
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		& i {
+			--icon-size: 24px;
+			flex-shrink: 0;
+			margin-left: auto;
+		}
+	}
+}

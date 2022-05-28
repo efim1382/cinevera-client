@@ -13,6 +13,8 @@ import Watch from "@master/containers/Watch";
 import ProfileLayout from "@profile/components/Layout";
 import RecentMovies from "@profile/containers/RecentMovies";
 
+import PanelRouter from "@panel/router";
+
 export default () => {
 	return (
 		<Routes>
@@ -30,6 +32,7 @@ export default () => {
 				<Route index element={<RecentMovies />} />
 			</Route>
 
+			<Route path="/panel/*" element={<PanelRouter />} />
 			<Route path="/auth/*" element={<AuthRouter />} />
 		</Routes>
 	);

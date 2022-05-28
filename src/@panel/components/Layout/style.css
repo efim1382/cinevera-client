@@ -1,0 +1,15 @@
+.panel_layout {
+	flex-grow: 1;
+	display: flex;
+	min-height: 0;
+	height: 100vh;
+
+	& .sidebar {
+		flex-shrink: 0;
+	}
+
+	& .sidebar + main {
+		flex-grow: 1;
+		min-width: 0;
+	}
+}
