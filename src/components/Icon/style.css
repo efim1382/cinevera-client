@@ -19,7 +19,11 @@
 }
 
 .icon[data-icon="lock"] {
-  mask-image: url('./icons/lock.svg');
+	mask-image: url('./icons/lock.svg');
+}
+
+.icon[data-icon="add"] {
+	mask-image: url('./icons/add.svg');
 }
 
 .icon[data-icon="facebook"] {

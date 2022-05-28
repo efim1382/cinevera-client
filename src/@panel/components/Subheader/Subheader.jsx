@@ -22,8 +22,8 @@ const Subheader = (props) => {
 			</button>
 
 			<Button
-				text="Add movie"
-				icon="local_movies"
+				text="Add New"
+				icon="add"
 				className={style.add_button}
 			/>
 		</div>
