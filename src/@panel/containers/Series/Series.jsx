@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import Icon from "components/Icon";
-import Button from "components/BasicButton";
+import Subheader from "@panel/components/Subheader";
 import classnames from "classnames/bind";
 import style from "./style.css";
 
@@ -24,21 +24,10 @@ const Series = () => {
 
 	return (
 		<main className={style.series}>
-			<div className={style.header}>
-				<button className={style.button_users}>Series List</button>
-
-				<div className={style.navigation}>
-					<button className={style.search_button}>
-						<Icon name="search" />
-					</button>
-
-					<Button
-						text="Add movie"
-						icon="local_movies"
-						className={style.add_movie_button}
-					/>
-				</div>
-			</div>
+			<Subheader
+				title="Series list"
+				className={style.subheader}
+			/>
 
 			<div className={cx("table", { "_is-scrolled": isTableScrolled })}>
 				<div className={style.table_body} ref={tableBodyRef} onScroll={onTableScroll}>
