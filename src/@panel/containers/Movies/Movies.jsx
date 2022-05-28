@@ -1,7 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import Icon from "components/Icon";
-import Button from "components/BasicButton";
+import Button from "components/Button";
 import classnames from "classnames/bind";
 import style from "./style.css";
 
@@ -10,41 +9,6 @@ const cx = classnames.bind(style);
 const Movies = () => {
 	return (
 		<main className={style.movies}>
-			<div className={style.sidebar}>
-				<div className={style.logo_container}>
-					<NavLink to="/" className={style.logo}>cinevera
-						<span>-admin</span>
-					</NavLink>
-				</div>
-
-				<div className={style.section_menu}>
-					<NavLink to="/" className={style.section_items}>
-						<Icon name="local_movies" />
-						<span className={style.section_items_name}>Movies</span>
-					</NavLink>
-
-					<NavLink to="/" className={style.section_items}>
-						<Icon name="live_tv" />
-						<span className={style.section_items_name}>TV Series</span>
-					</NavLink>
-
-					<NavLink to="/" className={style.section_items}>
-						<Icon name="people" />
-						<span className={style.section_items_name}>Users</span>
-					</NavLink>
-				</div>
-
-				<div className={style.profile}>
-					<div className={style.avatar} />
-
-					<span className={style.name}>Yurii Korbat</span>
-
-					<button className={style.profile_button}>
-						<Icon name="expand_more" />
-					</button>
-				</div>
-			</div>
-
 			<div className={style.dashbord}>
 				<div className={style.header}>
 					<button className={style.button_users}>Movies List</button>
