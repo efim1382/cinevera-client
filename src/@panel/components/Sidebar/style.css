@@ -38,6 +38,27 @@
 			padding-left: var(--layout-padding);
 			padding-right: var(--layout-padding);
 
+			&:not(._is-active) {
+				&:not(:hover) {
+					--link-border-opacity: 0;
+					--color: var(--caption-color);
+					--icon-color: var(--caption-color);
+				}
+
+				&:hover {
+					--link-border-opacity: 0;
+					--color: var(--primary-color);
+					--icon-color: var(--primary-color);
+				}
+			}
+
+			&._is-active {
+				--link-border-opacity: 1;
+				--color: var(--primary-color);
+				--icon-color: var(--primary-color);
+			}
+
+
 			& i {
 				--icon-size: 24px;
 				flex-shrink: 0;
@@ -58,21 +79,9 @@
 				left: 0;
 				height: 100%;
 				width: 2px;
-				opacity: var(--opacity);
-				background-color: var(--accent-color);
+				opacity: var(--link-border-opacity);
+				background-color: var(--accent-color-hover);
 				transition-property: opacity;
-			}
-
-			&:not(:hover) {
-				--opacity: 0;
-				--color: var(--caption-color);
-				--icon-color: var(--caption-color);
-			}
-
-			&:hover {
-				--opacity: 1;
-				--color: var(--primary-color);
-				--icon-color: var(--primary-color);
 			}
 		}
 	}

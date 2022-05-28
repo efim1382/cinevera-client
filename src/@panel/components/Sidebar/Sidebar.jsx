@@ -8,6 +8,10 @@ import style from "./style.css";
 const cx = classnames.bind(style);
 
 const Sidebar = ({ className }) => {
+	const linkClassName = ({ isActive }) => isActive
+		? cx("link", "_is-active")
+		: style.link;
+
 	return (
 		<div className={cx("sidebar", className)}>
 			<div className={style.logo_container}>
@@ -19,17 +23,17 @@ const Sidebar = ({ className }) => {
 			</div>
 
 			<nav className={style.navigation}>
-				<NavLink to="/panel/movies/" className={style.link}>
+				<NavLink to="/panel/movies/" className={linkClassName}>
 					<Icon name="local_movies" />
 					<span className={style.caption}>Movies</span>
 				</NavLink>
 
-				<NavLink to="/panel/series/" className={style.link}>
+				<NavLink to="/panel/series/" className={linkClassName}>
 					<Icon name="live_tv" />
 					<span className={style.caption}>TV Series</span>
 				</NavLink>
 
-				<NavLink to="/panel/users/" className={style.link}>
+				<NavLink to="/panel/users/" className={linkClassName}>
 					<Icon name="people" />
 					<span className={style.caption}>Users</span>
 				</NavLink>
