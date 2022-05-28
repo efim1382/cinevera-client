@@ -1,5 +1,4 @@
 .timeline {
-	--timeline-height: 3px;
 	position: relative;
 	height: var(--timeline-height);
 	background-color: rgba(255, 255, 255, 0.4);

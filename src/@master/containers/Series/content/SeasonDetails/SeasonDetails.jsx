@@ -40,6 +40,10 @@ const SeasonDetails = () => {
 		cast = [],
 	} = currentSeason;
 
+	const episodesTitle = seasons.length > 1
+		? `Season ${seasonId}`
+		: "Episodes";
+
 	const isSeriesLoaded = Object.keys(seriesData).length > 0;
 
 	const openAllSeasons = () => setIsAllSeasonsShown(true);
@@ -101,14 +105,14 @@ const SeasonDetails = () => {
 					</div>
 
 					<Button
-						text="Resume"
+						text="Watch"
 						className={style.play_button}
 					/>
 				</div>
 			</section>
 
 			<EpisodesList
-				title={`Season ${seasonId}`}
+				title={episodesTitle}
 				items={episodes}
 				titleAction={seasonsTitleActionProps}
 				className={style.episodes}

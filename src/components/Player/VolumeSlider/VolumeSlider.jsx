@@ -24,7 +24,9 @@ const VolumeSlider = (props) => {
 		videoRef.current.addEventListener("volumechange", onVolumeChange);
 
 		return () => {
-			videoRef.current.removeEventListener("volumechange", onVolumeChange);
+			if (videoRef.current) {
+				videoRef.current.removeEventListener("volumechange", onVolumeChange);
+			}
 		};
 	}, []);
 

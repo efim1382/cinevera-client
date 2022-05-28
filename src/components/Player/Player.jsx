@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
-import VolumeSlider from "./components/VolumeSlider";
-import Timer from "./components/Timer";
-import Timeline from "./components/Timeline";
-import ButtonFullscreen from "./components/ActionButtons/Fullscreen";
-import ButtonPlay from "./components/ActionButtons/Play";
-import ButtonVolume from "./components/ActionButtons/Volume";
-import ButtonForward from "./components/ActionButtons/Forward";
 import LoadingRing from "components/LoadingRing";
+import VolumeSlider from "./VolumeSlider";
+import Timer from "./Timer";
+import Timeline from "./Timeline";
+import ButtonFullscreen from "./ActionButtons/Fullscreen";
+import ButtonPlay from "./ActionButtons/Play";
+import ButtonVolume from "./ActionButtons/Volume";
+import ButtonForward from "./ActionButtons/Forward";
 import classnames from "classnames/bind";
 import style from "./style.css";
 

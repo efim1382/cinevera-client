@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import RouteQuery from "components/RouteQuery";
-import SearchOverlay, { queryParam } from "@master/containers/SearchOverlay";
+import SearchOverlay, { queryParam as searchQueryParam } from "@master/containers/SearchOverlay";
 
 const OverlaysContainer = () => {
 	return (
 		<Fragment>
-			<RouteQuery param={queryParam} element={<SearchOverlay />} />
+			<RouteQuery param={searchQueryParam} element={<SearchOverlay />} />
 		</Fragment>
 	);
 };

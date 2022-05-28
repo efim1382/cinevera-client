@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classnames from "classnames/bind";
+import { NavLink } from "react-router-dom";
 import Swiper from "components/Swiper/Swiper";
 import { SwiperSlide } from "swiper/react";
 import videosSliderBreakpoints from "./breakpoints";
+import classnames from "classnames/bind";
 import style from "./style.css";
 
 const cx = classnames.bind(style);
@@ -33,14 +34,14 @@ const DetailsPageVideos = (props) => {
 				<div className={style.trailer_container}>
 					<Swiper breakpoints={videosSliderBreakpoints}>
 						{videos.map((item) => {
-							const videoType = videoTypeNames[item.type] || "Video";
+							const videoType = videoTypeNames[item.type || "video"];
 							const inline = { backgroundImage: `url(${item.posterUrl})` };
 
 							return (
 								<SwiperSlide key={item.posterUrl}>
-									<button type="button" className={style.video} style={inline}>
+									<NavLink to={`/watch/${item.id}`} className={style.video} style={inline}>
 										<span className={style.type}>{videoType}</span>
-									</button>
+									</NavLink>
 								</SwiperSlide>
 							);
 						})}
@@ -57,8 +58,8 @@ DetailsPageVideos.defaultProps = {
 
 DetailsPageVideos.propTypes = {
 	videos: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.string.isRequired,
 		posterUrl: PropTypes.string.isRequired,
-		videoUrl: PropTypes.string.isRequired,
 		type: PropTypes.string,
 	})),
 

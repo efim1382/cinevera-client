@@ -23,7 +23,9 @@ const ButtonFullscreen = ({ className, fullScreenElementRef }) => {
 		fullScreenElementRef.current.addEventListener("fullscreenchange", onFullScreenChanged);
 
 		return () => {
-			fullScreenElementRef.current.removeEventListener("fullscreenchange", onFullScreenChanged);
+			if (fullScreenElementRef.current) {
+				fullScreenElementRef.current.removeEventListener("fullscreenchange", onFullScreenChanged);
+			}
 		};
 	}, []);
 

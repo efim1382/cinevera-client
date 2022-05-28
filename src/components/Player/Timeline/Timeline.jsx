@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames/bind";
-import { secondsToHms } from "@master/containers/Watch/Player/helpers/time";
+import { secondsToHms } from "components/Player/timeHelpers";
 import style from "./style.css";
 
 const cx = classnames.bind(style);

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-import { secondsToHms } from "@master/containers/Watch/Player/helpers/time";
+import { secondsToHms } from "components/Player/timeHelpers";
 import classnames from "classnames/bind";
 import style from "./style.css";
 

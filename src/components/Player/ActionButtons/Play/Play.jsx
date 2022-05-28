@@ -46,8 +46,11 @@ const ButtonPlay = ({ className, videoRef }) => {
 		document.addEventListener("keydown", onKeyDown);
 
 		return () => {
-			videoRef.current.removeEventListener("play", onPlay);
-			videoRef.current.removeEventListener("pause", onPause);
+			if (videoRef.current) {
+				videoRef.current.removeEventListener("play", onPlay);
+				videoRef.current.removeEventListener("pause", onPause);
+			}
+
 			document.removeEventListener("keydown", onKeyDown);
 		};
 	}, []);

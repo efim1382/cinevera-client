@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Player from "./Player";
+import Player from "components/Player";
 import { hostApi } from "classes/XHR";
 import style from "./style.css";
 
