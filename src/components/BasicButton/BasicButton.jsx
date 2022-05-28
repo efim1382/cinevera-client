@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames/bind";
+import { NavLink } from "react-router-dom";
 import LoadingRing from "components/LoadingRing";
 import style from "./style.css";
 import Icon from "components/Icon";
@@ -12,6 +13,7 @@ const BasicButton = (props) => {
 		appearance,
 		theme,
 		type,
+		to,
 		onClick,
 		className,
 		isLoading,
@@ -20,16 +22,33 @@ const BasicButton = (props) => {
 		icon,
 	} = props;
 
+	const Component = to
+		? NavLink
+		: "button";
+
+	const additionalProps = {};
+
+	if (!to) {
+		additionalProps["type"] = type;
+	}
+
+	if (to) {
+		additionalProps["to"] = to;
+	}
+
 	const isButtonDisabled = isDisabled || isLoading;
 
+	if (isButtonDisabled) {
+		additionalProps["disabled"] = true;
+	}
+
 	return (
-		<button
-			type={type}
+		<Component
 			onClick={onClick}
 			className={cx("button", className, { "_is-disabled": isDisabled, "_is-loading": isLoading })}
 			theme={theme}
 			appearance={appearance}
-			{...isButtonDisabled ? { disabled: true } : {}}
+			{...additionalProps}
 		>
 			{icon && (
 				<Icon name={icon} />
@@ -40,7 +59,7 @@ const BasicButton = (props) => {
 			)}
 
 			<LoadingRing className={style.loading} isShown={isLoading} />
-		</button>
+		</Component>
 	);
 };
 
@@ -49,6 +68,7 @@ BasicButton.defaultProps = {
 	theme: "accent",
 	type: "button",
 	className: "",
+	to: "",
 	onClick: new Function,
 	isLoading: false,
 	isDisabled: false,
@@ -62,8 +82,9 @@ BasicButton.propTypes = {
 	isLoading: PropTypes.bool,
 	isDisabled: PropTypes.bool,
 	text: PropTypes.string,
+	to: PropTypes.string,
 	appearance: PropTypes.oneOf(["fill", "outline"]),
-	theme: PropTypes.oneOf(["primary", "accent"]),
+	theme: PropTypes.oneOf(["primary", "accent", "translucent"]),
 };
 
 export default BasicButton;

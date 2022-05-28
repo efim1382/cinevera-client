@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import Button from "components/BasicButton";
 import PopularList from "@master/components/PopularList";
 import EpisodesList from "@master/components/EpisodesList";
@@ -21,15 +20,14 @@ const Home = () => {
 					</p>
 
 					<div className={style.actions}>
-						<NavLink to="/movies/details/queens-gambit/" className={style.link}>
-							<Button text="Watch" icon="play_outline" className={style.link_button} />
-						</NavLink>
+						<Button to="/movies/" text="Watch" icon="play_arrow" className={style.button} />
 
 						<Button
-							theme="primary"
-							appearance="outline"
-							text="Play Trailer"
-							icon="play_outline"
+							to="/movies/"
+							theme="translucent"
+							appearance="fill"
+							text="View Details"
+							icon="info"
 							className={style.button}
 						/>
 					</div>
@@ -79,7 +77,7 @@ const Home = () => {
 							adotping the alter ego Deadpool.
 						</p>
 
-						<Button text="Watch" icon="play_outline" className={style.link_button} />
+						<Button to="/movies/" text="Watch" icon="play_arrow" className={style.link_button} />
 					</div>
 				</div>
 			</section>

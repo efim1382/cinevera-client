@@ -83,10 +83,6 @@
 				gap: 20px;
 				margin-top: 40px;
 
-				& .button {
-					margin-left: 20px;
-				}
-
 				@media (--viewport-phone) {
 					display: grid;
 					grid-template-columns: 1fr 1fr;

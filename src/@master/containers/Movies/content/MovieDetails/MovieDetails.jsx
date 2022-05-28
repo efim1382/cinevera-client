@@ -70,7 +70,7 @@ const MovieDetails = () => {
 					</div>
 
 					<Button
-						text="Resume"
+						text="Watch"
 						className={style.play_button}
 					/>
 				</div>

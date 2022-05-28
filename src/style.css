@@ -21,8 +21,10 @@
 	--font-weight-extrabold: 800;
 	--font-weight-black: 900;
 
+	--primary-color-rgb: 255 255 255;
+
 	--text-color: #f5eded;
-	--primary-color: #fff;
+	--primary-color: rgb(var(--primary-color-rgb));
 	--accent-color: #b61423;
 	--accent-color-hover: #df2020;
 	--error-color: #f00;

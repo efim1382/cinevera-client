@@ -187,7 +187,11 @@
 }
 
 .icon[data-icon="edit"] {
-  mask-image: url('./icons/edit.svg');
+	mask-image: url('./icons/edit.svg');
+}
+
+.icon[data-icon="info"] {
+	mask-image: url('./icons/info.svg');
 }
 
 .story_icon {
