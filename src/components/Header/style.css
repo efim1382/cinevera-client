@@ -165,7 +165,6 @@
 					padding-bottom: 12px;
 
 					& .name {
-						font-size: 16px;
 						font-weight: var(--font-weight-semibold);
 					}
 
