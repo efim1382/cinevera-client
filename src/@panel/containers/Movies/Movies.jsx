@@ -86,11 +86,10 @@ const Movies = () => {
 
 							<div className={cx("table_cell", "year")}>Year</div>
 
-							<div className={cx("table_cell", "navigation")}></div>
+							<div className={cx("table_cell", "navigation")} />
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -109,6 +108,8 @@ const Movies = () => {
 								<span data-genre="criminal" className={cx("genres", "crime")}>Crime</span>
 								<span data-genre="action" className={cx("genres", "action")}>Action</span>
 								<span data-genre="thriller" className={cx("genres", "thriller")}>Thriller</span>
+								<span data-genre="thriller" className={cx("genres", "thriller")}>Thriller</span>
+								<span data-genre="thriller" className={cx("genres", "thriller")}>Thriller</span>
 							</div>
 
 							<div className={cx("table_cell", "year")}>1998</div>
@@ -125,7 +126,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -158,7 +158,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -191,7 +190,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -224,7 +222,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -257,7 +254,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -290,7 +286,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -323,7 +318,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -356,7 +350,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -389,7 +382,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -422,7 +414,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -455,7 +446,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -488,7 +478,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -521,7 +510,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -554,7 +542,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -587,7 +574,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -620,7 +606,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -653,7 +638,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -686,7 +670,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -719,7 +702,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -752,7 +734,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -785,7 +766,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -818,7 +798,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
@@ -851,7 +830,6 @@ const Movies = () => {
 						</div>
 
 						<div className={style.table_row}>
-
 							<div className={cx("table_cell", "table_input_box")}>
 								<label className={style.checkbox_wrapper}>
 									<input type="checkbox" className={style.input} />
