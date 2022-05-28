@@ -65,7 +65,6 @@ const ObjectsListFilters = ({ className }) => {
 
 	const sortOptions = [
 		{ value: "recommended", label: "Recommended" },
-		{ value: "rating", label: "Rating" },
 		{ value: "year", label: "Year" },
 	];
 
