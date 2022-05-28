@@ -83,49 +83,47 @@ const Header = ({ isTransparent, className }) => {
 							<Icon name="bell" />
 						</button>
 
-						<div className={style.dropdown_wrapper}>
-							<NavLink to="/profile" className={style.button}>
-								<div className={style.avatar} />
+						<NavLink to="/profile" className={style.button}>
+							<div className={style.avatar} />
+						</NavLink>
+
+						<div className={style.user_dropdown}>
+							<div className={style.user}>
+								<p className={style.name}>Roman Yefymov</p>
+
+								<div className={style.avatar_wrapper}>
+									<div className={style.avatar} />
+								</div>
+							</div>
+
+							<NavLink to="/profile" className={style.dropdown_link}>
+								<Icon name="person" />
+								<span className={style.dropdown_text}>My Profile</span>
 							</NavLink>
 
-							<div className={style.dropdown_content}>
-								<div className={style.user}>
-									<p className={style.name}>Roman Yefymov</p>
+							<NavLink to="/" className={style.dropdown_link}>
+								<Icon name="settings" />
+								<span className={style.dropdown_text}>Account Settings</span>
+							</NavLink>
 
-									<div className={style.avatar_wrapper}>
-										<div className={style.avatar} />
-									</div>
-								</div>
+							<div className={style.divider} />
 
-								<NavLink to="/profile" className={style.dropdown_link}>
-									<Icon name="person" />
-									<span className={style.dropdown_text}>My Profile</span>
-								</NavLink>
+							<NavLink to="/" className={style.dropdown_link}>
+								<Icon name="favorite" />
+								<span className={style.dropdown_text}>Watch Later</span>
+							</NavLink>
 
-								<NavLink to="/" className={style.dropdown_link}>
-									<Icon name="settings" />
-									<span className={style.dropdown_text}>Account Settings</span>
-								</NavLink>
+							<NavLink to="/" className={style.dropdown_link}>
+								<Icon name="favorite" />
+								<span className={style.dropdown_text}>My Favorites</span>
+							</NavLink>
 
-								<div className={style.divider} />
+							<div className={style.divider} />
 
-								<NavLink to="/" className={style.dropdown_link}>
-									<Icon name="favorite" />
-									<span className={style.dropdown_text}>Watch Later</span>
-								</NavLink>
-
-								<NavLink to="/" className={style.dropdown_link}>
-									<Icon name="favorite" />
-									<span className={style.dropdown_text}>My Favorites</span>
-								</NavLink>
-
-								<div className={style.divider} />
-
-								<NavLink to="/" className={style.dropdown_link}>
-									<Icon name="logout" />
-									<span className={style.dropdown_text}>Sign out</span>
-								</NavLink>
-							</div>
+							<NavLink to="/" className={style.dropdown_link}>
+								<Icon name="logout" />
+								<span className={style.dropdown_text}>Sign out</span>
+							</NavLink>
 						</div>
 					</div>
 				)}
