@@ -200,12 +200,24 @@
 					color: var(--dropdown-item-color);
 					transition-property: color;
 
-					&:not(:hover) {
-						--dropdown-item-color: var(--caption-color);
+					&:not(.danger) {
+						&:not(:hover) {
+							--dropdown-item-color: var(--caption-color);
+						}
+
+						&:hover {
+							--dropdown-item-color: var(--primary-color);
+						}
 					}
 
-					&:hover {
-						--dropdown-item-color: var(--primary-color);
+					&.danger {
+						&:not(:hover) {
+							--dropdown-item-color: var(--accent-color);
+						}
+
+						&:hover {
+							--dropdown-item-color: var(--accent-color-hover);
+						}
 					}
 
 					& > i {
