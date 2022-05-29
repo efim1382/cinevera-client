@@ -13,7 +13,7 @@
 	}
 
 	& .search_button {
-		--icon-size: 22px;
+		--icon-size: 26px;
 		flex-shrink: 0;
 		display: flex;
 		justify-content: center;
