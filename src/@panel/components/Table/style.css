@@ -1,0 +1,12 @@
+.table {
+	overflow: auto;
+	background-color: var(--root-background-color);
+
+	& .headings {
+
+	}
+
+	& .row {
+
+	}
+}
