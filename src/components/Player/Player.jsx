@@ -40,6 +40,7 @@ const Player = ({ className, videoSrc }) => {
 			<video
 				ref={videoRef}
 				src={videoSrc}
+				preload="metadata"
 				onTimeUpdate={onTimeUpdate}
 				onLoadedMetadata={onLoadedMetadata}
 			/>
