@@ -1,12 +1,66 @@
 .table {
+	--row-height: 64px;
 	overflow: auto;
 	background-color: var(--root-background-color);
 
 	& .headings {
+		z-index: 1;
+		position: sticky;
+		top: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		height: 50px;
+		padding-left: var(--layout-padding);
+		padding-right: var(--layout-padding);
+		background-color: var(--root-background-color);
+		box-shadow: 0 0 8px var(--root-background-color-hover);
 
+		& .fake_button {
+			width: var(--row-height);
+			margin-right: calc((var(--row-height) / 2) * -1);
+		}
 	}
 
 	& .row {
+		display: flex;
+		align-items: center;
+		height: var(--row-height);
+		padding-left: var(--layout-padding);
+		padding-right: var(--layout-padding);
+		background-color: var(--background-color);
+		transition-property: background-color;
 
+		&:not(:hover) {
+			--background-color: var(--root-background-color);
+		}
+
+		&:hover {
+			--background-color: #8483831c;
+		}
+
+		& p {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		& .delete_button {
+			--icon-size: 28px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: var(--row-height);
+			height: var(--row-height);
+			margin-right: calc((var(--row-height) / 2) * -1);
+
+			&:not(:hover) {
+				--icon-color: var(--caption-color);
+			}
+
+			&:hover {
+				--icon-color: var(--primary-color);
+			}
+		}
 	}
 }

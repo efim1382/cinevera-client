@@ -1,0 +1,14 @@
+.cell {
+	--padding-cell: 12px;
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	width: calc(var(--width) * 1px);
+	height: 100%;
+	padding-left: var(--padding-cell);
+	padding-right: var(--padding-cell);
+
+	&:first-child {
+		margin-left: calc(var(--padding-cell) * -1);
+	}
+}

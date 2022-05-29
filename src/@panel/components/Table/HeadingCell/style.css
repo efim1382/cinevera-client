@@ -1,0 +1,13 @@
+.heading_cell {
+	background-color: var(--background-color);
+	transition-property: background-color;
+	border-radius: 2px;
+
+	&:not(:hover) {
+		--background-color: var(--root-background-color);
+	}
+
+	&:hover {
+		--background-color: #8483831c;
+	}
+}

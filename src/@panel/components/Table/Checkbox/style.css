@@ -3,6 +3,10 @@
 	height: 20px;
 	display: block;
 
+	& + * {
+		margin-left: 20px;
+	}
+
 	& .input {
 		position: absolute;
 		margin: 0;
