@@ -1,11 +1,25 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "components/Form/Form";
-import Input from "components/Form/Input";
-import TextField from "components/FormElements/TextField";
 import BasicButton from "components/BasicButton";
+import { createMovie } from "@panel/api/movies.api";
+
+import BasicForm, { validations as basicValidations } from "./forms/Basic";
+import ImagesForm, { validations as imagesValidations } from "./forms/Images";
+import AdditionalForm, { validations as additionalValidations } from "./forms/Additional";
+import CastForm, { validations as castValidations } from "./forms/Cast";
+
 import style from "./style.css";
 
+const validationsConfig = {
+	0: basicValidations,
+	1: imagesValidations,
+	2: additionalValidations,
+	3: castValidations,
+};
+
 const CreateMovie = () => {
+	const navigate = useNavigate();
 	const [currentStep, setCurrentStep] = useState(0);
 
 	const isPrevButtonShown = currentStep > 0;
@@ -15,6 +29,8 @@ const CreateMovie = () => {
 	const isStepAdditional = currentStep === 2;
 	const isStepCast = currentStep === 3;
 
+	const validations = validationsConfig[currentStep];
+
 	const submitText = isStepCast
 		? "Submit"
 		: "Continue";
@@ -23,7 +39,14 @@ const CreateMovie = () => {
 	const openPrevStep = () => setCurrentStep(currentStep - 1);
 
 	const onSubmit = (values) => {
-		console.log(values);
+		return createMovie(values)
+			.then(() => {
+				navigate("/panel/movies/");
+			})
+
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 
 	const handleSubmit = (values) => {
@@ -36,98 +59,23 @@ const CreateMovie = () => {
 
 	return (
 		<main className={style.create_movie}>
-			<Form className={style.form} onSubmit={handleSubmit}>
+			<Form className={style.form} onSubmit={handleSubmit} validations={validations}>
 				<div className={style.content}>
 					<div className={style.form_box}>
 						{isStepBasicInformation && (
-							<Fragment>
-								<h1 className={style.title}>Add basic information</h1>
-								<p className={style.caption}>Enter please main information about movie</p>
-
-								<Input name="title">
-									<TextField
-										label="Title"
-										className={style.input}
-									/>
-								</Input>
-
-								<Input name="shortDescription">
-									<TextField
-										label="Short Description"
-										className={style.input}
-									/>
-								</Input>
-
-								<Input name="fullDescription">
-									<TextField
-										label="Full Description"
-										className={style.input}
-									/>
-								</Input>
-							</Fragment>
+							<BasicForm />
 						)}
 
 						{isStepVisualizing && (
-							<Fragment>
-								<h1 className={style.title}>Add images</h1>
-								<p className={style.caption}>Enter please main movie images</p>
-
-								<Input name="posterUrl">
-									<TextField
-										label="Poster"
-										className={style.input}
-									/>
-								</Input>
-
-								<Input name="backgroundUrl">
-									<TextField
-										label="Background"
-										className={style.input}
-									/>
-								</Input>
-							</Fragment>
+							<ImagesForm />
 						)}
 
 						{isStepAdditional && (
-							<Fragment>
-								<h1 className={style.title}>Additional information</h1>
-								<p className={style.caption}>Enter please movie additinal information</p>
-
-								<Input name="ageLimit">
-									<TextField
-										label="Age Limit"
-										className={style.input}
-									/>
-								</Input>
-
-								<Input name="year">
-									<TextField
-										label="Year"
-										className={style.input}
-									/>
-								</Input>
-
-								<Input name="genres">
-									<TextField
-										label="Genres"
-										className={style.input}
-									/>
-								</Input>
-							</Fragment>
+							<AdditionalForm />
 						)}
 
 						{isStepCast && (
-							<Fragment>
-								<h1 className={style.title}>Add cast</h1>
-								<p className={style.caption}>Add please this movie actors</p>
-
-								<Input name="cast">
-									<TextField
-										label="Cast"
-										className={style.input}
-									/>
-								</Input>
-							</Fragment>
+							<CastForm />
 						)}
 					</div>
 				</div>

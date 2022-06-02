@@ -28,6 +28,7 @@ const MovieDetails = () => {
 		genres = [],
 		videos = [],
 		cast = [],
+		video,
 	} = movieData;
 
 	const isMovieLoaded = Object.keys(movieData).length > 0;
@@ -69,10 +70,23 @@ const MovieDetails = () => {
 						)}
 					</div>
 
-					<Button
-						text="Watch"
-						className={style.play_button}
-					/>
+					{video && (
+						<Button
+							text="Watch"
+							to={`/watch/${video}/`}
+							className={style.play_button}
+						/>
+					)}
+
+					{!video && (
+						<Button
+							appearance="fill"
+							theme="translucent"
+							icon="bell"
+							text="Notify when available"
+							className={style.play_button}
+						/>
+					)}
 				</div>
 			</section>
 

@@ -27,7 +27,7 @@
 	--primary-color: rgb(var(--primary-color-rgb));
 	--accent-color: #b61423;
 	--accent-color-hover: #df2020;
-	--error-color: #f00;
+	--error-color: #d31f1f;
 	--caption-color: #d3d3d4;
 	--divider-color: #414141;
 	--link-color: #ff6666;
@@ -39,7 +39,7 @@
 	--container-width: 1920px;
 	--header-height: 100px;
 	--layout-padding: 40px;
-	--default-input-height: 50px;
+	--default-input-height: 48px;
 	--default-font-size: 16px;
 
 	@media (--viewport-laptop) {

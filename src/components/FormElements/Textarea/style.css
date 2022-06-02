@@ -1,23 +1,27 @@
-.field_container {
+.textarea_container {
 	--input-icon-size: 20px;
 	--input-icon-margin: 12px;
 	--label-padding: 4px;
 	position: relative;
 
 	&:not(._is-active) {
+		--label-top: 16px;
 		--label-font-size: 16px;
-		--placeholder-color: transparent;
+		--placeholder-color: #a6a6a6;
+
+		/* if label present - hide placeholder  */
+		& .input_section .label ~ .input::placeholder {
+			--placeholder-color: transparent;
+		}
 
 		&:not(._is-icon) {
-			--label-top: 50%;
 			--label-left: calc(16px - var(--label-padding));
-			--label-transform: translate(0, -50%);
+			--label-transform: none;
 		}
 
 		&._is-icon {
-			--label-top: 50%;
 			--label-left: calc(16px - var(--label-padding) + var(--input-icon-size) + var(--input-icon-margin));
-			--label-transform: translate(0, -50%);
+			--label-transform: translate(0, 0);
 		}
 	}
 
@@ -63,7 +67,9 @@
 		position: relative;
 		display: flex;
 		align-items: center;
-		height: 58px;
+		height: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		padding-left: 16px;
 		padding-right: 12px;
 		border-radius: 3px;
@@ -76,7 +82,7 @@
 			position: absolute;
 			left: var(--label-left);
 			top: var(--label-top);
-			height: var(--height);
+			height: var(--height);;
 			padding-left: var(--label-padding);
 			padding-right: var(--label-padding);
 			line-height: var(--height);
@@ -90,6 +96,8 @@
 		& > i {
 			--icon-color: var(--input-icon-color);
 			--icon-size: var(--input-icon-size);
+			align-self: flex-start;
+			margin-top: 4px;
 
 			& + .input {
 				margin-left: var(--input-icon-margin);
@@ -101,10 +109,12 @@
 			min-width: 0;
 			height: calc(100% - 3px);
 			padding: 0;
+			line-height: 1.5;
 			border: none;
 			font-size: var(--default-font-size);
 			color: var(--text-color);
 			background-color: var(--root-background-color);
+			resize: none;
 
 			&::placeholder {
 				color: var(--placeholder-color);
