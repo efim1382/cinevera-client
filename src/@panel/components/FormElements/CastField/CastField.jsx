@@ -35,7 +35,10 @@ const CastField = (props) => {
 	const [editableCharacterId, setEditableCharacterId] = useState("");
 
 	const characterInline = {};
-	const editableCharacter = results.find((item) => item.id === editableCharacterId);
+
+	const editableCharacter = useMemo(() => (
+		results.find((item) => item.id === editableCharacterId)
+	), [results, editableCharacterId]);
 
 	if (editableCharacter && editableCharacter.photo) {
 		characterInline["backgroundImage"] = `url(${editableCharacter.photo})`;

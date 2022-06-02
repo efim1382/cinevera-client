@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import Icon from "components/Icon";
 import TextField from "components/FormElements/TextField";
@@ -22,7 +22,10 @@ const Select = (props) => {
 	const dropdownContentRef = useRef();
 	const [isDropdownShown, setIsDropdownShown] = useState(false);
 
-	const selectedOption = options.find((item) => item.value === value) || {};
+	const selectedOption = useMemo(() => (
+		options.find((item) => item.value === value) || {}
+	), [options, value]);
+
 	const currentValue = selectedOption?.label || "";
 
 	const openDropdown = () => setIsDropdownShown(true);

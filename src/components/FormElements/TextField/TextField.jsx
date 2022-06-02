@@ -18,16 +18,16 @@ const TextField = (props) => {
 		onInput,
 		label,
 		icon,
+		maxLength,
+		placeholder,
 		isReadOnly,
 		isDisabled,
 		isActive,
-		placeholder,
 		className,
 		getRef,
 	} = props;
 
 	const [isFocused, setIsFocused] = useState(false);
-
 	const isFieldActive = isFocused || !!value || isActive;
 	const isHelperTextShown = helperText && !error;
 
@@ -54,7 +54,15 @@ const TextField = (props) => {
 		)
 	), [error, isFieldActive, icon, className]);
 
+	const handleInput = (event) => {
+		if (onInput) {
+			onInput(event);
+		}
+	};
+
 	const handleChange = (event) => {
+		console.log(event.target.value);
+
 		if (onChange) {
 			onChange(event);
 		}
@@ -89,13 +97,14 @@ const TextField = (props) => {
 
 				<input
 					type={type}
-					placeholder={placeholder}
-					className={style.input}
+					value={value}
+					onInput={handleInput}
 					onChange={handleChange}
 					onFocus={handleFocus}
 					onBlur={handleBlur}
-					onInput={onInput}
-					value={value}
+					placeholder={placeholder}
+					maxLength={maxLength}
+					className={style.input}
 					{...inputProps}
 				/>
 			</label>
@@ -129,6 +138,7 @@ TextField.propTypes = {
 	onChange: PropTypes.func,
 	onInput: PropTypes.func,
 	label: PropTypes.string,
+	maxLength: PropTypes.string,
 	getRef: PropTypes.any,
 	isActive: PropTypes.bool,
 	isDisabled: PropTypes.bool,

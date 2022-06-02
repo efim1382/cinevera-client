@@ -15,6 +15,7 @@ const Basic = () => {
 				<Input name="year">
 					<TextField
 						label="Year"
+						maxLength="4"
 						className={style.year}
 					/>
 				</Input>
@@ -22,6 +23,7 @@ const Basic = () => {
 				<Input name="ageLimit">
 					<TextField
 						label="Age Limit"
+						maxLength="2"
 						className={style.age}
 					/>
 				</Input>

@@ -2,14 +2,24 @@ export default {
 	posterUrl: [
 		{
 			validator: "required",
-			message: "Poster is required",
+			message: "Field is required",
+		},
+
+		{
+			validator: "url",
+			message: "Invalid url format",
 		},
 	],
 
 	backgroundUrl: [
 		{
 			validator: "required",
-			message: "Background is required",
+			message: "Field is required",
+		},
+
+		{
+			validator: "url",
+			message: "Invalid url format",
 		},
 	],
 };

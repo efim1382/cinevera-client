@@ -110,6 +110,16 @@
 				color: var(--placeholder-color);
 				transition: 0.3s color;
 			}
+
+			&::-webkit-outer-spin-button,
+			&::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			&[type="number"] {
+				-moz-appearance: textfield;
+			}
 		}
 	}
 
