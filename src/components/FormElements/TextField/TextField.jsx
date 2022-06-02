@@ -61,8 +61,6 @@ const TextField = (props) => {
 	};
 
 	const handleChange = (event) => {
-		console.log(event.target.value);
-
 		if (onChange) {
 			onChange(event);
 		}

@@ -20,7 +20,7 @@ const validationsConfig = {
 
 const CreateMovie = () => {
 	const navigate = useNavigate();
-	const [currentStep, setCurrentStep] = useState(3);
+	const [currentStep, setCurrentStep] = useState(0);
 
 	const isPrevButtonShown = currentStep > 0;
 
