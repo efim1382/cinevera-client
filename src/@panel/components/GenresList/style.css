@@ -1,0 +1,95 @@
+.genre {
+	--height: 24px;
+	overflow: hidden;
+	height: var(--height);
+	padding-left: 12px;
+	padding-right: 12px;
+	line-height: var(--height);
+	border-radius: calc(var(--height) / 2);
+	background-color: rgb(var(--color-rgb) / 20%);
+	color: rgb(var(--color-rgb));
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+	&[data-genre="crime"] {
+		--color-rgb: 200 8 8;
+	}
+
+	&[data-genre="action"] {
+		--color-rgb: 163 83 8;
+	}
+
+	&[data-genre="thriller"] {
+		--color-rgb: 56 48 174;
+	}
+
+	&[data-genre="mystery"] {
+		--color-rgb: 173 38 97;
+	}
+
+	&[data-genre="animation"] {
+		--color-rgb: 201 4 57;
+	}
+
+	&[data-genre="fantasy"] {
+		--color-rgb: 137 73 201;
+	}
+
+	&[data-genre="war"] {
+		--color-rgb: 1 190 94;
+	}
+
+	&[data-genre="history"] {
+		--color-rgb: 161 161 8;
+	}
+
+	&[data-genre="documentary"] {
+		--color-rgb: 106 179 50;
+	}
+
+	&[data-genre="western"] {
+		--color-rgb: 200 54 51;
+	}
+
+	&[data-genre="drama"] {
+		--color-rgb: 93 15 189;
+	}
+
+	&[data-genre="adventure"] {
+		--color-rgb: 14 115 21;
+	}
+
+	&[data-genre="horror"] {
+		--color-rgb: 100 71 148;
+	}
+
+	&[data-genre="romance"] {
+		--color-rgb: 59 173 172;
+	}
+
+	&[data-genre="comedy"] {
+		--color-rgb: 157 15 86;
+	}
+
+	&[data-genre="family"] {
+		--color-rgb: 58 162 24;
+	}
+
+	&[data-genre="biography"] {
+		--color-rgb: 193 12 69;
+	}
+
+	&[data-genre="musical"] {
+		--color-rgb: 21 74 160;
+	}
+}
+
+.genres_list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+
+	& .item {
+		flex-shrink: 0;
+	}
+}

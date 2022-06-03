@@ -19,8 +19,8 @@
 	}
 }
 
-.is_sortaible {
+.is_sortable {
 	&:hover {
 		--icon-color: var(--primary-color);
-	}	
+	}
 }

@@ -1,6 +1,8 @@
 .table {
 	--row-height: 64px;
+	--headings-height: 50px;
 	overflow: auto;
+	position: relative;
 	background-color: var(--root-background-color);
 
 	& .headings {
@@ -10,10 +12,11 @@
 		left: 0;
 		display: flex;
 		align-items: center;
-		height: 50px;
+		height: var(--headings-height);
 		padding-left: var(--layout-padding);
 		padding-right: var(--layout-padding);
 		box-shadow: 0 0 8px var(--root-background-color-hover);
+		background-color: var(--root-background-color);
 
 		& .fake_button {
 			width: var(--row-height);
@@ -143,6 +146,7 @@
 			height: var(--row-height);
 			margin-right: calc((var(--row-height) / 2) * -1);
 			opacity: var(--icon-opacity);
+			transition-property: opacity;
 
 			&:not(:hover) {
 				--icon-color: var(--caption-color);
@@ -152,5 +156,9 @@
 				--icon-color: var(--primary-color);
 			}
 		}
+	}
+
+	& .loading {
+		top: var(--headings-height)
 	}
 }

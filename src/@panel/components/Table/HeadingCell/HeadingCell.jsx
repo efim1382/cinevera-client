@@ -9,7 +9,7 @@ const cx = classnames.bind(style);
 
 const HeadingCell = ({ text, className, ...props }) => {
 	return (
-		<Cell {...props} className={cx("heading_cell", "is_sortaible", className)}>
+		<Cell {...props} className={cx("heading_cell", "is_sortable", className)}>
 			<p>{text}</p>
 			<Icon name="sort" />
 		</Cell>
