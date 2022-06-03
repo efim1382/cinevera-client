@@ -1,12 +1,19 @@
 .cell {
 	--padding-cell: 12px;
+	flex-grow: 1;
 	display: flex;
 	align-items: center;
-	flex-grow: 1;
-	width: calc(var(--width) * 1px);
 	height: 100%;
+	width: calc(var(--width) * 1px);
 	padding-left: var(--padding-cell);
 	padding-right: var(--padding-cell);
+
+	& > a:only-child {
+		color: var(--text-color);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 
 	&:first-child {
 		margin-left: calc(var(--padding-cell) * -1);

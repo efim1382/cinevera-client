@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames/bind";
 import Checkbox from "./Checkbox";
+import { NavLink } from "react-router-dom";
 import Icon from "components/Icon";
 import HeadingCell from "./HeadingCell";
 import Cell from "./Cell";
@@ -15,6 +16,7 @@ const Table = ({ className }) => {
 			<div className={style.headings}>
 				<Checkbox />
 				<HeadingCell width={200} text="Name" />
+				<HeadingCell width={200} text="Genres" />
 				<HeadingCell width={80} text="Year" />
 				<div className={style.fake_button} />
 			</div>
@@ -25,7 +27,12 @@ const Table = ({ className }) => {
 						<Checkbox />
 
 						<Cell width={200}>
-							<p>Name</p>
+							<NavLink to="/" className={style.link}>Name</NavLink>
+						</Cell>
+
+						<Cell width={200}>
+							<span data-genre="family" className={style.genre}>Family</span>
+							<span data-genre="crime" className={style.genre}>Crime</span>
 						</Cell>
 
 						<Cell width={80}>

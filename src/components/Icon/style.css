@@ -134,6 +134,10 @@
   mask-image: url('./icons/settings.svg');
 }
 
+.icon[data-icon="sort"] {
+  mask-image: url('./icons/sort.svg');
+}
+
 .icon[data-icon="logout"] {
 	mask-image: url('./icons/logout.svg');
 }

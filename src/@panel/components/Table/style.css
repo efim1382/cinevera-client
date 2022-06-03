@@ -13,7 +13,6 @@
 		height: 50px;
 		padding-left: var(--layout-padding);
 		padding-right: var(--layout-padding);
-		background-color: var(--root-background-color);
 		box-shadow: 0 0 8px var(--root-background-color-hover);
 
 		& .fake_button {
@@ -33,26 +32,117 @@
 
 		&:not(:hover) {
 			--background-color: var(--root-background-color);
+			--icon-opacity: 0;
 		}
 
 		&:hover {
 			--background-color: #8483831c;
+			--icon-opacity: 1;
 		}
 
-		& p {
+		& .genre {
+			--genres-box: 24px;
+			flex-shrink: 0;
+			height: var(--genres-box);
+			padding-left: 12px;
+			padding-right: 12px;
+			line-height: var(--genres-box);
+			border-radius: calc(var(--genres-box) / 2);
+			background-color: rgb(var(--color) / 20%);
+			color: rgb(var(--color));
+
+			&:nth-of-type(n+2) {
+				margin-left: 12px;
+			}
+
+			&[data-genre="crime"] {
+				--color: 200 8 8;
+			}
+
+			&[data-genre="action"] {
+				--color: 163 83 8;
+			}
+
+			&[data-genre="thriller"] {
+				--color: 56 48 174;
+			}
+
+			&[data-genre="mystery"] {
+				--color: 173 38 97;
+			}
+
+			&[data-genre="animation"] {
+				--color: 201 4 57;
+			}
+
+			&[data-genre="fantasy"] {
+				--color: 137 73 201;
+			}
+
+			&[data-genre="war"] {
+				--color: 1 190 94;
+			}
+
+			&[data-genre="history"] {
+				--color: 161 161 8;
+			}
+
+			&[data-genre="documentary"] {
+				--color: 106 179 50;
+			}
+
+			&[data-genre="western"] {
+				--color: 200 54 51;
+			}
+
+			&[data-genre="drama"] {
+				--color: 93 15 189;
+			}
+
+			&[data-genre="adventure"] {
+				--color: 14 115 21;
+			}
+
+			&[data-genre="horror"] {
+				--color: 100 71 148;
+			}
+
+			&[data-genre="romance"] {
+				--color: 59 173 172;
+			}
+
+			&[data-genre="comedy"] {
+				--color: 157 15 86;
+			}
+
+			&[data-genre="family"] {
+				--color: 58 162 24;
+			}
+
+			&[data-genre="biography"] {
+				--color: 193 12 69;
+			}
+
+			&[data-genre="musical"] {
+				--color: 21 74 160;
+			}
+		}
+
+		& > p {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
 
 		& .delete_button {
-			--icon-size: 28px;
+			--icon-size: 24px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			width: var(--row-height);
 			height: var(--row-height);
 			margin-right: calc((var(--row-height) / 2) * -1);
+			opacity: var(--icon-opacity);
 
 			&:not(:hover) {
 				--icon-color: var(--caption-color);

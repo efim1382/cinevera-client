@@ -101,7 +101,7 @@
 					font-size: 14px;
 				}
 
-				& .genres_box {
+				& .genre_box {
 					flex-grow: 1;
 					width: 250px;
 					font-size: 14px;
@@ -149,14 +149,14 @@
 					}
 				}
 
-				& .genres_box {
+				& .genre_box {
 					flex-grow: 1;
 					display: flex;
 					flex-wrap: wrap;
 					gap: 12px;
 					width: 250px;
 
-					& .genres {
+					& .genre {
 						--span-genres-height: 24px;
 						flex-shrink: 0;
 						line-height: var(--span-genres-height);
@@ -165,78 +165,80 @@
 						color: var(--text-color);
 						padding-left: 12px;
 						padding-right: 12px;
-					}
+						background-color: rgb(var(--color) / 20%);
+						color: rgb(var(--color));
 
-					& .crime {
-						background-color: #750808;
-					}
+						&[data-genre="crime"] {
+							--color: 200 8 8;
+						}
 
-					& .action {
-						background-color: #a35308;
-					}
+						&[data-genre="action"] {
+							--color: 163 83 8;
+						}
 
-					& .thriller {
-						background-color: #222045;
-					}
+						&[data-genre="thriller"] {
+							--color: 56 48 174;
+						}
 
-					& .mystery {
-						background-color: #ad2661;
-					}
+						&[data-genre="mystery"] {
+							--color: 173 38 97;
+						}
 
-					& .fantasy {
-						background-color: #8949c9;
-					}
+						&[data-genre="animation"] {
+							--color: 201 4 57;
+						}
 
-					& .animation {
-						background-color: #c90439;
-					}
+						&[data-genre="fantasy"] {
+							--color: 137 73 201;
+						}
 
-					& .war {
-						background-color: #292b17;
-					}
+						&[data-genre="war"] {
+							--color: 1 190 94;
+						}
 
-					& .history {
-						background-color: #a1a108;
-					}
+						&[data-genre="history"] {
+							--color: 161 161 8;
+						}
 
-					& .documentary {
-						background-color: #6ab332;
-					}
+						&[data-genre="documentary"] {
+							--color: 106 179 50;
+						}
 
-					& .western {
-						background-color: #443473;
-					}
+						&[data-genre="western"] {
+							--color: 200 54 51;
+						}
 
-					& .drama {
-						background-color: #5d0fbd;
-					}
+						&[data-genre="drama"] {
+							--color: 93 15 189;
+						}
 
-					& .horror {
-						background-color: #1d0e36;
-					}
+						&[data-genre="adventure"] {
+							--color: 14 115 21;
+						}
 
-					& .romance {
-						background-color: #3badac;
-					}
+						&[data-genre="horror"] {
+							--color: 100 71 148;
+						}
 
-					& .comedy {
-						background-color: #229c14;
-					}
+						&[data-genre="romance"] {
+							--color: 59 173 172;
+						}
 
-					& .adventure {
-						background-color: #0e7315;
-					}
+						&[data-genre="comedy"] {
+							--color: 157 15 86;
+						}
 
-					& .family {
-						background-color: #3aa31a;
-					}
+						&[data-genre="family"] {
+							--color: 58 162 24;
+						}
 
-					& .biography {
-						background-color: #c20c45;
-					}
+						&[data-genre="biography"] {
+							--color: 193 12 69;
+						}
 
-					& .musical {
-						background-color: #15198f;
+						&[data-genre="musical"] {
+							--color: 21 74 160;
+						}
 					}
 				}
 
