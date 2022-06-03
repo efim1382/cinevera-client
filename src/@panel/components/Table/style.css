@@ -36,12 +36,16 @@
 		transition-property: background-color;
 
 		&:not(:hover) {
-			--background-color: var(--root-background-color);
+			--background-color: transparent;
 			--icon-opacity: 0;
+
+			@media (--viewport-tablet) {
+				--icon-opacity: 1;
+			}
 		}
 
 		&:hover {
-			--background-color: #8483831c;
+			--background-color: rgb(255 255 255 / 5%);
 			--icon-opacity: 1;
 		}
 

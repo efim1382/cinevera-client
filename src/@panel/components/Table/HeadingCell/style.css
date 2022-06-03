@@ -5,22 +5,33 @@
 	border-radius: 2px;
 	font-weight: var(--font-weight-semibold);
 
+	&:not(._is-sortable) {
+		--sort-icon-opacity: 0;
+	}
+
+	&._is-sortable {
+		&:not(:hover) {
+			--sort-icon-opacity: 0;
+		}
+
+		&:hover {
+			--sort-icon-opacity: 1;
+		}
+	}
+
 	&:not(:hover) {
-		--background-color: var(--root-background-color);
+		--background-color: transparent;
 	}
 
 	&:hover {
-		--background-color: #8483831c;
+		--background-color: rgb(255 255 255 / 5%);
 	}
 
 	& i {
+		--icon-color: var(--primary-color);
 		margin-left: 8px;
 		transform: rotateX(180deg);
-	}
-}
-
-.is_sortable {
-	&:hover {
-		--icon-color: var(--primary-color);
+		opacity: var(--sort-icon-opacity);
+		transition-property: opacity, background-color;
 	}
 }
