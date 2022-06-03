@@ -1,0 +1,26 @@
+.heading_cell {
+	--icon-size: 20px;
+	background-color: var(--background-color);
+	transition-property: background-color;
+	border-radius: 2px;
+	font-weight: var(--font-weight-semibold);
+
+	&:not(:hover) {
+		--background-color: var(--root-background-color);
+	}
+
+	&:hover {
+		--background-color: #8483831c;
+	}
+
+	& i {
+		margin-left: 8px;
+		transform: rotateX(180deg);
+	}
+}
+
+.is_sortaible {
+	&:hover {
+		--icon-color: var(--primary-color);
+	}	
+}

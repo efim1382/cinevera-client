@@ -34,8 +34,8 @@ const Movies = () => {
 							<span className={style.name_films}>Name film</span>
 						</div>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span className={style.genres_film}>Genres</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span className={style.genre_film}>Genre</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>Year</div>
@@ -58,10 +58,10 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="criminal" className={cx("genres", "crime")}>Crime</span>
-							<span data-genre="action" className={cx("genres", "action")}>Action</span>
-							<span data-genre="thriller" className={cx("genres", "thriller")}>Thriller</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="crime" className={style.genre}>Crime</span>
+							<span data-genre="action" className={style.genre}>Action</span>
+							<span data-genre="thriller" className={style.genre}>Thriller</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -89,8 +89,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="mystery" className={cx("genres", "mystery")}>Mystery</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="mystery" className={style.genre}>Mystery</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -118,8 +118,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="animation" className={cx("genres", "animation")}>Animation</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="animation" className={style.genre}>Animation</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -147,8 +147,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="fantasy" className={cx("genres", "fantasy")}>Fantasy</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="fantasy" className={style.genre}>Fantasy</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -176,8 +176,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="war" className={cx("genres", "war")}>War</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="war" className={style.genre}>War</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -205,8 +205,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="history" className={cx("genres", "history")}>History</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="history" className={style.genre}>History</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -234,8 +234,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="documentary" className={cx("genres", "documentary")}>Documentary</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="documentary" className={style.genre}>Documentary</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -263,8 +263,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="western" className={cx("genres", "western")}>Western</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="western" className={style.genre}>Western</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -292,8 +292,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="adventure" className={cx("genres", "adventure")}>Adventure</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="adventure" className={style.genre}>Adventure</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -321,8 +321,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="drama" className={cx("genres", "drama")}>Drama</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="drama" className={style.genre}>Drama</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -350,8 +350,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="horror" className={cx("genres", "horror")}>Horror</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="horror" className={style.genre}>Horror</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -379,8 +379,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="romance" className={cx("genres", "romance")}>Romance</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="romance" className={style.genre}>Romance</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -408,8 +408,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="comedy" className={cx("genres", "comedy")}>Comedy</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="comedy" className={style.genre}>Comedy</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -437,8 +437,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="family" className={cx("genres", "family")}>Family</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="family" className={style.genre}>Family</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -466,8 +466,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="biography" className={cx("genres", "biography")}>Biography</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="biography" className={style.genre}>Biography</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -495,8 +495,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="musical" className={cx("genres", "musical")}>Musical</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="musical" className={style.genre}>Musical</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -524,8 +524,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="mystery" className={cx("genres", "mystery")}>Criminal</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="mystery" className={style.genre}>Criminal</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -553,8 +553,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="mystery" className={cx("genres", "mystery")}>Criminal</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="mystery" className={style.genre}>Criminal</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -582,8 +582,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="mystery" className={cx("genres", "mystery")}>Criminal</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="mystery" className={style.genre}>Criminal</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -611,8 +611,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="mystery" className={cx("genres", "mystery")}>Criminal</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="mystery" className={style.genre}>Criminal</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -640,8 +640,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="mystery" className={cx("genres", "mystery")}>Criminal</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="mystery" className={style.genre}>Criminal</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -669,8 +669,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="mystery" className={cx("genres", "mystery")}>Criminal</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="mystery" className={style.genre}>Criminal</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -698,8 +698,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="mystery" className={cx("genres", "mystery")}>Criminal</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="mystery" className={style.genre}>Criminal</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>
@@ -727,8 +727,8 @@ const Movies = () => {
 							<span className={style.name_film}>Fight Clib</span>
 						</NavLink>
 
-						<div className={cx("table_cell", "genres_box")}>
-							<span data-genre="mystery" className={cx("genres", "mystery")}>Mystery</span>
+						<div className={cx("table_cell", "genre_box")}>
+							<span data-genre="mystery" className={style.genre}>Mystery</span>
 						</div>
 
 						<div className={cx("table_cell", "year")}>1998</div>

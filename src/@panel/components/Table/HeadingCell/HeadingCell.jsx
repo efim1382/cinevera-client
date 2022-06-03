@@ -9,9 +9,9 @@ const cx = classnames.bind(style);
 
 const HeadingCell = ({ text, className, ...props }) => {
 	return (
-		<Cell {...props} className={cx("heading_cell", className)}>
+		<Cell {...props} className={cx("heading_cell", "is_sortaible", className)}>
 			<p>{text}</p>
-			<Icon name="play_arrow" />
+			<Icon name="sort" />
 		</Cell>
 	);
 };
