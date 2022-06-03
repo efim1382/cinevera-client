@@ -19,7 +19,7 @@ export const renderCell = (props) => {
 	if (heading.key === config.KEY_TITLE) {
 		return (
 			<Cell width={heading.width}>
-				<NavLink to="/panel/">{value}</NavLink>
+				<NavLink to={`/panel/movies/${data.id}/`}>{value}</NavLink>
 			</Cell>
 		);
 	}
