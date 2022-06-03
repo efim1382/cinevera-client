@@ -11,7 +11,6 @@
 
 	&:hover {
 		--background-color: #8483831c;
-		--icon-color: var(--primary-color);
 	}
 
 	& i {
