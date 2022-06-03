@@ -9,6 +9,7 @@ const cx = classnames.bind(style);
 
 const Subheader = (props) => {
 	const {
+		to,
 		title,
 		className,
 	} = props;
@@ -23,6 +24,7 @@ const Subheader = (props) => {
 
 			<Button
 				text="Add New"
+				to={to}
 				icon="add"
 				className={style.add_button}
 			/>
@@ -31,6 +33,7 @@ const Subheader = (props) => {
 };
 
 Subheader.propTypes = {
+	to: PropTypes.string,
 	title: PropTypes.string.isRequired,
 	className: PropTypes.string,
 };

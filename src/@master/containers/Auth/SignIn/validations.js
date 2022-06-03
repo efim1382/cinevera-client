@@ -8,7 +8,7 @@ export default {
 		{
 			validator: "minLength",
 			param: 11,
-			message: "Email should be length more then 10",
+			message: "Email should be length more than 10",
 		},
 
 		{

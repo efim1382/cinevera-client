@@ -120,6 +120,13 @@ const Header = ({ isTransparent, className }) => {
 
 							<div className={style.divider} />
 
+							<NavLink to="/panel/" className={cx("dropdown_link", "danger")}>
+								<Icon name="settings" />
+								<span className={style.dropdown_text}>Panel</span>
+							</NavLink>
+
+							<div className={style.divider} />
+
 							<NavLink to="/" className={style.dropdown_link}>
 								<Icon name="logout" />
 								<span className={style.dropdown_text}>Sign out</span>

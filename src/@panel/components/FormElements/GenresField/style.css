@@ -1,0 +1,36 @@
+.genres_container {
+	& .genres_list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+
+		& .item {
+			--height: 36px;
+			display: flex;
+			align-items: center;
+			height: 36px;
+			padding-left: 16px;
+			padding-right: 16px;
+			border-radius: calc(var(--height) / 2);
+			background-color: var(--root-background-color-hover);
+
+			&:not(:hover) {
+				--icon-color: var(--divider-color);
+			}
+
+			&:hover {
+				--icon-color: var(--primary-color);
+			}
+
+			& .caption {
+				font-size: var(--default-font-size);
+				color: var(--primary-color);
+			}
+
+			& > i {
+				--icon-size: 16px;
+				margin-left: 10px;
+			}
+		}
+	}
+}

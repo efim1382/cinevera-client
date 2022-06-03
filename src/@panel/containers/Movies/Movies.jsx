@@ -12,6 +12,7 @@ const Movies = () => {
 		<main className={style.movies}>
 			<Subheader
 				title="Movies list"
+				to="/panel/movies/new/"
 				className={style.subheader}
 			/>
 
