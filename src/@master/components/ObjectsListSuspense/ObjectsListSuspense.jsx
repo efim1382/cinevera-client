@@ -1,9 +1,9 @@
 import React from "react";
 import style from "./style.css";
 
-const ObjectsListSuspence = () => {
+const ObjectsListSuspense = () => {
 	return (
-		<div className={style.suspence}>
+		<div className={style.suspense}>
 			<div className="container">
 				<div className={style.title} />
 				<div className={style.filters} />
@@ -12,4 +12,4 @@ const ObjectsListSuspence = () => {
 	);
 };
 
-export default ObjectsListSuspence;
+export default ObjectsListSuspense;

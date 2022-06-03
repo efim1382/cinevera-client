@@ -1,0 +1,37 @@
+.suspense {
+	& .row {
+		display: flex;
+		height: 64px;
+
+		& .cell {
+			flex-grow: 1;
+			position: relative;
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 50%;
+				width: 50%;
+				height: 14px;
+				border-radius: 2px;
+				transform: translateY(-50%);
+				animation: background-loading 1s linear infinite;
+			}
+		}
+	}
+}
+
+@keyframes background-loading {
+	0% {
+		background-color: var(--root-background-color-hover);
+	}
+
+	50% {
+		background-color: #0c0c0c;
+	}
+
+	100% {
+		background-color: var(--root-background-color-hover);
+	}
+}

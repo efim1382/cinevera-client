@@ -8,7 +8,8 @@
 		flex-shrink: 0;
 	}
 
-	& .sidebar + main {
+	& .sidebar + main,
+	& .sidebar + div {
 		flex-grow: 1;
 		min-width: 0;
 	}

@@ -1,0 +1,37 @@
+.suspense {
+	padding-left: var(--layout-padding);
+	padding-right: var(--layout-padding);
+
+	& .header {
+		display: flex;
+		align-items: center;
+		height: 100px;
+
+		& .title {
+			width: 200px;
+			height: 24px;
+			animation: background-loading 1s linear infinite;
+		}
+
+		& .button {
+			width: 150px;
+			height: 60px;
+			margin-left: auto;
+			animation: background-loading 1s linear infinite;
+		}
+	}
+}
+
+@keyframes background-loading {
+	0% {
+		background-color: var(--root-background-color-hover);
+	}
+
+	50% {
+		background-color: #0c0c0c;
+	}
+
+	100% {
+		background-color: var(--root-background-color-hover);
+	}
+}

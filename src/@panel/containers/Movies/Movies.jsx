@@ -50,6 +50,14 @@ export const renderCell = (props) => {
 		);
 	}
 
+	if (heading.key === config.KEY_AGE_LIMIT) {
+		return (
+			<Cell width={heading.width}>
+				<p>{value}+</p>
+			</Cell>
+		);
+	}
+
 	return (
 		<DefaultCell {...props} />
 	);

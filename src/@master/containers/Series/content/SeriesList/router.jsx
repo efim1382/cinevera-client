@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import ObjectsListProvider from "@master/store/ObjectsListProvider";
-import ObjectsListSuspence from "@master/components/ObjectsListSuspence";
+import ObjectsListSuspense from "@master/components/ObjectsListSuspense";
 
 const SeriesList = lazy(() => import(
 
@@ -11,7 +11,7 @@ const SeriesList = lazy(() => import(
 const SeriesContainer = () => {
 	return (
 		<ObjectsListProvider type="series">
-			<Suspense fallback={<ObjectsListSuspence />}>
+			<Suspense fallback={<ObjectsListSuspense />}>
 				<SeriesList />
 			</Suspense>
 		</ObjectsListProvider>
