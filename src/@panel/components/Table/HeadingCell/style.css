@@ -22,5 +22,5 @@
 .is_sortaible {
 	&:hover {
 		--icon-color: var(--primary-color);
-	}	
+	}
 }

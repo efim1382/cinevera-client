@@ -202,6 +202,18 @@
 	mask-image: url('./icons/info.svg');
 }
 
+.icon[data-icon="twitter"] {
+  mask-image: url('./icons/twitter.svg');
+}
+
+.icon[data-icon="instagram"] {
+  mask-image: url('./icons/instagram.svg');
+}
+
+.icon[data-icon="telegram"] {
+  mask-image: url('./icons/telegram.svg');
+}
+
 .story_icon {
 	--icon-size: 50px;
 	--icon-color: var(--primary-color);
