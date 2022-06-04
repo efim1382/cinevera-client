@@ -6,6 +6,7 @@ import Series from "./containers/Series";
 import Movies from "./containers/Movies";
 import Users from "./containers/Users";
 
+import CreateSeries from "./containers/CreateSeries";
 import CreateMovie from "./containers/CreateMovie";
 
 export default () => {
@@ -15,6 +16,7 @@ export default () => {
 				<Route path="*" element={<Navigate to="/panel/movies/" replace />} />
 				<Route path="/" element={<Navigate to="/panel/movies/" replace />} />
 				<Route path="series/" element={<Series />} />
+				<Route path="series/new/" element={<CreateSeries />} />
 				<Route path="movies/" element={<Movies />} />
 				<Route path="movies/new/" element={<CreateMovie />} />
 				<Route path="users/" element={<Users />} />

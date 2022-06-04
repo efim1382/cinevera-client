@@ -32,3 +32,39 @@ export const createMovie = (data) => {
 		},
 	});
 };
+
+export const createSeries = (data) => {
+	const {
+		title,
+		shortDescription,
+		fullDescription,
+		posterUrl,
+		backgroundUrl,
+		ageLimit,
+		genres,
+		year,
+		yearFrom,
+		yearTo,
+		cast,
+	} = data;
+
+	const formattedYear = year
+		? year
+		: [yearFrom, yearTo];
+
+	return XHR.post({
+		url: "/admin/series/create/",
+
+		data: {
+			title,
+			shortDescription,
+			fullDescription,
+			posterUrl,
+			backgroundUrl,
+			ageLimit,
+			genres,
+			year: formattedYear,
+			cast,
+		},
+	});
+};

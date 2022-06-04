@@ -1,0 +1,25 @@
+.inputs_grouped {
+	display: grid;
+	grid-column-gap: 30px;
+	grid-row-gap: 20px;
+
+	& .year_from {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	& .year_to {
+		grid-column: 2;
+		grid-row: 1;
+	}
+
+	& .age {
+		grid-column: 3;
+		grid-row: 1;
+	}
+
+	& .genres {
+		grid-column: 1 / 4;
+		grid-row: 2;
+	}
+}

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import classnames from "classnames/bind";
 import * as moviesSelectors from "selectors/movies.selectors";
 import { getGenreByCode } from "config/genres";
+import { formatSeriesYear } from "helpers/movieHelpers";
 import style from "./style.css";
 
 const cx = classnames.bind(style);
@@ -27,9 +28,11 @@ const MovieCard = (props) => {
 		objectType = "movie",
 	} = data;
 
-	const formattedYear = objectType === "movie"
-		? `${year[0]} year`
-		: `${year[0]} - ${year[1]}`;
+	const formattedYear = useMemo(() => (
+		objectType === "series"
+			? formatSeriesYear(year)
+			: year[0]
+	), [year.length, objectType]);
 
 	const link = objectType === "movie"
 		? `/movies/details/${id}`

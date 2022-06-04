@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import Button from "components/BasicButton";
 import PopularList from "@master/components/PopularList";
@@ -14,6 +14,7 @@ import {
 import AllSeasonsOverlay from "@master/containers/Series/content/AllSeasonsOverlay";
 import SeasonDetailsSuspence from "@master/containers/Series/components/SeriesDetailsSuspence";
 import { getSeriesDetails } from "api/movies.api";
+import { formatSeriesYear } from "helpers/movieHelpers";
 import style from "./style.css";
 
 const SeasonDetails = () => {
@@ -26,19 +27,27 @@ const SeasonDetails = () => {
 		title,
 		fullDescription,
 		ageLimit,
+		backgroundUrl: seriesBackgroundUrl,
 		year = [],
 		genres = [],
 		seasons = [],
+		cast = [],
+		videos = [],
 	} = seriesData;
+
+	const formattedYear = useMemo(() => (
+		formatSeriesYear(year)
+	), [year.length]);
 
 	const currentSeason = seasons.find((item) => `${item.number}` === `${seasonId}`) || {};
 
 	const {
-		backgroundUrl,
+		backgroundUrl: seasonBackgroundUrl,
 		episodes = [],
-		videos = [],
-		cast = [],
 	} = currentSeason;
+
+	const backgroundUrl = 	seasonBackgroundUrl || seriesBackgroundUrl;
+	const isEpisodesExist = episodes.length > 0;
 
 	const episodesTitle = seasons.length > 1
 		? `Season ${seasonId}`
@@ -94,29 +103,40 @@ const SeasonDetails = () => {
 
 					<div className={style.additional_information}>
 						<span className={style.match}>98% Match</span>
-
-						{year && (
-							<span className={style.year}>{year[0]} - {year[1]}</span>
-						)}
+						<span className={style.year}>{formattedYear}</span>
 
 						{ageLimit && (
 							<span className={style.age_limit}>{ageLimit}+</span>
 						)}
 					</div>
 
-					<Button
-						text="Watch"
-						className={style.play_button}
-					/>
+					{isEpisodesExist && (
+						<Button
+							text="Watch"
+							className={style.play_button}
+						/>
+					)}
+
+					{!isEpisodesExist && (
+						<Button
+							appearance="fill"
+							theme="translucent"
+							icon="bell"
+							text="Notify when available"
+							className={style.play_button}
+						/>
+					)}
 				</div>
 			</section>
 
-			<EpisodesList
-				title={episodesTitle}
-				items={episodes}
-				titleAction={seasonsTitleActionProps}
-				className={style.episodes}
-			/>
+			{isEpisodesExist && (
+				<EpisodesList
+					title={episodesTitle}
+					items={episodes}
+					titleAction={seasonsTitleActionProps}
+					className={style.episodes}
+				/>
+			)}
 
 			<DetailsPageOverview
 				genres={genres}

@@ -25,13 +25,13 @@ export const headings = [
 	{
 		key: KEY_YEAR,
 		label: "Year",
-		width: 100,
+		width: 150,
 	},
 
 	{
 		key: KEY_AGE_LIMIT,
 		label: "Age Limit",
-		width: 140,
+		width: 150,
 	},
 
 	{

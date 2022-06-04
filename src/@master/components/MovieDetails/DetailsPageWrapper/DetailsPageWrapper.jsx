@@ -7,7 +7,7 @@ import style from "./style.css";
 const cx = classnames.bind(style);
 
 const scrollAnimationConfig = {
-	backgroundOpacityFrom: 0.4,
+	backgroundOpacityFrom: 0.2,
 	backgroundOpacityTo: 0.9,
 	fullOpacityFrom: 400,
 	elementId: "details-page",

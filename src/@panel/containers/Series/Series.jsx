@@ -6,6 +6,7 @@ import Cell from "@panel/components/Table/Cell";
 import GenresItem from "@panel/components/GenresList/GenreItem";
 import { getSeries } from "./api";
 import * as config from "./config";
+import { formatSeriesYear } from "helpers/movieHelpers";
 import style from "./style.css";
 
 export const renderCell = (props) => {
@@ -43,9 +44,11 @@ export const renderCell = (props) => {
 	}
 
 	if (heading.key === config.KEY_YEAR) {
+		const formattedYear = formatSeriesYear(value);
+
 		return (
 			<Cell width={heading.width}>
-				<p>{value[0]}</p>
+				<p>{formattedYear}</p>
 			</Cell>
 		);
 	}
