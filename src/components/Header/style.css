@@ -131,6 +131,151 @@
 				}
 			}
 
+			& .button:hover + .notification_dropdown {
+				--notification-dropdown-opacity: 1;
+				--notification-dropdown-pointer-events: auto;
+			}
+
+			& .notification_dropdown {
+				position: absolute;
+				top: calc((var(--header-height) + var(--button-size)) / 2);
+				right: var(--layout-padding);
+				display: flex;
+				flex-direction: column;
+				background-color: var(--root-background-color-hover);
+				opacity: var(--notification-dropdown-opacity);
+				pointer-events: var(--notification-dropdown-pointer-events);
+				transition-property: opacity;
+
+				&:not(:hover) {
+					--notification-dropdown-opacity: 0;
+					--notification-dropdown-pointer-events: none;
+				}
+
+				&:hover {
+					--notification-dropdown-opacity: 1;
+					--notification-dropdown-pointer-events: auto;
+				}
+
+				& .subheader_notification {
+					display: flex;
+					align-items: center;
+					height: 30px;
+					padding: 24px 16px;
+
+					& span {
+					}
+
+					& .mark_button {
+						--icon-size: 16px;
+						display: flex;
+						align-items: center;
+						margin-left: auto;
+						padding: 16px 0;
+						color: var(--color);
+						font-size: 11px;
+						transition-property: color;
+
+						&:not(:hover) {
+							--color: var(--caption-color);
+							--icon-color: var(--caption-color);
+						}
+
+						&:hover {
+							--color: var(--accent-color-hover);
+							--icon-color: var(--accent-color);
+						}
+
+						& span {
+							margin-left: 4px;
+							display: block;
+						}
+
+						& i {
+						}
+					}
+				}
+
+				& .notification_link {
+					--icon-size: 28px;
+					display: flex;
+					padding: 20px 16px;
+					color: var(--dropdown-item-color);
+					background-color: var(--background-hover);
+					transition-property: color, border, background-color;
+
+					&:not(:hover) {
+						--dropdown-item-color: var(--caption-color);
+						--icon-color: var(--caption-color);
+						--circle: var(--caption-color);
+						--background-hover: transparent;
+					}
+
+					&:hover {
+						--dropdown-item-color: var(--primary-color);
+						--icon-color: var(--primary-color);
+						--circle: var(--primary-color);
+						--background-hover: rgba(132,131,131,0.1098);
+					}
+
+					& i {
+						margin-left: 16px;
+					}
+
+					& .circle {
+						width: 8px;
+						height: 8px;
+						margin-top: 6px;
+						border-radius: 50%;
+						background-color: var(--circle);
+						transition-property: background-color;
+					}
+
+					& .notification_info {
+						display: flex;
+						align-items: center;
+
+						& .description {
+							width: 200px;
+							margin-left: 24px;
+						}
+
+						& span {
+							font-size: 12px;
+							color: yellow;
+						}
+
+						& .avatar {
+							width: 40px;
+							height: 40px;
+							border-radius: 50%;
+							margin-left: 12px;
+							background-image: url("https://st2.depositphotos.com/1006318/5909/v/450/depositphotos_59094043-stock-illustration-profile-icon-male-avatar.jpg");
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						}
+					}
+				}
+
+				& .subfoter_notification {
+					display: flex;
+					align-items: center;
+					height: 40px;
+					padding: 24px 16px;
+					color: var(--link-color);
+					transition-property: color;
+
+					&:not(:hover) {
+						--link-color: var(--caption-color);
+					}
+
+					&:hover {
+						--link-color: var(--primary-color);
+					}
+				}
+			}
+
 			& .button:hover + .user_dropdown {
 				--profile-dropdown-opacity: 1;
 				--profile-dropdown-pointer-events: auto;
@@ -138,8 +283,8 @@
 
 			& .user_dropdown {
 				position: absolute;
-				right: 0;
 				top: 0;
+				right: 0;
 				padding-bottom: calc((var(--header-height) - var(--button-size)) / 2);
 				background-color: var(--root-background-color-hover);
 				opacity: var(--profile-dropdown-opacity);
