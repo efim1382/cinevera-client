@@ -129,7 +129,9 @@ const Header = ({ isTransparent, className }) => {
 								</div>
 							</NavLink>
 
-							<NavLink to="/" className={style.subfoter_notification}>View all notifications</NavLink>
+							<div className={style.subfooter_notification}	>
+								<NavLink to="/">View all notifications</NavLink>
+							</div>
 						</div>
 
 						<NavLink to="/profile" className={style.button}>

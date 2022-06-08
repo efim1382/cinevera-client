@@ -132,8 +132,8 @@
 			}
 
 			& .button:hover + .notification_dropdown {
-				--notification-dropdown-opacity: 1;
-				--notification-dropdown-pointer-events: auto;
+				--notification-opacity: 1;
+				--notification-pointer-events: auto;
 			}
 
 			& .notification_dropdown {
@@ -143,37 +143,39 @@
 				display: flex;
 				flex-direction: column;
 				background-color: var(--root-background-color-hover);
-				opacity: var(--notification-dropdown-opacity);
-				pointer-events: var(--notification-dropdown-pointer-events);
+				opacity: var(--notification-opacity);
+				pointer-events: var(--notification-pointer-events);
 				transition-property: opacity;
 
 				&:not(:hover) {
-					--notification-dropdown-opacity: 0;
-					--notification-dropdown-pointer-events: none;
+					--notification-opacity: 0;
+					--notification-pointer-events: none;
 				}
 
 				&:hover {
-					--notification-dropdown-opacity: 1;
-					--notification-dropdown-pointer-events: auto;
+					--notification-opacity: 1;
+					--notification-pointer-events: auto;
 				}
 
 				& .subheader_notification {
 					display: flex;
 					align-items: center;
-					height: 30px;
-					padding: 24px 16px;
+					padding: 20px;
+					height: 70px;
 
 					& span {
+						margin-right: auto;
 					}
 
 					& .mark_button {
 						--icon-size: 16px;
 						display: flex;
 						align-items: center;
-						margin-left: auto;
-						padding: 16px 0;
+						margin-left: 16px;
+						height: 100%;
+						padding-left: 16px;
 						color: var(--color);
-						font-size: 11px;
+						font-size: 14px;
 						transition-property: color;
 
 						&:not(:hover) {
@@ -183,15 +185,15 @@
 
 						&:hover {
 							--color: var(--accent-color-hover);
-							--icon-color: var(--accent-color);
+							--icon-color: var(--accent-color-hover);
 						}
 
 						& span {
 							margin-left: 4px;
-							display: block;
 						}
 
 						& i {
+							flex-shrink: 0;
 						}
 					}
 				}
@@ -200,33 +202,37 @@
 					--icon-size: 28px;
 					display: flex;
 					padding: 20px 16px;
-					color: var(--dropdown-item-color);
+					color: var(--color);
 					background-color: var(--background-hover);
-					transition-property: color, border, background-color;
+					transition-property: color, background-color;
 
 					&:not(:hover) {
-						--dropdown-item-color: var(--caption-color);
+						--color: var(--caption-color);
 						--icon-color: var(--caption-color);
 						--circle: var(--caption-color);
 						--background-hover: transparent;
 					}
 
 					&:hover {
-						--dropdown-item-color: var(--primary-color);
+						--color: var(--primary-color);
 						--icon-color: var(--primary-color);
 						--circle: var(--primary-color);
-						--background-hover: rgba(132,131,131,0.1098);
+						--background-hover: #8483831c;
 					}
 
 					& i {
-						margin-left: 16px;
+						flex-shrink: 0;
+						margin-left: auto;
+						margin-right: 8px;
 					}
 
 					& .circle {
+						flex-shrink: 0;
 						width: 8px;
 						height: 8px;
-						margin-top: 6px;
 						border-radius: 50%;
+						margin-top: calc(var(--default-font-size) / 2);
+						transform: translateY(-50%);
 						background-color: var(--circle);
 						transition-property: background-color;
 					}
@@ -234,22 +240,25 @@
 					& .notification_info {
 						display: flex;
 						align-items: center;
+						width: 100%;
 
 						& .description {
-							width: 200px;
+							max-width: 300px;
 							margin-left: 24px;
+							padding-right: 50px;
 						}
 
 						& span {
-							font-size: 12px;
-							color: yellow;
+							font-size: 14px;
+							color: #9e9e9e;
 						}
 
 						& .avatar {
+							flex-shrink: 0;
 							width: 40px;
 							height: 40px;
 							border-radius: 50%;
-							margin-left: 12px;
+							margin-left: auto;
 							background-image: url("https://st2.depositphotos.com/1006318/5909/v/450/depositphotos_59094043-stock-illustration-profile-icon-male-avatar.jpg");
 							background-size: cover;
 							background-position: center;
@@ -258,20 +267,21 @@
 					}
 				}
 
-				& .subfoter_notification {
-					display: flex;
-					align-items: center;
-					height: 40px;
-					padding: 24px 16px;
-					color: var(--link-color);
+				& .subfooter_notification {
+					padding: 20px;
 					transition-property: color;
 
-					&:not(:hover) {
-						--link-color: var(--caption-color);
-					}
+					& a {
+						color: var(--color);
+						transition-property: color;
 
-					&:hover {
-						--link-color: var(--primary-color);
+						&:not(:hover) {
+							--color: var(--caption-color);
+						}
+
+						&:hover {
+							--color: var(--primary-color);
+						}
 					}
 				}
 			}
