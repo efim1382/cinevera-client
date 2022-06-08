@@ -8,6 +8,7 @@ const Form = (props) => {
 		className,
 		children,
 		onSubmit,
+		initialValues,
 		validations,
 	} = props;
 
@@ -17,8 +18,9 @@ const Form = (props) => {
 		<FormComponent
 			onSubmit={onSubmit}
 			validate={validate}
+			initialValues={initialValues}
 
-			render={({ handleSubmit }) => {
+			render={({ handleSubmit, values }) => {
 				return (
 					<form
 						onSubmit={handleSubmit}
@@ -35,12 +37,14 @@ const Form = (props) => {
 Form.defaultProps = {
 	onSubmit: Function(),
 	validations: {},
+	initialValues: {},
 };
 
 Form.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.any.isRequired,
 	onSubmit: PropTypes.func,
+	initialValues: PropTypes.object,
 	validations: PropTypes.object,
 };
 

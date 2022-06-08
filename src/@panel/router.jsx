@@ -8,6 +8,7 @@ import Users from "./containers/Users";
 
 import CreateSeries from "./containers/CreateSeries";
 import CreateMovie from "./containers/CreateMovie";
+import MovieDetails from "./containers/MovieDetails";
 
 export default () => {
 	return (
@@ -19,6 +20,7 @@ export default () => {
 				<Route path="series/new/" element={<CreateSeries />} />
 				<Route path="movies/" element={<Movies />} />
 				<Route path="movies/new/" element={<CreateMovie />} />
+				<Route path="movies/:id/" element={<MovieDetails />} />
 				<Route path="users/" element={<Users />} />
 			</Route>
 		</Routes>

@@ -1,5 +1,11 @@
 import XHR from "classes/XHR";
 
+export const getMovie = (id) => {
+	return XHR.get({
+		url: `/admin/movies/${id}/`,
+	});
+};
+
 export const createMovie = (data) => {
 	const {
 		title,
@@ -29,6 +35,18 @@ export const createMovie = (data) => {
 			year: typeof year === "object" && year.constructor === Array
 				? year
 				: [year],
+		},
+	});
+};
+
+export const updateMovie = (id, data) => {
+	const { title } = data;
+
+	return XHR.patch({
+		url: `/admin/movies/${id}/`,
+
+		data: {
+			title,
 		},
 	});
 };

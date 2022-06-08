@@ -23,6 +23,8 @@ const TextField = (props) => {
 		isReadOnly,
 		isDisabled,
 		isActive,
+		noHelperMessages,
+		autoFocus,
 		className,
 		getRef,
 	} = props;
@@ -102,33 +104,39 @@ const TextField = (props) => {
 					onBlur={handleBlur}
 					placeholder={placeholder}
 					maxLength={maxLength}
+					autoFocus={autoFocus}
 					className={style.input}
 					{...inputProps}
 				/>
 			</label>
 
-			<div className={style.helper_container}>
-				{isHelperTextShown && (
-					<p className={style.helper_text}>{helperText}</p>
-				)}
+			{!noHelperMessages && (
+				<div className={style.helper_container}>
+					{isHelperTextShown && (
+						<p className={style.helper_text}>{helperText}</p>
+					)}
 
-				{error && (
-					<p className={style.error_text}>{error}</p>
-				)}
-			</div>
+					{error && (
+						<p className={style.error_text}>{error}</p>
+					)}
+				</div>
+			)}
 		</div>
 	);
 };
 
 TextField.defaultProps = {
 	type: "text",
+	value: "",
 	isReadOnly: false,
 	isDisabled: false,
+	noHelperMessages: false,
+	autoFocus: false,
 };
 
 TextField.propTypes = {
 	type: PropTypes.string,
-	value: PropTypes.string,
+	value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	error: PropTypes.string,
 	helperText: PropTypes.string,
 	onFocus: PropTypes.func,
@@ -142,6 +150,8 @@ TextField.propTypes = {
 	isDisabled: PropTypes.bool,
 	icon: PropTypes.string,
 	isReadOnly: PropTypes.bool,
+	autoFocus: PropTypes.bool,
+	noHelperMessages: PropTypes.bool,
 	placeholder: PropTypes.string,
 	className: PropTypes.string,
 };

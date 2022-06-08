@@ -14,7 +14,7 @@ class XHR {
 			XHR.appendToken(XHR.validateData(data)),
 		);
 
-		return fetch(fullUrl, { method: "get" })
+		return fetch(fullUrl, { method: "GET" })
 			.then(XHR.parseResponse);
 	}
 
@@ -33,7 +33,7 @@ class XHR {
 		}
 
 		return fetch(`${hostApi}${url}`, {
-			method: "post",
+			method: "POST",
 			headers,
 			body,
 		}).then(XHR.parseResponse);
@@ -54,7 +54,7 @@ class XHR {
 		}
 
 		return fetch(`${hostApi}${url}`, {
-			method: "patch",
+			method: "PATCH",
 			headers,
 			body,
 		}).then(XHR.parseResponse);
@@ -75,7 +75,7 @@ class XHR {
 		}
 
 		return fetch(`${hostApi}${url}`, {
-			method: "delete",
+			method: "DELETE",
 			headers,
 			body,
 		}).then(XHR.parseResponse);

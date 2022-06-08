@@ -6,7 +6,7 @@ import style from "./style.css";
 
 const cx = classnames.bind(style);
 
-const TextField = (props) => {
+const Textarea = (props) => {
 	const {
 		value,
 		error,
@@ -94,7 +94,7 @@ const TextField = (props) => {
 	);
 };
 
-TextField.propTypes = {
+Textarea.propTypes = {
 	value: PropTypes.string,
 	error: PropTypes.string,
 	helperText: PropTypes.string,
@@ -107,4 +107,4 @@ TextField.propTypes = {
 	className: PropTypes.string,
 };
 
-export default TextField;
+export default Textarea;
