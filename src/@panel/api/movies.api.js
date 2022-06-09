@@ -46,13 +46,27 @@ export const createMovie = (data) => {
 };
 
 export const updateMovie = (id, data) => {
-	const { title } = data;
+	const {
+		title,
+		shortDescription,
+		fullDescription,
+		year,
+		ageLimit,
+		posterUrl,
+		backgroundUrl,
+	} = data;
 
 	return XHR.patch({
 		url: `/admin/movies/${id}/`,
 
 		data: {
 			title,
+			shortDescription,
+			fullDescription,
+			year,
+			ageLimit,
+			posterUrl,
+			backgroundUrl,
 		},
 	});
 };

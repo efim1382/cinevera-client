@@ -1,14 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
 import Form from "components/Form/Form";
 import Input from "components/Form/Input";
 import TextField from "components/FormElements/TextField";
 import Textarea from "components/FormElements/Textarea";
 import BasicButton from "components/BasicButton";
 import { MovieDetailsContext } from "@panel/containers/Movies/Details/Details.store";
+import { updateMovie } from "@panel/api/movies.api";
 import style from "./style.css";
 
 const Overview = () => {
-	const { state } = useContext(MovieDetailsContext);
+	const { id } = useParams();
+	const [isDescriptionUpdating, setIsDescriptionUpdating] = useState(false);
+	const [isAdditionalUpdating, setIsAdditionalUpdating] = useState(false);
+	const { state, actions } = useContext(MovieDetailsContext);
 	const { data } = state;
 
 	const descriptionInitialValues = {
@@ -21,11 +26,45 @@ const Overview = () => {
 		ageLimit: data?.ageLimit || "",
 	};
 
+	const onDescriptionSubmit = (values) => {
+		setIsDescriptionUpdating(true);
+
+		updateMovie(id, values)
+			.then(({ movie }) => {
+				actions.setData(movie);
+				setIsDescriptionUpdating(false);
+			})
+
+			.catch((error) => {
+				setIsDescriptionUpdating(false);
+				console.log(error);
+			});
+	};
+
+	const onAdditionalSubmit = (values) => {
+		setIsAdditionalUpdating(true);
+
+		updateMovie(id, values)
+			.then(({ movie }) => {
+				actions.setData(movie);
+				setIsAdditionalUpdating(false);
+			})
+
+			.catch((error) => {
+				setIsAdditionalUpdating(false);
+				console.log(error);
+			});
+	};
+
 	return (
 		<div className={style.overview}>
 			<h3 className={style.title_section}>Description</h3>
 
-			<Form onSubmit={() => {}} initialValues={descriptionInitialValues} className={style.form_section}>
+			<Form
+				onSubmit={onDescriptionSubmit}
+				initialValues={descriptionInitialValues}
+				className={style.form_section}
+			>
 				<Input name="shortDescription">
 					<TextField
 						label="Short description"
@@ -41,13 +80,18 @@ const Overview = () => {
 				<BasicButton
 					type="submit"
 					text="Update"
+					isLoading={isDescriptionUpdating}
 					className={style.submit}
 				/>
 			</Form>
 
 			<h3 className={style.title_section}>More information</h3>
 
-			<Form onSubmit={() => {}} initialValues={additionalInitialValues} className={style.form_section}>
+			<Form
+				onSubmit={onAdditionalSubmit}
+				initialValues={additionalInitialValues}
+				className={style.form_section}
+			>
 				<Input name="year">
 					<TextField
 						label="Year"
@@ -63,6 +107,7 @@ const Overview = () => {
 				<BasicButton
 					type="submit"
 					text="Update"
+					isLoading={isAdditionalUpdating}
 					className={style.submit}
 				/>
 			</Form>
