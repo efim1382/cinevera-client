@@ -101,7 +101,10 @@ const Header = ({ isTransparent, className }) => {
 										<p>Your password has been successfully changed.</p>
 										<span>Jun 1, at 12:00 PM</span>
 									</div>
-									<Icon name="lock" />
+
+									<div className={style.icon_block}>
+										<Icon name="lock" />
+									</div>
 								</div>
 							</NavLink>
 
@@ -113,7 +116,10 @@ const Header = ({ isTransparent, className }) => {
 										<p>User "efim 1488" reacted to your comment.</p>
 										<span>May 5, at 18:90 PM</span>
 									</div>
-									<div className={style.avatar}></div>
+
+									<div className={style.icon_block}>
+										<div className={style.avatar}></div>
+									</div>
 								</div>
 							</NavLink>
 
@@ -125,11 +131,14 @@ const Header = ({ isTransparent, className }) => {
 										<p>Your subscription will end soon. Click to extend.</p>
 										<span>Jun 1, at 12:00 PM</span>
 									</div>
-									<Icon name="subscriptions" />
+
+									<div className={style.icon_block}>
+										<Icon name="subscriptions" />
+									</div>
 								</div>
 							</NavLink>
 
-							<div className={style.subfooter_notification}	>
+							<div className={style.subfooter_notification}>
 								<NavLink to="/">View all notifications</NavLink>
 							</div>
 						</div>
