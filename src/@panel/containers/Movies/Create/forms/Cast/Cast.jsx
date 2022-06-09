@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Input from "components/Form/Input";
 import CastField from "@panel/components/FormElements/CastField";
-import createStyle from "@panel/containers/CreateMovie/style.css";
+import createStyle from "@panel/containers/Movies/Create/style.css";
 
 const Basic = () => {
 	return (

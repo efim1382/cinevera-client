@@ -20,7 +20,7 @@ const Form = (props) => {
 			validate={validate}
 			initialValues={initialValues}
 
-			render={({ handleSubmit, values }) => {
+			render={({ handleSubmit }) => {
 				return (
 					<form
 						onSubmit={handleSubmit}

@@ -3,12 +3,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "@panel/components/Layout";
 
 import Series from "./containers/Series";
-import Movies from "./containers/Movies";
 import Users from "./containers/Users";
-
 import CreateSeries from "./containers/CreateSeries";
-import CreateMovie from "./containers/CreateMovie";
-import MovieDetails from "./containers/MovieDetails";
+
+import MoviesRouter from "./containers/Movies/router";
 
 export default () => {
 	return (
@@ -18,9 +16,7 @@ export default () => {
 				<Route path="/" element={<Navigate to="/panel/movies/" replace />} />
 				<Route path="series/" element={<Series />} />
 				<Route path="series/new/" element={<CreateSeries />} />
-				<Route path="movies/" element={<Movies />} />
-				<Route path="movies/new/" element={<CreateMovie />} />
-				<Route path="movies/:id/" element={<MovieDetails />} />
+				<Route path="movies/*" element={<MoviesRouter />} />
 				<Route path="users/" element={<Users />} />
 			</Route>
 		</Routes>

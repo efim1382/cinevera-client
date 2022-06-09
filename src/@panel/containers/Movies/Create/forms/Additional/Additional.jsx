@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Input from "components/Form/Input";
 import TextField from "components/FormElements/TextField";
 import GenresField from "@panel/components/FormElements/GenresField";
-import createStyle from "@panel/containers/CreateMovie/style.css";
+import createStyle from "@panel/containers/Movies/Create/style.css";
 import style from "./style.css";
 
 const Basic = () => {

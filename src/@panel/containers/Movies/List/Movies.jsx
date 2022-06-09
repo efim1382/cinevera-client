@@ -4,7 +4,7 @@ import Subheader from "@panel/components/Subheader";
 import Table, { DefaultCell } from "@panel/components/Table";
 import Cell from "@panel/components/Table/Cell";
 import GenresItem from "@panel/components/GenresList/GenreItem";
-import { getMovies } from "./api";
+import { getMovies } from "@panel/api/movies.api";
 import * as config from "./config";
 import style from "./style.css";
 

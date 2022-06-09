@@ -6,6 +6,12 @@ export const getMovie = (id) => {
 	});
 };
 
+export const getMovies = () => {
+	return XHR.get({
+		url: "/admin/movies/",
+	});
+};
+
 export const createMovie = (data) => {
 	const {
 		title,
