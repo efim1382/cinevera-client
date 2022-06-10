@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useState } from "react";
 import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Icon from "components/Icon";
 import Form from "components/Form/Form";
 import Input from "components/Form/Input";
@@ -58,12 +58,40 @@ const Header = ({ className }) => {
 				</div>
 			)}
 
-			<div className={style.dropdown_wrapper}>
-				<button className={style.add_button}>
-					<Icon name="add" />
-				</button>
+			<button className={style.add_button}>
+				<Icon name="add" />
+			</button>
 
-				<div className={style.dropdown}></div>
+			<div className={style.dropdown_wrapper}>
+				<div className={style.triangle} />
+
+				<div className={style.dropdown}>
+
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="delete" />
+						<span>Delete Delete DeleteDelete</span>
+					</NavLink>
+
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="delete" />
+						<span>Delete</span>
+					</NavLink>
+
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="delete" />
+						<span>Delete</span>
+					</NavLink>
+
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="delete" />
+						<span>Delete</span>
+					</NavLink>
+
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="delete" />
+						<span>Delete</span>
+					</NavLink>
+				</div>
 			</div>
 
 			{isTitleEditable && (
