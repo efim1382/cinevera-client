@@ -67,8 +67,8 @@
 		}
 
 		& .add_button {
-			--button-size: 80px;
-			--icon-size: 30px;
+			--button-size: 60px;
+			--icon-size: 26px;
 			--icon-color: var(--primary-color);
 			display: flex;
 			align-items: center;
