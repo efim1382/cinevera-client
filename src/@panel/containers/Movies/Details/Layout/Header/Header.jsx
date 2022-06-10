@@ -58,6 +58,14 @@ const Header = ({ className }) => {
 				</div>
 			)}
 
+			<div className={style.dropdown_wrapper}>
+				<button className={style.add_button}>
+					<Icon name="add" />
+				</button>
+
+				<div className={style.dropdown}></div>
+			</div>
+
 			{isTitleEditable && (
 				<Form
 					onSubmit={onTitleSubmit}
