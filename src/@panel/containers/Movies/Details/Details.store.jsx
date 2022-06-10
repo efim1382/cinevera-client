@@ -16,7 +16,7 @@ const MovieDetailsProvider = (props) => {
 	 * Movies details object
 	 * @type object
 	 */
-	const [data, setData] = useState(null);
+	const [data, setData] = useState({});
 
 	/**
 	 * is first data fetch done

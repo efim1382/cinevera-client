@@ -54,6 +54,7 @@ export const updateMovie = (id, data) => {
 		ageLimit,
 		posterUrl,
 		backgroundUrl,
+		cast,
 	} = data;
 
 	return XHR.patch({
@@ -67,6 +68,7 @@ export const updateMovie = (id, data) => {
 			ageLimit,
 			posterUrl,
 			backgroundUrl,
+			cast,
 		},
 	});
 };
