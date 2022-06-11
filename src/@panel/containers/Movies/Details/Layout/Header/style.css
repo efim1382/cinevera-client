@@ -1,7 +1,7 @@
 .header {
 	display: flex;
 	align-items: center;
-	height: 100px;
+	height: var(--header-height);
 	padding-left: var(--layout-padding);
 	padding-right: var(--layout-padding);
 
@@ -58,25 +58,29 @@
 		}
 	}
 
+	& .add_menu_wrapper {
+		--add-button-size: 60px;
+		margin-left: auto;
 
-	& .add_button {
-		--button-size: 60px;
+		&:hover .add_icon {
+			transform: rotate(135deg);
+		}
+
+		& .add_button {
 		--icon-size: 26px;
 		--icon-color: var(--primary-color);
+		position: relative;
+		flex-shrink: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		margin-left: auto;
-		height: var(--button-size);
-		width: var(--button-size);
+		height: var(--add-button-size);
+		width: var(--add-button-size);
 		border-radius: 50%;
 		background-color: #bf1919;
 
-		&:hover > i {
-			transform: rotate(135deg);
-		}
-
-		& i {
+			& i {
 			transition-property: transform;
 		}
 	}
@@ -87,9 +91,10 @@
 	}
 
 	& .dropdown_wrapper {
+		--triangle-size: 10px;
 		position: absolute;
 		z-index: 1;
-		top: 70px;
+		top: calc(((var(--header-height) / 2) + (var(--add-button-size) / 2)) - var(--triangle-size));
 		right: var(--layout-padding);
 		padding-top: 20px;
 		pointer-events: var(--dropdown-pointer-events);
@@ -106,50 +111,57 @@
 			--dropdown-pointer-events: auto;
 		}
 
-		& .triangle {
-			border-left: 5px solid transparent;
-			border-right: 5px solid var(--root-background-color-hover);
-			border-bottom: 5px solid var(--root-background-color-hover);
-		}
-
 		& .dropdown {
+			position: relative;
 			padding-top: 16px;
 			padding-bottom: 16px;
 			border-radius: 4px;
 			background-color: var(--root-background-color-hover);
 
-			& .dropdown_link {
-				--icon-size: 24px;
-				display: flex;
-				align-items: center;
-				height: 54px;
-				padding-left: var(--layout-padding);
-				padding-right: var(--layout-padding);
-				color: var(--color);
-				background-color: var(--background);
-				transition-property: color, background;
-
-				& i {
-
-				}
-
-				& span {
-					margin-left: 20px;
-				}
-
-				&:not(:hover) {
-					--icon-color: var(--caption-color);
-					--color: var(--caption-color);
-					--background: transparent;
-				}
-
-				&:hover {
-					--icon-color: var(--primary-color);
-					--color: var(--primary-color);
-					--background: #ffffff0d;
-				}
+			&:before {
+				content: "";
+				position: absolute;
+				top: calc(var(--triangle-size) * -1);
+				right: calc((var(--add-button-size) / 2) - var(--triangle-size));
+				width: 0;
+				height: 0;
+				border-left: var(--triangle-size) solid transparent;
+				border-right: var(--triangle-size) solid transparent;
+				border-bottom: var(--triangle-size) solid var(--root-background-color-hover);
 			}
+
+		& .dropdown_link {
+			--icon-size: 26px;
+			display: flex;
+			align-items: center;
+			height: 54px;
+			padding-left: var(--layout-padding);
+			padding-right: var(--layout-padding);
+			color: var(--color);
+			background-color: var(--background);
+			transition-property: color, background;
+
+			& i {
 		}
+
+			& span {
+			margin-left: 20px;
+		}
+
+			&:not(:hover) {
+			--icon-color: var(--caption-color);
+			--color: var(--caption-color);
+			--background: transparent;
+		}
+
+			&:hover {
+			--icon-color: var(--primary-color);
+			--color: var(--primary-color);
+			--background: #ffffff0d;
+		}
+		}
+	}
+	}
 	}
 
 	& .title_form {
