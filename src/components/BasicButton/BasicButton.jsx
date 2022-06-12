@@ -82,7 +82,7 @@ BasicButton.propTypes = {
 	isLoading: PropTypes.bool,
 	isDisabled: PropTypes.bool,
 	text: PropTypes.string,
-	to: PropTypes.string,
+	to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 	appearance: PropTypes.oneOf(["fill", "outline"]),
 	theme: PropTypes.oneOf(["primary", "accent", "translucent"]),
 };

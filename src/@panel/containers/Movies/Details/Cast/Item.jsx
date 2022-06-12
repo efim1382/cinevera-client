@@ -5,15 +5,17 @@ import LoadingRing from "components/LoadingRing";
 import { updateMovie } from "@panel/api/movies.api";
 import { MovieDetailsContext } from "@panel/containers/Movies/Details/Details.store";
 import style from "./style.css";
+import { useParams } from "react-router-dom";
 
 const Item = (props) => {
 	const {
-		id,
+		id: actorId,
 		photo,
 		name,
 		characterName,
 	} = props;
 
+	const { id } = useParams();
 	const [isUpdating, setIsUpdating] = useState(false);
 	const { state, actions } = useContext(MovieDetailsContext);
 	const { data: { cast = [] } } = state;
@@ -22,7 +24,7 @@ const Item = (props) => {
 
 	const deleteCharacter = () => {
 		const filteredCast = cast
-			.filter((item) => item.actor.id !== id)
+			.filter((item) => item.actor.id !== actorId)
 
 			.map((item) => ({
 				...item,

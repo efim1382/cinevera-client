@@ -83,7 +83,7 @@
 			font-size: var(--label-font-size);
 			color: var(--label-color);
 			transform: var(--label-transform);
-			background-color: var(--root-background-color);
+			background-color: var(--input-background-color, var(--root-background-color));
 			transition-property: color, font-size, left, top, transform;
 		}
 
@@ -105,7 +105,7 @@
 			border: none;
 			font-size: var(--default-font-size);
 			color: var(--text-color);
-			background-color: var(--root-background-color);
+			background-color: var(--input-background-color, var(--root-background-color));
 
 			&::placeholder {
 				color: var(--placeholder-color);

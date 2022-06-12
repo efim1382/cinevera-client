@@ -20,7 +20,11 @@ const Cast = () => {
 
 	return (
 		<div className={style.cast}>
-			<BasicButton text="Add" />
+			<BasicButton
+				text="Add"
+				to={{ search: "?add-cast" }}
+				className={style.button}
+			/>
 
 			<div className={style.cast_list}>
 				{cast.map((item) => {
