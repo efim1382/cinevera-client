@@ -15,7 +15,10 @@
 		margin-top: 30px;
 
 		& + .title_section {
+			margin-top: 30px;
+		}
 
+		& .genres + .submit {
 			margin-top: 30px;
 		}
 	}

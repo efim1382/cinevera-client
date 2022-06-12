@@ -5,6 +5,7 @@ import Input from "components/Form/Input";
 import TextField from "components/FormElements/TextField";
 import Textarea from "components/FormElements/Textarea";
 import BasicButton from "components/BasicButton";
+import GenresField from "@panel/components/FormElements/GenresField/GenresField";
 import { MovieDetailsContext } from "@panel/containers/Movies/Details/Details.store";
 import { updateMovie } from "@panel/api/movies.api";
 import style from "./style.css";
@@ -13,6 +14,7 @@ const Overview = () => {
 	const { id } = useParams();
 	const [isDescriptionUpdating, setIsDescriptionUpdating] = useState(false);
 	const [isAdditionalUpdating, setIsAdditionalUpdating] = useState(false);
+	const [isGenresUpdating, setIsGenresUpdating] = useState(false);
 	const { state, actions } = useContext(MovieDetailsContext);
 	const { data } = state;
 
@@ -24,6 +26,10 @@ const Overview = () => {
 	const additionalInitialValues = {
 		year: data?.year ? data.year[0] : "",
 		ageLimit: data?.ageLimit || "",
+	};
+
+	const genresInitialValues = {
+		genres: data?.genres || [],
 	};
 
 	const onDescriptionSubmit = (values) => {
@@ -52,6 +58,21 @@ const Overview = () => {
 
 			.catch((error) => {
 				setIsAdditionalUpdating(false);
+				console.log(error);
+			});
+	};
+
+	const onGenresSubmit = (values) => {
+		setIsGenresUpdating(true);
+
+		updateMovie(id, values)
+			.then(({ movie }) => {
+				actions.setData(movie);
+				setIsGenresUpdating(false);
+			})
+
+			.catch((error) => {
+				setIsGenresUpdating(false);
 				console.log(error);
 			});
 	};
@@ -108,6 +129,25 @@ const Overview = () => {
 					type="submit"
 					text="Update"
 					isLoading={isAdditionalUpdating}
+					className={style.submit}
+				/>
+			</Form>
+
+			<h3 className={style.title_section}>Genres</h3>
+
+			<Form
+				onSubmit={onGenresSubmit}
+				initialValues={genresInitialValues}
+				className={style.form_section}
+			>
+				<Input name="genres">
+					<GenresField className={style.genres} />
+				</Input>
+
+				<BasicButton
+					type="submit"
+					text="Update"
+					isLoading={isGenresUpdating}
 					className={style.submit}
 				/>
 			</Form>
