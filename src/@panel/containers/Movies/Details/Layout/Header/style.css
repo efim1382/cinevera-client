@@ -62,41 +62,42 @@
 		--add-button-size: 60px;
 		margin-left: auto;
 
-		&:hover .add_icon {
-			transform: rotate(135deg);
+		&:hover {
+			--transform: rotate(135deg);
 		}
 
 		& .add_button {
-		--icon-size: 26px;
-		--icon-color: var(--primary-color);
-		position: relative;
-		flex-shrink: 0;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-left: auto;
-		height: var(--add-button-size);
-		width: var(--add-button-size);
-		border-radius: 50%;
-		background-color: #bf1919;
+			--icon-size: 26px;
+			--icon-color: var(--primary-color);
+			position: relative;
+			flex-shrink: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-left: auto;
+			height: var(--add-button-size);
+			width: var(--add-button-size);
+			border-radius: 50%;
+			background-color: #bf1919;
 
 			& i {
-			transition-property: transform;
+				transform: var(--transform);
+				transition-property: transform;
+			}
 		}
-	}
 
-	& .add_button:hover + .dropdown_wrapper {
-		--dropdown-opacity: 1;
-		--dropdown-pointer-events: auto;
-	}
+		& .add_button:hover + .dropdown_wrapper {
+			--dropdown-opacity: 1;
+			--dropdown-pointer-events: auto;
+		}
 
 	& .dropdown_wrapper {
 		--triangle-size: 10px;
 		position: absolute;
 		z-index: 1;
-		top: calc(((var(--header-height) / 2) + (var(--add-button-size) / 2)) - var(--triangle-size));
+		top: var(--add-button-size);
 		right: var(--layout-padding);
-		padding-top: 20px;
+		padding-top: 30px;
 		pointer-events: var(--dropdown-pointer-events);
 		opacity: var(--dropdown-opacity);
 		transition-property: opacity;
@@ -121,8 +122,9 @@
 			&:before {
 				content: "";
 				position: absolute;
-				top: calc(var(--triangle-size) * -1);
-				right: calc((var(--add-button-size) / 2) - var(--triangle-size));
+				bottom: 100%;
+				right: calc(var(--add-button-size) / 2);
+				transform: translateX(50%);
 				width: 0;
 				height: 0;
 				border-left: var(--triangle-size) solid transparent;
@@ -130,39 +132,39 @@
 				border-bottom: var(--triangle-size) solid var(--root-background-color-hover);
 			}
 
-		& .dropdown_link {
-			--icon-size: 26px;
-			display: flex;
-			align-items: center;
-			height: 54px;
-			padding-left: var(--layout-padding);
-			padding-right: var(--layout-padding);
-			color: var(--color);
-			background-color: var(--background);
-			transition-property: color, background;
+			& .dropdown_link {
+				--icon-size: 26px;
+				display: flex;
+				align-items: center;
+				height: 54px;
+				padding-left: var(--layout-padding);
+				padding-right: var(--layout-padding);
+				color: var(--color);
+				background-color: var(--background);
+				transition-property: color, background;
 
-			& i {
-		}
+				& i {
+				}
 
-			& span {
-			margin-left: 20px;
-		}
+				& span {
+				margin-left: 20px;
+				}
 
-			&:not(:hover) {
-			--icon-color: var(--caption-color);
-			--color: var(--caption-color);
-			--background: transparent;
-		}
+				&:not(:hover) {
+				--icon-color: var(--caption-color);
+				--color: var(--caption-color);
+				--background: transparent;
+				}
 
-			&:hover {
-			--icon-color: var(--primary-color);
-			--color: var(--primary-color);
-			--background: #ffffff0d;
-		}
+				&:hover {
+				--icon-color: var(--primary-color);
+				--color: var(--primary-color);
+				--background: #ffffff0d;
+				}
+			}
 		}
 	}
-	}
-	}
+}
 
 	& .title_form {
 		display: flex;
