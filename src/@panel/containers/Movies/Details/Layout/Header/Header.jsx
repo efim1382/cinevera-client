@@ -63,34 +63,16 @@ const Header = ({ className }) => {
 					<Icon name="add" className={style.add_icon} />
 				</button>
 
-				<div className={style.dropdown_wrapper}>
+				<div className={style.dropdown}>
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="add" />
+						<span>Add movie</span>
+					</NavLink>
 
-					<div className={style.dropdown}>
-						<NavLink to="/" className={style.dropdown_link}>
-							<Icon name="add" />
-							<span>Add movie</span>
-						</NavLink>
-
-						<NavLink to="/" className={style.dropdown_link}>
-							<Icon name="delete_forever" />
-							<span>Delete</span>
-						</NavLink>
-
-						<NavLink to="/" className={style.dropdown_link}>
-							<Icon name="delete_forever" />
-							<span>Delete</span>
-						</NavLink>
-
-						<NavLink to="/" className={style.dropdown_link}>
-							<Icon name="delete_forever" />
-							<span>Delete</span>
-						</NavLink>
-
-						<NavLink to="/" className={style.dropdown_link}>
-							<Icon name="delete_forever" />
-							<span>Delete</span>
-						</NavLink>
-					</div>
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="delete_forever" />
+						<span>Delete</span>
+					</NavLink>
 				</div>
 			</div>
 
