@@ -10,6 +10,7 @@
 		display: flex;
 		align-items: center;
 		min-width: 0;
+		flex-shrink: 0;
 		margin-left: -16px;
 		padding-left: 16px;
 		padding-right: 12px;
@@ -60,9 +61,10 @@
 
 	& .add_menu_wrapper {
 		--add-button-size: 60px;
-		flex-shrink: 0;
 		position: relative;
+		flex-shrink: 0;
 		margin-left: auto;
+
 
 		&:hover {
 			--transform: rotate(135deg);
