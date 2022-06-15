@@ -86,47 +86,118 @@
 		}
 	}
 
-	& .profile {
-		display: flex;
-		align-items: center;
-		height: 70px;
-		padding-left: var(--layout-padding);
-		padding-right: var(--layout-padding);
+	& .dropdown_wrapper {
+		position: relative;
 
 		&:not(:hover) {
 			--icon-color: var(--divider-color);
 		}
 
 		&:hover {
+			--transform: rotate(180deg);
 			--icon-color: var(--primary-color);
+
 		}
 
-		& .avatar {
-			--avatar-size: 40px;
-			flex-shrink: 0;
-			height: var(--avatar-size);
-			width: var(--avatar-size);
-			border-radius: 50%;
-			background-image: url("./images/Yurii.JPG");
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
+
+		& .profile {
+			display: flex;
+			align-items: center;
+			height: 70px;
+			padding-left: var(--layout-padding);
+			padding-right: var(--layout-padding);
+
+
+			& .avatar {
+				--avatar-size: 40px;
+				flex-shrink: 0;
+				height: var(--avatar-size);
+				width: var(--avatar-size);
+				border-radius: 50%;
+				background-image: url("./images/Yurii.JPG");
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+
+			& .name {
+				margin-left: 16px;
+				padding-right: 12px;
+				color: var(--primary-color);
+				font-size: var(--default-font-size);
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				overflow: hidden;
+			}
+
+			& i {
+				--icon-size: 24px;
+				flex-shrink: 0;
+				margin-left: auto;
+				transform: var(--transform);
+				transition-property: transform;
+			}
 		}
 
-		& .name {
-			margin-left: 16px;
-			padding-right: 12px;
-			color: var(--primary-color);
-			font-size: var(--default-font-size);
-			text-overflow: ellipsis;
-			white-space: nowrap;
-			overflow: hidden;
-		}
+		& .profile:hover + .dropdown {
+			--dropdown-opacity: 1;
+			--dropdown-pointer-events: auto;
+		} 
 
-		& i {
-			--icon-size: 24px;
-			flex-shrink: 0;
-			margin-left: auto;
+		& .dropdown {
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			right: 0;
+			padding-top: 12px;
+			padding-bottom: 12px;
+			background-color: var(--root-background-color-hover);
+			opacity: var(--dropdown-opacity);
+			pointer-events: var(--dropdown-pointer-events);
+			transition-property: opacity;
+
+			&:not(:hover) {
+				--dropdown-opacity: 0;
+				--dropdown-pointer-events: none;
+			}
+
+			&:hover {
+				--dropdown-opacity: 1;
+				--dropdown-pointer-events: auto;
+				--transform: rotate(180deg);
+			}
+
+			& .profile_link {
+				display: flex;
+				align-items: center;
+				height: 54px;
+				padding-left: var(--layout-padding);
+				padding-right: var(--layout-padding);
+				color: var(--color);
+				transition-property: color;
+
+				&:not(:hover) {
+					--color: var(--caption-color);
+					--icon-color: var(--caption-color);
+				}
+
+				&:hover {
+					--color: var(--primary-color);
+					--icon-color: var(--primary-color);
+				}
+
+				& i {
+					--icon-size: 24px;
+					flex-shrink: 0;
+				}
+
+				& span {
+					margin-left: 20px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+			}
 		}
 	}
 }
