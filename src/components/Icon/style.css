@@ -62,6 +62,10 @@
   mask-image: url('./icons/people.svg');
 }
 
+.icon[data-icon="frends"] {
+  mask-image: url('./icons/frends.svg');
+}
+
 .icon[data-icon="search"] {
   mask-image: url('./icons/search.svg');
 }
@@ -188,6 +192,10 @@
 
 .icon[data-icon="live_tv"] {
   mask-image: url('./icons/live_tv.svg');
+}
+
+.icon[data-icon="location"] {
+  mask-image: url('./icons/location.svg');
 }
 
 .icon[data-icon="replay"] {

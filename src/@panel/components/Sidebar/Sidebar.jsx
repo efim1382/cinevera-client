@@ -39,11 +39,35 @@ const Sidebar = ({ className }) => {
 				</NavLink>
 			</nav>
 
-			<button className={style.profile}>
-				<div className={style.avatar} />
-				<span className={style.name}>Yurii Korbat</span>
-				<Icon name="expand_more" />
-			</button>
+			<div className={style.dropdown_wrapper}>
+				<button className={style.profile}>
+					<div className={style.avatar} />
+					<span className={style.name}>Yurii Korbat</span>
+					<Icon name="expand_more" />
+				</button>
+
+				<div className={style.dropdown}>
+					<NavLink to="/" className={style.profile_link}>
+						<Icon name="account_circle" />
+						<span>Profile</span>
+					</NavLink>
+
+					<NavLink to="/" className={style.profile_link}>
+						<Icon name="settings" />
+						<span>Edit profile</span>
+					</NavLink>
+
+					<NavLink to="/" className={style.profile_link}>
+						<Icon name="frends" />
+						<span>Frends</span>
+					</NavLink>
+
+					<NavLink to="/" className={style.profile_link}>
+						<Icon name="location" />
+						<span>My location</span>
+					</NavLink>
+				</div>
+			</div>
 		</div>
 	);
 };
