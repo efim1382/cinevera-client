@@ -30,6 +30,10 @@
   mask-image: url('./icons/facebook.svg');
 }
 
+.icon[data-icon="delete_forever"] {
+	mask-image: url('./icons/delete_forever.svg');
+}
+
 .icon[data-icon="google-plus"] {
   mask-image: url('./icons/google-plus.svg');
 }

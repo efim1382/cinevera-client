@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useState } from "react";
 import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Icon from "components/Icon";
 import Form from "components/Form/Form";
 import Input from "components/Form/Input";
@@ -58,12 +58,22 @@ const Header = ({ className }) => {
 				</div>
 			)}
 
-			<div className={style.dropdown_wrapper}>
+			<div className={style.add_menu_wrapper}>
 				<button className={style.add_button}>
-					<Icon name="add" />
+					<Icon name="add" className={style.add_icon} />
 				</button>
 
-				<div className={style.dropdown}></div>
+				<div className={style.dropdown}>
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="add" />
+						<span>Add movie</span>
+					</NavLink>
+
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="delete_forever" />
+						<span>Delete</span>
+					</NavLink>
+				</div>
 			</div>
 
 			{isTitleEditable && (
