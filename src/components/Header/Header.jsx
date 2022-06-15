@@ -83,6 +83,66 @@ const Header = ({ isTransparent, className }) => {
 							<Icon name="bell" />
 						</button>
 
+						<div className={style.notification_dropdown}>
+
+							<div className={style.subheader_notification}>
+								<span>Notification</span>
+								<button className={style.mark_button}>
+									<Icon name="done_all" />
+									<span>Mark as read</span>
+								</button>
+							</div>
+
+							<NavLink to="/" className={style.notification_link}>
+								<div className={style.circle}></div>
+
+								<div className={style.notification_info}>
+									<div className={style.description}>
+										<p>Your password has been successfully changed.</p>
+										<span>Jun 1, at 12:00 PM</span>
+									</div>
+
+									<div className={style.icon_block}>
+										<Icon name="lock" />
+									</div>
+								</div>
+							</NavLink>
+
+							<NavLink to="/" className={style.notification_link}>
+								<div className={style.circle}></div>
+
+								<div className={style.notification_info}>
+									<div className={style.description}>
+										<p>User "efim 1488" reacted to your comment.</p>
+										<span>May 5, at 18:90 PM</span>
+									</div>
+
+									<div className={style.icon_block}>
+										<div className={style.avatar}></div>
+									</div>
+								</div>
+							</NavLink>
+
+							<NavLink to="/" className={style.notification_link}>
+								<div className={style.circle}></div>
+
+								<div className={style.notification_info}>
+									<div className={style.description}>
+										<p>Your subscription will end soon. Click to extend.</p>
+										<span>Jun 1, at 12:00 PM</span>
+									</div>
+
+									<div className={style.icon_block}>
+										<Icon name="subscriptions" />
+									</div>
+								</div>
+							</NavLink>
+
+							<div className={style.subfooter_notification}>
+								<NavLink to="/">View all notifications</NavLink>
+							</div>
+						</div>
+
 						<NavLink to="/profile" className={style.button}>
 							<div className={style.avatar} />
 						</NavLink>

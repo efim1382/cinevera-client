@@ -34,6 +34,10 @@
 	mask-image: url('./icons/delete_forever.svg');
 }
 
+.icon[data-icon="done_all"] {
+  mask-image: url('./icons/done_all.svg');
+}
+
 .icon[data-icon="google-plus"] {
   mask-image: url('./icons/google-plus.svg');
 }
@@ -146,6 +150,10 @@
   mask-image: url('./icons/sort.svg');
 }
 
+.icon[data-icon="subscriptions"] {
+  mask-image: url('./icons/subscriptions.svg');
+}
+
 .icon[data-icon="logout"] {
 	mask-image: url('./icons/logout.svg');
 }
@@ -212,6 +220,18 @@
 
 .icon[data-icon="info"] {
 	mask-image: url('./icons/info.svg');
+}
+
+.icon[data-icon="twitter"] {
+  mask-image: url('./icons/twitter.svg');
+}
+
+.icon[data-icon="instagram"] {
+  mask-image: url('./icons/instagram.svg');
+}
+
+.icon[data-icon="telegram"] {
+  mask-image: url('./icons/telegram.svg');
 }
 
 .story_icon {

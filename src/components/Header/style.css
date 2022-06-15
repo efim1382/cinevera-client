@@ -131,6 +131,175 @@
 				}
 			}
 
+			& .button:hover + .notification_dropdown {
+				--notification-opacity: 1;
+				--notification-pointer-events: auto;
+			}
+
+			& .notification_dropdown {
+				position: absolute;
+				top: calc((var(--header-height) + var(--button-size)) / 2);
+				right: var(--layout-padding);
+				display: flex;
+				flex-direction: column;
+				padding-top: 30px;
+				padding-bottom: 30px;
+				background-color: var(--root-background-color-hover);
+				opacity: var(--notification-opacity);
+				pointer-events: var(--notification-pointer-events);
+				transition-property: opacity;
+
+				&:not(:hover) {
+					--notification-opacity: 0;
+					--notification-pointer-events: none;
+				}
+
+				&:hover {
+					--notification-opacity: 1;
+					--notification-pointer-events: auto;
+				}
+
+				& .subheader_notification {
+					display: flex;
+					align-items: center;
+					padding-left: var(--layout-padding);
+					padding-right: var(--layout-padding);
+
+					& span {
+						margin-right: auto;
+					}
+
+					& .mark_button {
+						--icon-size: 16px;
+						display: flex;
+						align-items: center;
+						margin-left: 16px;
+						color: var(--color);
+						font-size: 14px;
+						transition-property: color;
+
+						&:not(:hover) {
+							--color: var(--caption-color);
+							--icon-color: var(--caption-color);
+						}
+
+						&:hover {
+							--color: var(--accent-color-hover);
+							--icon-color: var(--accent-color-hover);
+						}
+
+						& span {
+							margin-left: 4px;
+						}
+
+						& i {
+							flex-shrink: 0;
+						}
+					}
+				}
+
+				& .notification_link {
+					display: flex;
+					padding-left: var(--layout-padding);
+					padding-right: var(--layout-padding);
+					padding-top: 12px;
+					padding-bottom: 12px;
+					color: var(--color);
+					background-color: var(--background-hover);
+					transition-property: color, background-color;
+
+					&:not(:hover) {
+						--color: var(--caption-color);
+						--icon-color: var(--caption-color);
+						--circle: var(--caption-color);
+						--background-hover: transparent;
+					}
+
+					&:hover {
+						--color: var(--primary-color);
+						--icon-color: var(--primary-color);
+						--circle: var(--primary-color);
+						--background-hover: #8483831c;
+					}
+
+					&:first-of-type {
+						margin-top: 16px;
+					}
+
+					& i {
+						flex-shrink: 0;
+						margin-left: auto;
+						margin-right: auto;
+					}
+
+					& .circle {
+						flex-shrink: 0;
+						width: 8px;
+						height: 8px;
+						border-radius: 50%;
+						margin-top: calc((var(--default-font-size) * 1.5) / 2);
+						transform: translateY(-50%);
+						background-color: var(--circle);
+						transition-property: background-color;
+					}
+
+					& .notification_info {
+						flex-grow: 1;
+						display: flex;
+						align-items: center;
+						margin-left: 16px;
+
+						& .description {
+							margin-right: auto;
+						}
+
+						& span {
+							font-size: 14px;
+							color: #9e9e9e;
+						}
+
+						& .avatar {
+							flex-shrink: 0;
+							width: 40px;
+							height: 40px;
+							border-radius: 50%;
+							margin-left: auto;
+							margin-right: auto;
+							background-image: url("https://st2.depositphotos.com/1006318/5909/v/450/depositphotos_59094043-stock-illustration-profile-icon-male-avatar.jpg");
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						}
+
+						& .icon_block {
+							--icon-size: 28px;
+							margin-left: 50px;
+							width: 50px;
+						}
+					}
+				}
+
+				& .subfooter_notification {
+					margin-top: 16px;
+					padding-left: var(--layout-padding);
+					padding-right: var(--layout-padding);
+					transition-property: color;
+
+					& a {
+						color: var(--color);
+						transition-property: color;
+
+						&:not(:hover) {
+							--color: var(--caption-color);
+						}
+
+						&:hover {
+							--color: var(--primary-color);
+						}
+					}
+				}
+			}
+
 			& .button:hover + .user_dropdown {
 				--profile-dropdown-opacity: 1;
 				--profile-dropdown-pointer-events: auto;
@@ -138,8 +307,8 @@
 
 			& .user_dropdown {
 				position: absolute;
-				right: 0;
 				top: 0;
+				right: 0;
 				padding-bottom: calc((var(--header-height) - var(--button-size)) / 2);
 				background-color: var(--root-background-color-hover);
 				opacity: var(--profile-dropdown-opacity);
