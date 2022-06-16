@@ -6,6 +6,7 @@
 	padding-right: var(--layout-padding);
 
 	& .title_wrapper {
+		--title-height: 58px;
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -13,7 +14,6 @@
 		flex-shrink: 0;
 		margin-left: -16px;
 		padding-left: 16px;
-		padding-right: 12px;
 		border-radius: 3px;
 		cursor: text;
 		box-shadow: 0 0 0 1px var(--title-border-color) inset;
@@ -21,18 +21,15 @@
 
 		&:not(:hover) {
 			--title-border-color: transparent;
-			--edit-opacity: 0;
 		}
 
 		&:hover {
 			--title-border-color: #5a5a5a;
-			--edit-opacity: 1;
 		}
 
 		& .title {
-			--height: 58px;
-			height: var(--height);
-			line-height: var(--height);
+			height: var(--title-height);
+			line-height: var(--title-height);
 			font-weight: var(--font-weight-semibold);
 			color: var(--text-color);
 			font-size: 28px;
@@ -43,10 +40,10 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			width: 30px;
-			height: 100%;
-			margin-left: 16px;
-			opacity: var(--edit-opacity);
+			margin-left: 12px;
+			padding-left: 12px;
+			padding-right: 12px;
+			height: var(--title-height);
 			transition-property: opacity;
 
 			&:not(:hover) {

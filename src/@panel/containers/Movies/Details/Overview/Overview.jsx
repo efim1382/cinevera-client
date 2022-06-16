@@ -1,156 +1,105 @@
-import React, { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
-import Form from "components/Form/Form";
-import Input from "components/Form/Input";
-import TextField from "components/FormElements/TextField";
-import Textarea from "components/FormElements/Textarea";
-import BasicButton from "components/BasicButton";
-import GenresField from "@panel/components/FormElements/GenresField/GenresField";
+import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import Icon from "components/Icon";
+import LoadingRing from "components/LoadingRing";
+import GenreItem from "@panel/components/GenreItem";
 import { MovieDetailsContext } from "@panel/containers/Movies/Details/Details.store";
-import { updateMovie } from "@panel/api/movies.api";
 import style from "./style.css";
 
 const Overview = () => {
-	const { id } = useParams();
-	const [isDescriptionUpdating, setIsDescriptionUpdating] = useState(false);
-	const [isAdditionalUpdating, setIsAdditionalUpdating] = useState(false);
-	const [isGenresUpdating, setIsGenresUpdating] = useState(false);
-	const { state, actions } = useContext(MovieDetailsContext);
+	const { state } = useContext(MovieDetailsContext);
 	const { data } = state;
 
-	const descriptionInitialValues = {
-		shortDescription: data?.shortDescription || "",
-		fullDescription: data?.fullDescription || "",
-	};
+	const {
+		shortDescription,
+		fullDescription,
+		year,
+		ageLimit = 0,
+		genres = [],
+		cast = [],
+	} = data;
 
-	const additionalInitialValues = {
-		year: data?.year ? data.year[0] : "",
-		ageLimit: data?.ageLimit || "",
-	};
-
-	const genresInitialValues = {
-		genres: data?.genres || [],
-	};
-
-	const onDescriptionSubmit = (values) => {
-		setIsDescriptionUpdating(true);
-
-		updateMovie(id, values)
-			.then(({ movie }) => {
-				actions.setData(movie);
-				setIsDescriptionUpdating(false);
-			})
-
-			.catch((error) => {
-				setIsDescriptionUpdating(false);
-				console.log(error);
-			});
-	};
-
-	const onAdditionalSubmit = (values) => {
-		setIsAdditionalUpdating(true);
-
-		updateMovie(id, values)
-			.then(({ movie }) => {
-				actions.setData(movie);
-				setIsAdditionalUpdating(false);
-			})
-
-			.catch((error) => {
-				setIsAdditionalUpdating(false);
-				console.log(error);
-			});
-	};
-
-	const onGenresSubmit = (values) => {
-		setIsGenresUpdating(true);
-
-		updateMovie(id, values)
-			.then(({ movie }) => {
-				actions.setData(movie);
-				setIsGenresUpdating(false);
-			})
-
-			.catch((error) => {
-				setIsGenresUpdating(false);
-				console.log(error);
-			});
-	};
+	const formattedYear = year ? year[0] : "";
 
 	return (
 		<div className={style.overview}>
-			<h3 className={style.title_section}>Description</h3>
+			<section className={style.section}>
+				<h3 className={style.subtitle}>Information</h3>
 
-			<Form
-				onSubmit={onDescriptionSubmit}
-				initialValues={descriptionInitialValues}
-				className={style.form_section}
-			>
-				<Input name="shortDescription">
-					<TextField
-						label="Short description"
-					/>
-				</Input>
+				<div className={style.details_info}>
+					<div className={style.row}>
+						<p className={style.label}>Status</p>
+						<p className={style.value}>Available</p>
+					</div>
 
-				<Input name="fullDescription">
-					<Textarea
-						label="Full description"
-					/>
-				</Input>
+					<div className={style.row}>
+						<p className={style.label}>Year</p>
+						<p className={style.value}>{formattedYear}</p>
+					</div>
 
-				<BasicButton
-					type="submit"
-					text="Update"
-					isLoading={isDescriptionUpdating}
-					className={style.submit}
-				/>
-			</Form>
+					<div className={style.row}>
+						<p className={style.label}>Age Rating</p>
+						<p className={style.value}>{ageLimit}+</p>
+					</div>
+				</div>
+			</section>
 
-			<h3 className={style.title_section}>More information</h3>
+			<section className={style.section}>
+				<h3 className={style.subtitle}>Poster Description</h3>
+				<p className={style.text}>{shortDescription}</p>
+			</section>
 
-			<Form
-				onSubmit={onAdditionalSubmit}
-				initialValues={additionalInitialValues}
-				className={style.form_section}
-			>
-				<Input name="year">
-					<TextField
-						label="Year"
-					/>
-				</Input>
+			<section className={style.section}>
+				<h3 className={style.subtitle}>Full Description</h3>
+				<p className={style.text}>{fullDescription}</p>
+			</section>
 
-				<Input name="ageLimit">
-					<TextField
-						label="Age Rating"
-					/>
-				</Input>
+			<section className={style.section}>
+				<h3 className={style.subtitle}>Genres</h3>
 
-				<BasicButton
-					type="submit"
-					text="Update"
-					isLoading={isAdditionalUpdating}
-					className={style.submit}
-				/>
-			</Form>
+				<div className={style.genres}>
+					{genres.map((code) => (
+						<GenreItem key={code} code={code} />
+					))}
+				</div>
+			</section>
 
-			<h3 className={style.title_section}>Genres</h3>
+			<section className={style.section}>
+				<h3 className={style.subtitle}>Top Cast</h3>
 
-			<Form
-				onSubmit={onGenresSubmit}
-				initialValues={genresInitialValues}
-				className={style.form_section}
-			>
-				<Input name="genres">
-					<GenresField className={style.genres} />
-				</Input>
+				<div className={style.cast_list}>
+					<NavLink to={{ search: "?add-cast" }} className={style.item}>
+						<div className={style.empty_photo}>
+							<Icon name="add" />
+						</div>
 
-				<BasicButton
-					type="submit"
-					text="Update"
-					isLoading={isGenresUpdating}
-					className={style.submit}
-				/>
-			</Form>
+						<p className={style.add_text}>Add actor</p>
+					</NavLink>
+
+					{cast.map((item) => {
+						const inline = { backgroundImage: `url(${item.actor.photo})` };
+
+						return (
+							<div key={item.actor.id} className={style.item}>
+								<div className={style.photo} style={inline} />
+
+								<div className={style.information}>
+									<p className={style.name}>{item.actor.name}</p>
+									<p className={style.character}>{item.characterName}</p>
+								</div>
+
+								<button type="button" className={style.delete} onClick={() => {}}>
+									<Icon name="delete" />
+
+									{false && (
+										<LoadingRing isShown className={style.loading} />
+									)}
+								</button>
+							</div>
+						);
+					})}
+				</div>
+			</section>
 		</div>
 	);
 };

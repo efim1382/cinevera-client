@@ -1,11 +1,7 @@
 .footer {
 	display: flex;
-	margin-top: 40px;
+	padding: 60px var(--layout-padding);
 	background-color: var(--root-background-color-hover);
-	padding-left: var(--layout-padding);
-	padding-right: var(--layout-padding);
-	padding-top: 60px;
-	padding-bottom: 60px;
 
 	@media (--viewport-tablet) {
 		display: block;

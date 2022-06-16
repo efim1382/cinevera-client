@@ -58,24 +58,6 @@ const Header = ({ className }) => {
 				</div>
 			)}
 
-			<div className={style.add_menu_wrapper}>
-				<button className={style.add_button}>
-					<Icon name="add" className={style.add_icon} />
-				</button>
-
-				<div className={style.dropdown}>
-					<NavLink to="/" className={style.dropdown_link}>
-						<Icon name="add" />
-						<span>Add movie</span>
-					</NavLink>
-
-					<NavLink to="/" className={style.dropdown_link}>
-						<Icon name="delete_forever" />
-						<span>Delete</span>
-					</NavLink>
-				</div>
-			</div>
-
 			{isTitleEditable && (
 				<Form
 					onSubmit={onTitleSubmit}
@@ -107,6 +89,24 @@ const Header = ({ className }) => {
 					)}
 				</Form>
 			)}
+
+			<div className={style.add_menu_wrapper}>
+				<button className={style.add_button}>
+					<Icon name="add" className={style.add_icon} />
+				</button>
+
+				<div className={style.dropdown}>
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="add" />
+						<span>Add movie</span>
+					</NavLink>
+
+					<NavLink to="/" className={style.dropdown_link}>
+						<Icon name="delete_forever" />
+						<span>Delete</span>
+					</NavLink>
+				</div>
+			</div>
 		</div>
 	);
 };
