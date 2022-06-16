@@ -22,7 +22,6 @@ const Layout = () => {
 			<nav className={style.tabs}>
 				<NavLink to={`/panel/movies/${id}/`} className={linkClassName}>Overview</NavLink>
 				<NavLink to={`/panel/movies/${id}/design/`} className={linkClassName}>Design</NavLink>
-				<NavLink to={`/panel/movies/${id}/cast/`} className={linkClassName}>Cast</NavLink>
 			</nav>
 
 			<div className={style.content}>
