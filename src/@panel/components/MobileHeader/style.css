@@ -1,0 +1,38 @@
+.mobile_header {
+	display: flex;
+	align-items: center;
+	height: var(--header-height);
+	padding-left: var(--layout-padding);
+	padding-right: var(--layout-padding);
+	background-color: transparent;
+	pointer-events: none;
+
+	@media (--viewport-laptop) {
+		background-color: #000;
+		pointer-events: auto;
+	}
+
+	& .logo_container {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		height: 80px;
+		padding-left: var(--layout-padding);
+
+		& .logo {
+			color: var(--primary-color);
+			font-weight: var(--font-weight-bold);
+			font-size: 18px;
+
+			& span {
+				color: var(--accent-color-hover);
+				font-weight: var(--font-weight-regular);
+			}
+		}
+	}
+
+	& .menu_button {
+		--icon-size: 28px;
+		--icon-color: var(--primary-color);
+	}
+}

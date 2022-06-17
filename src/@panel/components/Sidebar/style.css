@@ -58,7 +58,6 @@
 				--icon-color: var(--primary-color);
 			}
 
-
 			& i {
 				--icon-size: 24px;
 				flex-shrink: 0;
@@ -96,9 +95,7 @@
 		&:hover {
 			--transform: rotate(180deg);
 			--icon-color: var(--primary-color);
-
 		}
-
 
 		& .profile {
 			display: flex;

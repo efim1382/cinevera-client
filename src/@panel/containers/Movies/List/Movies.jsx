@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import MobileHeader from "@panel/components/MobileHeader";
 import Subheader from "@panel/components/Subheader";
 import Table, { DefaultCell } from "@panel/components/Table";
 import Cell from "@panel/components/Table/Cell";
@@ -88,6 +89,9 @@ const Movies = () => {
 
 	return (
 		<main className={style.movies}>
+
+			<MobileHeader className={style.mobile_header} />
+
 			<Subheader
 				title="Movies list"
 				to="/panel/movies/new/"
