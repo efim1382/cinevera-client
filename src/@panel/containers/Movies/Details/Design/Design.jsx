@@ -1,62 +1,80 @@
 import React, { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
-import Input from "components/Form/Input";
-import TextField from "components/FormElements/TextField";
 import BasicButton from "components/BasicButton";
-import Form from "components/Form/Form";
-import { updateMovie } from "@panel/api/movies.api";
+import ChangeImagePopup from "./ChangeImagePopup";
 import { MovieDetailsContext } from "@panel/containers/Movies/Details/Details.store";
 import style from "./style.css";
 
-const Design = () => {
-	const { id } = useParams();
+const POSTER_FIELD_NAME = "posterUrl";
+const BACKGROUND_FIELD_NAME = "backgroundUrl";
 
-	const { state, actions } = useContext(MovieDetailsContext);
+const Design = () => {
+	const [editableImageName, setEditableImageName] = useState("");
+	const { state } = useContext(MovieDetailsContext);
 	const { data } = state;
 
-	const [isUpdating, setIsUpdating] = useState(false);
+	const posterInline = { backgroundImage: `url(${data.posterUrl})` };
+	const backgroundInline = { backgroundImage: `url(${data.backgroundUrl})` };
 
-	const initialValues = {
-		posterUrl: data?.posterUrl || "",
-		backgroundUrl: data?.backgroundUrl || "",
-	};
-
-	const onSubmit = (values) => {
-		setIsUpdating(true);
-
-		updateMovie(id, values)
-			.then(({ movie }) => {
-				actions.setData(movie);
-				setIsUpdating(false);
-			})
-
-			.catch((error) => {
-				setIsUpdating(false);
-				console.log(error);
-			});
-	};
+	const changePosterImage = () => setEditableImageName(POSTER_FIELD_NAME);
+	const changeBackgroundImage = () => setEditableImageName(BACKGROUND_FIELD_NAME);
+	const closeChangeImagePopup = () => setEditableImageName("");
 
 	return (
-		<Form onSubmit={onSubmit} initialValues={initialValues} className={style.form_section}>
-			<Input name="posterUrl">
-				<TextField
-					label="Poster"
-				/>
-			</Input>
+		<div className={style.design}>
+			<section className={style.section}>
+				<h3 className={style.subtitle}>Background Image</h3>
 
-			<Input name="backgroundUrl">
-				<TextField
-					label="Background"
-				/>
-			</Input>
+				<p className={style.caption}>
+					This picture will be on the detail page of the movie.
+					<br />
+					We recommend using an image size of at least 1920 x 1080 pixels in JPEG format.
+					Animated pictures cannot be ordered. File size - no more than 4 MB.
+				</p>
 
-			<BasicButton
-				type="submit"
-				text="Update"
-				isLoading={isUpdating}
-				className={style.submit}
-			/>
-		</Form>
+				<div className={style.image} style={backgroundInline}>
+					<div className={style.change_image_wrapper}>
+						<BasicButton
+							appearance="fill"
+							theme="translucent"
+							text="Change Image"
+							onClick={changeBackgroundImage}
+							className={style.button}
+						/>
+					</div>
+				</div>
+			</section>
+
+			<section className={style.section}>
+				<h3 className={style.subtitle}>Poster</h3>
+
+				<p className={style.caption}>
+					This picture will be on a small block of the film.
+					<br />
+					We recommend using an image size of at least 350 x 540 pixels in JPEG format.
+					Animated pictures cannot be ordered. File size - no more than 4 MB.
+				</p>
+
+				<div className={style.poster} style={posterInline}>
+					<div className={style.change_image_wrapper}>
+						<BasicButton
+							appearance="fill"
+							theme="translucent"
+							text="Change Image"
+							onClick={changePosterImage}
+							className={style.button}
+						/>
+					</div>
+				</div>
+			</section>
+
+			{editableImageName && (
+				<ChangeImagePopup
+					onSubmit={() => {}}
+					onClose={closeChangeImagePopup}
+					fieldName={editableImageName}
+				/>
+			)}
+		</div>
 	);
 };
 

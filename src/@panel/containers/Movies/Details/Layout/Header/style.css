@@ -21,10 +21,12 @@
 
 		&:not(:hover) {
 			--title-border-color: transparent;
+			--edit-button-opacity: 0;
 		}
 
 		&:hover {
 			--title-border-color: #5a5a5a;
+			--edit-button-opacity: 1;
 		}
 
 		& .title {
@@ -44,6 +46,7 @@
 			padding-left: 12px;
 			padding-right: 12px;
 			height: var(--title-height);
+			opacity: var(--edit-button-opacity);
 			transition-property: opacity;
 
 			&:not(:hover) {
