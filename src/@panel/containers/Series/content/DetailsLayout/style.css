@@ -1,0 +1,14 @@
+.details {
+	display: flex;
+	flex-direction: column;
+
+	& .header {
+		flex-shrink: 0;
+
+		& + * {
+			flex-grow: 1;
+			overflow-x: hidden;
+			min-height: 0;
+		}
+	}
+}

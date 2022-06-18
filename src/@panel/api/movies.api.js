@@ -75,6 +75,18 @@ export const updateMovie = (id, data) => {
 	});
 };
 
+export const getSeriesDetails = (id) => {
+	return XHR.get({
+		url: `/admin/series/${id}/`,
+	});
+};
+
+export const getSeries = () => {
+	return XHR.get({
+		url: "/admin/series/",
+	});
+};
+
 export const createSeries = (data) => {
 	const {
 		title,

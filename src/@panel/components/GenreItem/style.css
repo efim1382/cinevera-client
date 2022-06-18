@@ -55,7 +55,7 @@
 	}
 
 	&[data-genre="action"] {
-		--color-rgb: 163 83 8;
+		--color-rgb: 255 116 0;
 	}
 
 	&[data-genre="thriller"] {

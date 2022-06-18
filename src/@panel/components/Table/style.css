@@ -71,6 +71,7 @@
 	}
 
 	& .loading {
-		top: var(--headings-height)
+		position: relative;
+		height: calc(var(--row-height) * 2);
 	}
 }

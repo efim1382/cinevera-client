@@ -17,12 +17,13 @@
 		}
 
 		& .more_genres {
-			--height: 24px;
+			--height: 34px;
 			flex-shrink: 0;
+			min-width: var(--height);
 			height: var(--height);
 			margin-left: 12px;
-			padding-left: 8px;
-			padding-right: 8px;
+			padding-left: 10px;
+			padding-right: 10px;
 			line-height: var(--height);
 			border-radius: calc(var(--height) / 2);
 			font-size: 14px;

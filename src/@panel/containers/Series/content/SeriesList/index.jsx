@@ -1,18 +1,16 @@
 import React, { Suspense, lazy } from "react";
 import ManageListSuspense from "@panel/components/ManageListSuspense";
 
-const Series = lazy(() => import(
+const SeriesList = lazy(() => import(
 
 	/* webpackChunkName: "PanelSeriesList" */
-	"./Series"
+	"./SeriesList"
 ));
 
-const App = () => {
+export default () => {
 	return (
 		<Suspense fallback={<ManageListSuspense />}>
-			<Series />
+			<SeriesList />
 		</Suspense>
 	);
 };
-
-export default App;

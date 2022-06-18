@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 import Subheader from "@panel/components/Subheader";
 import Table, { DefaultCell } from "@panel/components/Table";
 import Cell from "@panel/components/Table/Cell";
-import GenresItem from "@panel/components/GenresList/GenreItem";
-import { getSeries } from "./api";
+import GenresItem from "@panel/components/GenreItem";
+import { queryParam } from "@panel/containers/CreateMovieOverlay";
+import { getSeries } from "@panel/api/movies.api";
 import * as config from "./config";
 import { formatSeriesYear } from "helpers/movieHelpers";
 import style from "./style.css";
@@ -20,7 +21,7 @@ export const renderCell = (props) => {
 	if (heading.key === config.KEY_TITLE) {
 		return (
 			<Cell width={heading.width}>
-				<NavLink to="/panel/">{value}</NavLink>
+				<NavLink to={`/panel/series/${data.id}/`}>{value}</NavLink>
 			</Cell>
 		);
 	}
@@ -68,9 +69,11 @@ export const renderCell = (props) => {
 
 renderCell.propTypes = DefaultCell.propTypes;
 
-const Series = () => {
+const SeriesList = () => {
 	const [items, setItems] = useState([]);
 	const [isRequestProcess, setIsRequestProcess] = useState(false);
+
+	const createMovieLink = { search: `?${queryParam}` };
 
 	useEffect(() => {
 		setIsRequestProcess(true);
@@ -93,7 +96,7 @@ const Series = () => {
 		<main className={style.series}>
 			<Subheader
 				title="Series list"
-				to="/panel/series/new/"
+				to={createMovieLink}
 				className={style.subheader}
 			/>
 
@@ -108,4 +111,4 @@ const Series = () => {
 	);
 };
 
-export default Series;
+export default SeriesList;

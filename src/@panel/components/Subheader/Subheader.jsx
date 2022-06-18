@@ -33,7 +33,7 @@ const Subheader = (props) => {
 };
 
 Subheader.propTypes = {
-	to: PropTypes.string,
+	to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 	title: PropTypes.string.isRequired,
 	className: PropTypes.string,
 };
