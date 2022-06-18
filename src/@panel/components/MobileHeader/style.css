@@ -4,20 +4,13 @@
 	height: var(--header-height);
 	padding-left: var(--layout-padding);
 	padding-right: var(--layout-padding);
-	background-color: transparent;
-	pointer-events: none;
-
-	@media (--viewport-laptop) {
-		background-color: #000;
-		pointer-events: auto;
-	}
+	background-color: var(--root-background-color-hover);
 
 	& .logo_container {
 		display: flex;
 		align-items: center;
 		flex-shrink: 0;
 		height: 80px;
-		padding-left: var(--layout-padding);
 
 		& .logo {
 			color: var(--primary-color);
@@ -33,6 +26,15 @@
 
 	& .menu_button {
 		--icon-size: 28px;
-		--icon-color: var(--primary-color);
+		margin-left: auto;
+		transition-property: color;
+
+		&:not(:hover) {
+			--icon-color: var(--caption-color);
+		}
+
+		&:hover {
+			--icon-color: var(--primary-color);
+		}
 	}
 }

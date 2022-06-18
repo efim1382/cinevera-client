@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import Icon from "components/Icon";
 import classnames from "classnames/bind";
@@ -22,6 +23,10 @@ const MobileHeader = ({ className }) => {
 			</button>
 		</div>
 	);
+};
+
+MobileHeader.propTypes = {
+	className: PropTypes.string,
 };
 
 export default MobileHeader;

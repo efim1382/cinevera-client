@@ -4,8 +4,28 @@
 	min-height: 0;
 	height: 100vh;
 
+	@media (--viewport-laptop) {
+		flex-direction: column;
+	}
+
+	& .mobile_header {
+		
+		@media (--viewport-desktop-extra-large) {
+			display: none;
+		}
+
+		@media (--viewport-laptop) {
+			display: flex;
+		}
+	}
+
 	& .sidebar {
 		flex-shrink: 0;
+
+
+		@media (--viewport-laptop) {
+			display: none;
+		}
 	}
 
 	& .sidebar + main,
