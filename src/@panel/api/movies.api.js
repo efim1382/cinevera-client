@@ -55,6 +55,7 @@ export const updateMovie = (id, data) => {
 		posterUrl,
 		backgroundUrl,
 		cast,
+		genres,
 	} = data;
 
 	return XHR.patch({
@@ -69,6 +70,7 @@ export const updateMovie = (id, data) => {
 			posterUrl,
 			backgroundUrl,
 			cast,
+			genres,
 		},
 	});
 };

@@ -65,7 +65,7 @@ export const renderCell = (props) => {
 
 renderCell.propTypes = DefaultCell.propTypes;
 
-const Movies = () => {
+const List = () => {
 	const [items, setItems] = useState([]);
 	const [isRequestProcess, setIsRequestProcess] = useState(false);
 
@@ -105,4 +105,4 @@ const Movies = () => {
 	);
 };
 
-export default Movies;
+export default List;

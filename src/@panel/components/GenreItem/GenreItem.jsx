@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Icon from "components/Icon";
+import LoadingRing from "components/LoadingRing";
 import { getGenreByCode } from "config/genres";
 import classnames from "classnames/bind";
 import style from "./style.css";
@@ -8,7 +9,7 @@ import style from "./style.css";
 const cx = classnames.bind(style);
 
 const GenreItem = (props) => {
-	const { code, onRemove, className } = props;
+	const { code, onRemove, isLoading, className } = props;
 
 	const Component = !onRemove
 		? "div"
@@ -21,20 +22,30 @@ const GenreItem = (props) => {
 	}
 
 	const name = getGenreByCode(code)?.label || code;
-
 	const cxObject = cx("genre", className, { "_is-removable": !!onRemove });
+	const isIconShown = !!onRemove && !isLoading;
+
+	const onClick = () => {
+		if (onRemove) {
+			onRemove(code);
+		}
+	};
 
 	return (
 		<Component
 			data-genre={code}
 			className={cxObject}
-			onClick={onRemove}
+			onClick={onClick}
 			{...additionalProps}
 		>
 			<p>{name}</p>
 
-			{!!onRemove && (
+			{isIconShown && (
 				<Icon name="close" />
+			)}
+
+			{isLoading && (
+				<LoadingRing isShown className={style.loading} />
 			)}
 		</Component>
 	);

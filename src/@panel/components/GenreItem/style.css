@@ -41,6 +41,15 @@
 		transition-property: width, margin-left, opacity, background-color;
 	}
 
+	& > .loading {
+		--spinner-size: var(--icon-size);
+		--line-color: rgb(var(--color-rgb));
+		position: relative;
+		width: var(--icon-size);
+		height: var(--icon-size);
+		margin-left: 12px;
+	}
+
 	&[data-genre="crime"] {
 		--color-rgb: 200 8 8;
 	}

@@ -3,6 +3,7 @@ import { NavLink, useParams } from "react-router-dom";
 import Icon from "components/Icon";
 import LoadingRing from "components/LoadingRing";
 import GenreItem from "@panel/components/GenreItem";
+import AddGenresPopup from "./AddGenresPopup";
 import { updateMovie } from "@panel/api/movies.api";
 import { MovieDetailsContext } from "@panel/containers/Movies/Details/Details.store";
 import style from "./style.css";
@@ -10,6 +11,8 @@ import style from "./style.css";
 const Overview = () => {
 	const { id: movieId } = useParams();
 	const [castRemovingId, setCastRemovingId] = useState(null);
+	const [removingGenreCode, setRemovingGenreCode] = useState(null);
+	const [isAddGenresPopupShown, setIsAddGenresPopupShown] = useState(false);
 	const { state, actions } = useContext(MovieDetailsContext);
 	const { data } = state;
 
@@ -23,6 +26,24 @@ const Overview = () => {
 	} = data;
 
 	const formattedYear = year ? year[0] : "";
+
+	const openAddGenresPopup = () => setIsAddGenresPopupShown(true);
+	const closeAddGenresPopup = () => setIsAddGenresPopupShown(false);
+
+	const removeGenre = (code) => {
+		const filteredGenres =	genres.filter((genre) => genre !== code);
+		setRemovingGenreCode(code);
+
+		updateMovie(movieId, { genres: filteredGenres })
+			.then(({ movie }) => {
+				actions.setData(movie);
+				setRemovingGenreCode(null);
+			})
+			.catch((error) => {
+				setRemovingGenreCode(null);
+				console.log(error);
+			});
+	};
 
 	const removeActor = (id) => {
 		const filteredCast = cast
@@ -83,14 +104,23 @@ const Overview = () => {
 				<h3 className={style.subtitle}>Genres</h3>
 
 				<div className={style.genres}>
-					<button type="button" className={style.add_genre}>
+					<button type="button" className={style.add_genre} onClick={openAddGenresPopup}>
 						<Icon name="add" />
-						<p>Add genre</p>
+						<p>Add genres</p>
 					</button>
 
-					{genres.map((code) => (
-						<GenreItem key={code} code={code} onRemove={() => {}} />
-					))}
+					{genres.map((code) => {
+						const isLoading = code === removingGenreCode;
+
+						return (
+							<GenreItem
+								key={code}
+								code={code}
+								onRemove={removeGenre}
+								isLoading={isLoading}
+							/>
+						);
+					})}
 				</div>
 			</section>
 
@@ -135,6 +165,10 @@ const Overview = () => {
 					})}
 				</div>
 			</section>
+
+			{isAddGenresPopupShown && (
+				<AddGenresPopup onClose={closeAddGenresPopup} />
+			)}
 		</div>
 	);
 };

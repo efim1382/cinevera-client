@@ -1,0 +1,20 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 500px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+
+	& .input {
+		--input-background-color: var(--root-background-color-hover);
+		width: 100%;
+	}
+
+	& .submit {
+		margin-left: auto;
+		margin-top: 30px;
+	}
+}
