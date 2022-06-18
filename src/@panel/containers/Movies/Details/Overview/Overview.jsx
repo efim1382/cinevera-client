@@ -83,8 +83,13 @@ const Overview = () => {
 				<h3 className={style.subtitle}>Genres</h3>
 
 				<div className={style.genres}>
+					<button type="button" className={style.add_genre}>
+						<Icon name="add" />
+						<p>Add genre</p>
+					</button>
+
 					{genres.map((code) => (
-						<GenreItem key={code} code={code} />
+						<GenreItem key={code} code={code} onRemove={() => {}} />
 					))}
 				</div>
 			</section>

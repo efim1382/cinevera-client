@@ -1,17 +1,45 @@
 .genre {
 	--height: 34px;
-	overflow: hidden;
-	display: block;
+	--icon-size: 16px;
+	display: flex;
+	align-items: center;
 	width: fit-content;
 	height: var(--height);
 	padding-left: 16px;
 	padding-right: 16px;
-	line-height: var(--height);
 	border-radius: calc(var(--height) / 2);
 	background-color: rgb(var(--color-rgb) / 20%);
-	color: rgb(var(--color-rgb));
-	white-space: nowrap;
-	text-overflow: ellipsis;
+
+	&:not(:hover) {
+		--icon-opacity: 0;
+		--icon-margin-left: 0;
+		--icon-width: 0;
+	}
+
+	&:hover {
+		--icon-opacity: 1;
+		--icon-margin-left: 12px;
+		--icon-width: var(--icon-size);
+	}
+
+	& > p {
+		flex-grow: 1;
+		overflow: hidden;
+		min-width: 0;
+		font-size: var(--default-font-size);
+		color: rgb(var(--color-rgb));
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	& > i {
+		--icon-color: rgb(var(--color-rgb));
+		flex-shrink: 0;
+		width: var(--icon-width);
+		margin-left: var(--icon-margin-left);
+		opacity: var(--icon-opacity);
+		transition-property: width, margin-left, opacity, background-color;
+	}
 
 	&[data-genre="crime"] {
 		--color-rgb: 200 8 8;
