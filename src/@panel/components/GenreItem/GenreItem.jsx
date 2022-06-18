@@ -54,6 +54,7 @@ const GenreItem = (props) => {
 GenreItem.propTypes = {
 	code: PropTypes.string.isRequired,
 	className: PropTypes.string,
+	isLoading: PropTypes.bool,
 	onRemove: PropTypes.func,
 };
 

@@ -13,6 +13,8 @@ const Overview = () => {
 	const [castRemovingId, setCastRemovingId] = useState(null);
 	const [removingGenreCode, setRemovingGenreCode] = useState(null);
 	const [isAddGenresPopupShown, setIsAddGenresPopupShown] = useState(false);
+	const [isShortDescriptionUpdating, setIsShortDescriptionUpdating] = useState(false);
+	const [isFullDescriptionUpdating, setIsFullDescriptionUpdating] = useState(false);
 	const { state, actions } = useContext(MovieDetailsContext);
 	const { data } = state;
 
@@ -26,6 +28,42 @@ const Overview = () => {
 	} = data;
 
 	const formattedYear = year ? year[0] : "";
+
+	const onShortDescriptionBlur = (event) => {
+		if (!event.target.innerText || event.target.innerText === shortDescription) {
+			return;
+		}
+
+		setIsShortDescriptionUpdating(true);
+
+		updateMovie(movieId, { shortDescription: event.target.innerText })
+			.then(({ movie }) => {
+				actions.setData(movie);
+				setIsShortDescriptionUpdating(false);
+			})
+			.catch((error) => {
+				setIsShortDescriptionUpdating(false);
+				console.log(error);
+			});
+	};
+
+	const onFullDescriptionBlur = (event) => {
+		if (!event.target.innerText || event.target.innerText === fullDescription) {
+			return;
+		}
+
+		setIsFullDescriptionUpdating(true);
+
+		updateMovie(movieId, { fullDescription: event.target.innerText })
+			.then(({ movie }) => {
+				actions.setData(movie);
+				setIsFullDescriptionUpdating(false);
+			})
+			.catch((error) => {
+				setIsFullDescriptionUpdating(false);
+				console.log(error);
+			});
+	};
 
 	const openAddGenresPopup = () => setIsAddGenresPopupShown(true);
 	const closeAddGenresPopup = () => setIsAddGenresPopupShown(false);
@@ -91,13 +129,41 @@ const Overview = () => {
 			</section>
 
 			<section className={style.section}>
-				<h3 className={style.subtitle}>Poster Description</h3>
-				<p className={style.text}>{shortDescription}</p>
+				<div className={style.subtitle_wrapper}>
+					<h3 className={style.subtitle}>Poster Description</h3>
+
+					{isShortDescriptionUpdating && (
+						<LoadingRing isShown className={style.loading} />
+					)}
+				</div>
+
+				<p
+					contentEditable
+					suppressContentEditableWarning
+					onBlur={onShortDescriptionBlur}
+					className={style.text}
+				>
+					{shortDescription}
+				</p>
 			</section>
 
 			<section className={style.section}>
-				<h3 className={style.subtitle}>Full Description</h3>
-				<p className={style.text}>{fullDescription}</p>
+				<div className={style.subtitle_wrapper}>
+					<h3 className={style.subtitle}>Full Description</h3>
+
+					{isFullDescriptionUpdating && (
+						<LoadingRing isShown className={style.loading} />
+					)}
+				</div>
+
+				<p
+					contentEditable
+					suppressContentEditableWarning
+					onBlur={onFullDescriptionBlur}
+					className={style.text}
+				>
+					{fullDescription}
+				</p>
 			</section>
 
 			<section className={style.section}>
@@ -133,7 +199,7 @@ const Overview = () => {
 							<Icon name="add" />
 						</div>
 
-						<p className={style.add_text}>Add actor</p>
+						<p className={style.add_text}>Add Cast</p>
 					</NavLink>
 
 					{cast.map((item) => {
