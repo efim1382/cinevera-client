@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import SeriesList from "./content/SeriesList";
 import Overview from "./content/Overview";
+import Design from "./content/Design";
 import DetailsLayout from "./content/DetailsLayout";
 
 import DetailsStore from "./store/SeriesDetails.store";
@@ -22,6 +23,7 @@ export default () => {
 				}
 			>
 				<Route index exact element={<Overview />} />
+				<Route exact path="design/" element={<Design />} />
 			</Route>
 		</Routes>
 	);

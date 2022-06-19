@@ -1,0 +1,59 @@
+.editable_image {
+	& .caption {
+		max-width: 450px;
+		margin-top: 12px;
+		font-size: 14px;
+		color: #aaa;
+	}
+
+	& .image {
+		position: relative;
+		width: 100%;
+		max-width: var(--max-width);
+		margin-top: 12px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		background-color: var(--root-background-color-hover);
+
+		&[data-type="poster"] {
+			--max-width: 300px;
+			--padding-top: 150%;
+		}
+
+		&[data-type="background"] {
+			--max-width: 800px;
+			--padding-top: 56%;
+		}
+
+		&:not(:hover) {
+			--change-image-opacity: 0;
+		}
+
+		&:hover {
+			--change-image-opacity: 1;
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			padding-top: var(--padding-top);
+		}
+	}
+
+	& .change_image_wrapper {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		display: flex;
+		background-color: rgba(0, 0, 0, 0.6);
+		opacity: var(--change-image-opacity);
+		transition-property: opacity;
+
+		& .button {
+			margin: auto;
+		}
+	}
+}

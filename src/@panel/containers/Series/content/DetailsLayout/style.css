@@ -9,6 +9,7 @@
 			flex-grow: 1;
 			overflow-x: hidden;
 			min-height: 0;
+			padding: var(--layout-padding);
 		}
 	}
 }

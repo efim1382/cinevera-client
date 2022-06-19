@@ -122,3 +122,33 @@ export const createSeries = (data) => {
 		},
 	});
 };
+
+export const updateSeries = (id, data) => {
+	const {
+		title,
+		shortDescription,
+		fullDescription,
+		year,
+		ageLimit,
+		posterUrl,
+		backgroundUrl,
+		cast,
+		genres,
+	} = data;
+
+	return XHR.patch({
+		url: `/admin/series/${id}/`,
+
+		data: {
+			title,
+			shortDescription,
+			fullDescription,
+			year,
+			ageLimit,
+			posterUrl,
+			backgroundUrl,
+			cast,
+			genres,
+		},
+	});
+};
