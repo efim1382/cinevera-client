@@ -32,11 +32,6 @@ const Sidebar = ({ className }) => {
 					<Icon name="live_tv" />
 					<span className={style.caption}>TV Series</span>
 				</NavLink>
-
-				<NavLink to="/panel/users/" className={linkClassName}>
-					<Icon name="people" />
-					<span className={style.caption}>Users</span>
-				</NavLink>
 			</nav>
 
 			<div className={style.dropdown_wrapper}>
