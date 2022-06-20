@@ -1,10 +1,7 @@
 .subheader {
-	--subheader-height: 90px;
 	display: flex;
 	align-items: center;
-	height: var(--subheader-height);
-	padding-left: var(--layout-padding);
-	padding-right: var(--layout-padding);
+	padding: 20px var(--layout-padding);
 
 	& .title {
 		font-weight: var(--font-weight-semibold);
@@ -18,8 +15,8 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		width: var(--subheader-height);
-		height: var(--subheader-height);
+		width: 60px;
+		height: 100%;
 		margin-left: auto;
 
 		&:not(:hover) {
@@ -31,7 +28,7 @@
 		}
 	}
 
-	& .add_movie_button {
+	& .add_button {
 		flex-shrink: 0;
 		margin-left: 12px;
 	}
