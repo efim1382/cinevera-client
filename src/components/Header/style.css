@@ -127,7 +127,6 @@
 				}
 
 				& .avatar {
-
 				}
 			}
 
@@ -139,15 +138,27 @@
 			& .notification_dropdown {
 				position: absolute;
 				top: calc((var(--header-height) + var(--button-size)) / 2);
-				right: var(--layout-padding);
+				right: calc(var(--layout-padding) + var(--button-size));
 				display: flex;
 				flex-direction: column;
+				max-width: 400px;
 				padding-top: 30px;
 				padding-bottom: 30px;
+				border-radius: 3px;
 				background-color: var(--root-background-color-hover);
 				opacity: var(--notification-opacity);
 				pointer-events: var(--notification-pointer-events);
 				transition-property: opacity;
+
+				&:before {
+					content: "";
+					position: absolute;
+					bottom: 100%;
+					left: 0;
+					right: 0;
+					height: calc(var(--button-size) / 2);
+
+				}
 
 				&:not(:hover) {
 					--notification-opacity: 0;
