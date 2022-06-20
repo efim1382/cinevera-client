@@ -8,7 +8,7 @@ const EpisodeDetails = lazy(() => import(
 
 export default (props) => {
 	return (
-		<Suspense fallback="Loading...">
+		<Suspense fallback={null}>
 			<EpisodeDetails {...props} />
 		</Suspense>
 	);

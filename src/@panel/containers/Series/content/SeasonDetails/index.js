@@ -8,7 +8,7 @@ const SeasonDetails = lazy(() => import(
 
 export default (props) => {
 	return (
-		<Suspense fallback="Loading...">
+		<Suspense fallback={null}>
 			<SeasonDetails {...props} />
 		</Suspense>
 	);
