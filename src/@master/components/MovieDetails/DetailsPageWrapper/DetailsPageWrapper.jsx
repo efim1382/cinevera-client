@@ -41,6 +41,7 @@ const DetailsPageWrapper = (props) => {
 			className={cx("details_page", className)}
 			style={inline}
 		>
+			<div className={style.main_background_image} style={inline}></div>
 			{children}
 		</main>
 	);

@@ -1,6 +1,5 @@
 .footer {
 	display: flex;
-	margin-top: 40px;
 	background-color: var(--root-background-color-hover);
 	padding-left: var(--layout-padding);
 	padding-right: var(--layout-padding);
