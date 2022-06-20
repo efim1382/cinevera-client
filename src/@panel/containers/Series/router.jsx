@@ -1,10 +1,13 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+import DetailsLayout from "./content/DetailsLayout";
 import SeriesList from "./content/SeriesList";
 import Overview from "./content/Overview";
 import Design from "./content/Design";
-import DetailsLayout from "./content/DetailsLayout";
+import Seasons from "./content/Seasons";
+import SeasonDetails from "./content/SeasonDetails";
+import EpisodeDetails from "./content/EpisodeDetails";
 
 import DetailsStore from "@panel/store/MovieDetails.store";
 
@@ -24,6 +27,9 @@ export default () => {
 			>
 				<Route index exact element={<Overview />} />
 				<Route exact path="design/" element={<Design />} />
+				<Route exact path="seasons/" element={<Seasons />} />
+				<Route exact path="seasons/:seasonNumber/" element={<SeasonDetails />} />
+				<Route exact path="seasons/:seasonNumber/:episodeNumber/" element={<EpisodeDetails />} />
 			</Route>
 		</Routes>
 	);

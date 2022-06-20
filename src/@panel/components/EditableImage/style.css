@@ -26,6 +26,11 @@
 			--padding-top: 56%;
 		}
 
+		&[data-type="episode"] {
+			--max-width: 350px;
+			--padding-top: 56%;
+		}
+
 		&:not(:hover) {
 			--change-image-opacity: 0;
 		}

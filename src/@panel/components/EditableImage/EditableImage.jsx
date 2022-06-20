@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import BasicButton from "components/BasicButton";
+import { description } from "./config";
 import classnames from "classnames/bind";
 import style from "./style.css";
 
@@ -16,31 +17,17 @@ const EditableImage = (props) => {
 
 	const inline = { backgroundImage: `url(${image})` };
 
-	const posterCaption = (
-		<Fragment>
-			This picture will be on a small block of the film.
-			<br />
-			We recommend using an image size of at least 350 x 540 pixels in JPEG format.
-			Animated pictures cannot be ordered. File size - no more than 4 MB.
-		</Fragment>
-	);
-
-	const backgroundCaption = (
-		<Fragment>
-			This picture will be on the detail page of the movie.
-			<br />
-			We recommend using an image size of at least 1920 x 1080 pixels in JPEG format.
-			Animated pictures cannot be ordered. File size - no more than 4 MB.
-		</Fragment>
-	);
-
-	const caption = type === "background"
-		? backgroundCaption
-		: posterCaption;
+	const { caption, text } = useMemo(() => (
+		description[type]
+	), [type]);
 
 	return (
 		<div className={cx("editable_image", className)}>
-			<p className={style.caption}>{caption}</p>
+			<p className={style.caption}>
+				{caption}
+				<br />
+				{text}
+			</p>
 
 			<div data-type={type} className={style.image} style={inline}>
 				<div className={style.change_image_wrapper}>
@@ -62,7 +49,7 @@ EditableImage.defaultProps = {
 };
 
 EditableImage.propTypes = {
-	type: PropTypes.string,
+	type: PropTypes.oneOf(["episode", "poster", "background"]),
 	image: PropTypes.string,
 	onChange: PropTypes.func,
 	className: PropTypes.string,

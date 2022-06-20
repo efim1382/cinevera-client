@@ -15,6 +15,11 @@ const navigation = [
 		to: "/panel/series/:id/design/",
 		label: "Design",
 	},
+
+	{
+		to: "/panel/series/:id/seasons/",
+		label: "Seasons",
+	},
 ];
 
 const DetailsLayout = () => {
