@@ -7,7 +7,7 @@ import style from "./style.css";
 
 const cx = classnames.bind(style);
 
-const Subheader = (props) => {
+const ManageListHeader = (props) => {
 	const {
 		to,
 		title,
@@ -32,10 +32,10 @@ const Subheader = (props) => {
 	);
 };
 
-Subheader.propTypes = {
+ManageListHeader.propTypes = {
 	to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 	title: PropTypes.string.isRequired,
 	className: PropTypes.string,
 };
 
-export default Subheader;
+export default ManageListHeader;

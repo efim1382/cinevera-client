@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import Subheader from "@panel/components/Subheader";
+import ManageListHeader from "@panel/components/ManageListHeader";
 import Table, { DefaultCell } from "@panel/components/Table";
 import Cell from "@panel/components/Table/Cell";
 import GenresItem from "@panel/components/GenreItem";
@@ -94,7 +94,7 @@ const SeriesList = () => {
 
 	return (
 		<main className={style.series}>
-			<Subheader
+			<ManageListHeader
 				title="Series list"
 				to={createMovieLink}
 				className={style.subheader}
