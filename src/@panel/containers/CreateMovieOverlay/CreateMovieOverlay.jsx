@@ -3,15 +3,12 @@ import Overlay from "components/Overlay";
 import { useLocation, useNavigate } from "react-router-dom";
 import BasicButton from "components/BasicButton";
 import Form from "components/Form/Form";
-
 import BasicForm, { validations as basicValidations } from "./forms/Basic";
 import ImagesForm, { validations as imagesValidations } from "./forms/Images";
 import AdditionalForm, { validations as additionalValidations } from "./forms/Additional";
 import CastForm, { validations as castValidations } from "./forms/Cast";
-
 import useQuery from "hooks/useQuery";
 import { createMovie } from "@panel/api/movies.api";
-
 import style from "./style.css";
 
 export const queryParam = "create-movie";

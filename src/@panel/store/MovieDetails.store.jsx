@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import * as moviesApi from "@panel/api/movies.api";
 
-export const SeriesDetailsContext = createContext(null);
+export const MovieDetailsContext = createContext(null);
 
-const SeriesDetailsProvider = (props) => {
+const MovieDetailsProvider = (props) => {
 	const {
+		type,
 		children,
 	} = props;
 
@@ -58,9 +59,13 @@ const SeriesDetailsProvider = (props) => {
 		if (!isFetchComplete && !isRequestProcess) {
 			setIsRequestProcess(true);
 
-			moviesApi.getSeriesDetails(id)
-				.then(({ series }) => {
-					setData(series);
+			const request = type === "series"
+				? moviesApi.getSeriesDetails
+				: moviesApi.getMovie;
+
+			request(id)
+				.then(({ [type]: result }) => {
+					setData(result);
 					setIsFetchComplete(true);
 					setIsRequestProcess(false);
 				})
@@ -73,14 +78,19 @@ const SeriesDetailsProvider = (props) => {
 	}, []);
 
 	return (
-		<SeriesDetailsContext.Provider value={value}>
+		<MovieDetailsContext.Provider value={value}>
 			{children}
-		</SeriesDetailsContext.Provider>
+		</MovieDetailsContext.Provider>
 	);
 };
 
-SeriesDetailsProvider.propTypes = {
+MovieDetailsProvider.defaultProps = {
+	type: "movie",
+};
+
+MovieDetailsProvider.propTypes = {
+	type: PropTypes.oneOf(["movie", "series"]),
 	children: PropTypes.any.isRequired,
 };
 
-export default SeriesDetailsProvider;
+export default MovieDetailsProvider;

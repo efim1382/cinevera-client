@@ -1,0 +1,36 @@
+.mobile_header {
+	display: flex;
+	align-items: center;
+	height: var(--header-height);
+	padding-left: var(--layout-padding);
+	padding-right: var(--layout-padding);
+	background-color: var(--root-background-color-hover);
+
+	& .logo_container {
+		& .logo {
+			color: var(--primary-color);
+			font-weight: var(--font-weight-bold);
+			font-size: 18px;
+
+			& span {
+				color: var(--accent-color-hover);
+				font-weight: var(--font-weight-regular);
+			}
+		}
+	}
+
+	& .menu_button {
+		--icon-size: 28px;
+		flex-shrink: 0;
+		margin-left: auto;
+		transition-property: color;
+
+		&:not(:hover) {
+			--icon-color: var(--caption-color);
+		}
+
+		&:hover {
+			--icon-color: var(--primary-color);
+		}
+	}
+}

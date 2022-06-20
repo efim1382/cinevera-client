@@ -4,9 +4,9 @@ import DetailsSection from "@panel/components/DetailsSection";
 import EditableContent from "@panel/components/EditableContent";
 import EditableGenres from "@panel/components/EditableGenres";
 import EditableCast from "@panel/components/EditableCast";
-import useDetailsData from "@panel/containers/Movies/hooks/useDetailsData";
+import useDetailsData from "@panel/hooks/useDetailsData";
 import { updateMovie } from "@panel/api/movies.api";
-import { MovieDetailsContext } from "@panel/containers/Movies/store/MovieDetails.store";
+import { MovieDetailsContext } from "@panel/store/MovieDetails.store";
 import style from "./style.css";
 
 const Overview = () => {

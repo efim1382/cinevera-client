@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MovieDetailsContext } from "@panel/containers/Movies/store/MovieDetails.store";
+import { MovieDetailsContext } from "@panel/store/MovieDetails.store";
 
 export default () => {
 	const { state } = useContext(MovieDetailsContext);

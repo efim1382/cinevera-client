@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import DetailsSection from "@panel/components/DetailsSection";
 import EditableImage from "@panel/components/EditableImage";
 import ChangeImagePopup from "@panel/components/ChangeImagePopup";
-import useDetailsData from "@panel/containers/Series/hooks/useDetailsData";
-import { SeriesDetailsContext } from "@panel/containers/Series/store/SeriesDetails.store";
+import useDetailsData from "@panel/hooks/useDetailsData";
+import { MovieDetailsContext } from "@panel/store/MovieDetails.store";
 import { updateSeries } from "@panel/api/movies.api";
 import style from "./style.css";
 
@@ -13,7 +13,7 @@ const BACKGROUND_FIELD_NAME = "backgroundUrl";
 
 const Design = () => {
 	const { posterUrl, backgroundUrl } = useDetailsData();
-	const { actions } = useContext(SeriesDetailsContext);
+	const { actions } = useContext(MovieDetailsContext);
 	const { id: seriesId } = useParams();
 	const [editableImageName, setEditableImageName] = useState("");
 

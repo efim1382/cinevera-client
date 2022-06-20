@@ -4,13 +4,37 @@
 	min-height: 0;
 	height: 100vh;
 
-	& .sidebar {
-		flex-shrink: 0;
+	@media (--viewport-laptop) {
+		flex-direction: column;
 	}
 
+	& .mobile_header {
+		flex-shrink: 0;
+		display: none;
+
+		@media (--viewport-laptop) {
+			display: flex;
+		}
+	}
+
+	& .sidebar {
+		flex-shrink: 0;
+
+		@media (--viewport-laptop) {
+			display: none;
+		}
+	}
+
+	& .mobile_header + main,
+	& .mobile_header + div,
 	& .sidebar + main,
 	& .sidebar + div {
 		flex-grow: 1;
 		min-width: 0;
+
+		@media (--viewport-laptop) {
+			min-height: 0;
+			display: flex;
+		}
 	}
 }

@@ -6,7 +6,7 @@ import Overview from "./content/Overview";
 import Design from "./content/Design";
 import DetailsLayout from "./content/DetailsLayout";
 
-import DetailsStore from "./store/SeriesDetails.store";
+import DetailsStore from "@panel/store/MovieDetails.store";
 
 export default () => {
 	return (
@@ -17,7 +17,7 @@ export default () => {
 				path="/:id/*"
 
 				element={
-					<DetailsStore>
+					<DetailsStore type="series">
 						<DetailsLayout />
 					</DetailsStore>
 				}

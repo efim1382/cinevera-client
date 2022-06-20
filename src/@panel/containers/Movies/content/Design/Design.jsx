@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import DetailsSection from "@panel/components/DetailsSection";
 import EditableImage from "@panel/components/EditableImage";
 import ChangeImagePopup from "@panel/components/ChangeImagePopup";
-import useDetailsData from "@panel/containers/Movies/hooks/useDetailsData";
-import { MovieDetailsContext } from "@panel/containers/Movies/store/MovieDetails.store";
+import useDetailsData from "@panel/hooks/useDetailsData";
+import { MovieDetailsContext } from "@panel/store/MovieDetails.store";
 import { updateMovie } from "@panel/api/movies.api";
 import style from "./style.css";
 

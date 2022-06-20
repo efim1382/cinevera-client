@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import DetailsHeader from "@panel/components/DetailsHeader";
-import useDetailsData from "@panel/containers/Series/hooks/useDetailsData";
+import useDetailsData from "@panel/hooks/useDetailsData";
 
 import style from "./style.css";
 

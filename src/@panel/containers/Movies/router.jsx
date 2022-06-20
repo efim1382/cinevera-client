@@ -6,7 +6,7 @@ import Overview from "./content/Overview";
 import Design from "./content/Design";
 import DetailsLayout from "./content/DetailsLayout";
 
-import DetailsStore from "./store/MovieDetails.store";
+import DetailsStore from "@panel/store/MovieDetails.store";
 
 export default () => {
 	return (

@@ -4,9 +4,9 @@ import DetailsSection from "@panel/components/DetailsSection";
 import EditableContent from "@panel/components/EditableContent";
 import EditableGenres from "@panel/components/EditableGenres";
 import EditableCast from "@panel/components/EditableCast";
-import useDetailsData from "@panel/containers/Series/hooks/useDetailsData";
+import useDetailsData from "@panel/hooks/useDetailsData";
 import { updateSeries } from "@panel/api/movies.api";
-import { SeriesDetailsContext } from "@panel/containers/Series/store/SeriesDetails.store";
+import { MovieDetailsContext } from "@panel/store/MovieDetails.store";
 import { formatSeriesYear } from "helpers/movieHelpers";
 import style from "./style.css";
 
@@ -21,7 +21,7 @@ const Overview = () => {
 	} = useDetailsData();
 
 	const { id: seriesId } = useParams();
-	const { actions } = useContext(SeriesDetailsContext);
+	const { actions } = useContext(MovieDetailsContext);
 
 	const [isShortDescriptionUpdating, setIsShortDescriptionUpdating] = useState(false);
 	const [isFullDescriptionUpdating, setIsFullDescriptionUpdating] = useState(false);
