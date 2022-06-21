@@ -1,35 +1,39 @@
 const webpackConfig = require("./webpack.config");
-const merge = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = merge(webpackConfig, {
-  mode: "production",
+	mode: "production",
 
-  optimization: {
-    noEmitOnErrors: true,
-    minimize: true,
+	optimization: {
+		noEmitOnErrors: true,
+		minimize: true,
 
-    minimizer: [
-      new TerserPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-      }),
-    ],
+		minimizer: [
+			new TerserPlugin({
+				parallel: true,
 
-    splitChunks: {
-      chunks: "all",
-    },
+				terserOptions: {
+					sourceMap: true,
+				},
+			}),
+		],
 
-    runtimeChunk: {
-      name: "runtime",
-    },
-  },
+		splitChunks: {
+			chunks: "all",
+		},
 
-  plugins: [
-    new CopyPlugin([
-      { from: "./src/server.js", to: "server.js" },
-    ]),
-  ],
+		runtimeChunk: {
+			name: "runtime",
+		},
+	},
+
+	plugins: [
+		new CopyPlugin({
+			patterns: [
+				{ from: "./src/server.js", to: "server.js" },
+			],
+		}),
+	],
 });

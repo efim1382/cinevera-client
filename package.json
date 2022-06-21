@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/server.js",
-	"engines": {
-		"node": "12.13.1",
-		"npm": "6.13.1"
-	},
+  "engines": {
+    "node": "12.20.0",
+    "npm": "6.13.1"
+  },
   "scripts": {
     "build": "npm run build:prod",
     "build:analize": "webpack --config webpack.analize.js",
@@ -90,9 +90,9 @@
     "clean-webpack-plugin": "4.0.0",
     "copy-webpack-plugin": "10.2.4",
     "core-js": "3.22.4",
-    "cross-env": "^7.0.3",
+    "cross-env": "7.0.3",
     "css-loader": "6.7.1",
-    "eslint": "^8.13.0",
+    "eslint": "8.13.0",
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
     "html-webpack-plugin": "5.5.0",
