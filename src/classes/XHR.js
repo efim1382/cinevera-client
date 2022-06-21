@@ -1,4 +1,9 @@
-const host = process.env.API_HOST || "http://localhost:8001";
+const localHost = "http://localhost:8001";
+
+const host = process.env.LOCAL_API
+	? localHost
+	: process.env.API_HOST || localHost;
+
 export const hostApi = `${host}${host[host.length - 1] !== "/" ? "/" : ""}api`;
 
 class XHR {

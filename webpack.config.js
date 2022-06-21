@@ -111,13 +111,8 @@ module.exports = {
 
 		new Dotenv(),
 
-		/*
-		 * new webpack.DefinePlugin({
-		 * 	"process.env.API_HOST": JSON.stringify(process.env.API_HOST),
-		 * 	"process.env.AWS_ACCESS_KEY_ID": JSON.stringify(process.env.AWS_ACCESS_KEY_ID),
-		 * 	"process.env.AWS_SECRET_ACCESS_KEY": JSON.stringify(process.env.AWS_SECRET_ACCESS_KEY),
-		 * 	"process.env.S3_BUCKET_NAME": JSON.stringify(process.env.S3_BUCKET_NAME),
-		 * }),
-		 */
+		new webpack.DefinePlugin({
+			"process.env.LOCAL_API": JSON.stringify(process.env.LOCAL_API),
+		}),
 	],
 };
