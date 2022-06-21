@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/server.js",
+	"engines": {
+		"node": "12.13.1",
+		"npm": "6.13.1"
+	},
   "scripts": {
     "build": "npm run build:prod",
     "build:analize": "webpack --config webpack.analize.js",
