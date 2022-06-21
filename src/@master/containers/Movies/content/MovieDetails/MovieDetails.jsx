@@ -34,16 +34,14 @@ const MovieDetails = () => {
 	const isMovieLoaded = Object.keys(movieData).length > 0;
 
 	useEffect(() => {
-		if (!isMovieLoaded) {
-			setIsFetchProcess(true);
+		setIsFetchProcess(true);
 
-			getMovieDetails(id)
-				.then(({ movie }) => {
-					setMovieData(movie);
-					setIsFetchProcess(false);
-				});
-		}
-	}, []);
+		getMovieDetails(id)
+			.then(({ movie }) => {
+				setMovieData(movie);
+				setIsFetchProcess(false);
+			});
+	}, [id]);
 
 	if (!isMovieLoaded || isFetchProcess) {
 		return <DetailsSuspence />;

@@ -54,15 +54,19 @@ const SeasonDetails = () => {
 		: "Episodes";
 
 	const isSeriesLoaded = Object.keys(seriesData).length > 0;
-	const isAllSeasonsActionButtonShown = seasons.length > 0 && !isEpisodesExist;
+	const isAllSeasonsActionButtonShown = seasons.length > 1 && !isEpisodesExist;
 
 	const openAllSeasons = () => setIsAllSeasonsShown(true);
 	const closeAllSeasons = () => setIsAllSeasonsShown(false);
 
-	const seasonsTitleActionProps = {
-		text: "All seasons",
-		onClick: openAllSeasons,
-	};
+	const episodesListProps = {};
+
+	if (episodes.length > 0 && seasons.length > 1) {
+		episodesListProps["titleAction"] = {
+			text: "All Seasons",
+			onClick: openAllSeasons,
+		};
+	}
 
 	const loadSeries = () => {
 		setIsFetchProcess(true);
@@ -127,10 +131,10 @@ const SeasonDetails = () => {
 						{isAllSeasonsActionButtonShown && (
 							<button
 								type="button"
-								onClick={seasonsTitleActionProps.onClick}
+								onClick={openAllSeasons}
 								className={style.link_button}
 							>
-								{seasonsTitleActionProps.text}
+								All Seasons
 							</button>
 						)}
 					</div>
@@ -141,8 +145,8 @@ const SeasonDetails = () => {
 				<EpisodesList
 					title={episodesTitle}
 					items={episodes}
-					titleAction={seasonsTitleActionProps}
 					className={style.episodes}
+					{...episodesListProps}
 				/>
 			)}
 
