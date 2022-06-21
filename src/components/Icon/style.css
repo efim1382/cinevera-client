@@ -238,6 +238,10 @@
 	mask-image: url('./icons/arrow_back.svg');
 }
 
+.icon[data-icon="upload_file"] {
+	mask-image: url('./icons/upload_file.svg');
+}
+
 .story_icon {
 	--icon-size: 50px;
 	--icon-color: var(--primary-color);

@@ -2,9 +2,9 @@ import React, { useState, useContext } from "react";
 import { NavLink, useParams, useNavigate } from "react-router-dom";
 import BasicButton from "components/BasicButton";
 import Icon from "components/Icon";
+import UploadFile from "components/FormElements/UploadFile";
 import DetailsSection from "@panel/components/DetailsSection";
 import EditableImage from "@panel/components/EditableImage";
-import ChangeImagePopup from "@panel/components/ChangeImagePopup";
 import AddEpisodeOverlay from "../AddEpisodeOverlay";
 import { deleteSeason, updateSeason } from "@panel/api/movies.api";
 import { useSeasonDetailsData } from "@panel/containers/Series/hooks/detailsData";
@@ -17,7 +17,6 @@ const SeasonDetails = () => {
 	const { id: seriesId, seasonNumber } = useParams();
 	const [isDeleting, setIsDeleting] = useState(false);
 	const [isAddEpisodeOverlayShown, setIsAddEpisodeOverlayShown] = useState(false);
-	const [isChangeBackgroundPopupShown, setIsChangeBackgroundPopupShown] = useState(false);
 
 	const {
 		id: seasonId,
@@ -30,11 +29,8 @@ const SeasonDetails = () => {
 	const openAddEpisodeOverlay = () => setIsAddEpisodeOverlayShown(true);
 	const closeAddEpisodeOverlay = () => setIsAddEpisodeOverlayShown(false);
 
-	const openChangeBackgroundPopup = () => setIsChangeBackgroundPopupShown(true);
-	const closeChangeBackgroundPopup = () => setIsChangeBackgroundPopupShown(false);
-
-	const changeBackgroundSubmit = (values) => {
-		return updateSeason(seriesId, seasonId, values)
+	const changeBackgroundSubmit = (link) => {
+		return updateSeason(seriesId, seasonId, { backgroundUrl: link })
 			.then(actions.quiteRefresh)
 
 			.catch((error) => {
@@ -70,11 +66,9 @@ const SeasonDetails = () => {
 			/>
 
 			<DetailsSection title="Background Image" className={style.section}>
-				<EditableImage
-					type="background"
-					image={backgroundUrl}
-					onChange={openChangeBackgroundPopup}
-				/>
+				<UploadFile value={backgroundUrl} onChange={changeBackgroundSubmit}>
+					<EditableImage type="background" />
+				</UploadFile>
 			</DetailsSection>
 
 			<DetailsSection title="Episodes" className={style.section}>
@@ -138,14 +132,6 @@ const SeasonDetails = () => {
 
 			{isAddEpisodeOverlayShown && (
 				<AddEpisodeOverlay onClose={closeAddEpisodeOverlay} />
-			)}
-
-			{isChangeBackgroundPopupShown && (
-				<ChangeImagePopup
-					onSubmit={changeBackgroundSubmit}
-					fieldName="backgroundUrl"
-					onClose={closeChangeBackgroundPopup}
-				/>
 			)}
 		</div>
 	);

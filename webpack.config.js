@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const postcssPresetEnv = require("postcss-preset-env");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
 	entry: path.resolve(__dirname, "src/index.js"),
@@ -108,8 +109,15 @@ module.exports = {
 			template: path.resolve(__dirname, "src/index.html"),
 		}),
 
-		new webpack.DefinePlugin({
-			"process.env.API_HOST": JSON.stringify(process.env.API_HOST),
-		}),
+		new Dotenv(),
+
+		/*
+		 * new webpack.DefinePlugin({
+		 * 	"process.env.API_HOST": JSON.stringify(process.env.API_HOST),
+		 * 	"process.env.AWS_ACCESS_KEY_ID": JSON.stringify(process.env.AWS_ACCESS_KEY_ID),
+		 * 	"process.env.AWS_SECRET_ACCESS_KEY": JSON.stringify(process.env.AWS_SECRET_ACCESS_KEY),
+		 * 	"process.env.S3_BUCKET_NAME": JSON.stringify(process.env.S3_BUCKET_NAME),
+		 * }),
+		 */
 	],
 };

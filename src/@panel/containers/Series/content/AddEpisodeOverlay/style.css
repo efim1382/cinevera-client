@@ -1,9 +1,10 @@
 .form {
+	--proportion-padding: 56%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	max-width: 500px;
+	max-width: 350px;
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -14,6 +15,7 @@
 	}
 
 	& .submit {
+		margin-top: 30px;
 		margin-left: auto;
 	}
 }

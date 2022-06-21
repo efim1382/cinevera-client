@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
+import UploadFile from "components/FormElements/UploadFile";
 import DetailsSection from "@panel/components/DetailsSection";
 import EditableImage from "@panel/components/EditableImage";
-import ChangeImagePopup from "@panel/components/ChangeImagePopup";
 import useDetailsData from "@panel/hooks/useDetailsData";
 import { MovieDetailsContext } from "@panel/store/MovieDetails.store";
 import { updateMovie } from "@panel/api/movies.api";
@@ -15,11 +15,6 @@ const Design = () => {
 	const { posterUrl, backgroundUrl } = useDetailsData();
 	const { actions } = useContext(MovieDetailsContext);
 	const { id: seriesId } = useParams();
-	const [editableImageName, setEditableImageName] = useState("");
-
-	const changePosterImage = () => setEditableImageName(POSTER_FIELD_NAME);
-	const changeBackgroundImage = () => setEditableImageName(BACKGROUND_FIELD_NAME);
-	const closeChangeImagePopup = () => setEditableImageName("");
 
 	const onChange = (values) => {
 		return updateMovie(seriesId, values)
@@ -32,30 +27,22 @@ const Design = () => {
 			});
 	};
 
+	const changePosterImage = (value) => onChange({ [POSTER_FIELD_NAME]: value });
+	const changeBackgroundImage = (value) => onChange({ [BACKGROUND_FIELD_NAME]: value });
+
 	return (
 		<div className={style.design}>
 			<DetailsSection title="Background Image" className={style.section}>
-				<EditableImage
-					type="background"
-					image={backgroundUrl}
-					onChange={changeBackgroundImage}
-				/>
+				<UploadFile value={backgroundUrl} onChange={changeBackgroundImage}>
+					<EditableImage type="background" />
+				</UploadFile>
 			</DetailsSection>
 
 			<DetailsSection title="Poster" className={style.section}>
-				<EditableImage
-					image={posterUrl}
-					onChange={changePosterImage}
-				/>
+				<UploadFile value={posterUrl} onChange={changePosterImage}>
+					<EditableImage />
+				</UploadFile>
 			</DetailsSection>
-
-			{editableImageName && (
-				<ChangeImagePopup
-					onSubmit={onChange}
-					fieldName={editableImageName}
-					onClose={closeChangeImagePopup}
-				/>
-			)}
 		</div>
 	);
 };

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import BasicButton from "components/BasicButton";
+import UploadFile from "components/FormElements/UploadFile";
 import DetailsSection from "@panel/components/DetailsSection";
 import EditableContent from "@panel/components/EditableContent";
 import EditableImage from "@panel/components/EditableImage";
-import ChangeImagePopup from "@panel/components/ChangeImagePopup";
 import { useEpisodeData } from "@panel/containers/Series/hooks/detailsData";
 import { deleteEpisode, updateEpisode } from "@panel/api/movies.api";
 import { SeasonsContext } from "@panel/containers/Series/store/Seasons.store";
@@ -16,16 +16,12 @@ const EpisodeDetails = () => {
 	const { actions } = useContext(SeasonsContext);
 	const [isDeleting, setIsDeleting] = useState(false);
 	const [isTitleUpdating, setIsTitleUpdating] = useState(false);
-	const [isChangeEpisodeImagePopupShown, setIsChangeEpisodeImagePopupShown] = useState(false);
 
 	const {
 		id: episodeId,
 		posterUrl,
 		title,
 	} = useEpisodeData();
-
-	const openChangePosterPopup = () => setIsChangeEpisodeImagePopupShown(true);
-	const closeChangePosterPopup = () => setIsChangeEpisodeImagePopupShown(false);
 
 	const changeTitleSubmit = (value) => {
 		setIsTitleUpdating(true);
@@ -44,8 +40,8 @@ const EpisodeDetails = () => {
 			});
 	};
 
-	const changePosterSubmit = (values) => {
-		return updateEpisode(seriesId, episodeId, values)
+	const changePosterSubmit = (value) => {
+		return updateEpisode(seriesId, episodeId, { posterUrl: value })
 			.then(actions.quiteRefresh)
 
 			.catch((error) => {
@@ -85,11 +81,9 @@ const EpisodeDetails = () => {
 			</DetailsSection>
 
 			<DetailsSection title="Episode Preview" className={style.section}>
-				<EditableImage
-					type="episode"
-					image={posterUrl}
-					onChange={openChangePosterPopup}
-				/>
+				<UploadFile value={posterUrl} onChange={changePosterSubmit}>
+					<EditableImage type="episode" />
+				</UploadFile>
 			</DetailsSection>
 
 			<DetailsSection
@@ -105,14 +99,6 @@ const EpisodeDetails = () => {
 					className={style.delete}
 				/>
 			</DetailsSection>
-
-			{isChangeEpisodeImagePopupShown && (
-				<ChangeImagePopup
-					onSubmit={changePosterSubmit}
-					fieldName="posterUrl"
-					onClose={closeChangePosterPopup}
-				/>
-			)}
 		</div>
 	);
 };

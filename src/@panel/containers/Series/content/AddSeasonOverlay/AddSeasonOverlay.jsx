@@ -5,11 +5,12 @@ import BasicButton from "components/BasicButton";
 import Overlay from "components/Overlay";
 import Form from "components/Form/Form";
 import Input from "components/Form/Input";
-import TextField from "components/FormElements/TextField";
 import { createSeason } from "@panel/api/movies.api";
 import { SeasonsContext } from "@panel/containers/Series/store/Seasons.store";
 import validations from "./validations";
 import style from "./style.css";
+import UploadFile from "../../../../../components/FormElements/UploadFile";
+import UploadImage from "../../../../../components/UploadImage";
 
 const AddSeasonOverlay = (props) => {
 	const { onClose } = props;
@@ -43,12 +44,9 @@ const AddSeasonOverlay = (props) => {
 				className={style.form}
 			>
 				<Input name="backgroundUrl">
-					<TextField
-						autoFocus
-						label="Image url"
-						placeholder="https://domain.com/image.jpeg"
-						className={style.input}
-					/>
+					<UploadFile>
+						<UploadImage />
+					</UploadFile>
 				</Input>
 
 				<BasicButton

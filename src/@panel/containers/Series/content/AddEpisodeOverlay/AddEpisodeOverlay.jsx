@@ -6,6 +6,8 @@ import Overlay from "components/Overlay";
 import Form from "components/Form/Form";
 import Input from "components/Form/Input";
 import TextField from "components/FormElements/TextField";
+import UploadFile from "components/FormElements/UploadFile";
+import UploadImage from "components/UploadImage";
 import { createEpisode } from "@panel/api/movies.api";
 import { SeasonsContext } from "@panel/containers/Series/store/Seasons.store";
 import { useSeasonDetailsData } from "@panel/containers/Series/hooks/detailsData";
@@ -56,11 +58,9 @@ const AddSeasonOverlay = (props) => {
 				</Input>
 
 				<Input name="posterUrl">
-					<TextField
-						label="Image url"
-						placeholder="https://domain.com/image.jpeg"
-						className={style.input}
-					/>
+					<UploadFile>
+						<UploadImage />
+					</UploadFile>
 				</Input>
 
 				<BasicButton

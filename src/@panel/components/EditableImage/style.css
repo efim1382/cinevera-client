@@ -1,4 +1,21 @@
 .editable_image {
+	width: 100%;
+
+	&[data-type="poster"] {
+		--max-width: 300px;
+		--proportion-padding: 150%;
+	}
+
+	&[data-type="background"] {
+		--max-width: 800px;
+		--proportion-padding: 56%;
+	}
+
+	&[data-type="episode"] {
+		--max-width: 350px;
+		--proportion-padding: 56%;
+	}
+
 	& .caption {
 		max-width: 450px;
 		margin-top: 12px;
@@ -6,59 +23,8 @@
 		color: #aaa;
 	}
 
-	& .image {
-		position: relative;
-		width: 100%;
+	& .output {
 		max-width: var(--max-width);
 		margin-top: 12px;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center;
-		background-color: var(--root-background-color-hover);
-
-		&[data-type="poster"] {
-			--max-width: 300px;
-			--padding-top: 150%;
-		}
-
-		&[data-type="background"] {
-			--max-width: 800px;
-			--padding-top: 56%;
-		}
-
-		&[data-type="episode"] {
-			--max-width: 350px;
-			--padding-top: 56%;
-		}
-
-		&:not(:hover) {
-			--change-image-opacity: 0;
-		}
-
-		&:hover {
-			--change-image-opacity: 1;
-		}
-
-		&:before {
-			content: "";
-			display: block;
-			padding-top: var(--padding-top);
-		}
-	}
-
-	& .change_image_wrapper {
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		display: flex;
-		background-color: rgba(0, 0, 0, 0.6);
-		opacity: var(--change-image-opacity);
-		transition-property: opacity;
-
-		& .button {
-			margin: auto;
-		}
 	}
 }
