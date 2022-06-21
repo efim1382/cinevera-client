@@ -9,7 +9,6 @@
 
 		& .avatar {
 			--avatar-size: 150px;
-			background-image: url("./images/Yurii.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center;
@@ -61,7 +60,7 @@
 			justify-content: space-between;
 			font-size: 14px;
 			gap: 0;
-		}		
+		}
 
 		& .link_button {
 			--height: 60px;
