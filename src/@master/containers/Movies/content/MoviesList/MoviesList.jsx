@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import MovieCard from "components/MovieCard";
 import EmptyMessage from "components/EmptyMessage";
 import Filters from "@master/components/ObjectsListFilters";
+import ObjectsListSuspense from "@master/components/ObjectsListSuspense";
 import { ObjectsListContext } from "@master/store/ObjectsListProvider";
 import style from "./style.css";
 
@@ -22,6 +23,12 @@ const MoviesListContainer = () => {
 
 	const isEmptyMessageShown = isFetchComplete && moviesIds.length === 0;
 	const isMoviesExist = !isEmptyMessageShown && moviesIds.length > 0;
+
+	if (!isFetchComplete) {
+		return (
+			<ObjectsListSuspense />
+		);
+	}
 
 	return (
 		<main className={style.movies}>

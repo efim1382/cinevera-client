@@ -2,7 +2,6 @@ import React from "react";
 import Button from "components/BasicButton";
 import PopularList from "@master/components/PopularList";
 import EpisodesList from "@master/components/EpisodesList";
-
 import style from "./style.css";
 
 const Home = () => {

@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from "react";
+import HomeSuspense from "./Suspense";
 
 const Home = lazy(() => import(
 
@@ -8,7 +9,7 @@ const Home = lazy(() => import(
 
 const HomeContainer = () => {
 	return (
-		<Suspense fallback={null}>
+		<Suspense fallback={<HomeSuspense />}>
 			<Home />
 		</Suspense>
 	);
