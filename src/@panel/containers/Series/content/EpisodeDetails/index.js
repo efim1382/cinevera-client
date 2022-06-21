@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from "react";
+import EpisodeSuspense from "./Suspense";
 
 const EpisodeDetails = lazy(() => import(
 
@@ -8,7 +9,7 @@ const EpisodeDetails = lazy(() => import(
 
 export default (props) => {
 	return (
-		<Suspense fallback={null}>
+		<Suspense fallback={<EpisodeSuspense />}>
 			<EpisodeDetails {...props} />
 		</Suspense>
 	);

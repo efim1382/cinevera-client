@@ -1,0 +1,54 @@
+.suspense {
+	& .title {
+		width: 200px;
+		height: 30px;
+		animation: background-loading 1s linear infinite;
+	}
+
+	& .list {
+		--columns: 4;
+		--gap: 30px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--gap);
+		margin-top: 12px;
+
+		@media (--viewport-desktop-small) {
+			--columns: 3;
+		}
+
+		@media (--viewport-laptop) {
+			--columns: 2;
+		}
+
+		@media (--viewport-phone) {
+			--columns: 1;
+		}
+
+		& .item {
+			width: calc((100% - ((var(--columns) - 1) * var(--gap))) / var(--columns));
+			border-radius: 3px;
+			animation: background-loading 1s linear infinite;
+
+			&:before {
+				content: "";
+				display: block;
+				padding-top: 56%;
+			}
+		}
+	}
+}
+
+@keyframes background-loading {
+	0% {
+		background-color: var(--root-background-color-hover);
+	}
+
+	50% {
+		background-color: #0c0c0c;
+	}
+
+	100% {
+		background-color: var(--root-background-color-hover);
+	}
+}

@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Icon from "components/Icon";
 import DetailsSection from "@panel/components/DetailsSection";
-import useDetailsData from "@panel/hooks/useDetailsData";
+import AddSeasonOverlay from "@panel/containers/Series/content/AddSeasonOverlay";
+import { useSeasonsData } from "@panel/containers/Series/hooks/detailsData";
 import style from "./style.css";
 
 const Seasons = () => {
 	const { id: seriesId } = useParams();
-	const { seasons = [] } = useDetailsData();
+	const [isAddSeasonOverlayShown, setIsAddSeasonOverlayShown] = useState(false);
+	const seasons = useSeasonsData();
+
+	const openAddSeasonOverlay = () => setIsAddSeasonOverlayShown(true);
+	const closeAddSeasonOverlay = () => setIsAddSeasonOverlayShown(false);
 
 	return (
 		<div className={style.seasons}>
 			<DetailsSection title="Seasons List">
 				<div className={style.list}>
-					<button className={style.add_new}>
+					<button className={style.add_new} onClick={openAddSeasonOverlay}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="100%"
@@ -54,6 +59,10 @@ const Seasons = () => {
 					})}
 				</div>
 			</DetailsSection>
+
+			{isAddSeasonOverlayShown && (
+				<AddSeasonOverlay onClose={closeAddSeasonOverlay} />
+			)}
 		</div>
 	);
 };

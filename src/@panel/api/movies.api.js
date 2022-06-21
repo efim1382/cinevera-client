@@ -6,6 +6,12 @@ export const getMovie = (id) => {
 	});
 };
 
+export const getObject = (id) => {
+	return XHR.get({
+		url: `/admin/movies/${id}/`,
+	});
+};
+
 export const getMovies = () => {
 	return XHR.get({
 		url: "/admin/movies/",
@@ -150,5 +156,83 @@ export const updateSeries = (id, data) => {
 			cast,
 			genres,
 		},
+	});
+};
+
+export const getSeriesSeasons = (seriesId) => {
+	return XHR.get({
+		url: `/admin/series/${seriesId}/seasons/`,
+	});
+};
+
+export const createSeason = (seriesId, data = {}) => {
+	const {
+		backgroundUrl,
+	} = data;
+
+	return XHR.post({
+		url: `/admin/series/${seriesId}/seasons/`,
+
+		data: {
+			backgroundUrl,
+		},
+	});
+};
+
+export const updateSeason = (seriesId, seasonId, data = {}) => {
+	const {
+		backgroundUrl,
+	} = data;
+
+	return XHR.patch({
+		url: `/admin/series/${seriesId}/seasons/${seasonId}/`,
+
+		data: {
+			backgroundUrl,
+		},
+	});
+};
+
+export const deleteSeason = (seriesId, seasonId) => {
+	return XHR.delete({
+		url: `/admin/series/${seriesId}/seasons/${seasonId}/`,
+	});
+};
+
+export const createEpisode = (seriesId, seasonId, data = {}) => {
+	const {
+		title,
+		posterUrl,
+	} = data;
+
+	return XHR.post({
+		url: `/admin/series/${seriesId}/seasons/${seasonId}/episodes/`,
+
+		data: {
+			title,
+			posterUrl,
+		},
+	});
+};
+
+export const updateEpisode = (seriesId, episodeId, data = {}) => {
+	const {
+		title,
+		posterUrl,
+	} = data;
+
+	return XHR.patch({
+		url: `/admin/series/${seriesId}/episodes/${episodeId}/`,
+
+		data: {
+			title,
+			posterUrl,
+		},
+	});
+};
+
+export const deleteEpisode = (seriesId, episodeId) => {
+	return XHR.delete({
+		url: `/admin/series/${seriesId}/episodes/${episodeId}/`,
 	});
 };

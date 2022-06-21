@@ -9,6 +9,7 @@ import Seasons from "./content/Seasons";
 import SeasonDetails from "./content/SeasonDetails";
 import EpisodeDetails from "./content/EpisodeDetails";
 
+import SeasonsStore from "@panel/containers/Series/store/Seasons.store";
 import DetailsStore from "@panel/store/MovieDetails.store";
 
 export default () => {
@@ -20,16 +21,23 @@ export default () => {
 				path="/:id/*"
 
 				element={
-					<DetailsStore type="series">
+					<DetailsStore>
 						<DetailsLayout />
 					</DetailsStore>
 				}
 			>
 				<Route index exact element={<Overview />} />
 				<Route exact path="design/" element={<Design />} />
-				<Route exact path="seasons/" element={<Seasons />} />
-				<Route exact path="seasons/:seasonNumber/" element={<SeasonDetails />} />
-				<Route exact path="seasons/:seasonNumber/:episodeNumber/" element={<EpisodeDetails />} />
+
+				<Route
+					exact
+					path="seasons/"
+					element={<SeasonsStore />}
+				>
+					<Route index exact element={<Seasons />} />
+					<Route exact path=":seasonNumber/" element={<SeasonDetails />} />
+					<Route exact path=":seasonNumber/:episodeNumber/" element={<EpisodeDetails />} />
+				</Route>
 			</Route>
 		</Routes>
 	);

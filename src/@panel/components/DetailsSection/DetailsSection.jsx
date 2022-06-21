@@ -9,6 +9,7 @@ const cx = classnames.bind(style);
 const DetailsSection = (props) => {
 	const {
 		title,
+		text,
 		isLoading,
 		className,
 		children,
@@ -24,6 +25,10 @@ const DetailsSection = (props) => {
 				)}
 			</div>
 
+			{text && (
+				<p className={style.text}>{text}</p>
+			)}
+
 			<div className={style.content}>{children}</div>
 		</section>
 	);
@@ -31,6 +36,7 @@ const DetailsSection = (props) => {
 
 DetailsSection.propTypes = {
 	title: PropTypes.string.isRequired,
+	text: PropTypes.string,
 	isLoading: PropTypes.bool,
 	className: PropTypes.string,
 	children: PropTypes.any.isRequired,

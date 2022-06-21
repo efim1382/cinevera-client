@@ -57,8 +57,39 @@
 				}
 			}
 
-			& .play_button {
+			& .actions {
+				display: flex;
+				align-items: center;
 				margin-top: 40px;
+
+				& .play_button {
+				}
+
+				& .link_button {
+					position: relative;
+					margin-left: 20px;
+					font-size: 15px;
+					color: var(--primary-color);
+
+					&:not(:hover) {
+						--border-color: rgba(255, 255, 255, 0.5);
+					}
+
+					&:hover {
+						--border-color: var(--primary-color);
+					}
+
+					&:after {
+						content: "";
+						position: absolute;
+						left: 0;
+						bottom: -4px;
+						width: 100%;
+						height: 1px;
+						background-color: var(--border-color);
+						transition-property: background-color;
+					}
+				}
 			}
 		}
 

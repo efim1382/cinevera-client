@@ -7,7 +7,6 @@ export const MovieDetailsContext = createContext(null);
 
 const MovieDetailsProvider = (props) => {
 	const {
-		type,
 		children,
 	} = props;
 
@@ -59,13 +58,9 @@ const MovieDetailsProvider = (props) => {
 		if (!isFetchComplete && !isRequestProcess) {
 			setIsRequestProcess(true);
 
-			const request = type === "series"
-				? moviesApi.getSeriesDetails
-				: moviesApi.getMovie;
-
-			request(id)
-				.then(({ [type]: result }) => {
-					setData(result);
+			moviesApi.getObject(id)
+				.then(({ movie }) => {
+					setData(movie);
 					setIsFetchComplete(true);
 					setIsRequestProcess(false);
 				})
@@ -82,10 +77,6 @@ const MovieDetailsProvider = (props) => {
 			{children}
 		</MovieDetailsContext.Provider>
 	);
-};
-
-MovieDetailsProvider.defaultProps = {
-	type: "movie",
 };
 
 MovieDetailsProvider.propTypes = {

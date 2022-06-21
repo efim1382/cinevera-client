@@ -54,6 +54,7 @@ const SeasonDetails = () => {
 		: "Episodes";
 
 	const isSeriesLoaded = Object.keys(seriesData).length > 0;
+	const isAllSeasonsActionButtonShown = seasons.length > 0 && !isEpisodesExist;
 
 	const openAllSeasons = () => setIsAllSeasonsShown(true);
 	const closeAllSeasons = () => setIsAllSeasonsShown(false);
@@ -78,14 +79,9 @@ const SeasonDetails = () => {
 	};
 
 	useEffect(() => {
-		if (!isSeriesLoaded) {
+		if (!isFetchProcess) {
 			loadSeries();
 		}
-	}, []);
-
-	useEffect(() => {
-		setSeriesData({});
-		loadSeries();
 	}, [id, seasonId]);
 
 	if (!isSeriesLoaded || isFetchProcess) {
@@ -110,22 +106,34 @@ const SeasonDetails = () => {
 						)}
 					</div>
 
-					{isEpisodesExist && (
-						<Button
-							text="Watch"
-							className={style.play_button}
-						/>
-					)}
+					<div className={style.actions}>
+						{isEpisodesExist && (
+							<Button
+								text="Watch"
+								className={style.play_button}
+							/>
+						)}
 
-					{!isEpisodesExist && (
-						<Button
-							appearance="fill"
-							theme="translucent"
-							icon="bell"
-							text="Notify when available"
-							className={style.play_button}
-						/>
-					)}
+						{!isEpisodesExist && (
+							<Button
+								appearance="fill"
+								theme="translucent"
+								icon="bell"
+								text="Notify when available"
+								className={style.play_button}
+							/>
+						)}
+
+						{isAllSeasonsActionButtonShown && (
+							<button
+								type="button"
+								onClick={seasonsTitleActionProps.onClick}
+								className={style.link_button}
+							>
+								{seasonsTitleActionProps.text}
+							</button>
+						)}
+					</div>
 				</div>
 			</section>
 
