@@ -13,6 +13,10 @@
 	& .description {
 		padding-top: 100px;
 
+		@media (--viewport-phone) {
+			padding-top: 40px;
+		}
+
 		& :global(.container) {
 			display: flex;
 			flex-direction: column;
@@ -22,6 +26,10 @@
 			& .title {
 				max-width: 50%;
 				text-shadow: 2px 1px var(--root-background-color-hover);
+
+				@media (--viewport-phone) {
+					max-width: 100%;
+				}
 			}
 
 			& .additional_information {
@@ -61,8 +69,17 @@
 		& + section {
 			margin-top: 100px;
 
+			@media (--viewport-phone) {
+				margin-top: 40px;
+			}
+
 			& ~ section {
 				margin-top: 80px;
+
+
+				@media (--viewport-phone) {
+					margin-top: 40px;
+				}
 			}
 		}
 	}
