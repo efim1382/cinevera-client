@@ -1,0 +1,44 @@
+.series {
+	display: flex;
+	flex-direction: column;
+
+	& .subheader {
+		flex-shrink: 0;
+	}
+
+	& .table {
+		flex-grow: 1;
+		min-height: 0;
+
+		& .actor_cell {
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+			min-width: 0;
+			height: 100%;
+
+			& .photo {
+				--size: 44px;
+				flex-shrink: 0;
+				width: var(--size);
+				height: var(--size);
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+				background-color: var(--root-background-color-hover);
+				border-radius: 50%;
+			}
+
+			& .name {
+				flex-grow: 1;
+				overflow: hidden;
+				min-width: 0;
+				margin-left: 20px;
+				font-size: var(--default-font-size);
+				color: var(--text-color);
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}
