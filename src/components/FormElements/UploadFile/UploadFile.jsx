@@ -33,6 +33,7 @@ const UploadFile = (props) => {
 	};
 
 	const onInputChange = async (event) => {
+		console.log("event", event);
 		const file = event.target.files[0];
 		const extension = file.name.split(".").pop();
 
@@ -41,6 +42,7 @@ const UploadFile = (props) => {
 			.toString(36);
 
 		const fullName = `${generatedFileName}.${extension}`;
+		console.log(fullName);
 
 		const params = {
 			ACL: "public-read",
@@ -51,14 +53,17 @@ const UploadFile = (props) => {
 
 		setProgress(0);
 
-		const callback = () => {
+		const callback = (a, b) => {
+			console.log("callback", a, b);
 			const fileUrl = `https://${process.env.S3_BUCKET_NAME}.${myBucket.config.endpoint}/${fullName}`;
+			console.log(fileUrl);
 			onChange(fileUrl);
 			setProgress(null);
 		};
 
 		await myBucket.putObject(params, callback)
 			.on("httpUploadProgress", (event) => {
+				console.log("progress", event);
 				setProgress(Math.round((event.loaded / event.total) * 100));
 			});
 	};
