@@ -10,11 +10,15 @@
 
 	@media (--viewport-tablet) {
 		background-image: none !important;
-		background-attachment: 0;
+		background-attachment: unset;
 		padding-top: 0;
 	}
 
-	& .main_background_image {
+	& .mobile_background {
+		display: none;
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
 
 		&:before {
 			content: "";
@@ -22,15 +26,8 @@
 			padding-top: 56%;
 		}
 
-		@media (--viewport-desktop-extra-large) {
-			display: none;
-		}
-
 		@media (--viewport-tablet) {
 			display: block;
-			background-position: center;
-			background-size: contain;
-			background-repeat: no-repeat;
 		}
 	}
 
