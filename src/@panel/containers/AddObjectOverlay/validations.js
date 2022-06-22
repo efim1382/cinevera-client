@@ -1,4 +1,11 @@
 export default {
+	title: [
+		{
+			validator: "required",
+			message: "Field is required",
+		},
+	],
+
 	ageLimit: [
 		{
 			validator: "required",
@@ -23,7 +30,7 @@ export default {
 		},
 	],
 
-	year: [
+	yearFrom: [
 		{
 			validator: "required",
 			message: "Field is required",
@@ -47,10 +54,22 @@ export default {
 		},
 	],
 
-	genres: [
+	yearTo: [
 		{
-			validator: "required",
-			message: "Genres is required",
+			validator: "number",
+			message: "Should be a number",
+		},
+
+		{
+			validator: "minLength",
+			param: 4,
+			message: "Min length 4",
+		},
+
+		{
+			validator: "maxLength",
+			param: 4,
+			message: "Max length 4",
 		},
 	],
 };

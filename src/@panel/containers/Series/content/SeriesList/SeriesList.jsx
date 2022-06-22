@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import ManageListHeader from "@panel/components/ManageListHeader";
+import ObjectStatus from "@panel/components/ObjectStatus";
 import Table, { DefaultCell } from "@panel/components/Table";
 import Cell from "@panel/components/Table/Cell";
 import GenresItem from "@panel/components/GenreItem";
-import { queryParam } from "@panel/containers/CreateMovieOverlay";
+import { queryParam } from "@panel/containers/AddObjectOverlay";
 import { getSeries } from "@panel/api/movies.api";
 import * as config from "./config";
 import { formatSeriesYear } from "helpers/movieHelpers";
@@ -22,6 +23,14 @@ export const renderCell = (props) => {
 		return (
 			<Cell width={heading.width}>
 				<NavLink to={`/panel/series/${data.id}/`}>{value}</NavLink>
+			</Cell>
+		);
+	}
+
+	if (heading.key === config.KEY_STATUS) {
+		return (
+			<Cell width={heading.width}>
+				<ObjectStatus code={value} />
 			</Cell>
 		);
 	}
@@ -73,7 +82,7 @@ const SeriesList = () => {
 	const [items, setItems] = useState([]);
 	const [isRequestProcess, setIsRequestProcess] = useState(false);
 
-	const createMovieLink = { search: `?${queryParam}` };
+	const createMovieLink = { search: `?${queryParam}=series` };
 
 	useEffect(() => {
 		setIsRequestProcess(true);

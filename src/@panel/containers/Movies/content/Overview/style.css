@@ -12,10 +12,6 @@
 			& .label {
 				width: 250px;
 			}
-
-			& .value {
-				color: #aaa;
-			}
 		}
 	}
 }

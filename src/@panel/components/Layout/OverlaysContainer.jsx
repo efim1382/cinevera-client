@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import RouteQuery from "components/RouteQuery";
-import CreateMovieOverlay, { queryParam as createMovieQueryParam } from "@panel/containers/CreateMovieOverlay";
+import AddObjectOverlay, { queryParam as addObjectQueryParam } from "@panel/containers/AddObjectOverlay";
 
 const OverlaysContainer = () => {
 	return (
 		<Fragment>
-			<RouteQuery param={createMovieQueryParam} element={<CreateMovieOverlay />} />
+			<RouteQuery param={addObjectQueryParam} element={<AddObjectOverlay />} />
 		</Fragment>
 	);
 };

@@ -21,14 +21,8 @@ export const getMovies = () => {
 export const createMovie = (data) => {
 	const {
 		title,
-		shortDescription,
-		fullDescription,
-		posterUrl,
-		backgroundUrl,
 		year,
 		ageLimit,
-		genres,
-		cast,
 	} = data;
 
 	return XHR.post({
@@ -36,15 +30,9 @@ export const createMovie = (data) => {
 
 		data: {
 			title,
-			shortDescription,
-			fullDescription,
-			posterUrl,
-			backgroundUrl,
 			ageLimit,
-			genres,
-			cast,
 
-			year: typeof year === "object" && year.constructor === Array
+			year: Array.isArray(year)
 				? year
 				: [year],
 		},
@@ -93,38 +81,23 @@ export const getSeries = () => {
 	});
 };
 
-export const createSeries = (data) => {
+export const createSeries = (data = {}) => {
 	const {
 		title,
-		shortDescription,
-		fullDescription,
-		posterUrl,
-		backgroundUrl,
-		ageLimit,
-		genres,
 		year,
-		yearFrom,
-		yearTo,
-		cast,
+		ageLimit,
 	} = data;
-
-	const formattedYear = year
-		? year
-		: [yearFrom, yearTo];
 
 	return XHR.post({
 		url: "/admin/series/create/",
 
 		data: {
 			title,
-			shortDescription,
-			fullDescription,
-			posterUrl,
-			backgroundUrl,
 			ageLimit,
-			genres,
-			year: formattedYear,
-			cast,
+
+			year: Array.isArray(year)
+				? year
+				: [year],
 		},
 	});
 };

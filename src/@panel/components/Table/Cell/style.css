@@ -16,13 +16,6 @@
 		white-space: nowrap;
 	}
 
-	& > p:only-child {
-		color: var(--text-color);
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
-
 	&:first-child {
 		margin-left: calc(var(--padding-cell) * -1);
 	}

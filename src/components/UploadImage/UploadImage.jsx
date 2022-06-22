@@ -26,12 +26,22 @@ const UploadImage = (props) => {
 		progressInline["--progress"] = progress;
 	}
 
+	const cxObject = cx(
+		"image",
+		className,
+
+		{
+			"_is-filled": !!value,
+			"_is-loading": isLoading,
+		},
+	);
+
 	return (
 		<button
 			type="button"
 			onClick={openChooseFile}
 			style={imageInline}
-			className={cx("image", className, { "_is-filled": value, "_is-loading": isLoading })}
+			className={cxObject}
 		>
 			{!value && (
 				<svg

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import ObjectStatus from "@panel/components/ObjectStatus";
 import DetailsSection from "@panel/components/DetailsSection";
 import EditableContent from "@panel/components/EditableContent";
 import EditableGenres from "@panel/components/EditableGenres";
@@ -11,6 +12,7 @@ import style from "./style.css";
 
 const Overview = () => {
 	const {
+		status,
 		shortDescription,
 		fullDescription,
 		year,
@@ -120,7 +122,7 @@ const Overview = () => {
 			<DetailsSection title="Information" className={style.section}>
 				<div className={style.row}>
 					<p className={style.label}>Status</p>
-					<p className={style.value}>Available</p>
+					<ObjectStatus code={status} />
 				</div>
 
 				<div className={style.row}>

@@ -1,0 +1,29 @@
+.form {
+	--input-background-color: var(--root-background-color-hover);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+	max-width: 500px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+
+	& .row {
+		display: flex;
+		column-gap: 30px;
+
+		@media (--viewport-phone) {
+			flex-direction: column;
+		}
+
+		& > * {
+			flex-grow: 1;
+			min-width: 0;
+		}
+	}
+
+	& .submit {
+		margin-left: auto;
+	}
+}

@@ -34,10 +34,11 @@ const EditableContent = (props) => {
 
 EditableContent.defaultProps = {
 	onBlur: Function(),
+	defaultValue: "Please type your text here...",
 };
 
 EditableContent.propTypes = {
-	defaultValue: PropTypes.string.isRequired,
+	defaultValue: PropTypes.string,
 	onBlur: PropTypes.func,
 	className: PropTypes.string,
 };

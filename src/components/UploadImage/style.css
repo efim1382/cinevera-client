@@ -5,11 +5,12 @@
 	background-position: center;
 	background-size: cover;
 	border-radius: 3px;
-	background-color: var(--root-background-color-hover);
+	background-color: var(--background-color);
 
 	&:not(._is-filled) {
 		--background-opacity: 0;
 		--content-opacity: 1;
+		--background-color: transparent;
 
 		&:not(:hover) {
 			--border-color: #2d2d2d;
@@ -21,6 +22,8 @@
 	}
 
 	&._is-filled {
+		--background-color: var(--root-background-color-hover);
+
 		&:not(._is-loading) {
 			&:not(:hover) {
 				--background-opacity: 0;

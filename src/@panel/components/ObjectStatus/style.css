@@ -1,0 +1,11 @@
+.status {
+	color: var(--color);
+
+	&[data-type="hidden"] {
+		--color: #c11b1b;
+	}
+
+	&[data-type="visible"] {
+		--color: #1a981a;
+	}
+}
