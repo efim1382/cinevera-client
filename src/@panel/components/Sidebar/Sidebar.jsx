@@ -14,6 +14,13 @@ const Sidebar = ({ className }) => {
 
 	return (
 		<div className={cx("sidebar", className)}>
+			<div className={style.logo_container}>
+				<p to="/" className={style.logo}>
+					cin
+					{" "}
+					<span>panel</span>
+				</p>
+			</div>
 
 			<nav className={style.navigation}>
 				<NavLink to="/panel/movies/" className={linkClassName}>
@@ -26,9 +33,14 @@ const Sidebar = ({ className }) => {
 					<span className={style.caption}>TV Series</span>
 				</NavLink>
 
+				<NavLink to="/panel/series/" className={linkClassName}>
+					<Icon name="people" />
+					<span className={style.caption}>Actors</span>
+				</NavLink>
+
 				<NavLink to="/" className={linkClassName}>
 					<Icon name="logout" />
-					<span className={style.caption}>Log Out</span>
+					<span className={style.caption}>To Project</span>
 				</NavLink>
 			</nav>
 		</div>
