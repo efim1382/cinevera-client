@@ -1,16 +1,30 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import CreateMovie from "./Create";
-import MovieDetailsRouter from "./Details/router";
-import List from "./List";
+import MoviesList from "./content/MoviesList";
+import Overview from "./content/Overview";
+import Design from "./content/Design";
+import DetailsLayout from "./content/DetailsLayout";
+
+import DetailsStore from "@panel/store/MovieDetails.store";
 
 export default () => {
 	return (
 		<Routes>
-			<Route path="/" element={<List />} />
-			<Route path="/new/" element={<CreateMovie />} />
-			<Route path="/:id/*" element={<MovieDetailsRouter />} />
+			<Route exact path="/" element={<MoviesList />} />
+
+			<Route
+				path="/:id/*"
+
+				element={
+					<DetailsStore>
+						<DetailsLayout />
+					</DetailsStore>
+				}
+			>
+				<Route index exact element={<Overview />} />
+				<Route exact path="design/" element={<Design />} />
+			</Route>
 		</Routes>
 	);
 };

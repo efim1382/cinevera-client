@@ -35,7 +35,7 @@ const PopularList = (props) => {
 			.catch((error) => {
 				console.log(error);
 			});
-	}, []);
+	}, [id]);
 
 	if (isNoResult) {
 		return null;

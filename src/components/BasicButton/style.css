@@ -139,5 +139,9 @@
 		opacity: var(--text-opacity);
 		transition-property: color, opacity;
 	}
+
+	& .loading {
+		--spinner-size: 30px;
+	}
 }
 

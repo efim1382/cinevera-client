@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames/bind";
-import Checkbox from "./Checkbox";
 import Icon from "components/Icon";
-import LoadingRing from "components/LoadingRing";
+import LoadingDots from "components/LoadingDots";
+import Checkbox from "./Checkbox";
 import HeadingCell from "./HeadingCell";
 import Cell from "./Cell";
 import style from "./style.css";
@@ -90,7 +90,7 @@ const Table = (props) => {
 			))}
 
 			{isLoading && (
-				<LoadingRing isShown className={style.loading } />
+				<LoadingDots className={style.loading } />
 			)}
 		</div>
 	);

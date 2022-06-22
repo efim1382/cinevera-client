@@ -7,11 +7,6 @@
 	background-color: var(--root-background-color-hover);
 
 	& .logo_container {
-		display: flex;
-		align-items: center;
-		flex-shrink: 0;
-		height: 80px;
-
 		& .logo {
 			color: var(--primary-color);
 			font-weight: var(--font-weight-bold);
@@ -26,6 +21,7 @@
 
 	& .menu_button {
 		--icon-size: 28px;
+		flex-shrink: 0;
 		margin-left: auto;
 		transition-property: color;
 

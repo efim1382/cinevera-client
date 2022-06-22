@@ -1,27 +1,20 @@
-import React, { useContext } from "react";
+import React from "react";
 import MovieCard from "components/MovieCard";
 import EmptyMessage from "components/EmptyMessage";
 import Filters from "@master/components/ObjectsListFilters";
-import { ObjectsListContext } from "@master/store/ObjectsListProvider";
+import useObjectsListData from "@master/hooks/useObjectsListData";
 import style from "./style.css";
 
-const defaultEmptyMovies = [...Array(20).keys()];
-
 const MoviesListContainer = () => {
-	const { state } = useContext(ObjectsListContext);
+	const state = useObjectsListData();
 
 	const {
 		ids,
 		isFetchComplete,
-		isRequestProcess,
 	} = state;
 
-	const moviesIds = !isFetchComplete && isRequestProcess
-		? defaultEmptyMovies
-		: ids;
-
-	const isEmptyMessageShown = isFetchComplete && moviesIds.length === 0;
-	const isMoviesExist = !isEmptyMessageShown && moviesIds.length > 0;
+	const isEmptyMessageShown = isFetchComplete && ids.length === 0;
+	const isMoviesExist = !isEmptyMessageShown && ids.length > 0;
 
 	return (
 		<main className={style.series}>
@@ -36,7 +29,7 @@ const MoviesListContainer = () => {
 			<div className={style.list}>
 				{isMoviesExist && (
 					<div className="container">
-						{moviesIds.map((id) => {
+						{ids.map((id) => {
 							return (
 								<MovieCard
 									key={id}

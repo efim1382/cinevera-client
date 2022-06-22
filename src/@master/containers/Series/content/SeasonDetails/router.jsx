@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import SeasonDetailsSuspence from "@master/containers/Series/components/SeriesDetailsSuspence";
+import SeasonDetailsSuspense from "@master/containers/Series/components/SeriesDetailsSuspence";
 
 const SeasonDetails = lazy(() => import(
 
@@ -9,7 +9,7 @@ const SeasonDetails = lazy(() => import(
 
 const SeasonDetailsContainer = () => {
 	return (
-		<Suspense fallback={<SeasonDetailsSuspence />}>
+		<Suspense fallback={<SeasonDetailsSuspense />}>
 			<SeasonDetails />
 		</Suspense>
 	);

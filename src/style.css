@@ -22,6 +22,7 @@
 	--font-weight-black: 900;
 
 	--primary-color-rgb: 255 255 255;
+	--root-background-color-hover-rgb: 0 0 0;
 
 	--text-color: #f5eded;
 	--primary-color: rgb(var(--primary-color-rgb));
@@ -34,7 +35,7 @@
 	--link-color-hover: #ff2626;
 
 	--root-background-color: #121212;
-	--root-background-color-hover: #000000;
+	--root-background-color-hover: rgb(var(--root-background-color-hover-rgb));
 
 	--container-width: 1920px;
 	--header-height: 100px;

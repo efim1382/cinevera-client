@@ -1,0 +1,15 @@
+.episode_details {
+	& .back_button {
+		width: fit-content;
+
+		& + .section {
+			margin-top: 30px;
+		}
+	}
+
+	& .section {
+		& + .section {
+			margin-top: 30px;
+		}
+	}
+}
