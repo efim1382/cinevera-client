@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { Fragment, useMemo } from "react";
 import PropTypes from "prop-types";
 import UploadImage from "components/UploadImage";
 import { description } from "./config";
@@ -21,8 +21,13 @@ const EditableImage = (props) => {
 	return (
 		<div data-type={type} className={cx("editable_image", className)}>
 			<p className={style.caption}>
-				{caption}
-				<br />
+				{caption && (
+					<Fragment>
+						{caption}
+						<br />
+					</Fragment>
+				)}
+
 				{text}
 			</p>
 
@@ -36,7 +41,7 @@ EditableImage.defaultProps = {
 };
 
 EditableImage.propTypes = {
-	type: PropTypes.oneOf(["episode", "poster", "background"]),
+	type: PropTypes.oneOf(Object.keys(description)),
 	className: PropTypes.string,
 };
 

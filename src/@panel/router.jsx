@@ -4,6 +4,7 @@ import Layout from "@panel/components/Layout";
 
 import SeriesRouter from "./containers/Series/router";
 import MoviesRouter from "./containers/Movies/router";
+import ActorsRouter from "./containers/Actors/router";
 
 export default () => {
 	return (
@@ -13,6 +14,7 @@ export default () => {
 				<Route path="/" element={<Navigate to="/panel/movies/" replace />} />
 				<Route path="movies/*" element={<MoviesRouter />} />
 				<Route path="series/*" element={<SeriesRouter />} />
+				<Route path="actors/*" element={<ActorsRouter />} />
 			</Route>
 		</Routes>
 	);

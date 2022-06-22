@@ -8,6 +8,29 @@
 	background-position: top center;
 	background-size: cover;
 
+	@media (--viewport-tablet) {
+		background-image: none !important;
+		background-attachment: unset;
+		padding-top: 0;
+	}
+
+	& .mobile_background {
+		display: none;
+		background-position: center;
+		background-size: contain;
+		background-repeat: no-repeat;
+
+		&:before {
+			content: "";
+			display: block;
+			padding-top: 56%;
+		}
+
+		@media (--viewport-tablet) {
+			display: block;
+		}
+	}
+
 	&:before {
 		content: "";
 		z-index: 1;

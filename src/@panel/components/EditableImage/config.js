@@ -13,4 +13,8 @@ export const description = {
 		caption: "This picture will be on a small block of episode.",
 		text: "We recommend using an image size of at least 350 x 196 pixels in JPEG format. Animated pictures cannot be ordered. File size - no more than 1 MB.",
 	},
+
+	avatar: {
+		text: "We recommend using an image size of at least 250 x 250 pixels in JPEG format. Animated pictures cannot be ordered. File size - no more than 1 MB.",
+	},
 };
