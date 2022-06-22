@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import AWS from "aws-sdk";
 import style from "./style.css";
 
+console.log(process.env.AWS_ACCESS_KEY_ID);
+console.log(process.env.AWS_SECRET_ACCESS_KEY);
+console.log(process.env.S3_BUCKET_NAME);
+
 AWS.config.update({
 	accessKeyId: process.env.AWS_ACCESS_KEY_ID,
 	secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
