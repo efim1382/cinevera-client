@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames/bind";
 import { addBackgroundOpacityOnScroll } from "./scrollHelper";
+import useMedia from "hooks/useMedia";
 import style from "./style.css";
 
 const cx = classnames.bind(style);
@@ -21,6 +22,7 @@ const DetailsPageWrapper = (props) => {
 		children,
 	} = props;
 
+	const isMobileView = useMedia("(max-width: 1024px)");
 	const inline = { backgroundImage: `url(${backgroundImage})` };
 
 	const onScroll = () => {
@@ -41,7 +43,10 @@ const DetailsPageWrapper = (props) => {
 			className={cx("details_page", className)}
 			style={inline}
 		>
-			<div className={style.main_background_image} style={inline}></div>
+			{isMobileView && (
+				<div className={style.mobile_background} style={inline} />
+			)}
+
 			{children}
 		</main>
 	);
