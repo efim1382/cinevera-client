@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import Button from "components/BasicButton";
 import PopularList from "@master/components/PopularList";
@@ -12,15 +12,13 @@ import {
 } from "@master/components/MovieDetails";
 
 import AllSeasonsOverlay from "@master/containers/Series/content/AllSeasonsOverlay";
-import SeasonDetailsSuspence from "@master/containers/Series/components/SeriesDetailsSuspence";
-import { getSeriesDetails } from "api/movies.api";
+import useDetailsData from "@master/hooks/useDetailsData";
 import { formatSeriesYear } from "helpers/movieHelpers";
 import style from "./style.css";
 
 const SeasonDetails = () => {
-	const { id, seasonId } = useParams();
-	const [seriesData, setSeriesData] = useState({});
-	const [isFetchProcess, setIsFetchProcess] = useState(false);
+	const { seasonId } = useParams();
+	const data = useDetailsData();
 	const [isAllSeasonsShown, setIsAllSeasonsShown] = useState(false);
 
 	const {
@@ -33,7 +31,7 @@ const SeasonDetails = () => {
 		seasons = [],
 		cast = [],
 		videos = [],
-	} = seriesData;
+	} = data;
 
 	const formattedYear = useMemo(() => (
 		formatSeriesYear(year)
@@ -53,39 +51,18 @@ const SeasonDetails = () => {
 		? `Season ${seasonId}`
 		: "Episodes";
 
-	const isSeriesLoaded = Object.keys(seriesData).length > 0;
-	const isAllSeasonsActionButtonShown = seasons.length > 0 && !isEpisodesExist;
+	const isAllSeasonsActionButtonShown = seasons.length > 1 && !isEpisodesExist;
 
 	const openAllSeasons = () => setIsAllSeasonsShown(true);
 	const closeAllSeasons = () => setIsAllSeasonsShown(false);
 
-	const seasonsTitleActionProps = {
-		text: "All seasons",
-		onClick: openAllSeasons,
-	};
+	const episodesListProps = {};
 
-	const loadSeries = () => {
-		setIsFetchProcess(true);
-
-		getSeriesDetails(id)
-			.then(({ series }) => {
-				setSeriesData(series);
-				setIsFetchProcess(false);
-			})
-
-			.catch((error) => {
-				console.log(error);
-			});
-	};
-
-	useEffect(() => {
-		if (!isFetchProcess) {
-			loadSeries();
-		}
-	}, [id, seasonId]);
-
-	if (!isSeriesLoaded || isFetchProcess) {
-		return <SeasonDetailsSuspence />;
+	if (episodes.length > 0 && seasons.length > 1) {
+		episodesListProps["titleAction"] = {
+			text: "All Seasons",
+			onClick: openAllSeasons,
+		};
 	}
 
 	return (
@@ -127,10 +104,10 @@ const SeasonDetails = () => {
 						{isAllSeasonsActionButtonShown && (
 							<button
 								type="button"
-								onClick={seasonsTitleActionProps.onClick}
+								onClick={openAllSeasons}
 								className={style.link_button}
 							>
-								{seasonsTitleActionProps.text}
+								All Seasons
 							</button>
 						)}
 					</div>
@@ -141,8 +118,8 @@ const SeasonDetails = () => {
 				<EpisodesList
 					title={episodesTitle}
 					items={episodes}
-					titleAction={seasonsTitleActionProps}
 					className={style.episodes}
+					{...episodesListProps}
 				/>
 			)}
 
