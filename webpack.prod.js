@@ -42,6 +42,7 @@ module.exports = merge(webpackConfig, {
 			"process.env.AWS_ACCESS_KEY_ID": JSON.stringify(process.env.AWS_ACCESS_KEY_ID),
 			"process.env.AWS_SECRET_ACCESS_KEY": JSON.stringify(process.env.AWS_SECRET_ACCESS_KEY),
 			"process.env.S3_BUCKET_NAME": JSON.stringify(process.env.S3_BUCKET_NAME),
+			"process.env.LOCAL_API": JSON.stringify(process.env.LOCAL_API),
 		}),
 	],
 });
