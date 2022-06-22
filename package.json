@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/server.js",
+  "engines": {
+    "node": "12.20.0",
+    "npm": "6.13.1"
+  },
   "scripts": {
     "build": "npm run build:prod",
     "build:analize": "webpack --config webpack.analize.js",
@@ -11,7 +15,7 @@
     "build:prod": "webpack --config webpack.prod.js",
     "start": "node ./dist/server.js",
     "dev": "webpack-dev-server --config webpack.dev.js",
-    "dev:mobile": "cross-env API_HOST=http://macbook-pro-m1.local:8001 npm run dev",
+    "dev:local": "cross-env LOCAL_API=true npm run dev",
     "test": "jest",
     "lint": "eslint src --ext .js,.jsx",
     "lint:fix": "eslint src --ext .js,.jsx --fix",
@@ -86,9 +90,9 @@
     "clean-webpack-plugin": "4.0.0",
     "copy-webpack-plugin": "10.2.4",
     "core-js": "3.22.4",
-    "cross-env": "^7.0.3",
+    "cross-env": "7.0.3",
     "css-loader": "6.7.1",
-    "eslint": "^8.13.0",
+    "eslint": "8.13.0",
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.4.0",
     "html-webpack-plugin": "5.5.0",
@@ -109,7 +113,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.8.1",
+    "aws-sdk": "^2.1158.0",
     "classnames": "2.3.1",
+    "dotenv-webpack": "^7.1.0",
     "eslint-plugin-unused-imports": "2.0.0",
     "express": "4.17.3",
     "final-form": "4.20.6",

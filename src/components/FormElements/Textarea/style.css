@@ -114,7 +114,7 @@
 			border: none;
 			font-size: var(--default-font-size);
 			color: var(--text-color);
-			background-color: var(--root-background-color);
+			background-color: var(--input-background-color, var(--root-background-color));
 			resize: none;
 
 			&::placeholder {

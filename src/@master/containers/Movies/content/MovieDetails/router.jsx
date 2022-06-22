@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import MovieDetailsSuspence from "@master/containers/Movies/components/MovieDetailsSuspence";
+import MovieDetailsSuspense from "@master/containers/Movies/components/MovieDetailsSuspence";
 
 const MovieDetails = lazy(() => import(
 
@@ -9,7 +9,7 @@ const MovieDetails = lazy(() => import(
 
 const MovieDetailsContainer = () => {
 	return (
-		<Suspense fallback={<MovieDetailsSuspence />}>
+		<Suspense fallback={<MovieDetailsSuspense />}>
 			<MovieDetails />
 		</Suspense>
 	);

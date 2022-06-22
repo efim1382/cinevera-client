@@ -1,0 +1,21 @@
+.form {
+	--proportion-padding: 56%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 350px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+
+	& .input {
+		--input-background-color: var(--root-background-color-hover);
+		width: 100%;
+	}
+
+	& .submit {
+		margin-top: 30px;
+		margin-left: auto;
+	}
+}

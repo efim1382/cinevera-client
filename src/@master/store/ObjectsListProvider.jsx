@@ -52,10 +52,6 @@ const ObjectsListProvider = (props) => {
 	const [genres, setGenres] = useState([]);
 
 	const firstLoadObjects = (data) => {
-		if (isFetchComplete) {
-			setIsFetchComplete(false);
-		}
-
 		if (!isRequestProcess) {
 			setIsRequestProcess(true);
 		}
@@ -68,7 +64,10 @@ const ObjectsListProvider = (props) => {
 				setIds(ids);
 
 				setIsRequestProcess(false);
-				setIsFetchComplete(true);
+
+				if (!isFetchComplete) {
+					setIsFetchComplete(true);
+				}
 			})
 
 			.catch((error) => {

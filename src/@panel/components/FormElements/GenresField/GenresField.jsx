@@ -11,12 +11,13 @@ const cx = classnames.bind(style);
 const Genres = (props) => {
 	const {
 		value,
+		exclude,
 		error,
 		onChange,
 		className,
 	} = props;
 
-	const formattedValue = typeof value === "object" && value.constructor === Array
+	const formattedValue = Array.isArray(value)
 		? value
 		: [];
 
@@ -25,6 +26,7 @@ const Genres = (props) => {
 	const filteredOptions = useMemo(() => (
 		genres
 			.filter((genre) => formattedValue.indexOf(genre.value) === -1)
+			.filter((genre) => exclude.indexOf(genre.value) === -1)
 			.sort((a, b) => a.label.localeCompare(b.label))
 	), [formattedValue]);
 
@@ -73,10 +75,12 @@ const Genres = (props) => {
 
 Genres.defaultProps = {
 	value: [],
+	exclude: [],
 };
 
 Genres.propTypes = {
 	value: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+	exclude: PropTypes.array,
 	error: PropTypes.string,
 	onChange: PropTypes.func,
 	className: PropTypes.string,

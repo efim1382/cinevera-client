@@ -1,0 +1,49 @@
+.suspense {
+	& .button {
+		width: 150px;
+		height: 60px;
+		border-radius: 3px;
+		animation: background-loading 1s linear infinite;
+	}
+
+	& .title {
+		width: 200px;
+		height: 30px;
+		margin-top: 30px;
+		animation: background-loading 1s linear infinite;
+	}
+
+	& .text {
+		width: 300px;
+		height: 100px;
+		margin-top: 20px;
+		animation: background-loading 1s linear infinite;
+	}
+
+	& .background {
+		width: 100%;
+		max-width: 800px;
+		margin-top: 12px;
+		animation: background-loading 1s linear infinite;
+
+		&:before {
+			content: "";
+			display: block;
+			padding-top: 56%;
+		}
+	}
+}
+
+@keyframes background-loading {
+	0% {
+		background-color: var(--root-background-color-hover);
+	}
+
+	50% {
+		background-color: #0c0c0c;
+	}
+
+	100% {
+		background-color: var(--root-background-color-hover);
+	}
+}

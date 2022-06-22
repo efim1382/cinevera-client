@@ -1,0 +1,34 @@
+.series {
+	display: flex;
+	flex-direction: column;
+
+	& .subheader {
+		flex-shrink: 0;
+	}
+
+	& .table {
+		flex-grow: 1;
+		min-height: 0;
+
+		& .genre {
+			&:nth-of-type(n+2) {
+				margin-left: 12px;
+			}
+		}
+
+		& .more_genres {
+			--height: 34px;
+			flex-shrink: 0;
+			min-width: var(--height);
+			height: var(--height);
+			margin-left: 12px;
+			padding-left: 10px;
+			padding-right: 10px;
+			line-height: var(--height);
+			border-radius: calc(var(--height) / 2);
+			font-size: 14px;
+			color: var(--primary-color);
+			background-color: var(--accent-color);
+		}
+	}
+}
