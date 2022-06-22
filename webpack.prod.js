@@ -38,6 +38,7 @@ module.exports = merge(webpackConfig, {
 		}),
 
 		new webpack.DefinePlugin({
+			"process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
 			"process.env.API_HOST": JSON.stringify(process.env.API_HOST),
 			"process.env.AWS_ACCESS_KEY_ID": JSON.stringify(process.env.AWS_ACCESS_KEY_ID),
 			"process.env.AWS_SECRET_ACCESS_KEY": JSON.stringify(process.env.AWS_SECRET_ACCESS_KEY),
