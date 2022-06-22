@@ -1,199 +1,67 @@
 .sidebar {
+	--link-size: 150px;
 	display: flex;
 	flex-direction: column;
-	width: 300px;
+	width: var(--link-size);
+	z-index: 3;
 	background-color: var(--root-background-color-hover);
-
-	& .logo_container {
-		display: flex;
-		align-items: center;
-		flex-shrink: 0;
-		height: 80px;
-		padding-left: var(--layout-padding);
-
-		& .logo {
-			flex-shrink: 0;
-			color: var(--primary-color);
-			font-weight: var(--font-weight-bold);
-			font-size: 18px;
-
-			& span {
-				color: var(--accent-color-hover);
-				font-weight: var(--font-weight-regular);
-			}
-		}
-	}
+	box-shadow: 0px 0px 12px 0 var(--root-background-color-hover);
 
 	& .navigation {
-		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 		overflow-y: auto;
 		background-color: var(--root-background-color-hover);
 
 		& .link {
-			position: relative;
 			display: flex;
+			flex-direction: column;
 			align-items: center;
-			height: 60px;
-			line-height: 60px;
-			padding-left: var(--layout-padding);
-			padding-right: var(--layout-padding);
+			flex-shrink: 0;
+			justify-content: center;
+			width: var(--link-size);
+			height: var(--link-size);
+			padding-left: 12px;
+			padding-right: 12px;
+			background-color: var(--background);
+			transition-property: background;
+
+			&:last-child {
+				margin-top: auto;
+			}
 
 			&:not(._is-active) {
 				&:not(:hover) {
-					--link-border-opacity: 0;
 					--color: var(--caption-color);
 					--icon-color: var(--caption-color);
 				}
 
 				&:hover {
-					--link-border-opacity: 0;
 					--color: var(--primary-color);
 					--icon-color: var(--primary-color);
 				}
 			}
 
 			&._is-active {
-				--link-border-opacity: 1;
-				--color: var(--primary-color);
-				--icon-color: var(--primary-color);
+				--background: rgb(180 30 30 / 20%);
+				--color: var(--accent-color-hover);
+				--icon-color: var(--accent-color-hover);
 			}
 
 			& i {
-				--icon-size: 24px;
+				--icon-size: 32px;
 				flex-shrink: 0;
 			}
 
 			& .caption {
+				margin-top: 20px;
+				max-width: 100%;
 				overflow: hidden;
-				margin-left: 20px;
-				text-overflow: ellipsis;
-				color: var(--color);
-				white-space: nowrap;
-			}
-
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 100%;
-				width: 2px;
-				opacity: var(--link-border-opacity);
-				background-color: var(--accent-color-hover);
-				transition-property: opacity;
-			}
-		}
-	}
-
-	& .dropdown_wrapper {
-		position: relative;
-
-		&:not(:hover) {
-			--icon-color: var(--divider-color);
-		}
-
-		&:hover {
-			--transform: rotate(180deg);
-			--icon-color: var(--primary-color);
-		}
-
-		& .profile {
-			display: flex;
-			align-items: center;
-			height: 70px;
-			padding-left: var(--layout-padding);
-			padding-right: var(--layout-padding);
-
-
-			& .avatar {
-				--avatar-size: 40px;
-				flex-shrink: 0;
-				height: var(--avatar-size);
-				width: var(--avatar-size);
-				border-radius: 50%;
-				background-image: url("./images/Yurii.JPG");
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-			}
-
-			& .name {
-				margin-left: 16px;
-				padding-right: 12px;
-				color: var(--primary-color);
-				font-size: var(--default-font-size);
 				text-overflow: ellipsis;
 				white-space: nowrap;
-				overflow: hidden;
-			}
-
-			& i {
-				--icon-size: 24px;
-				flex-shrink: 0;
-				margin-left: auto;
-				transform: var(--transform);
-				transition-property: transform;
-			}
-		}
-
-		& .profile:hover + .dropdown {
-			--dropdown-opacity: 1;
-			--dropdown-pointer-events: auto;
-		} 
-
-		& .dropdown {
-			position: absolute;
-			bottom: 100%;
-			left: 0;
-			right: 0;
-			padding-top: 12px;
-			padding-bottom: 12px;
-			background-color: var(--root-background-color-hover);
-			opacity: var(--dropdown-opacity);
-			pointer-events: var(--dropdown-pointer-events);
-			transition-property: opacity;
-
-			&:not(:hover) {
-				--dropdown-opacity: 0;
-				--dropdown-pointer-events: none;
-			}
-
-			&:hover {
-				--dropdown-opacity: 1;
-				--dropdown-pointer-events: auto;
-				--transform: rotate(180deg);
-			}
-
-			& .profile_link {
-				display: flex;
-				align-items: center;
-				height: 54px;
-				padding-left: var(--layout-padding);
-				padding-right: var(--layout-padding);
 				color: var(--color);
 				transition-property: color;
-
-				&:not(:hover) {
-					--color: var(--caption-color);
-					--icon-color: var(--caption-color);
-				}
-
-				&:hover {
-					--color: var(--primary-color);
-					--icon-color: var(--primary-color);
-				}
-
-				& i {
-					--icon-size: 24px;
-					flex-shrink: 0;
-				}
-
-				& span {
-					margin-left: 20px;
-					white-space: nowrap;
-					overflow: hidden;
-					text-overflow: ellipsis;
-				}
 			}
 		}
 	}

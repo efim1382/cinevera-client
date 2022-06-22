@@ -14,13 +14,6 @@ const Sidebar = ({ className }) => {
 
 	return (
 		<div className={cx("sidebar", className)}>
-			<div className={style.logo_container}>
-				<NavLink to="/" className={style.logo}>
-					cinevera
-					{" "}
-					<span>panel</span>
-				</NavLink>
-			</div>
 
 			<nav className={style.navigation}>
 				<NavLink to="/panel/movies/" className={linkClassName}>
@@ -32,37 +25,12 @@ const Sidebar = ({ className }) => {
 					<Icon name="live_tv" />
 					<span className={style.caption}>TV Series</span>
 				</NavLink>
+
+				<NavLink to="/" className={linkClassName}>
+					<Icon name="logout" />
+					<span className={style.caption}>Log Out</span>
+				</NavLink>
 			</nav>
-
-			<div className={style.dropdown_wrapper}>
-				<button className={style.profile}>
-					<div className={style.avatar} />
-					<span className={style.name}>Yurii Korbat</span>
-					<Icon name="expand_more" />
-				</button>
-
-				<div className={style.dropdown}>
-					<NavLink to="/" className={style.profile_link}>
-						<Icon name="account_circle" />
-						<span>Profile</span>
-					</NavLink>
-
-					<NavLink to="/" className={style.profile_link}>
-						<Icon name="settings" />
-						<span>Edit profile</span>
-					</NavLink>
-
-					<NavLink to="/" className={style.profile_link}>
-						<Icon name="frends" />
-						<span>Frends</span>
-					</NavLink>
-
-					<NavLink to="/" className={style.profile_link}>
-						<Icon name="location" />
-						<span>My location</span>
-					</NavLink>
-				</div>
-			</div>
 		</div>
 	);
 };
