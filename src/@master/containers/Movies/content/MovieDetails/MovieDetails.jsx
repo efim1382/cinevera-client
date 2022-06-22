@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 import Button from "components/BasicButton";
 import PopularList from "@master/components/PopularList";
 
@@ -10,14 +9,11 @@ import {
 	DetailsPageCast,
 } from "@master/components/MovieDetails";
 
-import DetailsSuspence from "@master/containers/Movies/components/MovieDetailsSuspence";
-import { getMovieDetails } from "api/movies.api";
+import useDetailsData from "@master/hooks/useDetailsData";
 import style from "./style.css";
 
 const MovieDetails = () => {
-	const { id } = useParams();
-	const [movieData, setMovieData] = useState({});
-	const [isFetchProcess, setIsFetchProcess] = useState(false);
+	const data = useDetailsData();
 
 	const {
 		title,
@@ -29,23 +25,7 @@ const MovieDetails = () => {
 		videos = [],
 		cast = [],
 		video,
-	} = movieData;
-
-	const isMovieLoaded = Object.keys(movieData).length > 0;
-
-	useEffect(() => {
-		setIsFetchProcess(true);
-
-		getMovieDetails(id)
-			.then(({ movie }) => {
-				setMovieData(movie);
-				setIsFetchProcess(false);
-			});
-	}, [id]);
-
-	if (!isMovieLoaded || isFetchProcess) {
-		return <DetailsSuspence />;
-	}
+	} = data;
 
 	return (
 		<DetailsPageWrapper
