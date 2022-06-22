@@ -1,6 +1,8 @@
+const webpack = require("webpack");
 const path = require("path");
 const webpackConfig = require("./webpack.config");
 const { merge } = require("webpack-merge");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = merge(webpackConfig, {
 	mode: "development",
@@ -18,4 +20,12 @@ module.exports = merge(webpackConfig, {
 		historyApiFallback: true,
 		allowedHosts: "all",
 	},
+
+	plugins: [
+		new Dotenv(),
+
+		new webpack.DefinePlugin({
+			"process.env.LOCAL_API": JSON.stringify(process.env.LOCAL_API),
+		}),
+	],
 });

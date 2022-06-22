@@ -3,7 +3,7 @@ import ManageListSuspense from "@panel/components/ManageListSuspense";
 
 const MoviesList = lazy(() => import(
 
-	/* webpackChunkName: "PanelMoviesList" */
+	/* webpackChunkName: "Panel/Movies/ManageList" */
 	"./MoviesList"
 ));
 

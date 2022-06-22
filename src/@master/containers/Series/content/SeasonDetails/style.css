@@ -13,6 +13,10 @@
 	& .description {
 		padding-top: 100px;
 
+		@media (--viewport-tablet) {
+			padding-top: 40px;
+		}
+
 		& :global(.container) {
 			display: flex;
 			flex-direction: column;
