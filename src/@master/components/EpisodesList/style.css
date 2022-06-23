@@ -60,7 +60,7 @@
 				transform: var(--transform);
 				transition-property: transform;
 
-				@media (--viewport-laptop-from) {
+				@media (--viewport-from-laptop) {
 					&:not(:hover) {
 						--transform: none;
 						--spisode-filter-bg-color: transparent;

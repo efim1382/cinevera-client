@@ -1,4 +1,8 @@
 .videos {
+	@media (--viewport-tablet) {
+		overflow: hidden;
+	}
+
 	& .subtitle {
 		font-size: 30px;
 		color: var(--primary-color);
@@ -24,12 +28,15 @@
 				transform: var(--transform);
 				transition-property: transform;
 
-				&:not(:hover) {
-					--transform: none;
-				}
+				@media (--viewport-from-tablet) {
+					&:not(:hover) {
+						--transform: none;
+					}
 
-				&:hover {
-					--transform: scale(1.2);
+					&:hover {
+						--transform: scale(1.1);
+						z-index: 1;
+					}
 				}
 
 				&:before {

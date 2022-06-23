@@ -1,6 +1,5 @@
 :global(.swiper) {
 	z-index: 1;
-	touch-action: none;
 
 	& :global(.swiper-wrapper) {
 		position: relative;
@@ -15,15 +14,15 @@
 
 	& :global(.swiper-android) {
 		& :global(.swiper-slide) {
-			transform: translate3d(0px, 0, 0);
+			transform: translate3d(0, 0, 0);
 		}
 	}
 
 	& :global(.swiper-pointer-events) {
-		touch-action: pan-y;
+		//touch-action: pan-y;
 
 		&:global(.swiper-vertical) {
-			touch-action: pan-x;
+			//touch-action: pan-x;
 		}
 	}
 
