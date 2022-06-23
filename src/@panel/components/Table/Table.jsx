@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classnames from "classnames/bind";
 import Icon from "components/Icon";
 import LoadingDots from "components/LoadingDots";
-import Checkbox from "./Checkbox";
+import Checkbox from "components/FormElements/Checkbox";
 import HeadingCell from "./HeadingCell";
 import Cell from "./Cell";
 import style from "./style.css";
@@ -45,7 +45,7 @@ const Table = (props) => {
 				{headings.map((heading) => {
 					if (heading.key === "key_checkbox") {
 						return (
-							<Checkbox key={heading.key} />
+							<Checkbox key={heading.key} className={style.table_checkbox} />
 						);
 					}
 
@@ -66,7 +66,7 @@ const Table = (props) => {
 					{headings.map((heading) => {
 						if (heading.key === "key_checkbox") {
 							return (
-								<Checkbox key={heading.key} />
+								<Checkbox key={heading.key} className={style.table_checkbox} />
 							);
 						}
 

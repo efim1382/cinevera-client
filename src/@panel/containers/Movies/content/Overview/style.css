@@ -12,6 +12,19 @@
 			& .label {
 				width: 250px;
 			}
+
+			& .status_value {
+				display: flex;
+				align-items: center;
+
+				& .status {
+					min-width: 80px;
+				}
+
+				& .switch {
+					margin-left: 20px;
+				}
+			}
 		}
 	}
 }

@@ -41,6 +41,7 @@ export const createMovie = (data) => {
 
 export const updateMovie = (id, data) => {
 	const {
+		status,
 		title,
 		shortDescription,
 		fullDescription,
@@ -56,6 +57,7 @@ export const updateMovie = (id, data) => {
 		url: `/admin/movies/${id}/`,
 
 		data: {
+			status,
 			title,
 			shortDescription,
 			fullDescription,

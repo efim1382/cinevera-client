@@ -28,12 +28,13 @@
 	--font-weight-black: 900;
 
 	--primary-color-rgb: 255 255 255;
+	--accent-color-hover-rgb: 232 32 32;
 	--root-background-color-hover-rgb: 0 0 0;
 
 	--text-color: #f5eded;
 	--primary-color: rgb(var(--primary-color-rgb));
 	--accent-color: #b61423;
-	--accent-color-hover: #df2020;
+	--accent-color-hover: rgb(var(--accent-color-hover-rgb));
 	--error-color: #d31f1f;
 	--caption-color: #d3d3d4;
 	--divider-color: #414141;

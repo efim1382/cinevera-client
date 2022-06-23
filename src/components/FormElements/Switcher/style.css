@@ -1,0 +1,74 @@
+.switcher {
+	position: relative;
+	width: 36px;
+	height: 20px;
+
+	&:not(._is-disabled) {
+		cursor: pointer;
+	}
+
+	& .input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		pointer-events: none;
+
+		&:not([disabled]) {
+			&:not(:checked) + .box {
+				--background-color: #787878;
+				--circle-color: #e5e5e5;
+			}
+
+			&:checked + .box {
+				--background-color: rgb(var(--accent-color-hover-rgb) / 45%);
+				--circle-color: var(--accent-color-hover);
+			}
+		}
+
+		&[disabled] + .box {
+			--background-color: #2a2a2a;
+			--circle-color: #484848;
+		}
+
+		&:not(:checked) + .box {
+			--left: 0;
+		}
+
+		&:checked + .box {
+			--left: calc(100% - 20px);
+		}
+	}
+
+	& .box {
+		position: relative;
+		width: 36px;
+		height: 20px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 14px;
+			transform: translateY(-50%);
+			border-radius: 8px;
+			background-color: var(--background-color);
+			transition-property: background-color;
+			transition-duration: 0.2s;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			left: var(--left);
+			top: 0;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: var(--circle-color);
+			transition-property: background-color, left;
+			transition-duration: 0.2s;
+		}
+	}
+}

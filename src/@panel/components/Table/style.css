@@ -5,6 +5,11 @@
 	position: relative;
 	background-color: var(--root-background-color);
 
+	& .headings > .table_checkbox + *,
+	& .row > .table_checkbox + * {
+		margin-left: 12px;
+	}
+
 	& .headings {
 		z-index: 1;
 		position: sticky;

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import Switcher from "components/FormElements/Switcher";
 import ObjectStatus from "@panel/components/ObjectStatus";
 import DetailsSection from "@panel/components/DetailsSection";
 import EditableContent from "@panel/components/EditableContent";
@@ -10,7 +11,27 @@ import { updateMovie } from "@panel/api/movies.api";
 import { MovieDetailsContext } from "@panel/store/MovieDetails.store";
 import style from "./style.css";
 
+const isObjectHasRequiredData = (data = {}) => {
+	const {
+		shortDescription,
+		fullDescription,
+		year = [],
+		ageLimit,
+		backgroundUrl,
+		posterUrl,
+	} = data;
+
+	return !!shortDescription
+		&& !!fullDescription
+		&& !!ageLimit
+		&& !!backgroundUrl
+		&& !!posterUrl
+		&& year.length > 0;
+};
+
 const Overview = () => {
+	const detailsData = useDetailsData();
+
 	const {
 		status,
 		shortDescription,
@@ -19,20 +40,43 @@ const Overview = () => {
 		ageLimit = 0,
 		genres = [],
 		cast = [],
-	} = useDetailsData();
+	} = detailsData;
 
-	const { id: seriesId } = useParams();
+	const { id: movieId } = useParams();
 	const { actions } = useContext(MovieDetailsContext);
 
+	const [isStatusUpdating, setIsStatusUpdating] = useState(false);
+	const [isStatusCheckboxChecked, setIsStatusCheckboxChecked] = useState(status === "visible");
 	const [isShortDescriptionUpdating, setIsShortDescriptionUpdating] = useState(false);
 	const [isFullDescriptionUpdating, setIsFullDescriptionUpdating] = useState(false);
 
 	const formattedYear = year ? year[0] : "";
+	const isStatusSwitcherDisabled = !isObjectHasRequiredData(detailsData) && status !== "visible";
+
+	const updateStatus = () => {
+		if (isStatusUpdating) {
+			return;
+		}
+
+		setIsStatusUpdating(true);
+		setIsStatusCheckboxChecked(!isStatusCheckboxChecked);
+
+		updateMovie(movieId, { status: isStatusCheckboxChecked ? "hidden" : "visible" })
+			.then(({ movie }) => {
+				actions.setData(movie);
+				setIsStatusCheckboxChecked(movie.status === "visible");
+				setIsStatusUpdating(false);
+			})
+			.catch((error) => {
+				setIsStatusUpdating(false);
+				console.log(error);
+			});
+	};
 
 	const onShortDescriptionBlur = (value) => {
 		setIsShortDescriptionUpdating(true);
 
-		updateMovie(seriesId, { shortDescription: value })
+		updateMovie(movieId, { shortDescription: value })
 			.then(({ movie }) => {
 				actions.setData(movie);
 				setIsShortDescriptionUpdating(false);
@@ -46,7 +90,7 @@ const Overview = () => {
 	const onFullDescriptionBlur = (value) => {
 		setIsFullDescriptionUpdating(true);
 
-		updateMovie(seriesId, { fullDescription: value })
+		updateMovie(movieId, { fullDescription: value })
 			.then(({ movie }) => {
 				actions.setData(movie);
 				setIsFullDescriptionUpdating(false);
@@ -58,7 +102,7 @@ const Overview = () => {
 	};
 
 	const addGenres = (values) => {
-		return updateMovie(seriesId, { genres: [...genres, ...values.genres] })
+		return updateMovie(movieId, { genres: [...genres, ...values.genres] })
 			.then(({ movie }) => {
 				actions.setData(movie);
 			})
@@ -71,7 +115,7 @@ const Overview = () => {
 	const removeGenre = (code) => {
 		const filteredGenres =	genres.filter((genre) => genre !== code);
 
-		return updateMovie(seriesId, { genres: filteredGenres })
+		return updateMovie(movieId, { genres: filteredGenres })
 			.then(({ movie }) => {
 				actions.setData(movie);
 			})
@@ -88,7 +132,7 @@ const Overview = () => {
 				actor: item.actor.id || item.actor,
 			}));
 
-		return updateMovie(seriesId, { cast: filteredCast })
+		return updateMovie(movieId, { cast: filteredCast })
 			.then(({ movie }) => {
 				actions.setData(movie);
 			})
@@ -107,7 +151,7 @@ const Overview = () => {
 				actor: item.actor.id,
 			}));
 
-		return updateMovie(seriesId, { cast: filteredCast })
+		return updateMovie(movieId, { cast: filteredCast })
 			.then(({ movie }) => {
 				actions.setData(movie);
 			})
@@ -122,7 +166,17 @@ const Overview = () => {
 			<DetailsSection title="Information" className={style.section}>
 				<div className={style.row}>
 					<p className={style.label}>Status</p>
-					<ObjectStatus code={status} />
+
+					<div className={style.status_value}>
+						<ObjectStatus code={status} className={style.status} />
+
+						<Switcher
+							isChecked={isStatusCheckboxChecked}
+							onChange={updateStatus}
+							isDisabled={isStatusSwitcherDisabled}
+							className={style.switch}
+						/>
+					</div>
 				</div>
 
 				<div className={style.row}>
