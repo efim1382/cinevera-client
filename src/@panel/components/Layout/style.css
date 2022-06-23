@@ -33,8 +33,8 @@
 		min-width: 0;
 
 		@media (--viewport-laptop) {
-			min-height: 0;
-			display: flex;
+			/* if we need to add scroll to content on mobile devices, we can add min height */
+			/* min-height: 0; */
 		}
 	}
 }

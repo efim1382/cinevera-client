@@ -141,5 +141,6 @@
 		margin-top: 20px;
 		padding-left: var(--layout-padding);
 		padding-right: var(--layout-padding);
+		background-color: var(--root-background-color);
 	}
 }

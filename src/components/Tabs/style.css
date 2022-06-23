@@ -1,5 +1,6 @@
 .tabs {
 	position: relative;
+	overflow-y: hidden;
 	display: flex;
 	align-items: center;
 
