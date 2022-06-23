@@ -11,7 +11,7 @@ import { updateMovie } from "@panel/api/movies.api";
 import { MovieDetailsContext } from "@panel/store/MovieDetails.store";
 import style from "./style.css";
 
-const isObjectHasRequiredData = (data = {}) => {
+export const isObjectHasRequiredData = (data = {}) => {
 	const {
 		shortDescription,
 		fullDescription,
@@ -67,6 +67,7 @@ const Overview = () => {
 				setIsStatusCheckboxChecked(movie.status === "visible");
 				setIsStatusUpdating(false);
 			})
+
 			.catch((error) => {
 				setIsStatusUpdating(false);
 				console.log(error);

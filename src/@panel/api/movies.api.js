@@ -106,6 +106,7 @@ export const createSeries = (data = {}) => {
 
 export const updateSeries = (id, data) => {
 	const {
+		status,
 		title,
 		shortDescription,
 		fullDescription,
@@ -121,6 +122,7 @@ export const updateSeries = (id, data) => {
 		url: `/admin/series/${id}/`,
 
 		data: {
+			status,
 			title,
 			shortDescription,
 			fullDescription,

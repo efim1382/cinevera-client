@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import Switcher from "components/FormElements/Switcher";
 import ObjectStatus from "@panel/components/ObjectStatus";
 import DetailsSection from "@panel/components/DetailsSection";
 import EditableContent from "@panel/components/EditableContent";
@@ -9,9 +10,12 @@ import useDetailsData from "@panel/hooks/useDetailsData";
 import { updateSeries } from "@panel/api/movies.api";
 import { MovieDetailsContext } from "@panel/store/MovieDetails.store";
 import { formatSeriesYear } from "helpers/movieHelpers";
+import { isObjectHasRequiredData } from "@panel/containers/Movies/content/Overview/Overview";
 import style from "./style.css";
 
 const Overview = () => {
+	const detailsData = useDetailsData();
+
 	const {
 		status,
 		shortDescription,
@@ -20,15 +24,39 @@ const Overview = () => {
 		ageLimit = 0,
 		genres = [],
 		cast = [],
-	} = useDetailsData();
+	} = detailsData;
 
 	const { id: seriesId } = useParams();
 	const { actions } = useContext(MovieDetailsContext);
 
+	const [isStatusUpdating, setIsStatusUpdating] = useState(false);
+	const [isStatusCheckboxChecked, setIsStatusCheckboxChecked] = useState(status === "visible");
 	const [isShortDescriptionUpdating, setIsShortDescriptionUpdating] = useState(false);
 	const [isFullDescriptionUpdating, setIsFullDescriptionUpdating] = useState(false);
 
 	const formattedYear = formatSeriesYear(year);
+	const isStatusSwitcherDisabled = !isObjectHasRequiredData(detailsData) && status !== "visible";
+
+	const updateStatus = () => {
+		if (isStatusUpdating) {
+			return;
+		}
+
+		setIsStatusUpdating(true);
+		setIsStatusCheckboxChecked(!isStatusCheckboxChecked);
+
+		updateSeries(seriesId, { status: isStatusCheckboxChecked ? "hidden" : "visible" })
+			.then(({ series }) => {
+				actions.setData(series);
+				setIsStatusCheckboxChecked(series.status === "visible");
+				setIsStatusUpdating(false);
+			})
+
+			.catch((error) => {
+				setIsStatusUpdating(false);
+				console.log(error);
+			});
+	};
 
 	const onShortDescriptionBlur = (value) => {
 		setIsShortDescriptionUpdating(true);
@@ -123,7 +151,17 @@ const Overview = () => {
 			<DetailsSection title="Information" className={style.section}>
 				<div className={style.row}>
 					<p className={style.label}>Status</p>
-					<ObjectStatus code={status} />
+
+					<div className={style.status_value}>
+						<ObjectStatus code={status} className={style.status} />
+
+						<Switcher
+							isChecked={isStatusCheckboxChecked}
+							onChange={updateStatus}
+							isDisabled={isStatusSwitcherDisabled}
+							className={style.switch}
+						/>
+					</div>
 				</div>
 
 				<div className={style.row}>
