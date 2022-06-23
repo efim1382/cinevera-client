@@ -10,7 +10,7 @@ export const breakpoints = {
 
 export const moviesSliderBreakpoints = {
 	0: {
-		slidesPerView: 1,
+		slidesPerView: 2,
 		spaceBetween: 20,
 	},
 

@@ -13,12 +13,18 @@
 		padding-top: 150%;
 	}
 
-	&:not(:hover) {
+	@media (--viewport-tablet) {
 		--movie-card-opacity: 0;
 	}
 
-	&:hover {
-		--movie-card-opacity: 1;
+	@media (--viewport-from-tablet) {
+		&:not(:hover) {
+			--movie-card-opacity: 0;
+		}
+
+		&:hover {
+			--movie-card-opacity: 1;
+		}
 	}
 
 	& .content {

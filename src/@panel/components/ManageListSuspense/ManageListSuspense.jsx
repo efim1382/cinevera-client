@@ -1,5 +1,4 @@
 import React from "react";
-import TableSuspense from "@panel/components/Table/Suspense";
 import style from "./style.css";
 
 const ManageListSuspense = () => {
@@ -9,8 +8,6 @@ const ManageListSuspense = () => {
 				<div className={style.title} />
 				<div className={style.button} />
 			</div>
-
-			<TableSuspense />
 		</div>
 	);
 };

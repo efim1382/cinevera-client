@@ -100,8 +100,16 @@
 		& + section {
 			margin-top: 100px;
 
+			@media (--viewport-tablet) {
+				margin-top: 40px;
+			}
+
 			& ~ section {
 				margin-top: 80px;
+
+				@media (--viewport-tablet) {
+					margin-top: 30px;
+				}
 			}
 		}
 	}

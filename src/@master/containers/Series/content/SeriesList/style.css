@@ -46,7 +46,7 @@
 		}
 
 		@media (--viewport-phone) {
-			--movies-list-columns: 1;
+			--movies-list-columns: 2;
 		}
 
 		& :global(.container) {

@@ -11,18 +11,32 @@
 
 			& .label {
 				width: 250px;
+
+				@media (--viewport-phone) {
+					width: 50%;
+				}
 			}
 
 			& .status_value {
 				display: flex;
 				align-items: center;
 
+				@media (--viewport-phone) {
+					width: 50%;
+				}
+
 				& .status {
-					min-width: 80px;
+					@media (--viewport-from-phone) {
+						min-width: 80px;
+					}
 				}
 
 				& .switch {
 					margin-left: 20px;
+
+					@media (--viewport-phone) {
+						margin-left: auto;
+					}
 				}
 			}
 		}
