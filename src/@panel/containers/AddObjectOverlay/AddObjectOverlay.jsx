@@ -26,6 +26,11 @@ const AddObjectOverlay = () => {
 		? "Start Year"
 		: "Year";
 
+	const closeOverlay = () => {
+		query.delete(queryParam);
+		navigate(`${location.pathname}${query.toString()}`);
+	};
+
 	const onSubmit = (values) => {
 		const {
 			title,
@@ -68,7 +73,7 @@ const AddObjectOverlay = () => {
 	};
 
 	return (
-		<Overlay>
+		<Overlay onClose={closeOverlay}>
 			<Form
 				onSubmit={onSubmit}
 				validations={validations}
