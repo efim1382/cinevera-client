@@ -33,7 +33,7 @@ const Sidebar = ({ className }) => {
 					<span className={style.caption}>TV Series</span>
 				</NavLink>
 
-				<NavLink to="/panel/series/" className={linkClassName}>
+				<NavLink to="/panel/actors/" className={linkClassName}>
 					<Icon name="people" />
 					<span className={style.caption}>Actors</span>
 				</NavLink>
