@@ -7,7 +7,7 @@ export const createActor = (data = {}) => {
 	} = data;
 
 	return XHR.post({
-		url: "/admin/actors/",
+		url: "/admin/actors/create/",
 
 		data: {
 			name,

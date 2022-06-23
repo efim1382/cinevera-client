@@ -37,6 +37,8 @@ const ManageList = () => {
 	const [items, setItems] = useState([]);
 	const [isRequestProcess, setIsRequestProcess] = useState(false);
 
+	const newActorLink = { search: "?new-actor" };
+
 	useEffect(() => {
 		setIsRequestProcess(true);
 
@@ -58,6 +60,7 @@ const ManageList = () => {
 		<main className={style.series}>
 			<ManageListHeader
 				title="Actors List"
+				to={newActorLink}
 				className={style.subheader}
 			/>
 

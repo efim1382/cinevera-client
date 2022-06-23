@@ -18,7 +18,7 @@
 			height: 100%;
 
 			& .photo {
-				--size: 44px;
+				--size: 50px;
 				flex-shrink: 0;
 				width: var(--size);
 				height: var(--size);
