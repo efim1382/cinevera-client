@@ -83,7 +83,6 @@
 			}
 
 			@media (--viewport-phone) {
-				width: 100%;
 				margin-top: 24px;
 			}
 

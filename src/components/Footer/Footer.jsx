@@ -10,10 +10,10 @@ const Footer = () => {
 				<NavLink to="/" className={style.logo}>cinevera</NavLink>
 
 				<div className={style.description}>
-					<span>
+					<p>
 						Everything is collected here.
 						And this "everything" is done for you in the best possible way.
-					</span>
+					</p>
 				</div>
 
 				<div className={style.social}>
